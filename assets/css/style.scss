@@ -53,14 +53,19 @@ section {
 
 /* 5. COLORS: Dark mode and typography */
 body {
-  background-color: #2e2e2e !important; /* Dark Gray */
-  color: #ffffff !important;           /* White Text */
+  background-color: #2D142C !important; /* Your Deep Purple */
+  color: #fEFAD4 !important;           /* Off White Text */ C2C41
 }
 
 h1, h2, h3, h4 {
-  color: #ff00ff !important;           /* Magenta Pink Headings */
+  color: #C72C41 !important;           /* Sunset Orange Headings */
 }
 
 a {
-  color: #00d4ff;                      /* Cyan for links in your reports */
+  color: #EE4540;                      /* Sunset Orange for links in your reports */
+}
+
+/* Remove the GitHub/Theme footer entirely */
+footer {
+  display: none !important;
 }
