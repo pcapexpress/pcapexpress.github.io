@@ -9,66 +9,66 @@
   display: block !important;
 }
 
-/* 2. COLORS: Clean & Bright Palette */
+/* 2. COLORS: Swapped to Slate Blue Background */
 body {
-  background-color: #EFEEEE !important; /* Soft White (Background) */
-  color: #325D79 !important;           /* Deep Slate Blue (Main Text) */
+  background-color: #325D79 !important; /* Deep Slate Blue (Background) */
+  color: #EFEEEE !important;           /* Soft White (Main Text) */
 }
 
-/* 3. HEADER: Professional Slate Blue bar */
+/* 3. HEADER: Slightly lighter or darker blue to define the top */
 header {
   width: 100% !important;
   float: none !important;
   position: relative !important;
   text-align: center !important;
-  background-color: #325D79 !important; /* Deep Slate Blue (Header) */
+  background-color: #26465c !important; /* Darker navy for the header box */
   padding: 40px 20px !important;
   margin-bottom: 40px !important;
-  border-bottom: 5px solid #9BD7D1 !important; /* Muted Teal (Accent line) */
+  border-bottom: 4px solid #F26627 !important; /* Orange accent line */
 }
 
-/* Change Header Title and Description to White for contrast */
-header h1 a, header p {
-  color: #EFEEEE !important;
+/* 4. HEADINGS: Keeping them bright white/teal for contrast */
+h1, h2 {
+  color: #ffffff !important; 
 }
 
-/* 4. HEADINGS: Slate Blue for a crisp look */
-h1, h2, h3, h4 {
-  color: #325D79 !important; 
-  border-bottom: 1px solid #9BD7D1; /* Subtle teal underline for sections */
-  padding-bottom: 5px;
+h3, h4 {
+  color: #9BD7D1 !important; /* Muted Teal for sub-sections */
 }
 
-/* 5. NAVIGATION: Vibrant Orange for attention */
+/* 5. NAVIGATION: Orange links at the top */
 header a {
-  color: #F9A26C !important;           /* Peach (Nav Links) */
+  color: #F26627 !important;           /* Safety Orange */
   text-decoration: none !important;
   font-weight: bold !important;
+  margin: 0 10px;
 }
 
 header a:hover {
-  color: #F26627 !important;           /* Safety Orange on hover */
+  color: #9BD7D1 !important;           /* Turns Teal on hover */
 }
 
-/* 6. LINKS: Safety Orange in body text */
+/* 6. LINKS & BUTTONS: Orange pop in the body */
 a {
   color: #F26627 !important;           
-  text-decoration: underline;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 a:hover {
-  color: #325D79 !important;
+  color: #F9A26C !important;           /* Softens to Peach on hover */
+  text-decoration: underline;
 }
 
-/* 7. PROJECT CARDS: Special styling for your project list */
+/* 7. PROJECT LIST STYLING: Making them look like "Project Cards" */
 ul li {
   list-style: none;
-  background: #ffffff;
-  margin-bottom: 10px;
-  padding: 15px;
-  border-left: 5px solid #F26627;      /* Orange "tab" look */
+  background: #26465c;                 /* Darker blue box */
+  margin-bottom: 12px;
+  padding: 20px;
+  border-left: 5px solid #F26627;      /* Bold Orange tab */
   border-radius: 4px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  color: #EFEEEE;
 }
 
 /* 8. MAIN CONTENT AREA */
@@ -78,7 +78,17 @@ section {
   margin: 0 auto !important;
 }
 
-/* Remove the GitHub/Theme footer entirely */
+/* 9. FOOTER CLEANUP */
 footer {
+  width: 100% !important;
+  float: none !important;
+  text-align: center !important;
+  color: #9BD7D1 !important;
+  padding: 30px 0 !important;
+}
+
+/* Remove the GitHub/Theme footer entirely */
+/*footer {
   display: none !important;
 }
+*/
