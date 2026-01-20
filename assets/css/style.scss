@@ -1,6 +1,47 @@
+SCSS
 ---
 ---
 @import "{{ site.theme }}";
+
+/* 1. Reset the "Split" layout to a single column */
+.wrapper {
+  max-width: 900px; /* Limits width so it's not stretched too far */
+  margin: 0 auto;   /* Centers the entire page container */
+  display: block;   /* Removes the side-by-side flex behavior */
+}
+
+/* 2. Turn the Sidebar into a Top Header */
+header {
+  width: 100% !important;
+  float: none !important;
+  position: relative !important;
+  text-align: center;      /* Centers your title and description */
+  padding-bottom: 20px;
+  border-bottom: 2px solid #ff00ff; /* Your Magenta Pink line */
+  margin-bottom: 30px;
+}
+
+/* 3. Make the links (Navigation) stay in a thin horizontal row */
+header ul {
+  display: flex;
+  justify-content: center; /* Centers links horizontally */
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+header li {
+  margin: 0 15px; /* Adds spacing between links */
+}
+
+/* 4. Center the main content area */
+section {
+  width: 100% !important;
+  float: none !important;
+  margin: 0 auto;
+}
+
+/*COLOR SECTION
 
 /* 1. Set the background to Dark Gray and text to White */
 body {
