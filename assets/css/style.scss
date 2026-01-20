@@ -2,11 +2,26 @@
 ---
 @import "{{ site.theme }}";
 
-/* Change your link colors here */
-a { color: #007acc; } 
+/* 1. Set the background to Dark Gray and text to White */
+body {
+  background-color: #2e2e2e !important; /* Dark Gray */
+  color: #ffffff !important;           /* White Text */
+}
 
-/* Change your header colors here */
-h1, h2, h3 { color: #333; }
+/* 2. Change Chapter Names (Headings) to Magenta Pink */
+h1, h2, h3, h4 {
+  color: #ff00ff !important; /* Magenta Pink */
+}
+
+/* 3. Ensure links are readable against the dark background */
+a {
+  color: #00d4ff; /* A bright cyan for contrast */
+}
+
+/* 4. Style the "Site Header" area */
+header {
+  border-bottom: 1px solid #ff00ff;
+}
 
 /* Style the navigation header */
 header {
