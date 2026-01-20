@@ -3,7 +3,7 @@
 
 ---
 
-## 🛡️ Project Portfolio
+## Project Portfolio
 
 ### [PCAP Analysis: SMB & NTLM False Positive Investigation](./pcap-investigation.md)
 *Deep-dive analysis of legacy IDS signatures (GPL) vs. modern Windows 10/11 traffic.*
@@ -13,7 +13,7 @@
 
 ---
 
-## 🛠️ Skills
+## Skills
 * **Tools:** Wireshark, Snort, Suricata, Zeek, Nmap.
 * **Protocols:** TCP/IP, SMB, NTLM, Kerberos, DNS, HTTP/S.
 * **Analysis:** Traffic Analysis, False Positive Reduction, Log Correlation.
