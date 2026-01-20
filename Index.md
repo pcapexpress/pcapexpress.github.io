@@ -1,14 +1,3 @@
-theme: jekyll-theme-minimal
-title: PcapExpress Portfolio
-description: Network Forensics & IDS Analysis
-
-# This creates the navigation menu at the top
-header_pages:
-  - index.md
-  - pcap-investigation.md
-  - malware-analysis.md
-  - about.md
-
 # [Andy Anderson] | Asspiering Cybersecurity Analyst
 > Learning to specialize in Network Forensics using Wireshark & IDS Alert Corelation
 
