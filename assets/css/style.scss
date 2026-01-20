@@ -9,66 +9,64 @@
   display: block !important;
 }
 
-/* 2. COLORS: Swapped to Slate Blue Background */
+/* 2. COLORS: Deep Slate with Yellow Text */
 body {
-  background-color: #325D79 !important; /* Deep Slate Blue (Background) */
-  color: #EFEEEE !important;           /* Soft White (Main Text) */
+  background-color: #344E5C !important; /* Deep Slate Blue */
+  color: #EFC958 !important;           /* Sunflower Yellow */
 }
 
-/* 3. HEADER: Slightly lighter or darker blue to define the top */
+/* 3. HEADER: Defining the top section */
 header {
   width: 100% !important;
   float: none !important;
   position: relative !important;
   text-align: center !important;
-  background-color: #26465c !important; /* Darker navy for the header box */
+  background-color: #2a3f4a !important; /* Slightly darker slate */
   padding: 40px 20px !important;
   margin-bottom: 40px !important;
-  border-bottom: 4px solid #F26627 !important; /* Orange accent line */
+  border-bottom: 4px solid #4AB19D !important; /* Persian Green accent */
 }
 
-/* 4. HEADINGS: Keeping them bright white/teal for contrast */
+/* 4. HEADINGS: High energy Red and Green */
 h1, h2 {
-  color: #ffffff !important; 
+  color: #EF3D59 !important; /* Strawberry Red */
 }
 
 h3, h4 {
-  color: #9BD7D1 !important; /* Muted Teal for sub-sections */
+  color: #4AB19D !important; /* Persian Green */
 }
 
-/* 5. NAVIGATION: Orange links at the top */
+/* 5. NAVIGATION: Burnt Orange links */
 header a {
-  color: #F26627 !important;           /* Safety Orange */
+  color: #E17A47 !important; /* Burnt Orange */
   text-decoration: none !important;
   font-weight: bold !important;
   margin: 0 10px;
 }
 
 header a:hover {
-  color: #9BD7D1 !important;           /* Turns Teal on hover */
+  color: #EFC958 !important; /* Switch to Yellow on hover */
 }
 
-/* 6. LINKS & BUTTONS: Orange pop in the body */
+/* 6. LINKS: Body links in Orange */
 a {
-  color: #F26627 !important;           
-  text-decoration: none;
+  color: #E17A47 !important;           
+  text-decoration: underline;
   font-weight: bold;
 }
 
 a:hover {
-  color: #F9A26C !important;           /* Softens to Peach on hover */
-  text-decoration: underline;
+  color: #4AB19D !important; /* Switch to Green on hover */
 }
 
-/* 7. PROJECT LIST STYLING: Making them look like "Project Cards" */
+/* 7. PROJECT CARDS: Keeping the card style */
 ul li {
   list-style: none;
-  background: #26465c;                 /* Darker blue box */
+  background: #2a3f4a;                 
   margin-bottom: 12px;
   padding: 20px;
-  border-left: 5px solid #F26627;      /* Bold Orange tab */
+  border-left: 5px solid #EF3D59;      /* Red tab */
   border-radius: 4px;
-  color: #EFEEEE;
 }
 
 /* 8. MAIN CONTENT AREA */
@@ -78,11 +76,8 @@ section {
   margin: 0 auto !important;
 }
 
-/* 9. FOOTER REMOVAL: Removes the "Hosted by GitHub" floating text */
+/* 9. FOOTER REMOVAL */
 footer {
   display: none !important;
   visibility: hidden !important;
-  height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
 }
