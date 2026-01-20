@@ -9,63 +9,63 @@
   display: block !important;
 }
 
-/* 2. COLORS: Deep Plum with Golden Text */
+/* 2. COLORS: Steel Blue with Soft Orange Text */
 body {
-  background-color: #582841 !important; /* Deep Plum Background */
-  color: #F99E4C !important;           /* Golden Orange Text */
+  background-color: #475C7A !important; /* Steel Blue Background */
+  color: #FCBB6D !important;           /* Soft Orange Text */
 }
 
-/* 3. HEADER: Defining the top section */
+/* 3. HEADER: Deep Lavender bar */
 header {
   width: 100% !important;
   float: none !important;
   position: relative !important;
   text-align: center !important;
-  background-color: #451e33 !important; /* Slightly darker plum */
+  background-color: #685D79 !important; /* Deep Lavender Header */
   padding: 40px 20px !important;
   margin-bottom: 40px !important;
-  border-bottom: 4px solid #CC2A49 !important; /* Deep Raspberry accent */
+  border-bottom: 4px solid #AB6C82 !important; /* Antique Plum accent */
 }
 
-/* 4. HEADINGS: Volcanic Reds and Oranges */
+/* 4. HEADINGS: Muted Pinks and Plums */
 h1, h2 {
-  color: #EF4648 !important; /* Electric Red */
+  color: #D8737F !important; /* Dusty Rose */
 }
 
 h3, h4 {
-  color: #F36F38 !important; /* Sunset Orange */
+  color: #AB6C82 !important; /* Antique Plum */
 }
 
-/* 5. NAVIGATION: Raspberry links */
+/* 5. NAVIGATION: Using the background color for link contrast */
 header a {
-  color: #CC2A49 !important; /* Deep Raspberry */
+  color: #FCBB6D !important; 
   text-decoration: none !important;
   font-weight: bold !important;
   margin: 0 10px;
 }
 
 header a:hover {
-  color: #F99E4C !important; /* Switch to Gold on hover */
+  color: #ffffff !important; 
 }
 
-/* 6. LINKS: Body links */
+/* 6. LINKS: Dusty Rose in body text */
 a {
-  color: #CC2A49 !important;           
+  color: #D8737F !important;           
   text-decoration: underline;
   font-weight: bold;
 }
 
 a:hover {
-  color: #EF4648 !important; /* Switch to Red on hover */
+  color: #FCBB6D !important;
 }
 
-/* 7. PROJECT CARDS: Glowing border style */
+/* 7. PROJECT CARDS: Lavender boxes */
 ul li {
   list-style: none;
-  background: #451e33;                 
+  background: #685D79;                 
   margin-bottom: 12px;
   padding: 20px;
-  border-left: 5px solid #EF4648;      /* Electric Red tab */
+  border-left: 5px solid #D8737F;      /* Dusty Rose tab */
   border-radius: 4px;
 }
 
