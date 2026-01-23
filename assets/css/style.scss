@@ -9,54 +9,30 @@ $red: #EF3D59;     // H1 & H2
 $green: #4AB19D;   // H3 & H4
 $orange: #E17A47;  // Links
 
-/* --- ENHANCED DARK HEADER --- */
+/* Make the wrapper a full-width container */
+.wrapper {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important; /* Changed from flex to block for easier layout */
+}
+
+/* 3. The Full-Width Dark Header */
 header {
-  /* This color is several shades darker than your main slate (#344E5C) */
-  background-color: #1A272E !important; 
-  
+  background-color: #1A272E !important; /* Deep Midnight Slate */
   width: 100% !important;
   padding: 60px 0 !important;
-  margin: 0 0 40px 0 !important;
-  border-bottom: 3px solid #EF3D59 !important; /* Strawberry Red accent line */
-  
-  /* Ensuring all text inside the dark header remains visible */
-  h1 a {
-    color: #EFC958 !important; /* Sunflower Yellow for high contrast */
-    font-size: 2.8rem !important;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-  }
-  
-  p {
-    color: #4AB19D !important; /* Persian Green for the description */
-    font-weight: bold;
-    opacity: 1 !important;
-  }
-}
-
-/* Make the header stretch to the absolute edges */
-body {
-  padding: 0 !important;
-}
-
-/* --- STACK SIDEBAR ON TOP AS A HEADER --- */
-/* Ensure the wrapper (the main page container) connects cleanly */
-.wrapper {
-  display: flex !important;
-  flex-direction: column !important; /* Forces top-to-bottom instead of left-to-right */
-  max-width: 100% !important; /* This allows the header to span the screen */
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-   margin: 0 auto !important;
+  margin: 0 !important;
+  border-bottom: 3px solid #EF3D59 !important;
+  display: block !important;
+  text-align: center !important;
+  position: relative !important;
+  left: 0 !important;
 }
 
 /* Optional: Hide the View on GitHub button in the new header */
 header .view {
-  display: none !important;
-}
-
-/* Optional: Hide the GitHub Avatar image */
-header img {
   display: none !important;
 }
 
