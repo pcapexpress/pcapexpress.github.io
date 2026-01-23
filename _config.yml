@@ -1,2 +1,6 @@
 title: PCAPEXPRESS
 description: A place to observe and reflect on packets passing by
+baseurl: "" 
+url: "https://pcapexpress.github.io"
+
+# No theme line here - we are now custom!
