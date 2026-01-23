@@ -16,17 +16,35 @@ body {
   color: $yellow !important;
 }
 
-/* 2. STYLE THE HEADER AREA (No Train) */
+/* --- ENHANCED DARK HEADER --- */
 header {
-  background: transparent !important;
-  background-image: none !important;
-  border-bottom: 2px solid $red !important;
-  padding-bottom: 20px !important;
-
+  /* This color is several shades darker than your main slate (#344E5C) */
+  background-color: #1A272E !important; 
+  
+  width: 100% !important;
+  padding: 60px 0 !important;
+  margin: 0 0 40px 0 !important;
+  border-bottom: 3px solid #EF3D59 !important; /* Strawberry Red accent line */
+  
+  /* Ensuring all text inside the dark header remains visible */
   h1 a {
-    color: $red !important;
-    text-decoration: none;
+    color: #EFC958 !important; /* Sunflower Yellow for high contrast */
+    font-size: 2.8rem !important;
+    text-transform: uppercase;
+    letter-spacing: 2px;
   }
+  
+  p {
+    color: #4AB19D !important; /* Persian Green for the description */
+    font-weight: bold;
+    opacity: 1 !important;
+  }
+}
+
+/* Ensure the wrapper (the main page container) connects cleanly */
+.wrapper {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }
 
 /* Optional: Hide the View on GitHub button in the new header */
@@ -100,10 +118,10 @@ section {
 }
 
 /* This targets every bulleted list in your main content section */
-section ul li {
+/*section ul li {
   list-style: none !important;
   display: inline-block !important; /* Makes them sit side-by-side */
-  background-color: #344E5C !important;
+  /*background-color: #344E5C !important;
   color: #EFC958 !important;
   border: 2px solid #4AB19D !important;
   padding: 8px 20px !important;
@@ -111,6 +129,16 @@ section ul li {
   margin: 5px !important;
   font-weight: bold !important;
   transition: all 0.3s ease !important;
+}*/
+
+/* 7. PROJECT CARDS: Keeping the card style */
+ul li {
+  list-style: none;
+  background: #2a3f4a;                 
+  margin-bottom: 12px;
+  padding: 20px;
+  border-left: 5px solid #EF3D59;      /* Red tab */
+  border-radius: 4px;
 }
 
 section ul li:hover {
