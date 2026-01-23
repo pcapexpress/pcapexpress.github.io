@@ -26,13 +26,11 @@ body {
 
 /* --- THE ART DECO HEADER --- */
 header {
-  background: linear-gradient(rgba(52, 78, 92, 0.8), rgba(52, 78, 92, 0.8)), 
-              url('/assets/images/var01.png') no-repeat center center;
-  background-size: cover;
-  color: white;
-  text-align: center;
-  padding: 100px 20px;
-  border-bottom: 5px solid $red;
+  background-color: #EF3D59 !important; /* Strawberry Red */
+  background-image: url('/assets/images/var01.png') !important;
+  background-size: cover !important;
+  min-height: 300px !important; 
+}
 
   h1 {
     font-size: 3.5rem;
