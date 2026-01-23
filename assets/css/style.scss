@@ -21,11 +21,37 @@ header {
   float: none !important;
   position: relative !important;
   text-align: center !important;
+  
+  /* 1. THE IMAGE: Centered and scaled */
+  background: linear-gradient(rgba(52, 78, 92, 0.7), rgba(52, 78, 92, 0.7)), 
+              url('../images/header-train.png') no-repeat center center !important;
+  background-size: cover !important;
+  
+  /* 2. THE SIZE: Increased height to show the train */
+  padding: 80px 20px !important;
+  margin-bottom: 40px !important;
+  border-bottom: 4px solid #EF3D59 !important; /* Strawberry Red accent */
+  
+  /* 3. TEXT SHADOW: Ensures your title is readable over the image */
+  h1 {
+    font-size: 3rem !important;
+    color: #ffffff !important;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8) !important;
+    margin: 0 !important;
+  }
+}
+
+
+/*header {
+  width: 100% !important;
+  float: none !important;
+  position: relative !important;
+  text-align: center !important;
   background-color: #2a3f4a !important; /* Slightly darker slate */
-  padding: 40px 20px !important;
+  /*padding: 40px 20px !important;
   margin-bottom: 40px !important;
   border-bottom: 4px solid #4AB19D !important; /* Persian Green accent */
-}
+}/*
 
 /* 4. HEADINGS: High energy Red and Green */
 h1, h2 {
