@@ -18,6 +18,13 @@ header {
   padding: 60px 0 !important;
   margin: 0 0 40px 0 !important;
   border-bottom: 3px solid #EF3D59 !important; /* Strawberry Red accent line */
+
+.wrapper {
+  max-width: 100% !important; 
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
   
   /* Ensuring all text inside the dark header remains visible */
   h1 a {
