@@ -1,66 +1,99 @@
----
----
-/* PCAPEXPRESS MASTER STYLES */
+width: 100% !important;
+float: none !important;
+position: relative !important;
+  display: block !important; /* Forces the header to exist as a box */
+text-align: center !important;
 
-// Color Variables
-$slate: #344E5C;
-$green: #4AB19D;
-$orange: #E17A47;
-$yellow: #EFC958;
-$red: #EF3D59;
+  /* 1. THE IMAGE: Centered and scaled */
+  /* Using your specific GitHub path to bypass relative folder issues */
+background: linear-gradient(rgba(52, 78, 92, 0.7), rgba(52, 78, 92, 0.7)), 
+              url('../assets/images/var01.png') no-repeat center center !important;
+              url('https://pcapexpress.github.io/assets/images/var01.png') no-repeat center center !important;
+background-size: cover !important;
 
-body {
-  background-color: #f4f4f4; // Light grey background for readability
-  color: #333;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  line-height: 1.6;
+  /* 2. THE SIZE: Increased height to show the train */
+padding: 80px 20px !important;
+margin-bottom: 40px !important;
+  border-bottom: 4px solid #EF3D59 !important; /* Strawberry Red accent */
+  border-bottom: 4px solid #EF3D59 !important;
+
+  /* 3. TEXT SHADOW: Ensures your title is readable over the image */
+h1 {
+font-size: 3rem !important;
+    color: #ffffff !important;
+text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8) !important;
+    margin: 0 !important;
+}
 }
 
-.wrapper {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  background: white;
-}
 
-/* --- THE ART DECO HEADER --- */
-header {
-  background-color: #EF3D59 !important; /* Strawberry Red */
-  background-image: url('/assets/images/var01.png') !important;
-  background-size: cover !important;
-  min-height: 300px !important; 
-}
-
-  h1 {
-    font-size: 3.5rem;
-    margin: 0;
-    color: $yellow;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    text-shadow: 3px 3px 0px $slate;
+  h1 a {
+    color: #ffffff !important;
+    text-decoration: none !important;
   }
-  p {
-    font-size: 1.2rem;
-    font-style: italic;
-    opacity: 0.9;
-  }
-
-
-/* --- TYPOGRAPHY & CHAPTERS --- */
-h1, h2 { color: $red; border-bottom: 2px solid $slate; padding-bottom: 5px; }
-h3 { color: $green; margin-top: 30px; }
-
-/* --- DFIR TABLES --- */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 20px 0;
 }
-th { background-color: $slate; color: white; padding: 10px; text-align: left; }
-td { border: 1px solid #ddd; padding: 10px; }
-tr:nth-child(even) { background-color: #f9f9f9; }
+/*header {
+ width: 100% !important;
+ float: none !important;
+ position: relative !important;
+ text-align: center !important;
+ background-color: #2a3f4a !important; /* Slightly darker slate */
+/*padding: 40px 20px !important;
+ margin-bottom: 40px !important;
+ border-bottom: 4px solid #4AB19D !important; /* Persian Green accent */
+}/*
 
-/* --- BUTTONS/LINKS --- */
-a { color: $orange; text-decoration: none; font-weight: bold; }
-a:hover { text-decoration: underline; color: $red; }
+/* 4. HEADINGS: High energy Red and Green */
+h1, h2 {
+color: #EF3D59 !important; /* Strawberry Red */
+}
+
+h3, h4 {
+color: #4AB19D !important; /* Persian Green */
+}
+
+/* 5. NAVIGATION: Burnt Orange links */
+header a {
+color: #E17A47 !important; /* Burnt Orange */
+text-decoration: none !important;
+font-weight: bold !important;
+margin: 0 10px;
+}
+
+header a:hover {
+color: #EFC958 !important; /* Switch to Yellow on hover */
+}
+
+/* 6. LINKS: Body links in Orange */
+a {
+color: #E17A47 !important;           
+text-decoration: underline;
+font-weight: bold;
+}
+
+a:hover {
+color: #4AB19D !important; /* Switch to Green on hover */
+}
+
+/* 7. PROJECT CARDS: Keeping the card style */
+ul li {
+list-style: none;
+background: #2a3f4a;                 
+margin-bottom: 12px;
+padding: 20px;
+border-left: 5px solid #EF3D59;      /* Red tab */
+border-radius: 4px;
+}
+
+/* 8. MAIN CONTENT AREA */
+section {
+width: 100% !important;
+float: none !important;
+margin: 0 auto !important;
+}
+
+/* 9. FOOTER REMOVAL */
+footer {
+display: none !important;
+visibility: hidden !important;
+}
