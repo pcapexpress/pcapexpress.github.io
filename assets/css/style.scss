@@ -1,102 +1,61 @@
-SCSS
 ---
 ---
 @import "{{ site.theme }}";
 
-/* 1. LAYOUT: Center everything */
-.wrapper {
-max-width: 1000px !important;
-margin: 0 auto !important;
-display: block !important;
-}
+// PCAPEXPRESS CUSTOM PALETTE
+$slate: #344E5C;   // Background
+$yellow: #EFC958;  // Body Text
+$red: #EF3D59;     // H1 & H2
+$green: #4AB19D;   // H3 & H4
+$orange: #E17A47;  // Links
 
-/* 2. COLORS: Steel Blue with Soft Orange Text */
-/* 2. COLORS: Deep Slate with Yellow Text */
+/* 1. REMOVE ALL IMAGES & SET BACKGROUND */
 body {
-  background-color: #475C7A !important; /* Steel Blue Background */
-  color: #FCBB6D !important;           /* Soft Orange Text */
-  background-color: #344E5C !important; /* Deep Slate Blue */
-  color: #EFC958 !important;           /* Sunflower Yellow */
+  background-color: $slate !important;
+  background-image: none !important; /* Forces removal of any previous images */
+  color: $yellow !important;
 }
 
-/* 3. HEADER: Deep Lavender bar */
-/* 3. HEADER: Defining the top section */
+/* 2. STYLE THE HEADER AREA (No Train) */
 header {
-width: 100% !important;
-float: none !important;
-position: relative !important;
-text-align: center !important;
-  background-color: #685D79 !important; /* Deep Lavender Header */
-  background-color: #2a3f4a !important; /* Slightly darker slate */
-padding: 40px 20px !important;
-margin-bottom: 40px !important;
-  border-bottom: 4px solid #AB6C82 !important; /* Antique Plum accent */
-  border-bottom: 4px solid #4AB19D !important; /* Persian Green accent */
+  background: transparent !important;
+  background-image: none !important;
+  border-bottom: 2px solid $red !important;
+  padding-bottom: 20px !important;
+
+  h1 a {
+    color: $red !important;
+    text-decoration: none;
+  }
 }
 
-/* 4. HEADINGS: Muted Pinks and Plums */
-/* 4. HEADINGS: High energy Red and Green */
-h1, h2 {
-  color: #D8737F !important; /* Dusty Rose */
-  color: #EF3D59 !important; /* Strawberry Red */
+/* 3. CONTENT AREA TEXT COLORS */
+h1, h2 { 
+  color: $red !important; 
 }
 
-h3, h4 {
-  color: #AB6C82 !important; /* Antique Plum */
-  color: #4AB19D !important; /* Persian Green */
+h3, h4 { 
+  color: $green !important; 
 }
 
-/* 5. NAVIGATION: Using the background color for link contrast */
-/* 5. NAVIGATION: Burnt Orange links */
-header a {
-  color: #FCBB6D !important; 
-  color: #E17A47 !important; /* Burnt Orange */
-text-decoration: none !important;
-font-weight: bold !important;
-margin: 0 10px;
+p, li, div { 
+  color: $yellow !important; 
 }
 
-header a:hover {
-  color: #ffffff !important; 
-  color: #EFC958 !important; /* Switch to Yellow on hover */
-}
-
-/* 6. LINKS: Dusty Rose in body text */
-/* 6. LINKS: Body links in Orange */
+/* 4. LINKS & INTERACTIVE ELEMENTS */
 a {
-  color: #D8737F !important;           
-  color: #E17A47 !important;           
-text-decoration: underline;
-font-weight: bold;
+  color: $orange !important;
+  font-weight: bold;
 }
 
 a:hover {
-  color: #FCBB6D !important;
-  color: #4AB19D !important; /* Switch to Green on hover */
+  color: lighten($orange, 10%) !important;
+  text-decoration: underline;
 }
 
-/* 7. PROJECT CARDS: Lavender boxes */
-/* 7. PROJECT CARDS: Keeping the card style */
-ul li {
-list-style: none;
-  background: #685D79;                 
-  background: #2a3f4a;                 
-margin-bottom: 12px;
-padding: 20px;
-  border-left: 5px solid #D8737F;      /* Dusty Rose tab */
-  border-left: 5px solid #EF3D59;      /* Red tab */
-border-radius: 4px;
-}
-
-/* 8. MAIN CONTENT AREA */
-section {
-width: 100% !important;
-float: none !important;
-margin: 0 auto !important;
-}
-
-/* 9. FOOTER REMOVAL */
-footer {
-display: none !important;
-visibility: hidden !important;
+/* 5. CODE BLOCKS (Keeps the DFIR terminal look) */
+pre, code {
+  background: #1a1a1a !important;
+  color: $green !important;
+  border: 1px solid $slate;
 }
