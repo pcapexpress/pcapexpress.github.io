@@ -28,24 +28,31 @@ body {
   max-width: 900px !important;
   width: 100% !important;
   margin: 0 auto !important;
+  float: none !important;      
   position: relative !important;
+  left: 0 !important;          
   display: block !important;
 }
 
 // 3. HEADER ARCHITECTURE
 header {
   max-width: 900px !important;    
-  margin: 10px auto 5px auto !important; /* Tightened bottom margin */
+  margin: 10px auto 10px auto !important; 
   width: 100% !important;
   display: block !important;
+  float: none !important;
+  clear: both !important;
   box-sizing: border-box !important;
   position: relative !important; 
+  top: auto !important;
+  left: auto !important;
 
+  /* --- FADING HEADER BACKGROUND --- */
   background: 
     linear-gradient(
       to bottom, 
-      rgba(26, 39, 46, 0.10) 10%, 
-      rgba(26, 39, 46, 0.95) 100%
+      rgba(26, 39, 46, 0.10) 10%,  /* Brighter/Clearer at the top */
+      rgba(26, 39, 46, 0.95) 100%  /* Darker at the bottom */
     ), 
     url("../images/header.png") no-repeat center center !important;
   
@@ -55,14 +62,16 @@ header {
   padding: 60px 20px !important;
   text-align: center !important;
 
-  /* Nested H1 to ensure perfect inheritance */
+}
+
   h1 a {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     color: $orange !important;
     font-size: 2.8rem !important;
-    text-transform: none !important; /* Preserves PcapExpress casing */
+    text-transform: none;
     letter-spacing: 2px;
     pointer-events: none !important; 
+    cursor: default !important;
     text-decoration: none !important;
     display: block !important;
   }
@@ -71,7 +80,37 @@ header {
     color: $green !important;
     font-weight: bold !important;
     font-size: 1.1rem !important;
-    margin: 15px 0 0 0 !important;
+    margin: 15px 0 !important;
+    display: block !important;
+    opacity: 1 !important;
+  }
+
+  .nav-menu {
+    list-style: none !important;
+    display: flex !important;
+    justify-content: center !important;
+    gap: 20px !important;
+    margin-top: 20px !important;
+    padding: 0 !important;
+
+    li {
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    a {
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem !important;
+      color: $orange !important;
+      text-transform: uppercase;
+      font-weight: bold;
+
+      &:hover {
+        color: $yellow !important;
+        background-size: 100% 2px;
+    }
   }
 }
 
@@ -79,8 +118,10 @@ header {
 section {
   max-width: 900px !important;
   margin: 0 auto !important;
-  padding: 20px 20px !important; /* Reduced top padding for tighter feel */
+  padding: 40px 20px !important;
   display: block !important;
+  float: none !important;
+  clear: both !important;
   width: 100% !important;
   box-sizing: border-box !important;
 
@@ -92,9 +133,35 @@ section {
 // 5. GLOBAL LINK STYLE
 a {
   color: $orange !important;
+  text-decoration: none !important;
+  background-image: linear-gradient($red, $red);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size 0.3s ease;
+  padding-bottom: 2px;
   font-weight: bold;
-  transition: 0.3s ease;
-  &:hover { color: $yellow !important; }
+
+  &:hover {
+    color: $yellow !important;
+    background-size: 100% 2px;
+  }
+}
+
+// 6. PROJECT CARDS
+section ul li {
+  list-style: none;
+  background: #2a3f4a; 
+  margin-bottom: 12px;
+  padding: 20px;
+  border-left: 5px solid $red;
+  border-radius: 4px;
+  color: $yellow !important;
+
+  &:hover {
+    background-color: $red !important;
+    color: white !important;
+  }
 }
 
 // 7. CODE BLOCKS
@@ -105,30 +172,39 @@ pre, code {
   font-family: 'Courier New', monospace !important;
 }
 
-/* --- 8. CLEANUP --- */
-header .view, header p.view, header ul.downloads, 
-header > ul:not(.nav-menu), footer small {
+/* --- 8. CLEANUP (Hiding theme defaults) --- */
+header .view, 
+header p.view, 
+header ul.downloads,
+header > ul:not(.nav-menu),
+footer small { /* Hides the "Hosted on GitHub" text specifically */
   display: none !important;
 }
 
-/* --- 9. SLIM FOOTER (SYMMETRICAL) --- */
+/* --- 9. SLIM FULL-IMAGE FOOTER --- */
 footer {
   display: flex !important; /* Changed to flex for better text centering */
   align-items: center;
   justify-content: center;
-  
-  max-width: 900px !important;
+  display: block !important; 
+  max-width: 900px !important; /* Back to full width to match header */
   width: 100% !important;
-  height: 40px !important; /* Fixed height for "Slim" look */
-  
   position: relative !important;
-  margin: 5px auto 10px auto !important; /* 10px bottom margin matches header top */
-  padding: 0 20px !important; 
+  margin: 10px auto 10px auto !important; 
+  
+  /* SLIM SETTING: Reducing padding to 8px top/bottom makes it very thin */
+  padding: 8px 20px !important; 
 
   background: 
-    linear-gradient(rgba(26, 39, 46, 0.80), rgba(26, 39, 46, 0.80)), 
+    linear-gradient(
+      to bottom, 
+      rgba(26, 39, 46, 0.20) 80%, 
+      rgba(26, 39, 46, 0.85) 100%
+    ), 
     url("../images/footer.png") no-repeat center center !important;
-  background-size: cover !important;
+  
+  /* THIS COVERS THE ENTIRE BAR */
+  background-size: cover !important; 
   
   border-top: 3px solid $red !important; 
   border-radius: 0 0 8px 8px; 
@@ -137,8 +213,10 @@ footer {
 }
 
 footer:after {
-  content: "© 2026 PcapExpress | Patience | Upward Mobility";
+  content: "© 2026 PcapExpress | Patience | Upward Mobility |";
+  white-space: pre; 
   color: $orange !important;
   font-family: 'Courier New', monospace;
   font-size: 0.85rem !important;
+  line-height: 1.4;
 }
