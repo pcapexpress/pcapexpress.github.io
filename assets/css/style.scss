@@ -197,3 +197,12 @@ footer {
   clear: both !important;
   float: none !important; /* Kills any sidebar floating */
 }
+
+/* INJECTING YOUR CUSTOM TEXT */
+footer:after {
+  content: "© 2026 PcapExpress | In the name of Upwards Mobility";
+  color: #4AB19D !important; /* Persian Green */
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem !important;
+  display: block;
+}
