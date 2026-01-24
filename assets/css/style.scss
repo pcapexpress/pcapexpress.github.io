@@ -51,25 +51,20 @@ header {
   background: 
     linear-gradient(
       to bottom, 
-      rgba(26, 39, 46, 0.90) 0%,   /* Darker at the top */
+      rgba(26, 39, 46, 0.10) 0%,   /* Darker at the top */
       rgba(26, 39, 46, 0.90) 100%  /* Brighter/Clearer at the bottom */
     ), 
     url("../images/var03.png") no-repeat center center !important;
   
   background-size: cover !important;
-  
-  /* Adding a text-shadow to ensure title remains readable in bright areas */
-  h1 a {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  }
-  
   border-bottom: 3px solid $red !important;
   border-radius: 8px 8px 0 0; 
   padding: 60px 20px !important;
   text-align: center !important;
 
   h1 a {
-    color: $yellow !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: $orange !important;
     font-size: 2.8rem !important;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -188,8 +183,8 @@ footer {
   
   /* POSITIONING: Ensures it stays at the bottom of the page flow */
   position: relative !important;
-  margin: 10px auto 40px auto !important; 
-  padding: 20px !important;
+  margin: 30px auto 40px auto !important; 
+  padding: 10px 20px !important;
   
   background-color: $dark-bg !important; 
   border-top: 3px solid $red !important; 
