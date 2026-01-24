@@ -68,7 +68,7 @@ header {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     color: $orange !important;
     font-size: 2.8rem !important;
-    text-transform: uppercase;
+    text-transform: none;
     letter-spacing: 2px;
     pointer-events: none !important; 
     cursor: default !important;
@@ -190,7 +190,7 @@ footer {
   /* POSITIONING: Ensures it stays at the bottom of the page flow */
   position: relative !important;
   margin: 30px auto 40px auto !important; 
-  padding: 10px 20px !important;
+  padding: 5px 10px !important;
   
   background-color: $dark-bg !important; 
   border-top: 3px solid $red !important; 
