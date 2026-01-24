@@ -1,3 +1,10 @@
 title: PCAPEXPRESS
 description: A place to observe and reflect on packets passing by
 theme: jekyll-theme-minimal
+description: >
+  <ul class="nav-menu">
+    <li><a href="/">Home</a></li>
+    <li><a href="/pcap-analysis">PCAP</a></li>
+    <li><a href="/malware-analysis">Malware</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
