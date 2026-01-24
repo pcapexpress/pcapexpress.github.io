@@ -181,34 +181,38 @@ footer small { /* Hides the "Hosted on GitHub" text specifically */
   display: none !important;
 }
 
-// 9. COMPACT HALF-WIDTH FOOTER
+/* --- 9. SLIM FULL-IMAGE FOOTER --- */
 footer {
-
   display: block !important; 
-  max-width: 900px !important; 
+  max-width: 900px !important; /* Back to full width to match header */
   width: 100% !important;
   position: relative !important;
-  margin: 20px auto 40px auto !important; 
-  padding: 25px 20px !important; /* Approx 3 lines thick */
+  margin: 10px auto 40px auto !important; 
+  
+  /* SLIM SETTING: Reducing padding to 8px top/bottom makes it very thin */
+  padding: 8px 20px !important; 
 
   background: 
     linear-gradient(
       to bottom, 
-      rgba(26, 39, 46, 0.10) 10%,  /* Brighter/Clearer at the top */
-      rgba(26, 39, 46, 0.95) 100%  /* Darker at the bottom */
+      rgba(26, 39, 46, 0.20) 0%, 
+      rgba(26, 39, 46, 0.85) 100%
     ), 
     url("../images/footer.png") no-repeat center center !important;
   
-  background-color: $dark-bg !important; 
+  /* THIS COVERS THE ENTIRE BAR */
+  background-size: cover !important; 
+  
   border-top: 3px solid $red !important; 
   border-radius: 0 0 8px 8px; 
   text-align: center !important;
+  box-sizing: border-box !important;
 }
 
 footer:after {
   content: "© 2026 PcapExpress | Patience | Upward Mobility |";
   white-space: pre; 
-  color: $green !important;
+  color: $orange !important;
   font-family: 'Courier New', monospace;
   font-size: 0.85rem !important;
   line-height: 1.4;
