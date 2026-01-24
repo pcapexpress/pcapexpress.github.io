@@ -44,23 +44,12 @@ header {
     text-align: center !important;
   }
   
-  /* Specific styling for links INSIDE the header */
-  a {
-    color: #EFC958 !important;         /* Sunflower Yellow */
-    font-family: 'Courier New', monospace;
-    font-size: 0.9rem !important;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    
-    // This keeps your sliding underline effect working here too!
-    background-image: linear-gradient(#EF3D59, #EF3D59); 
-    background-size: 0% 2px;
-    transition: background-size 0.3s ease;
-  }
-
-  a:hover {
-    background-size: 100% 2px;
-    color: #E17A47 !important;         /* Orange on Hover */
+  /* --- DISABLE HEADER TITLE LINK --- */
+  h1 a {
+    pointer-events: none !important; /* Makes it unclickable */
+    cursor: default !important;     /* Removes the "hand" icon */
+    text-decoration: none !important; /* Removes any hover underlines */
+    color: #EFC958 !important;      /* Keeps your Sunflower Yellow */
   }
 
   /* Just 'p' here because we are already inside the header block */
