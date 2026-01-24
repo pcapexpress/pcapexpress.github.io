@@ -181,30 +181,24 @@ footer small { /* Hides the "Hosted on GitHub" text specifically */
   display: none !important;
 }
 
-/* --- 9. SLIM FULL-IMAGE FOOTER --- */
+/* --- 9. SLIM FOOTER (SYMMETRICAL) --- */
 footer {
   display: flex !important; /* Changed to flex for better text centering */
   align-items: center;
   justify-content: center;
-  display: block !important; 
-  max-width: 900px !important; /* Back to full width to match header */
-  width: 100% !important;
-  position: relative !important;
-  margin: 10px auto 10px auto !important; 
   
-  /* SLIM SETTING: Reducing padding to 8px top/bottom makes it very thin */
-  padding: 8px 20px !important; 
+  max-width: 900px !important;
+  width: 100% !important;
+  height: 40px !important; /* Fixed height for "Slim" look */
+  
+  position: relative !important;
+  margin: 5px auto 10px auto !important; /* 10px bottom margin matches header top */
+  padding: 0 20px !important; 
 
   background: 
-    linear-gradient(
-      to bottom, 
-      rgba(26, 39, 46, 0.20) 80%, 
-      rgba(26, 39, 46, 0.85) 100%
-    ), 
+    linear-gradient(rgba(26, 39, 46, 0.80), rgba(26, 39, 46, 0.80)), 
     url("../images/footer.png") no-repeat center center !important;
-  
-  /* THIS COVERS THE ENTIRE BAR */
-  background-size: cover !important; 
+  background-size: cover !important;
   
   border-top: 3px solid $red !important; 
   border-radius: 0 0 8px 8px; 
