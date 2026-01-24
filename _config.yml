@@ -1,7 +1,7 @@
 title: "PcapExpress"
 description: A place to observe and reflect on packets passing by
 theme: jekyll-theme-minimal
-favicon: /assets/images/favicon.png
+favicon: /assets/images/favicon.png?v=2
 description: >
   <p class="header-bio">A place to observe and reflect on packets passing by</p>
   <ul class="nav-menu">
