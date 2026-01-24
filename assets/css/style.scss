@@ -145,17 +145,17 @@ a {
 // 6. PROJECT CARDS
 section ul li {
   list-style: none;
-  background: #2a3f4a; 
-  margin-bottom: 12px;
-  padding: 20px;
-  border-left: 5px solid $red;
-  border-radius: 4px;
-  color: $yellow !important;
-
+  background: #2a3f4a;
+  margin-bottom: 12px;
+  padding: 20px;
+  border-left: 5px solid $red;
+  border-radius: 4px;
+  color: $yellow !important;
+  
   &:hover {
-    background-color: $red !important;
-    color: white !important;
-  }
+    background-color: $red !important;
+    color: white !important;
+  }
 }
 
 // 7. CODE BLOCKS
