@@ -27,7 +27,19 @@ header {
     justify-content: center;
     gap: 15px;
   }
+  /* Green color for the header description*/
+  header p {
+    color: #4AB19D !important; /* Persian Green */
+    font-weight: bold !important;
+    opacity: 1 !important;
+    margin-top: 10px !important;
+  }
 }
+
+  /* Optional: Hide the View on GitHub button in the new header */
+  header .view {
+    display: none !important;
+  }
 
 .wrapper {
   max-width: 100% !important; 
@@ -44,22 +56,6 @@ header {
     letter-spacing: 2px;
   }
   
-  p {
-    color: #4AB19D !important; /* Persian Green for the description */
-    font-weight: bold;
-    opacity: 1 !important;
-  }
-
-/* Make the header stretch to the absolute edges */
-body {
-  padding: 0 !important;
-}
-
-/* Optional: Hide the View on GitHub button in the new header */
-header .view {
-  display: none !important;
-}
-
 /* Keep the actual TEXT content centered and narrow for readability */
 section {
   max-width: 900px !important;
@@ -71,6 +67,7 @@ section {
 body {
   background-color: $slate !important;
   background-image: none !important; /* Forces removal of any previous images */
+  padding: 0 !important;
   color: $yellow !important;
 }
 
@@ -98,7 +95,7 @@ a {
   text-decoration: underline;
 }*/
 
-a {
+a:hover {
   text-decoration: none !important;
   background-image: linear-gradient(#EF3D59, #EF3D59); /* Strawberry Red */
   background-position: 0% 100%;
