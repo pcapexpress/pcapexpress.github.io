@@ -175,6 +175,12 @@ footer {
   height: 40px !important;
   margin: 0 auto 10px auto !important; /* Zero top margin to touch the section */
   padding: 0 20px !important;
+
+  /* POSITION OVERRIDE */
+  position: relative !important; /* Changes from 'fixed' to 'relative' */
+  bottom: auto !important;       /* Disables any 'pinned' bottom settings */
+  left: auto !important;
+  
   background: 
     linear-gradient(rgba(26, 39, 46, 0.80), rgba(26, 39, 46, 0.80)), 
     url("../images/footer.png") no-repeat center center !important;
