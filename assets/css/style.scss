@@ -20,11 +20,38 @@ header {
   padding: 60px 0 !important; // Don't forget your padding!
 
   ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 20px 0 0 0 !important;
+    display: flex !important;
+    justify-content: center !important; /* Centers the menu */
+    gap: 30px !important;               /* Space between links */
+  }
+
+  li {
+    background: transparent !important; /* Removes the "card" look for header links */
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Specific styling for links INSIDE the header */
+  a {
+    color: #EFC958 !important;         /* Sunflower Yellow */
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    // This keeps your sliding underline effect working here too!
+    background-image: linear-gradient(#EF3D59, #EF3D59); 
+    background-size: 0% 2px;
+    transition: background-size 0.3s ease;
+  }
+
+  a:hover {
+    background-size: 100% 2px;
+    color: #4AB19D !important;         /* Persian Green on hover */
   }
 
   /* Just 'p' here because we are already inside the header block */
