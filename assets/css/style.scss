@@ -147,4 +147,24 @@ section ul li {
   color: $yellow !important;
 
   &:hover {
-    background-
+    background-color: $red !important;
+    color: white !important;
+  }
+}
+
+// 7. CODE BLOCKS
+pre, code {
+  background: #1a1a1a !important;
+  color: $green !important;
+  border: 1px solid rgba($green, 0.2);
+  font-family: 'Courier New', monospace !important;
+}
+
+// 8. CLEANUP (Hiding theme defaults)
+footer, 
+header .view, 
+header p.view, 
+header ul.downloads,
+header > ul:not(.nav-menu) {
+  display: none !important;
+}
