@@ -17,8 +17,6 @@ body {
   color: $yellow !important;
   margin: 0 !important;
   padding: 0 !important;
-  
-  // Forces everything to stay in the center of the viewport
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
@@ -26,16 +24,16 @@ body {
 }
 
 .wrapper {
-  max-width: 900px !important; /* Matches Header & Section */
+  max-width: 900px !important;
   width: 100% !important;
   margin: 0 auto !important;
-  float: none !important;      /* Kills theme sidebar behavior */
+  float: none !important;      
   position: relative !important;
-  left: 0 !important;          /* Resets theme offset */
+  left: 0 !important;          
   display: block !important;
 }
 
-// 3. HEADER ARCHITECTURE (BOXED & CENTERED)
+// 3. HEADER ARCHITECTURE
 header {
   max-width: 900px !important;    
   margin: 40px auto 30px auto !important; 
@@ -45,7 +43,6 @@ header {
   clear: both !important;
   box-sizing: border-box !important;
 
-  // Background Image with Gray Overlay
   background: 
     linear-gradient(rgba(26, 39, 46, 0.85), rgba(26, 39, 46, 0.85)), 
     url("../images/var03.png") no-repeat center center !important;
@@ -55,9 +52,7 @@ header {
   border-radius: 8px 8px 0 0; 
   padding: 60px 20px !important;
   text-align: center !important;
-  position: static !important;
 
-  // Title Style
   h1 a {
     color: $yellow !important;
     font-size: 2.8rem !important;
@@ -68,17 +63,14 @@ header {
     text-decoration: none !important;
   }
 
-  // Bio Text
   .header-bio, p {
     color: $green !important;
     font-weight: bold !important;
     font-size: 1.1rem !important;
     margin: 15px 0 !important;
     display: block !important;
-    opacity: 1 !important;
   }
 
-  // Navigation Menu
   .nav-menu {
     list-style: none !important;
     display: flex !important;
@@ -89,4 +81,84 @@ header {
 
     li {
       background: transparent !important;
-      border: none
+      border: none !important; // Fixed semicolon here
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    a {
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem !important;
+      color: $green !important;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  }
+}
+
+// 4. MAIN CONTENT AREA
+section {
+  max-width: 900px !important;
+  margin: 0 auto !important;
+  padding: 40px 20px !important;
+  display: block !important;
+  float: none !important;
+  clear: both !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+
+  h1, h2 { color: $red !important; }
+  h3, h4 { color: $green !important; }
+  p, div { color: $yellow !important; }
+}
+
+// 5. GLOBAL LINK STYLE
+a {
+  color: $orange !important;
+  text-decoration: none !important;
+  background-image: linear-gradient($red, $red);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size 0.3s ease;
+  padding-bottom: 2px;
+  font-weight: bold;
+
+  &:hover {
+    color: $yellow !important;
+    background-size: 100% 2px;
+  }
+}
+
+// 6. PROJECT CARDS
+section ul li {
+  list-style: none;
+  background: #2a3f4a; 
+  margin-bottom: 12px;
+  padding: 20px;
+  border-left: 5px solid $red;
+  border-radius: 4px;
+  color: $yellow !important;
+
+  &:hover {
+    background-color: $red !important;
+    color: white !important;
+  }
+}
+
+// 7. CODE BLOCKS
+pre, code {
+  background: #1a1a1a !important;
+  color: $green !important;
+  border: 1px solid rgba($green, 0.2);
+  font-family: 'Courier New', monospace !important;
+}
+
+// 8. CLEANUP
+footer, 
+header .view, 
+header p.view, 
+header ul.downloads,
+header > ul:not(.nav-menu) {
+  display: none !important;
+}
