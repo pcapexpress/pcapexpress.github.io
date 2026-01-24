@@ -17,8 +17,6 @@ body {
   color: $yellow !important;
   margin: 0 !important;
   padding: 0 !important;
-  
-  // Centers the entire content stack
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
@@ -36,7 +34,7 @@ body {
   display: block !important;
 }
 
-// 3. HEADER ARCHITECTURE (SCROLLABLE & BOXED)
+// 3. HEADER ARCHITECTURE
 header {
   max-width: 900px !important;    
   margin: 40px auto 30px auto !important; 
@@ -45,15 +43,12 @@ header {
   float: none !important;
   clear: both !important;
   box-sizing: border-box !important;
-  
-  // Ensures header scrolls with the page and doesn't float
   position: relative !important; 
   top: auto !important;
   left: auto !important;
 
-  // Background with Gray Overlay
   background: 
-    linear-gradient(rgba(26, 39, 46, 0.50), rgba(26, 39, 46, 0.25)), 
+    linear-gradient(rgba(26, 39, 46, 0.85), rgba(26, 39, 46, 0.85)), 
     url("../images/var03.png") no-repeat center center !important;
   background-size: cover !important; 
   
@@ -62,7 +57,6 @@ header {
   padding: 60px 20px !important;
   text-align: center !important;
 
-  // Title Style (Fixed/Non-clickable)
   h1 a {
     color: $yellow !important;
     font-size: 2.8rem !important;
@@ -71,10 +65,9 @@ header {
     pointer-events: none !important; 
     cursor: default !important;
     text-decoration: none !important;
-    display: block;
+    display: block !important;
   }
 
-  // Bio Text
   .header-bio, p {
     color: $green !important;
     font-weight: bold !important;
@@ -84,7 +77,6 @@ header {
     opacity: 1 !important;
   }
 
-  // Navigation Menu
   .nav-menu {
     list-style: none !important;
     display: flex !important;
@@ -116,4 +108,43 @@ section {
   margin: 0 auto !important;
   padding: 40px 20px !important;
   display: block !important;
-  float
+  float: none !important;
+  clear: both !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+
+  h1, h2 { color: $red !important; }
+  h3, h4 { color: $green !important; }
+  p, div { color: $yellow !important; }
+}
+
+// 5. GLOBAL LINK STYLE
+a {
+  color: $orange !important;
+  text-decoration: none !important;
+  background-image: linear-gradient($red, $red);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size 0.3s ease;
+  padding-bottom: 2px;
+  font-weight: bold;
+
+  &:hover {
+    color: $yellow !important;
+    background-size: 100% 2px;
+  }
+}
+
+// 6. PROJECT CARDS
+section ul li {
+  list-style: none;
+  background: #2a3f4a; 
+  margin-bottom: 12px;
+  padding: 20px;
+  border-left: 5px solid $red;
+  border-radius: 4px;
+  color: $yellow !important;
+
+  &:hover {
+    background-
