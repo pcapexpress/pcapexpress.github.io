@@ -2,6 +2,7 @@ title: PCAPEXPRESS
 description: A place to observe and reflect on packets passing by
 theme: jekyll-theme-minimal
 description: >
+  <p class="header-bio">A place to observe and reflect on packets passing by</p>
   <ul class="nav-menu">
     <li><a href="/">Home</a></li>
     <li><a href="/pcap-analysis">PCAP</a></li>
