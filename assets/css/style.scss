@@ -60,7 +60,7 @@ header {
 
   a:hover {
     background-size: 100% 2px;
-    color: #4AB19D !important;         /* Persian Green on hover */
+    color: #E17A47 !important;         /* Orange on Hover */
   }
 
   /* Just 'p' here because we are already inside the header block */
@@ -235,4 +235,17 @@ section ul li:hover {
 /* --- HIDE THE FOOTER --- */
 footer {
   display: none !important;
+}
+
+header ul, 
+header .view, 
+header p.view, 
+header .downloads, 
+header a[href*="github.com"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    z-index: -1000 !important;
+    pointer-events: none !important;
 }
