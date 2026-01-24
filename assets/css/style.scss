@@ -47,10 +47,21 @@ header {
   top: auto !important;
   left: auto !important;
 
+  /* --- FADING HEADER BACKGROUND --- */
   background: 
-    linear-gradient(rgba(26, 39, 46, 0.85), rgba(26, 39, 46, 0.10)), 
+    linear-gradient(
+      to bottom, 
+      rgba(26, 39, 46, 0.90) 0%,   /* Darker at the top */
+      rgba(26, 39, 46, 0.20) 100%  /* Brighter/Clearer at the bottom */
+    ), 
     url("../images/var03.png") no-repeat center center !important;
-  background-size: cover !important; 
+  
+  background-size: cover !important;
+  
+  /* Adding a text-shadow to ensure title remains readable in bright areas */
+  h1 a {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
   
   border-bottom: 3px solid $red !important;
   border-radius: 8px 8px 0 0; 
