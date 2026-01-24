@@ -51,8 +51,8 @@ header {
   background: 
     linear-gradient(
       to bottom, 
-      rgba(26, 39, 46, 0.10) 0%,   /* Darker at the top */
-      rgba(26, 39, 46, 0.90) 100%  /* Brighter/Clearer at the bottom */
+      rgba(26, 39, 46, 0.90) 100%,  /* Brighter/Clearer at the top */
+      rgba(26, 39, 46, 0.90) 10%  /* Darker at the bottom */
     ), 
     url("../images/var03.png") no-repeat center center !important;
   
@@ -104,6 +104,10 @@ header {
       color: $orange !important;
       text-transform: uppercase;
       font-weight: bold;
+
+      &:hover {
+        color: $yellow !important;
+        background-size: 100% 2px;
     }
   }
 }
@@ -128,7 +132,7 @@ section {
 a {
   color: $orange !important;
   text-decoration: none !important;
-  background-image: linear-gradient($red, $orange);
+  background-image: linear-gradient($red, $red);
   background-position: 0% 100%;
   background-repeat: no-repeat;
   background-size: 0% 2px;
