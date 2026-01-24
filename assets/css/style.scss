@@ -237,15 +237,29 @@ footer {
   display: none !important;
 }
 
-header ul, 
+/* --- BANISH GITHUB BUTTONS BUT KEEP NAV --- */
+
+/* 1. Target the theme's specific button classes */
 header .view, 
 header p.view, 
-header .downloads, 
-header a[href*="github.com"] {
+header ul.downloads {
     display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    position: absolute !important;
-    z-index: -1000 !important;
-    pointer-events: none !important;
+}
+
+/* 2. Target the theme's default list (the one that usually holds buttons) */
+/* This is likely why yours disappeared */
+header > ul:not(.nav-menu) {
+    display: none !important;
+}
+
+/* 3. Force your custom menu to stay visible */
+.nav-menu {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.nav-menu li {
+    display: inline-block !important;
+    visibility: visible !important;
 }
