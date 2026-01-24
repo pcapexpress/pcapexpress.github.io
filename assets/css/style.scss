@@ -168,26 +168,41 @@ header > ul:not(.nav-menu) {
   display: none !important;
 }
 
-/* --- 9. MATCHING BOXED FOOTER --- */
+/* --- 8. CLEANUP (Hiding theme defaults) --- */
+header .view, 
+header p.view, 
+header ul.downloads,
+header > ul:not(.nav-menu),
+footer small { /* Hides the "Hosted on GitHub" text specifically */
+  display: none !important;
+}
+
+/* --- 9. MATCHING BOXED FOOTER (SCROLLABLE) --- */
 footer {
-  display: block !important; /* Make it visible again */
+  display: block !important; 
   max-width: 900px !important;
   width: 100% !important;
-  margin: 30px auto 40px auto !important; /* Space above and below */
+  
+  /* POSITIONING: Ensures it stays at the bottom of the page flow */
+  position: relative !important;
+  margin: 30px auto 40px auto !important; 
   padding: 20px !important;
   
-  background-color: #1A272E !important; /* Matching Dark Grey */
-  border-top: 3px solid #EF3D59 !important; /* Red line on TOP */
-  border-radius: 0 0 8px 8px; /* Rounds the bottom corners */
+  background-color: #1A272E !important; 
+  border-top: 3px solid #EF3D59 !important; 
+  border-radius: 0 0 8px 8px; 
   
   text-align: center !important;
   box-sizing: border-box !important;
   clear: both !important;
+  float: none !important; /* Kills any sidebar floating */
 }
 
-footer p, footer span {
-  color: #4AB19D !important; /* Persian Green to match Bio */
+/* INJECTING YOUR CUSTOM TEXT */
+footer:after {
+  content: "© 2026 PcapExpress | In the name of Upwards Mobility";
+  color: #4AB19D !important; /* Persian Green */
   font-family: 'Courier New', monospace;
   font-size: 0.8rem !important;
-  margin: 0 !important;
+  display: block;
 }
