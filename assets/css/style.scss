@@ -12,14 +12,13 @@ $orange: #E17A47;  // Links
 /* --- ENHANCED DARK HEADER --- */
 header {
   background-color: #1A272E !important; 
-  border-bottom: 3px solid #EF3D59 !important; /* Strawberry Red accent line */
-  
+  border-bottom: 3px solid #EF3D59 !important;
   width: 100% !important;
-  position: static !important; /* Unlocks it from the left side */
+  position: static !important;
   margin-bottom: 30px !important;
   text-align: center !important;
-  
-  /* Centers the content inside the new header */
+  padding: 60px 0 !important; // Don't forget your padding!
+
   ul {
     list-style: none;
     padding: 0;
@@ -27,19 +26,16 @@ header {
     justify-content: center;
     gap: 15px;
   }
-  /* Green color for the header description*/
-  header p {
+
+  /* Just 'p' here because we are already inside the header block */
+  p {
     color: #4AB19D !important; /* Persian Green */
     font-weight: bold !important;
     opacity: 1 !important;
     margin-top: 10px !important;
+    display: block !important; /* Forces it to show up */
   }
 }
-
-  /* Optional: Hide the View on GitHub button in the new header */
-  header .view {
-    display: none !important;
-  }
 
 .wrapper {
   max-width: 100% !important; 
@@ -95,13 +91,22 @@ a {
   text-decoration: underline;
 }*/
 
-a:hover {
+/* 1. The Idle State (Setup) */
+a {
+  color: #E17A47 !important; /* Burnt Orange */
   text-decoration: none !important;
   background-image: linear-gradient(#EF3D59, #EF3D59); /* Strawberry Red */
   background-position: 0% 100%;
   background-repeat: no-repeat;
-  background-size: 0% 2px; /* Starts invisible */
-  transition: background-size 0.3s;
+  background-size: 0% 2px; /* Set to 0% so it's hidden normally */
+  transition: background-size 0.3s ease; /* The magic transition */
+  padding-bottom: 2px;
+}
+
+/* 2. The Hover State (The Trigger) */
+a:hover {
+  color: #EFC958 !important; /* Sunflower Yellow on hover */
+  background-size: 100% 2px; /* Expands the red line to 100% width */
 }
 
 /* 5. CODE BLOCKS (Keeps the DFIR terminal look) */
