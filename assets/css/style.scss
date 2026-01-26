@@ -33,20 +33,6 @@ body {
 }
 
 // 3. HEADER ARCHITECTURE
-header::after {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 2px;
-  background: rgba($green, 0.3);
-  animation: scan 4s linear infinite;
-  pointer-events: none;
-}
-
-@keyframes scan {
-  0% { top: 0; }
-  100% { top: 100%; }
-}
 
 header {
   max-width: 900px !important;
@@ -57,13 +43,22 @@ header {
   position: relative !important;
 
   background: 
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.05) 0px,
+      rgba(0, 0, 0, 0.05) 1px,
+      transparent 1px,
+      transparent 2px
+    ),
     linear-gradient(to bottom, rgba(26, 39, 46, 0.10) 10%, rgba(26, 39, 46, 0.95) 100%), 
     url("../images/header.png") no-repeat center center !important;
+
   background-size: cover !important;
   border-bottom: 3px solid $red !important;
   border-radius: 8px 8px 0 0; 
   padding: 60px 20px !important;
   text-align: center !important;
+}
 
   h1 a {
     color: $orange !important;
@@ -121,7 +116,7 @@ section {
   }
 }
 
-// 5. GLOBAL LINK STYLE (Restored Red Animation)
+// 5. GLOBAL LINK STYLE
 a {
   color: $orange !important;
   text-decoration: none !important;
@@ -160,13 +155,59 @@ section ul li {
   }
 }
 
-// 8. CLEANUP
+// 7.PILL BUTTONS
+.button-pill {
+  display: inline-block;
+  padding: 8px 20px !important;
+  margin: 10px 5px !important;
+  
+  background-color: $dark-bg !important;
+  color: $orange !important;
+  
+  border: 2px solid $red !important;
+  border-radius: 50px !important; // This creates the "Pill" shape
+  
+  font-family: 'Courier New', monospace !important;
+  font-weight: bold !important;
+  font-size: 0.9rem !important;
+  text-decoration: none !important;
+  
+  transition: all 0.3s ease !important;
+  box-shadow: 0 0 5px rgba(239, 61, 89, 0.2);
+  background-image: none !important; // Removes your global link underline
+  
+  //<a href="https://example.com/case01.pcap" class="button-pill">DOWNLOAD PCAP</a>
+  //<a href="#" class="button-pill">VIEW REPORT PDF</a>
+  }
+
+.button-pill:hover {
+  background-color: $red !important;
+  color: white !important;
+  box-shadow: 0 0 15px rgba(239, 61, 89, 0.5);
+  transform: translateY(-2px);
+}
+
+// 8. BADGE
+
+.badge {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  background: rgba(74, 177, 157, 0.1); // Using your $green
+  color: $green;
+  border: 1px solid $green;
+}
+
+// Protocol identified: <span class="badge">HTTPS</span>
+
+// 9. CLEANUP
 header .view, header p.view, header ul.downloads, 
 header > ul:not(.nav-menu), footer small {
   display: none !important;
 }
 
-// 9. SLIM FOOTER (Restored Symmetrical Attachment)
+// 10. SLIM FOOTER
 footer {
   display: flex !important;
   align-items: center;
