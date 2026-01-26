@@ -313,9 +313,9 @@ footer:after {
     opacity: 0.5;
   }
   50% { 
-    filter: brightness(2.5) blur(0.5px); // Creates a "burning" light effect
-    box-shadow: 0 0 40px $red, 0 0 60px rgba($red, 0.4); 
-    opacity: 1;
+    filter: brightness(1.5) blur(0.5px); // Creates a "burning" light effect
+    box-shadow: 0 0 20px rgba($red, 0.4);
+    opacity: 0.7;
     height: 3px; // Line physically "swells" during the pulse
   }
 }
@@ -329,8 +329,8 @@ footer:after {
     opacity: 0.4; // Sudden drop in signal strength
   }
   25% { 
-    opacity: 1; 
-    filter: brightness(2); // Sharp "data surge"
+    opacity: 0.6; 
+    filter: brightness(1.3); // Sharp "data surge"
   }
   45% { 
     opacity: 0.7;
