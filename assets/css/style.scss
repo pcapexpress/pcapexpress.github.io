@@ -33,19 +33,41 @@ body {
   display: block !important;
 }
 
-// 3. HEADER ARCHITECTURE
+/* --- 3. HEADER: DISTORTED SCAN FEED --- */
 header {
   max-width: 900px !important;
-  margin: 10px auto 0 auto !important; /* Zero bottom margin to connect to section */
+  margin: 10px auto 0 auto !important; 
   width: 100% !important;
   display: block !important;
-  box-sizing: border-box !important;
   position: relative !important;
+  overflow: hidden;
 
+  /* Layered Background: Static + Moving Lines + Noise + Dark Fade + Image */
   background: 
-    linear-gradient(to bottom, rgba(26, 39, 46, 0.10) 10%, rgba(26, 39, 46, 0.95) 100%), 
+    /* Layer 1: CRT Mesh */
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.15) 0px, rgba(0, 0, 0, 0.15) 1px, transparent 1px, transparent 2px),
+    /* Layer 2: Multiple Scan Lines (The "Data Streams") */
+    repeating-linear-gradient(to bottom, 
+      transparent 0%, 
+      rgba($green, 0.2) 10%, 
+      transparent 20%, 
+      rgba($green, 0.1) 50%, 
+      transparent 70%
+    ),
+    /* Layer 3: Signal Noise Grain */
+    url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBgMAAAC9uU0ZAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAA1JREFUGNNjYBgF6AIAAnAAAW7fN7EAAAAASUVORK5CYII="),
+    /* Layer 4: The Dark Fade and Base Image */
+    linear-gradient(to bottom, rgba(26, 39, 46, 0.3) 10%, rgba(26, 39, 46, 0.9) 100%), 
     url("../images/header.png") no-repeat center center !important;
-  background-size: cover !important;
+
+  /* SIZING */
+  background-size: 100% 2px, 100% 600px, auto, cover, cover !important;
+  
+  /* ANIMATIONS: Combined Line Flow + Image Distortion */
+  animation: 
+    flowLines 8s linear infinite, 
+    imageDistort 4s ease-in-out infinite !important;
+  
   border-bottom: 3px solid $red !important;
   border-radius: 8px 8px 0 0; 
   padding: 60px 20px !important;
