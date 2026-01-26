@@ -35,16 +35,25 @@ body {
 
 /* --- 3. HEADER ARCHITECTURE --- */
 header {
-  max-width: 900px !important;    
-  margin: 10px auto 10px auto !important; 
-  width: 100% !important;
-  display: block !important;
-  float: none !important;
-  clear: both !important;
-  box-sizing: border-box !important;
-  position: relative !important; 
-  top: auto !important;
-  left: auto !important;
+  max-width: 900px !important;  
+  /* Floating Gap: 10px top, 0px bottom to connect to section */
+  margin: 10px auto 0 auto !important; 
+  width: 100% !important;
+  display: block !important;
+  box-sizing: border-box !important;
+  position: relative !important; 
+  overflow: hidden;
+
+  background: 
+    linear-gradient(to bottom, rgba(26, 39, 46, 0.2) 10%, rgba(26, 39, 46, 0.95) 100%),
+    url("../images/header.png") no-repeat center center !important;
+  background-size: cover !important;
+  border-bottom: 3px solid $red !important;
+  border-radius: 8px 8px 0 0; 
+
+  /* SLIM TWEAK: Reduced from 60px to 20px */
+  padding: 20px 20px !important; 
+  text-align: center !important;
 
   /* Simplified Background: Gradient + Image Only */
   background: 
@@ -243,40 +252,41 @@ section ul li {
 }
 
 // 8. CLEANUP
-header .view, 
-header p.view, 
+header .view, 
+header p.view, 
 header ul.downloads,
 header > ul:not(.nav-menu),
-footer small { /* Hides the "Hosted on GitHub" text specifically */
-  display: none !important;
+footer small { 
+  display: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-// 9. SLIM FOOTER (Restored Symmetrical Attachment)
+// 9. SLIM FOOTER (Optimized for Thin Layout)
 footer {
   display: flex !important;
-  align-items: center;
-  justify-content: center;
-  max-width: 900px !important;
-  width: 100% !important;
-  height: 40px !important;
-  position: relative !important;
-  margin: 5px auto 10px auto !important; /* 10px bottom margin matches header top */
-  padding: 0 20px !important; 
-
-  /* POSITION OVERRIDE */
-  position: relative !important; /* Changes from 'fixed' to 'relative' */
-  bottom: auto !important;       /* Disables any 'pinned' bottom settings */
-  left: auto !important;
+  align-items: center;
+  justify-content: center;
+  max-width: 900px !important;
+  width: 100% !important;
+  height: 40px !important;
   
+  /* MARGIN: 0 on top to stay attached to Section, 40px on bottom for float */
+  margin: 0 auto 40px auto !important; 
+  padding: 0 20px !important; 
+  position: relative !important;
+
   background: 
     linear-gradient(rgba(26, 39, 46, 0.80), rgba(26, 39, 46, 0.80)), 
     url("../images/footer.png") no-repeat center center !important;
   background-size: cover !important;
-  
-  border-top: 3px solid $red !important; 
-  border-radius: 0 0 8px 8px; 
-  text-align: center !important;
-  box-sizing: border-box !important;
+  
+  border-top: 3px solid $red !important; 
+  /* Symmetrical Bookend: Only rounds the bottom corners */
+  border-radius: 0 0 8px 8px; 
+  text-align: center !important;
+  box-sizing: border-box !important;
+  z-index: 10;
 }
 
 footer:after {
