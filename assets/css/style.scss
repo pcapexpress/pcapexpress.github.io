@@ -16,40 +16,45 @@ body {
   background-color: $slate !important;
   color: $orange !important;
   margin: 0 !important;
+  padding: 0 !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
   min-height: 100vh;
   overflow-x: hidden;
-  padding-bottom: 10px !important; 
 }
 
 .wrapper {
   max-width: 900px !important;
   width: 100% !important;
-  margin: 10px auto !important;
+  margin: 0px auto !important;
+  position: relative !important;
+  left: 0 !important;          
+  display: block !important;
 }
 
 /* --- 3. HEADER ARCHITECTURE --- */
 header {
-  max-width: 900px !important;
-  margin: 0 auto !important; 
-  width: 100% !important;
-  position: relative !important;
-  overflow: hidden;
+  max-width: 900px !important;    
+  margin: 10px auto 10px auto !important; 
+  width: 100% !important;
+  display: block !important;
+  float: none !important;
+  clear: both !important;
+  box-sizing: border-box !important;
+  position: relative !important; 
+  top: auto !important;
+  left: auto !important;
 
   /* Simplified Background: Gradient + Image Only */
   background: 
     linear-gradient(to bottom, rgba(26, 39, 46, 0.2) 10%, rgba(26, 39, 46, 0.95) 100%),
     url("../images/header.png") no-repeat center center !important;
   background-size: cover !important;
-
-  /* THIN PADDING: Adjusted from 60px/80px down to 20px */
-  padding: 20px 20px !important; 
-  
-  border-bottom: 3px solid $red !important;
-  border-radius: 8px 8px 0 0; 
-  text-align: center !important;
+  border-bottom: 3px solid $red !important;
+  border-radius: 8px 8px 0 0; 
+  padding: 60px 20px !important;
+  text-align: center !important;
 
   // LINE 1: High-Intensity Green Scan
   &::after {
@@ -142,15 +147,14 @@ header {
 
 // 4. MAIN CONTENT AREA
 section {
-  max-width: 900px !important;
-  margin: 0 auto !important;
-  padding: 40px 20px !important;
-  display: block !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-  background-color: transparent !important;
-  margin-top: 0 !important; // Connects perfectly to the bottom of the header
-  border-radius: 0 0 8px 8px; // Rounds the bottom corners of the main body
+ max-width: 900px !important;
+  margin: 0 auto !important;
+  padding: 40px 20px !important;
+  display: block !important;
+  float: none !important;
+  clear: both !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 
   h1, h2 { color: $red !important; }
   h3 { color: $orange !important; }
@@ -239,21 +243,25 @@ section ul li {
 }
 
 // 8. CLEANUP
-header .view, header p.view, header ul.downloads, 
-header > ul:not(.nav-menu), footer small {
-  display: none !important;
+header .view, 
+header p.view, 
+header ul.downloads,
+header > ul:not(.nav-menu),
+footer small { /* Hides the "Hosted on GitHub" text specifically */
+  display: none !important;
 }
 
 // 9. SLIM FOOTER (Restored Symmetrical Attachment)
 footer {
   display: flex !important;
-  align-items: center;
-  justify-content: center;
-  max-width: 900px !important;
-  width: 100% !important;
-  height: 40px !important;
-  margin: 5px auto 10 auto !important; /* Zero top margin to touch the section */
-  padding: 0 20px !important;
+  align-items: center;
+  justify-content: center;
+  max-width: 900px !important;
+  width: 100% !important;
+  height: 40px !important;
+  position: relative !important;
+  margin: 5px auto 10px auto !important; /* 10px bottom margin matches header top */
+  padding: 0 20px !important; 
 
   /* POSITION OVERRIDE */
   position: relative !important; /* Changes from 'fixed' to 'relative' */
@@ -264,16 +272,20 @@ footer {
     linear-gradient(rgba(26, 39, 46, 0.80), rgba(26, 39, 46, 0.80)), 
     url("../images/footer.png") no-repeat center center !important;
   background-size: cover !important;
-  border-top: 3px solid $red !important;
-  border-radius: 0 0 8px 8px;
-  box-sizing: border-box !important;
+  
+  border-top: 3px solid $red !important; 
+  border-radius: 0 0 8px 8px; 
+  text-align: center !important;
+  box-sizing: border-box !important;
 }
 
 footer:after {
   content: "© 2026 PcapExpress | Patience | Perseverance | Upward Mobility";
-  color: $orange !important;
-  font-family: 'Courier New', monospace;
-  font-size: 0.85rem !important;
+  white-space: pre; 
+  color: $orange !important;
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem !important;
+  line-height: 1.4;
 }
 
 // 10. ANIMATION ENGINES
