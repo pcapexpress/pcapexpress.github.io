@@ -27,16 +27,14 @@ body {
 .wrapper {
   max-width: 900px !important;
   width: 100% !important;
-  margin: 0px auto !important;
+  margin: 0 auto !important;
   position: relative !important;
-  left: 0 !important;          
-  display: block !important;
+  display: block !important;
 }
 
-/* --- 3. HEADER ARCHITECTURE --- */
+/* --- 3. HEADER ARCHITECTURE (SLIM & CLEAN) --- */
 header {
   max-width: 900px !important;  
-  /* Floating Gap: 10px top, 0px bottom to connect to section */
   margin: 10px auto 0 auto !important; 
   width: 100% !important;
   display: block !important;
@@ -50,27 +48,15 @@ header {
   background-size: cover !important;
   border-bottom: 3px solid $red !important;
   border-radius: 8px 8px 0 0; 
-
-  /* SLIM TWEAK: Reduced from 60px to 20px */
-  padding: 20px 20px !important; 
+  padding: 20px 20px !important; // Slim Padding
   text-align: center !important;
 
-  /* Simplified Background: Gradient + Image Only */
-  background: 
-    linear-gradient(to bottom, rgba(26, 39, 46, 0.2) 10%, rgba(26, 39, 46, 0.95) 100%),
-    url("../images/header.png") no-repeat center center !important;
-  background-size: cover !important;
-  border-bottom: 3px solid $red !important;
-  border-radius: 8px 8px 0 0; 
-  padding: 60px 20px !important;
-  text-align: center !important;
-
-  // LINE 1: High-Intensity Green Scan
+  // LINE 1: Green Scan
   &::after {
     content: "";
     position: absolute;
     top: 0; left: 0;
-    width: 100%; height: 25px; // Doubled height
+    width: 100%; height: 25px;
     background: linear-gradient(to top, rgba($green, 0.4) 0%, transparent 100%);
     opacity: 0.5;
     animation: scanLine 4s linear infinite;
@@ -79,12 +65,12 @@ header {
     z-index: 2;
   }
 
-  // LINE 2: High-Intensity Red Laser
+  // LINE 2: Red Laser
   &::before {
     content: "";
     position: absolute;
     top: 0; left: 0;
-    width: 100%; height: 3px; // Doubled thickness
+    width: 100%; height: 3px;
     background: rgba($red, 0.3);
     animation: scanLine 1.5s linear infinite;
     animation-delay: 0.5s;
@@ -97,41 +83,65 @@ header {
     &::after {
       opacity: 1;
       background: linear-gradient(to top, rgba($green, 0.6) 0%, rgba($green, 0.2) 50%, transparent 100%);
-      box-shadow: 0 5px 25px rgba($green, 0.5); // Doubled Intensity
+      box-shadow: 0 5px 25px rgba($green, 0.5);
       animation: scanLine 4s linear infinite, dataStutter 1.5s steps(4) infinite;
     }
     &::before {
       background: rgba($red, 0.8);
-      box-shadow: 0 0 10px #fff, 0 0 30px $red; // Doubled Glow
+      box-shadow: 0 0 10px #fff, 0 0 30px $red;
       animation: scanLine 1.5s linear infinite, fastPulse 0.6s ease-in-out infinite;
     }
     h1 a { animation: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite !important; }
-    .header-bio, p { text-shadow: 0 0 10px $green, 0 0 20px rgba($green, 0.5); filter: brightness(1.5); }
+    .header-bio { text-shadow: 0 0 10px $green; filter: brightness(1.5); }
   }
 
-  h1 a {
-    color: $orange !important;
-    font-size: 2.8rem !important;
-    font-weight: 900 !important;
-    text-decoration: none !important;
-    pointer-events: none !important;
+  h1 {
+    margin: 0 !important;
+    a {
+      color: $orange !important;
+      font-size: 2.2rem !important;
+      font-weight: 900 !important;
+      text-decoration: none !important;
+      pointer-events: none !important;
+    }
   }
 
   .header-bio {
     color: $green !important;
     font-weight: bold !important;
-    transition: all 0.5s ease;
+    font-size: 0.9rem !important;
+    margin: 5px 0 !important;
+    display: block !important;
   }
 
-  /* HEADER LINKS */
   .nav-menu {
     list-style: none !important;
     display: flex !important;
     justify-content: center !important;
     gap: 15px !important;
-    margin-top: 25px !important;
+    margin-top: 15px !important;
     padding: 0 !important;
 
+    li a {
+      background: rgba($dark-bg, 0.8) !important;
+      border: 1px solid $green !important;
+      color: $green !important;
+      padding: 5px 15px !important;
+      border-radius: 50px !important;
+      font-size: 0.8rem !important;
+      text-transform: uppercase;
+      text-decoration: none !important;
+      pointer-events: auto !important;
+      &:hover {
+        background: $green !important;
+        color: $dark-bg !important;
+        box-shadow: 0 0 10px $green;
+      }
+    }
+  }
+} 
+
+    //PILL LINKS
     /*li a {
       background: rgba($dark-bg, 0.8) !important;
       border: 1px solid $green !important;
@@ -151,19 +161,16 @@ header {
         transform: scale(1.05);
       }
     }*/
-  }
-}
 
-// 4. MAIN CONTENT AREA
+/* --- 4. MAIN CONTENT AREA --- */
 section {
- max-width: 900px !important;
-  margin: 0 auto !important;
-  padding: 40px 20px !important;
-  display: block !important;
-  float: none !important;
-  clear: both !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
+  max-width: 900px !important;
+  margin: 0 auto !important;
+  padding: 40px 20px !important;
+  display: block !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  background-color: transparent !important;
 
   h1, h2 { color: $red !important; }
   h3 { color: $orange !important; }
@@ -186,13 +193,12 @@ section {
     p { 
       color: $yellow !important; 
       font-style: italic; 
-      margin: 0 !important; // Keeps the text perfectly centered in the box
+      margin: 0 !important;
     }
   }
 }
 
-
-// 5. CODE BLOCKS
+/* --- 5. CODE BLOCKS --- */
 pre, code {
   background-color: #0a0a0a !important; 
   background-image: repeating-conic-gradient(#1a1a1a 0% 25%, #222 0% 50%) !important;
@@ -203,16 +209,19 @@ pre, code {
   display: block;
   font-family: 'Courier New', monospace !important;
   position: relative;
-  &:before {
+  overflow: hidden;
+
+  &::before {
     content: "";
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(255,255,255, 0.03);
+    background: rgba(255, 255, 255, 0.03);
     animation: staticFlicker 0.2s infinite;
+    pointer-events: none;
   }
 }
 
-// 6. GLOBAL LINK STYLE
+/* --- 6. GLOBAL LINK STYLE --- */
 a {
   color: $orange !important;
   text-decoration: none !important;
@@ -230,7 +239,7 @@ a {
   }
 }
 
-// 7.ANIMATED CARDS
+/* --- 7. ANIMATED CARDS --- */
 section ul li {
   list-style: none;
   background: $medium-bg !important;
@@ -242,16 +251,21 @@ section ul li {
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: $red !important; /* Card turns red on hover */
-    color: white !important;           /* Text turns white for contrast */
-    transform: translateX(5px);
+    background-color: $red !important; 
+    color: #ffffff !important;           
+    transform: translateX(8px); // Slightly more movement for "impact"
 
-    // Ensure nested text turns white too
-    p, span, div { color: white !important; }
+    p, span, div, strong { color: #ffffff !important; }
+    
+    // Adjusts links inside the card so they don't disappear
+    a { 
+      color: #ffffff !important; 
+      background-image: linear-gradient(#ffffff, #ffffff);
+    }
   }
 }
 
-// 8. CLEANUP
+/* --- 8. CLEANUP --- */
 header .view, 
 header p.view, 
 header ul.downloads,
@@ -262,7 +276,7 @@ footer small {
   padding: 0 !important;
 }
 
-// 9. SLIM FOOTER (Optimized for Thin Layout)
+/* --- 9. SLIM FOOTER --- */
 footer {
   display: flex !important;
   align-items: center;
@@ -271,7 +285,7 @@ footer {
   width: 100% !important;
   height: 40px !important;
   
-  /* MARGIN: 0 on top to stay attached to Section, 40px on bottom for float */
+  /* MARGIN: 0 top (attach to section), 40px bottom (float) */
   margin: 0 auto 40px auto !important; 
   padding: 0 20px !important; 
   position: relative !important;
@@ -282,7 +296,6 @@ footer {
   background-size: cover !important;
   
   border-top: 3px solid $red !important; 
-  /* Symmetrical Bookend: Only rounds the bottom corners */
   border-radius: 0 0 8px 8px; 
   text-align: center !important;
   box-sizing: border-box !important;
@@ -291,13 +304,12 @@ footer {
 
 footer:after {
   content: "© 2026 PcapExpress | Patience | Perseverance | Upward Mobility";
-  white-space: pre; 
-  color: $orange !important;
-  font-family: 'Courier New', monospace;
-  font-size: 0.85rem !important;
-  line-height: 1.4;
+  white-space: pre; 
+  color: $orange !important;
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem !important;
+  line-height: 1.4;
 }
-
 // 10. ANIMATION ENGINES
 @keyframes scanLine { 0% { top: 0; opacity: 0; } 5% { opacity: 1; } 95% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
 
