@@ -94,11 +94,11 @@ section {
   h1, h2 { color: $red !important; }
   h3 { color: $orange !important; }
 
+  /* Reverted to clean Green text */
   h4 { 
     color: $green !important; 
-    font-family: 'Courier New', monospace !important;
-    border-bottom: 1px solid rgba(74, 177, 157, 0.3);
-    display: inline-block;
+    border-bottom: none !important; // Removes the underline
+    display: block !important;       // Returns to standard header behavior
   }
 
   p, div, li { color: $yellow !important; }
