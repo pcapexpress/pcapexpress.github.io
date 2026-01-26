@@ -123,7 +123,7 @@ header {
     }
   }
 
-  .header-bio, p {
+ .header-bio, p {
     color: $green !important;
     font-weight: bold !important;
     font-size: 1.1rem !important;
@@ -131,8 +131,20 @@ header {
     display: block !important;
     position: relative;
     z-index: 3;
+    
+    /* BASE STATE: Soft, low-intensity glow */
     text-shadow: 0 0 5px rgba($green, 0.2);
-    transition: all 0.5s ease;
+    transition: all 0.5s ease; // Smooth "warm up" effect
+  }
+
+  /* TRIGGER: When the header is hovered, the green text glows brighter */
+  &:hover {
+    .header-bio, p {
+      text-shadow: 
+        0 0 8px rgba($green, 0.6), 
+        0 0 12px rgba($green, 0.3);
+      filter: brightness(1.2);
+    }
   }
 
   .nav-menu {
