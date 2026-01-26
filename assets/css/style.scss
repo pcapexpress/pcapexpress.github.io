@@ -21,47 +21,35 @@ body {
   align-items: center !important;
   min-height: 100vh;
   overflow-x: hidden;
-  padding-bottom: 60px !important; // Creates a buffer at the very end of the page
+  padding-bottom: 10px !important; 
 }
 
 .wrapper {
   max-width: 900px !important;
   width: 100% !important;
-  margin: 30px auto !important; // First value (30px) is the gap from the top
+  margin: 10px auto !important;
 }
 
 /* --- 3. HEADER ARCHITECTURE --- */
 header {
   max-width: 900px !important;
-  margin: 5px auto 10 auto !important;
+  margin: 0 auto !important; 
   width: 100% !important;
-  display: block !important;
-  box-sizing: border-box !important;
   position: relative !important;
   overflow: hidden;
 
+  /* Simplified Background: Gradient + Image Only */
   background: 
-    /* LAYER 1: The Dark Overlay */
     linear-gradient(to bottom, rgba(26, 39, 46, 0.2) 10%, rgba(26, 39, 46, 0.95) 100%),
-    
-    /* Layer 2: Transparent TV Static */
-    repeating-conic-gradient(
-    rgba(26, 39, 46, 0.3) 0% 25%, 
-    rgba(34, 46, 52, 0.3) 0% 50%
-    ),
-    
-    /* LAYER 3: Your Forensic Image */
     url("../images/header.png") no-repeat center center !important;
+  background-size: cover !important;
 
-  /* CORRECT: Assigns sizes to each layer in order */
-  background-size: auto, 4px 4px, cover !important;
-
+  /* THIN PADDING: Adjusted from 60px/80px down to 20px */
+  padding: 20px 20px !important; 
+  
   border-bottom: 3px solid $red !important;
   border-radius: 8px 8px 0 0; 
-  padding: 80px 20px !important; // Increase 60px to 80px for a taller header
-  margin-bottom: 0 !important; // Ensures it stays connected to the content section
   text-align: center !important;
-
 
   // LINE 1: High-Intensity Green Scan
   &::after {
