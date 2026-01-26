@@ -10,10 +10,9 @@ $green: #4AB19D;
 $orange: #E17A47;
 $dark-bg: #1A272E;
 
-// 2. GLOBAL RESET & CENTERING
+// 2. GLOBAL RESET
 body {
   background-color: $slate !important;
-  background-image: none !important;
   color: $orange !important;
   margin: 0 !important;
   padding: 0 !important;
@@ -42,21 +41,21 @@ header {
   overflow: hidden;
 
   background: 
-    /* Layer 1: SIGNAL NOISE (Transparent grain) */
+    /* Layer 1: CRT MESH (Sitting on top) */
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.15) 0px, rgba(0, 0, 0, 0.15) 1px, transparent 1px, transparent 2px),
+    /* Layer 2: MOVING DATA STREAMS (Opacity bumped to 0.3 for visibility) */
+    repeating-linear-gradient(to bottom, transparent 0%, rgba(74, 177, 157, 0.3) 50%, transparent 100%),
+    /* Layer 3: SIGNAL NOISE */
     url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBgMAAAC9uU0ZAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAA1JREFUGNNjYBgF6AIAAnAAAW7fN7EAAAAASUVORK5CYII="),
-    /* Layer 2: CRT STATIC MESH (Fixed 2px lines) */
-    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.12) 0px, rgba(0, 0, 0, 0.12) 1px, transparent 1px, transparent 2px),
-    /* Layer 3: MOVING DATA STREAMS (Flowing lines) */
-    repeating-linear-gradient(to bottom, transparent 0%, rgba(74, 177, 157, 0.08) 50%, transparent 100%),
-    /* Layer 4: DARK GRADIENT + BASE IMAGE */
+    /* Layer 4: DARK GRADIENT + IMAGE */
     linear-gradient(to bottom, rgba(26, 39, 46, 0.4) 10%, rgba(26, 39, 46, 0.95) 100%), 
     url("../images/header.png") no-repeat center center !important;
 
-  /* SIZING: Noise: Auto-tile | Mesh: 2px | Streams: 500px | Image: Cover */
-  background-size: auto, 100% 2px, 100% 500px, cover, cover !important;
+  /* SIZING: Mesh: 2px | Streams: 600px | Noise: Auto | Image: Cover */
+  background-size: 100% 2px, 100% 600px, auto, cover, cover !important;
   
-  /* ANIMATION: Moves the 'Data Streams' (Layer 3) */
-  animation: flowLines 15s linear infinite;
+  /* THE ENGINE: This moves the Layer 2 streams */
+  animation: flowLines 12s linear infinite !important;
   
   border-bottom: 3px solid $red !important;
   border-radius: 8px 8px 0 0; 
@@ -70,11 +69,11 @@ header {
     letter-spacing: 2px;
     font-weight: 900 !important;
     position: relative;
-    z-index: 5; /* Sit above the noise */
+    z-index: 10;
     text-decoration: none !important;
 
     &:hover {
-      animation: subtleGlitch 2.5s ease-in-out infinite;
+      animation: subtleGlitch 2.5s ease-in-out infinite !important;
     }
   }
 
@@ -82,12 +81,12 @@ header {
     color: $green !important;
     font-weight: bold !important;
     position: relative;
-    z-index: 5;
+    z-index: 10;
   }
 
   .nav-menu {
     position: relative;
-    z-index: 5;
+    z-index: 10;
     list-style: none !important;
     display: flex !important;
     justify-content: center !important;
@@ -96,23 +95,6 @@ header {
     padding: 0 !important;
     li { background: transparent !important; border: none !important; }
   }
-}
-
-/* --- ANIMATIONS --- */
-
-@keyframes flowLines {
-  from { background-position: 0 0, 0 0, 0 0, center, center; }
-  to { background-position: 0 0, 0 0, 0 1000px, center, center; }
-}
-
-@keyframes subtleGlitch {
-  0% { transform: translate(0); opacity: 1; }
-  5% { transform: translate(-0.8px, 0.5px); text-shadow: 1px 0 $red, -1px 0 $green; }
-  8% { transform: translate(0); text-shadow: none; }
-  45% { opacity: 0.98; }
-  47% { opacity: 1; transform: translate(0.5px, -0.5px); }
-  50% { transform: translate(0); }
-  100% { transform: translate(0); }
 }
 
 // 4. MAIN CONTENT AREA
@@ -127,7 +109,7 @@ section {
 
   h1, h2 { color: $red !important; }
   h3 { color: $orange !important; }
-  h4 { color: $green !important;}
+  h4 { color: $green !important; font-family: 'Courier New', monospace !important; }
 
   p, div, li { color: $yellow !important; }
 
@@ -170,60 +152,48 @@ section ul li {
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: $red !important; /* Card turns red on hover */
-    color: white !important;           /* Text turns white for contrast */
+    background-color: $red !important;
+    color: white !important;
     transform: translateX(5px);
-    
-    // Ensure nested text turns white too
     p, span, div { color: white !important; }
   }
 }
 
-// 7.PILL BUTTONS
+// 7. PILL BUTTONS
 .button-pill {
   display: inline-block;
   padding: 8px 20px !important;
   margin: 10px 5px !important;
-  
   background-color: $dark-bg !important;
   color: $orange !important;
-  
   border: 2px solid $red !important;
-  border-radius: 50px !important; // This creates the "Pill" shape
-  
+  border-radius: 50px !important;
   font-family: 'Courier New', monospace !important;
   font-weight: bold !important;
   font-size: 0.9rem !important;
   text-decoration: none !important;
-  
   transition: all 0.3s ease !important;
   box-shadow: 0 0 5px rgba(239, 61, 89, 0.2);
-  background-image: none !important; // Removes your global link underline
-  
-  //<a href="https://example.com/case01.pcap" class="button-pill">DOWNLOAD PCAP</a>
-  //<a href="#" class="button-pill">VIEW REPORT PDF</a>
-  }
+  background-image: none !important;
 
-.button-pill:hover {
-  background-color: $red !important;
-  color: white !important;
-  box-shadow: 0 0 15px rgba(239, 61, 89, 0.5);
-  transform: translateY(-2px);
+  &:hover {
+    background-color: $red !important;
+    color: white !important;
+    box-shadow: 0 0 15px rgba(239, 61, 89, 0.5);
+    transform: translateY(-2px);
+  }
 }
 
 // 8. BADGE
-
 .badge {
   padding: 2px 8px;
   border-radius: 4px;
   font-size: 0.75rem;
   text-transform: uppercase;
-  background: rgba(74, 177, 157, 0.1); // Using your $green
+  background: rgba(74, 177, 157, 0.1);
   color: $green;
   border: 1px solid $green;
 }
-
-// Protocol identified: <span class="badge">HTTPS</span>
 
 // 9. CLEANUP
 header .view, header p.view, header ul.downloads, 
@@ -239,14 +209,8 @@ footer {
   max-width: 900px !important;
   width: 100% !important;
   height: 40px !important;
-  margin: 0 auto 10px auto !important; /* Zero top margin to touch the section */
-  padding: 0 20px !important;
-
-  /* POSITION OVERRIDE */
-  position: relative !important; /* Changes from 'fixed' to 'relative' */
-  bottom: auto !important;       /* Disables any 'pinned' bottom settings */
-  left: auto !important;
-  
+  margin: 0 auto 10px auto !important;
+  position: relative !important;
   background: 
     linear-gradient(rgba(26, 39, 46, 0.80), rgba(26, 39, 46, 0.80)), 
     url("../images/footer.png") no-repeat center center !important;
@@ -263,19 +227,12 @@ footer:after {
   font-size: 0.85rem !important;
 }
 
-/* --- ANIMATION ENGINES --- */
-
-/* This makes the Layer 3 lines move downward */
+/* --- 11. ANIMATION ENGINES (MUST BE AT BOTTOM) --- */
 @keyframes flowLines {
-  from { 
-    background-position: 0 0, 0 0, 0 0, center, center; 
-  }
-  to { 
-    background-position: 0 0, 0 0, 0 1000px, center, center; 
-  }
+  from { background-position: 0 0, 0 0, 0 0, center, center; }
+  to { background-position: 0 0, 0 1000px, 0 0, center, center; }
 }
 
-/* This creates the subtle text shiver on hover */
 @keyframes subtleGlitch {
   0% { transform: translate(0); opacity: 1; }
   5% { transform: translate(-0.8px, 0.5px); text-shadow: 1px 0 $red, -1px 0 $green; }
