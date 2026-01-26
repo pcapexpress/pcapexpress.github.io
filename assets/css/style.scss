@@ -174,21 +174,17 @@ section ul li {
 
 // 7. CODE BLOCKS
 pre, code {
-  background: #1a1a1a url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBgMAAAC9uU0ZAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAA1JREFUGNNjYBgF6AIAAnAAAW7fN7EAAAAASUVORK5CYII=") !important;
+  background-color: #1a1a1a !important; 
+  /* We use the image on a separate line to ensure it layers on top */
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBgMAAAC9uU0ZAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAA1JREFUGNNjYBgF6AIAAnAAAW7fN7EAAAAASUVORK5CYII=") !important;
+  background-repeat: repeat !important;
+  background-size: 100px 100px !important; // Sizing it up makes the grain chunkier and more visible
+  
   color: $green !important;
   border: 1px solid rgba($green, 0.3);
-  padding: 10px;
+  padding: 15px !important;
   display: block;
   font-family: 'Courier New', monospace !important;
-  text-decoration: none !important;
-  background-image: none;
-  transition: all 0.3s ease;
-
-  &:hover {
-    animation: subtleGlitch 2s ease-in-out infinite !important;
-    border-color: rgba($green, 0.8);
-    box-shadow: 0 0 10px rgba($green, 0.2);
-  }
 }
 
 // 8. CLEANUP
