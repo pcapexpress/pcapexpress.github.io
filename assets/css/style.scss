@@ -52,16 +52,14 @@ header {
   padding: 60px 20px !important;
   text-align: center !important;
 
-// LINE 1: Slow Green Scan with Pulse
+  // LINE 1: Slow Green Scan with Pulse
   &::after {
     content: "";
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 3px;
     background: rgba($green, 0.5);
-    /* Increased initial shadow for "Glow" */
     box-shadow: 0 0 15px rgba($green, 0.8), 0 0 5px rgba(255, 255, 255, 0.3);
-    /* Added pulseScan animation */
     animation: scanLine 4s linear infinite, pulseScan 2s ease-in-out infinite;
     pointer-events: none;
     z-index: 2;
@@ -74,14 +72,12 @@ header {
     top: 0; left: 0;
     width: 100%; height: 1px;
     background: rgba($red, 0.7);
-    /* Intense laser glow */
     box-shadow: 0 0 12px rgba($red, 1), 0 0 20px rgba($red, 0.4);
     animation: scanLine 1.5s linear infinite, pulseScan 0.8s ease-in-out infinite;
     animation-delay: 0.5s;
     pointer-events: none;
     z-index: 2;
   }
-}
 
   /* TRIGGER: When any part of the header is hovered, the title glitches */
   &:hover h1 a {
@@ -98,9 +94,7 @@ header {
       letter-spacing: 2px;
       font-weight: 900 !important;
       display: block !important;
-      text-decoration: none !important; // Removes underline
-      
-      /* THE KILL SWITCH: Makes the link unclickable */
+      text-decoration: none !important;
       pointer-events: none !important; 
       cursor: default !important;
     }
@@ -125,15 +119,14 @@ header {
     gap: 20px !important;
     margin-top: 20px !important;
     padding: 0 !important;
+    
     li { 
       background: transparent !important; 
       border: none !important;
-      
-      /* Ensure nav links ARE still clickable */
       a { pointer-events: auto !important; } 
     }
   }
-}
+} // This is the ONLY closing bracket for the whole header block
 
 // 4. MAIN CONTENT AREA
 section {
