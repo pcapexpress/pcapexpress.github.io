@@ -112,7 +112,7 @@ header {
     margin-top: 25px !important;
     padding: 0 !important;
 
-    li a {
+    /*li a {
       background: rgba($dark-bg, 0.8) !important;
       border: 1px solid $green !important;
       color: $green !important;
@@ -128,22 +128,50 @@ header {
         background: $green !important;
         color: $dark-bg !important;
         box-shadow: 0 0 15px $green;
-        transform: scale(1.05);
+        transform: scale(1.05);*/
       }
     }
   }
 }
 
-// 4. MAIN CONTENT
+// 4. MAIN CONTENT AREA
 section {
   max-width: 900px !important;
   margin: 0 auto !important;
   padding: 40px 20px !important;
-  p, li { color: $yellow !important; }
+  display: block !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  background-color: transparent !important;
+
   h1, h2 { color: $red !important; }
+  h3 { color: $orange !important; }
+  h4 { color: $green !important; }
+
+  h5 { 
+    color: $green !important; 
+    font-family: 'Courier New', monospace !important;
+    border-bottom: 2px solid rgba(74, 177, 157, 0.3);
+    display: inline-block;
+  }
+
+  p, div, li { color: $yellow !important; }
+
+  blockquote {
+    border-left: 4px solid $red !important;
+    background: $dark-bg !important;
+    padding: 15px 20px !important;
+    margin: 20px 0 !important;
+    p { 
+      color: $yellow !important; 
+      font-style: italic; 
+      margin: 0 !important; // Keeps the text perfectly centered in the box
+    }
+  }
 }
 
-// 7. CODE BLOCKS
+
+// 5. CODE BLOCKS
 pre, code {
   background-color: #0a0a0a !important; 
   background-image: repeating-conic-gradient(#1a1a1a 0% 25%, #222 0% 50%) !important;
@@ -163,7 +191,84 @@ pre, code {
   }
 }
 
-/* --- 10. ANIMATION ENGINES --- */
+// 6. GLOBAL LINK STYLE
+a {
+  color: $orange !important;
+  text-decoration: none !important;
+  background-image: linear-gradient($red, $red);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size 0.3s ease, color 0.3s ease;
+  padding-bottom: 2px;
+  font-weight: bold;
+
+  &:hover {
+    color: $yellow !important;
+    background-size: 100% 2px;
+  }
+}
+
+// 7.ANIMATED CARDS
+section ul li {
+  list-style: none;
+  background: $medium-bg !important;
+  margin-bottom: 12px;
+  padding: 20px;
+  border-left: 5px solid $red;
+  border-radius: 4px;
+  color: $yellow !important;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: $red !important; /* Card turns red on hover */
+    color: white !important;           /* Text turns white for contrast */
+    transform: translateX(5px);
+
+    // Ensure nested text turns white too
+    p, span, div { color: white !important; }
+  }
+}
+
+// 8. CLEANUP
+header .view, header p.view, header ul.downloads, 
+header > ul:not(.nav-menu), footer small {
+  display: none !important;
+}
+
+// 9. SLIM FOOTER (Restored Symmetrical Attachment)
+footer {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  max-width: 900px !important;
+  width: 100% !important;
+  height: 40px !important;
+  margin: 0 auto 10px auto !important; /* Zero top margin to touch the section */
+  padding: 0 20px !important;
+
+  /* POSITION OVERRIDE */
+  position: relative !important; /* Changes from 'fixed' to 'relative' */
+  bottom: auto !important;       /* Disables any 'pinned' bottom settings */
+  left: auto !important;
+  
+  background: 
+    linear-gradient(rgba(26, 39, 46, 0.80), rgba(26, 39, 46, 0.80)), 
+    url("../images/footer.png") no-repeat center center !important;
+  background-size: cover !important;
+  border-top: 3px solid $red !important;
+  border-radius: 0 0 8px 8px;
+  box-sizing: border-box !important;
+}
+
+footer:after {
+  content: "© 2026 PcapExpress | Patience | Perseverance | Upward Mobility";
+  color: $orange !important;
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem !important;
+}
+
+// 10. ANIMATION ENGINES
 @keyframes scanLine { 0% { top: 0; opacity: 0; } 5% { opacity: 1; } 95% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
 
 @keyframes glitchText {
@@ -186,3 +291,92 @@ pre, code {
 @keyframes blink { 0%, 100% { opacity: 1; box-shadow: 0 0 5px $green; } 50% { opacity: 0.2; } }
 
 @keyframes staticFlicker { 0% { opacity: 0.5; } 50% { opacity: 0.8; } 100% { opacity: 0.5; } }
+
+
+---
+---
+@import "{{ site.theme }}";
+
+// 1. PALETTE & VARIABLES
+$slate: #344E5C;
+$yellow: #EFC958;
+$red: #EF3D59;
+$green: #4AB19D;
+$orange: #E17A47;
+$medium-bg: #263842;
+$dark-bg: #1A272E;
+
+// 2. GLOBAL RESET & CENTERING
+body {
+  background-color: $slate !important;
+  background-image: none !important;
+  color: $orange !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.wrapper {
+  max-width: 900px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  position: relative !important;
+  display: block !important;
+}
+
+// 3. HEADER ARCHITECTURE
+header {
+  max-width: 900px !important;
+  margin: 10px auto 0 auto !important; /* Zero bottom margin to connect to section */
+  width: 100% !important;
+  display: block !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+
+  background: 
+    linear-gradient(to bottom, rgba(26, 39, 46, 0.10) 10%, rgba(26, 39, 46, 0.95) 100%), 
+    url("../images/header.png") no-repeat center center !important;
+  background-size: cover !important;
+  border-bottom: 3px solid $red !important;
+  border-radius: 8px 8px 0 0; 
+  padding: 60px 20px !important;
+  text-align: center !important;
+
+  h1 a {
+    color: $orange !important;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8), 2px 2px 0px rgba(0, 0, 0, 0.9);
+    font-size: 2.8rem !important;
+    text-transform: none !important;
+    letter-spacing: 2px;
+    pointer-events: none !important;
+    text-decoration: none !important;
+    display: block !important;
+    font-weight: 900 !important;
+  }
+
+  .header-bio, p {
+    color: $green !important;
+    font-weight: bold !important;
+    font-size: 1.1rem !important;
+    margin: 15px 0 !important;
+    display: block !important;
+  }
+
+  .nav-menu {
+    list-style: none !important;
+    display: flex !important;
+    justify-content: center !important;
+    gap: 20px !important;
+    margin-top: 20px !important;
+    padding: 0 !important;
+    li { background: transparent !important; border: none !important; }
+  }
+}
+
+
+
+
