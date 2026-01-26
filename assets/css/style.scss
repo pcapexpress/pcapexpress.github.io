@@ -33,6 +33,7 @@ body {
   display: block !important;
 }
 
+/* --- 3. HEADER ARCHITECTURE --- */
 header {
   max-width: 900px !important;
   margin: 10px auto 0 auto !important;
@@ -58,7 +59,6 @@ header {
     top: 0; left: 0;
     width: 100%; height: 12px;
     background: linear-gradient(to top, rgba($green, 0.1) 0%, transparent 100%);
-    box-shadow: none;
     opacity: 0.3;
     animation: scanLine 4s linear infinite;
     transition: all 0.4s ease;
@@ -73,7 +73,6 @@ header {
     top: 0; left: 0;
     width: 100%; height: 1px;
     background: rgba($red, 0.1);
-    box-shadow: none;
     animation: scanLine 1.5s linear infinite;
     animation-delay: 0.5s;
     transition: all 0.4s ease;
@@ -96,12 +95,10 @@ header {
       animation: scanLine 1.5s linear infinite, fastPulse 0.8s ease-in-out infinite;
     }
 
-    // Header Title Glitch Trigger
     h1 a {
       animation: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite !important;
     }
 
-    // Green Text Glow Trigger
     .header-bio, p {
       text-shadow: 0 0 8px rgba($green, 0.6), 0 0 12px rgba($green, 0.3);
       filter: brightness(1.2);
@@ -123,47 +120,6 @@ header {
     }
   }
 
- .header-bio, p {
-    color: $green !important;
-    font-weight: bold !important;
-    font-size: 1.1rem !important;
-    margin: 15px 0 !important;
-    display: block !important;
-    position: relative;
-    z-index: 3;
-    
-    /* BASE STATE: Soft, low-intensity glow */
-    text-shadow: 0 0 5px rgba($green, 0.2);
-    transition: all 0.5s ease; // Smooth "warm up" effect
-  }
-
-  /* TRIGGER: When the header is hovered, the green text glows brighter */
-  &:hover {
-    .header-bio, p {
-      text-shadow: 
-        0 0 8px rgba($green, 0.6), 
-        0 0 12px rgba($green, 0.3);
-      filter: brightness(1.2);
-    }
-  }
-
-  .nav-menu {
-    position: relative;
-    z-index: 5;
-    list-style: none !important;
-    display: flex !important;
-    justify-content: center !important;
-    gap: 20px !important;
-    margin-top: 20px !important;
-    padding: 0 !important;
-    li { 
-      background: transparent !important; 
-      border: none !important;
-      a { pointer-events: auto !important; } 
-    }
-  }
-} // <--- This now correctly closes EVERY item in Section 3
-
   .header-bio, p {
     color: $green !important;
     font-weight: bold !important;
@@ -172,6 +128,8 @@ header {
     display: block !important;
     position: relative;
     z-index: 3;
+    text-shadow: 0 0 5px rgba($green, 0.2);
+    transition: all 0.5s ease;
   }
 
   .nav-menu {
@@ -183,14 +141,13 @@ header {
     gap: 20px !important;
     margin-top: 20px !important;
     padding: 0 !important;
-    
     li { 
       background: transparent !important; 
       border: none !important;
       a { pointer-events: auto !important; } 
     }
   }
-} // This is the ONLY closing bracket for the whole header block
+} // <--- END HEADER
 
 // 4. MAIN CONTENT AREA
 section {
@@ -268,12 +225,8 @@ section ul li {
 // 7. CODE BLOCKS
 pre, code {
   background-color: #0a0a0a !important; 
-  
-  /* TV STATIC GENERATOR */
-  background-image: 
-    repeating-conic-gradient(#1a1a1a 0% 25%, #222 0% 50%) !important;
-  background-size: 4px 4px !important; // Controls the "grain" size
-  
+  background-image: repeating-conic-gradient(#1a1a1a 0% 25%, #222 0% 50%) !important;
+  background-size: 4px 4px !important;
   color: $green !important;
   border: 1px solid rgba($green, 0.3);
   padding: 15px !important;
@@ -282,7 +235,6 @@ pre, code {
   position: relative;
   overflow: hidden;
 
-  /* This adds the flicker effect to the static */
   &:before {
     content: "";
     position: absolute;
@@ -326,7 +278,7 @@ footer:after {
   font-size: 0.85rem !important;
 }
 
-/* --- 10. ANIMATION ENGINES (MUST BE OUTSIDE SELECTORS) --- */
+/* --- 10. ANIMATION ENGINES --- */
 
 @keyframes scanLine {
   0% { top: 0; opacity: 0; }
@@ -343,44 +295,27 @@ footer:after {
   100% { transform: translate(0); text-shadow: -2px -2px $red, 2px 2px $green; }
 }
 
-@keyframes subtleGlitch {
-  0% { transform: translate(0); opacity: 1; }
-  5% { transform: translate(-0.5px, 0.5px); }
-  10% { transform: translate(0); }
-  100% { transform: translate(0); }
+@keyframes staticFlicker {
+  0% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.01); }
+  100% { opacity: 0.5; transform: scale(1); }
 }
 
 @keyframes fastPulse {
   0%, 100% { 
-    filter: brightness(0.8) blur(0px); 
+    filter: brightness(0.8); 
     box-shadow: 0 0 10px $red;
     opacity: 0.6;
   }
   50% { 
-    filter: brightness(2.5) blur(0.5px); // Creates a "burning" light effect
-    box-shadow: 0 0 40px $red, 0 0 60px rgba($red, 0.4); 
-    opacity: 1;
-    height: 3px; // Line physically "swells" during the pulse
+    filter: brightness(1.5); 
+    box-shadow: 0 0 20px rgba($red, 0.4); 
+    opacity: 0.7;
+    height: 3px;
   }
 }
 
 @keyframes dataStutter {
-  0%, 100% { 
-    opacity: 0.8; 
-    filter: hue-rotate(0deg) brightness(1);
-  }
-  20% { 
-    opacity: 0.4; // Sudden drop in signal strength
-  }
-  25% { 
-    opacity: 1; 
-    filter: brightness(2); // Sharp "data surge"
-  }
-  45% { 
-    opacity: 0.7;
-    filter: hue-rotate(10deg); // Subtle color shift
-  }
-  80% { 
-    opacity: 1;
-  }
+  0%, 100% { opacity: 0.8; filter: brightness(1); }
+  25% { opacity: 0.6; filter: brightness(1.3); }
 }
