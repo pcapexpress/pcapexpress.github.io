@@ -58,7 +58,7 @@ header {
   padding: 80px 20px !important; // Increase 60px to 80px for a taller header
   margin-bottom: 0 !important; // Ensures it stays connected to the content section
   text-align: center !important;
-}
+
 
   // LINE 1: High-Intensity Green Scan
   &::after {
@@ -127,7 +127,7 @@ header {
     margin-top: 25px !important;
     padding: 0 !important;
 
-    li a {
+    /*li a {
       background: rgba($dark-bg, 0.8) !important;
       border: 1px solid $green !important;
       color: $green !important;
@@ -145,7 +145,7 @@ header {
         box-shadow: 0 0 15px $green;
         transform: scale(1.05);
       }
-    }
+    }*/
   }
 }
 
@@ -176,7 +176,7 @@ section {
 
   blockquote {
     border-left: 4px solid $red !important;
-    background: $dark-bg !important;
+    background: $medium-bg !important;
     padding: 15px 20px !important;
     margin: 20px 0 !important;
     p { 
