@@ -11,7 +11,7 @@ $orange: #E17A47;
 $medium-bg: #263842;
 $dark-bg: #1A272E;
 
-// 2. GLOBAL RESET & CENTERING
+// 2. GLOBAL RESET
 body {
   background-color: $slate !important;
   background-image: none !important;
@@ -33,12 +33,26 @@ body {
   display: block !important;
 }
 
-/* --- 3. HEADER: DUAL SCAN FEED --- */
-/* --- 12. GLITCH SCAN EFFECT --- */
+/* --- 3. HEADER ARCHITECTURE --- */
 header {
-  position: relative;
-  overflow: hidden; // Keeps the glitch contained
+  max-width: 900px !important;
+  margin: 10px auto 0 auto !important;
+  width: 100% !important;
+  display: block !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+  overflow: hidden;
 
+  background: 
+    linear-gradient(to bottom, rgba(26, 39, 46, 0.10) 10%, rgba(26, 39, 46, 0.95) 100%), 
+    url("../images/header.png") no-repeat center center !important;
+  background-size: cover !important;
+  border-bottom: 3px solid $red !important;
+  border-radius: 8px 8px 0 0; 
+  padding: 60px 20px !important;
+  text-align: center !important;
+
+  // The Scanning Line Pseudo-Element
   &::after {
     content: "";
     position: absolute;
@@ -51,52 +65,19 @@ header {
     z-index: 2;
   }
 
-  /* The Glitch "Ghost" Effect */
-  &:hover h1 a {
-    animation: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
-  }
-
-/* 1. The Scanning Line Animation */
-@keyframes scanLine {
-  0% { top: 0; opacity: 0; }
-  5% { opacity: 1; }
-  95% { opacity: 1; }
-  100% { top: 100%; opacity: 0; }
-}
-
-/* 2. The Rapid Text Glitch (Activates on Hover) */
-@keyframes glitchText {
-  0% {
-    transform: translate(0);
-    text-shadow: -2px -2px $red, 2px 2px $green;
-  }
-  25% {
-    transform: translate(-2px, 2px);
-    text-shadow: 2px 2px $red, -2px -2px $green;
-  }
-  50% {
-    transform: translate(2px, -2px);
-    text-shadow: -2px 2px $red, 2px -2px $green;
-  }
-  75% {
-    transform: translate(-2px, -2px);
-    text-shadow: 2px -2px $red, -2px 2px $green;
-  }
-  100% {
-    transform: translate(0);
-    text-shadow: -2px -2px $red, 2px 2px $green;
-  }
-}
   h1 a {
     color: $orange !important;
     text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8), 2px 2px 0px rgba(0, 0, 0, 0.9);
     font-size: 2.8rem !important;
     text-transform: none !important;
     letter-spacing: 2px;
-    pointer-events: none !important;
     text-decoration: none !important;
     display: block !important;
     font-weight: 900 !important;
+
+    &:hover {
+       animation: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite !important;
+    }
   }
 
   .header-bio, p {
@@ -149,12 +130,12 @@ section {
     p { 
       color: $yellow !important; 
       font-style: italic; 
-      margin: 0 !important; // Keeps the text perfectly centered in the box
+      margin: 0 !important;
     }
   }
 }
 
-// 5. GLOBAL LINK STYLE (Restored Red Animation)
+// 5. GLOBAL LINK STYLE
 a {
   color: $orange !important;
   text-decoration: none !important;
@@ -172,7 +153,7 @@ a {
   }
 }
 
-// 6. SKILLS / PROJECT CARDS (Restored Red Hover)
+// 6. SKILLS / PROJECT CARDS
 section ul li {
   list-style: none;
   background: $medium-bg !important;
@@ -184,11 +165,9 @@ section ul li {
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: $red !important; /* Card turns red on hover */
-    color: white !important;           /* Text turns white for contrast */
+    background-color: $red !important;
+    color: white !important;
     transform: translateX(5px);
-
-    // Ensure nested text turns white too
     p, span, div { color: white !important; }
   }
 }
@@ -198,22 +177,16 @@ pre, code {
   background: #1a1a1a url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBgMAAAC9uU0ZAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAA1JREFUGNNjYBgF6AIAAnAAAW7fN7EAAAAASUVORK5CYII=") !important;
   color: $green !important;
   border: 1px solid rgba($green, 0.3);
-}
- // background: $dark-bg !important;
-  //color: $green !important;
- // font-family: 'Courier New', monospace !important;
-  
-  // REMOVE UNDERLINES
- // text-decoration: none !important;
- // background-image: none !important; 
-  
-  // TRANSITION FOR SMOOTHNESS
- // transition: all 0.3s ease;
+  padding: 10px;
+  display: block;
+  font-family: 'Courier New', monospace !important;
+  text-decoration: none !important;
+  background-image: none;
+  transition: all 0.3s ease;
 
   &:hover {
-    // TRIGGER THE GLITCH
     animation: subtleGlitch 2s ease-in-out infinite !important;
-    border-color: rgba($green, 0.8); // Make the border glow slightly
+    border-color: rgba($green, 0.8);
     box-shadow: 0 0 10px rgba($green, 0.2);
   }
 }
@@ -224,7 +197,7 @@ header > ul:not(.nav-menu), footer small {
   display: none !important;
 }
 
-// 9. SLIM FOOTER (Restored Symmetrical Attachment)
+// 9. SLIM FOOTER
 footer {
   display: flex !important;
   align-items: center;
@@ -232,14 +205,9 @@ footer {
   max-width: 900px !important;
   width: 100% !important;
   height: 40px !important;
-  margin: 0 auto 10px auto !important; /* Zero top margin to touch the section */
+  margin: 0 auto 10px auto !important;
   padding: 0 20px !important;
-
-  /* POSITION OVERRIDE */
-  position: relative !important; /* Changes from 'fixed' to 'relative' */
-  bottom: auto !important;       /* Disables any 'pinned' bottom settings */
-  left: auto !important;
-  
+  position: relative !important;
   background: 
     linear-gradient(rgba(26, 39, 46, 0.80), rgba(26, 39, 46, 0.80)), 
     url("../images/footer.png") no-repeat center center !important;
@@ -254,4 +222,28 @@ footer:after {
   color: $orange !important;
   font-family: 'Courier New', monospace;
   font-size: 0.85rem !important;
+}
+
+/* --- 10. ANIMATION ENGINES (MUST BE OUTSIDE SELECTORS) --- */
+
+@keyframes scanLine {
+  0% { top: 0; opacity: 0; }
+  5% { opacity: 1; }
+  95% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes glitchText {
+  0% { transform: translate(0); text-shadow: -2px -2px $red, 2px 2px $green; }
+  25% { transform: translate(-2px, 2px); text-shadow: 2px 2px $red, -2px -2px $green; }
+  50% { transform: translate(2px, -2px); text-shadow: -2px 2px $red, 2px -2px $green; }
+  75% { transform: translate(-2px, -2px); text-shadow: 2px -2px $red, -2px 2px $green; }
+  100% { transform: translate(0); text-shadow: -2px -2px $red, 2px 2px $green; }
+}
+
+@keyframes subtleGlitch {
+  0% { transform: translate(0); opacity: 1; }
+  5% { transform: translate(-0.5px, 0.5px); }
+  10% { transform: translate(0); }
+  100% { transform: translate(0); }
 }
