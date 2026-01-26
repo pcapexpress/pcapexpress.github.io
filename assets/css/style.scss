@@ -42,6 +42,7 @@ header {
   box-sizing: border-box !important;
   position: relative !important;
   overflow: hidden;
+  cursor: default; // Indicates it's not a link
 
   background: 
     linear-gradient(to bottom, rgba(26, 39, 46, 0.10) 10%, rgba(26, 39, 46, 0.95) 100%), 
@@ -52,7 +53,7 @@ header {
   padding: 60px 20px !important;
   text-align: center !important;
 
-  // The Scanning Line Pseudo-Element
+  // The Scanning Line
   &::after {
     content: "";
     position: absolute;
@@ -65,19 +66,20 @@ header {
     z-index: 2;
   }
 
-  h1 a {
+  // TRIGGER: When the HEADER is hovered, the H1 glitches
+  &:hover h1 {
+    animation: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite !important;
+  }
+
+  h1 {
     color: $orange !important;
     text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8), 2px 2px 0px rgba(0, 0, 0, 0.9);
     font-size: 2.8rem !important;
-    text-transform: none !important;
     letter-spacing: 2px;
-    text-decoration: none !important;
     display: block !important;
     font-weight: 900 !important;
-
-    &:hover {
-       animation: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite !important;
-    }
+    margin: 0 !important;
+    /* Removed link-specific pointer events */
   }
 
   .header-bio, p {
@@ -86,9 +88,13 @@ header {
     font-size: 1.1rem !important;
     margin: 15px 0 !important;
     display: block !important;
+    position: relative;
+    z-index: 3; // Ensure text stays above the scanline
   }
 
   .nav-menu {
+    position: relative;
+    z-index: 5;
     list-style: none !important;
     display: flex !important;
     justify-content: center !important;
