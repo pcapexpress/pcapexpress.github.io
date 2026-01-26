@@ -105,7 +105,7 @@ section {
 
   blockquote {
     border-left: 8px solid $red !important;
-    background: rgba(26, 39, 46, 0.5) !important;
+    background: $dark-bg !important;
     padding: 15px 20px !important;
     margin: 20px 0 !important;
     p { color: $yellow !important; font-style: italic; }
@@ -153,7 +153,7 @@ section ul li {
 
 // 7. CODE BLOCKS
 pre, code {
-  background: #1a1a1a !important;
+  background: $dark-bg !important;
   color: $green !important;
   border: 1px solid rgba($green, 0.2);
   font-family: 'Courier New', monospace !important;
