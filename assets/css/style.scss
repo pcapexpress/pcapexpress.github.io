@@ -17,6 +17,8 @@ body {
   color: $orange !important;
   margin: 0 !important;
   padding: 0 !important;
+  padding-bottom: 1px !important; 
+  min-height: 100vh;
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
@@ -28,6 +30,7 @@ body {
   max-width: 900px !important;
   width: 100% !important;
   margin: 0 auto !important;
+  padding: 0 !important;
   position: relative !important;
   display: block !important;
 }
@@ -270,7 +273,7 @@ footer {
   height: 40px !important;
   
   /* MARGIN: 0 top (attach to section), 40px bottom (float) */
-  margin: 5 auto 10px auto !important; 
+  margin: 0 auto 10px auto !important; 
   padding: 0 20px !important; 
   position: relative !important;
 
