@@ -16,13 +16,11 @@ body {
   background-color: $slate !important;
   color: $orange !important;
   margin: 0 !important;
-  padding: 0 !important;
-  padding-bottom: 1px !important; 
-  min-height: 100vh;
-  display: flex !important;
+  padding: 0 !important;      // Remove any global padding
+  min-height: 100vh !important;
+  display: block !important;
   flex-direction: column !important;
   align-items: center !important;
-  min-height: 100vh;
   overflow-x: hidden;
 }
 
