@@ -52,36 +52,40 @@ header {
   padding: 60px 20px !important;
   text-align: center !important;
 
- // LINE 1: The Original Slow Green Scan (4s)
+// LINE 1: Slow Green Scan with Pulse
   &::after {
     content: "";
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 3px;
     background: rgba($green, 0.5);
-    box-shadow: 0 0 15px $green;
-    animation: scanLine 4s linear infinite;
+    /* Increased initial shadow for "Glow" */
+    box-shadow: 0 0 15px rgba($green, 0.8), 0 0 5px rgba(255, 255, 255, 0.3);
+    /* Added pulseScan animation */
+    animation: scanLine 4s linear infinite, pulseScan 2s ease-in-out infinite;
     pointer-events: none;
     z-index: 2;
   }
 
-  // LINE 2: The New Fast Red Pulse (1.5s)
+  // LINE 2: Fast Red Pulse with Glow
   &::before {
     content: "";
     position: absolute;
     top: 0; left: 0;
-    width: 100%; height: 1px; // Thinner for a "laser" look
-    background: rgba($yellow, 0.6);
-    box-shadow: 0 0 10px $red;
-    animation: scanLine 1.5s linear infinite; // Much faster
-    animation-delay: 0.5s; // Offsets the start so they don't move together
+    width: 100%; height: 1px;
+    background: rgba($red, 0.7);
+    /* Intense laser glow */
+    box-shadow: 0 0 12px rgba($red, 1), 0 0 20px rgba($red, 0.4);
+    animation: scanLine 1.5s linear infinite, pulseScan 0.8s ease-in-out infinite;
+    animation-delay: 0.5s;
     pointer-events: none;
     z-index: 2;
   }
+}
 
   /* TRIGGER: When any part of the header is hovered, the title glitches */
   &:hover h1 a {
-    animation: glitchText 0.3s cubic-bezier(0, 1, 0, 1) both infinite !important;
+    animation: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite !important;
   }
 
   h1 {
