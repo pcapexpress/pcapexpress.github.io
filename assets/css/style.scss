@@ -36,24 +36,31 @@ body {
 
 header {
   max-width: 900px !important;
-  margin: 10px auto 0 auto !important; /* Zero bottom margin to connect to section */
+  margin: 10px auto 0 auto !important; 
   width: 100% !important;
   display: block !important;
   box-sizing: border-box !important;
   position: relative !important;
+  overflow: hidden; // Required for the glitch/scan animations
 
   background: 
+    /* Layer 1: The Static Lines (set to 100% width, 2px height) */
     repeating-linear-gradient(
       0deg,
-      rgba(0, 0, 0, 0.05) 0px,
-      rgba(0, 0, 0, 0.05) 1px,
+      rgba(0, 0, 0, 0.15) 0px,
+      rgba(0, 0, 0, 0.15) 1px,
       transparent 1px,
       transparent 2px
     ),
+    /* Layer 2: The Dark Fade */
     linear-gradient(to bottom, rgba(26, 39, 46, 0.10) 10%, rgba(26, 39, 46, 0.95) 100%), 
+    /* Layer 3: Your Image */
     url("../images/header.png") no-repeat center center !important;
 
-  background-size: cover !important;
+  /* THE FIX: Define sizes for each layer separately */
+  /* Layer 1 size: 100% width & 2px height | Layer 2: cover | Layer 3: cover */
+  background-size: 100% 2px, cover, cover !important;
+  
   border-bottom: 3px solid $red !important;
   border-radius: 8px 8px 0 0; 
   padding: 60px 20px !important;
