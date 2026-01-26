@@ -40,22 +40,22 @@ header {
   position: relative !important;
   overflow: hidden;
 
-  /* We list the backgrounds here */
-  background-image: 
-    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.15) 0px, rgba(0, 0, 0, 0.15) 1px, transparent 1px, transparent 2px),
-    repeating-linear-gradient(to bottom, transparent 0%, rgba(74, 177, 157, 0.25) 50%, transparent 100%),
+  background: 
+    /* Layer 1: SIGNAL NOISE (Transparent grain) */
     url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBgMAAAC9uU0ZAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAA1JREFUGNNjYBgF6AIAAnAAAW7fN7EAAAAASUVORK5CYII="),
+    /* Layer 2: CRT STATIC MESH (Fixed 2px lines) */
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.12) 0px, rgba(0, 0, 0, 0.12) 1px, transparent 1px, transparent 2px),
+    /* Layer 3: MOVING DATA STREAMS (Flowing lines) */
+    repeating-linear-gradient(to bottom, transparent 0%, rgba(74, 177, 157, 0.08) 50%, transparent 100%),
+    /* Layer 4: DARK GRADIENT + BASE IMAGE */
     linear-gradient(to bottom, rgba(26, 39, 46, 0.4) 10%, rgba(26, 39, 46, 0.95) 100%), 
-    url("../images/header.png") !important;
+    url("../images/header.png") no-repeat center center !important;
 
-  background-repeat: repeat, repeat, repeat, no-repeat, no-repeat !important;
-  background-position: center, 0 0, center, center, center !important;
+  /* SIZING: Noise: Auto-tile | Mesh: 2px | Streams: 500px | Image: Cover */
+  background-size: auto, 100% 2px, 100% 500px, cover, cover !important;
   
-  /* SIZING: Mesh (100% 2px), Streams (100% 400px), Noise (auto), Fade (cover), Image (cover) */
-  background-size: 100% 2px, 100% 400px, auto, cover, cover !important;
-  
-  /* THE TRIGGER */
-  animation: flowLines 10s linear infinite !important;
+  /* ANIMATION: Moves the 'Data Streams' (Layer 3) */
+  animation: flowLines 15s linear infinite;
   
   border-bottom: 3px solid $red !important;
   border-radius: 8px 8px 0 0; 
@@ -69,12 +69,11 @@ header {
     letter-spacing: 2px;
     font-weight: 900 !important;
     position: relative;
-    z-index: 10;
+    z-index: 5; /* Sit above the noise */
     text-decoration: none !important;
-    display: block !important;
 
     &:hover {
-      animation: subtleGlitch 2.5s ease-in-out infinite !important;
+      animation: subtleGlitch 2.5s ease-in-out infinite;
     }
   }
 
@@ -82,12 +81,12 @@ header {
     color: $green !important;
     font-weight: bold !important;
     position: relative;
-    z-index: 10;
+    z-index: 5;
   }
 
   .nav-menu {
     position: relative;
-    z-index: 10;
+    z-index: 5;
     list-style: none !important;
     display: flex !important;
     justify-content: center !important;
@@ -98,16 +97,11 @@ header {
   }
 }
 
-/* --- ANIMATION ENGINES --- */
+/* --- ANIMATIONS --- */
+
 @keyframes flowLines {
-  from { 
-    /* We only change the second value (the stream layer) */
-    background-position: center, 0 0, center, center, center; 
-  }
-  to { 
-    /* Move the second layer 400px (matching its size) for a smooth loop */
-    background-position: center, 0 400px, center, center, center; 
-  }
+  from { background-position: 0 0, 0 0, 0 0, center, center; }
+  to { background-position: 0 0, 0 0, 0 1000px, center, center; }
 }
 
 @keyframes subtleGlitch {
@@ -248,20 +242,4 @@ footer:after {
   color: $orange !important;
   font-family: 'Courier New', monospace;
   font-size: 0.85rem !important;
-}
-
-/* --- 11. ANIMATION ENGINES (MUST BE AT BOTTOM) --- */
-@keyframes flowLines {
-  from { background-position: 0 0, 0 0, 0 0, center, center; }
-  to { background-position: 0 0, 0 1000px, 0 0, center, center; }
-}
-
-@keyframes subtleGlitch {
-  0% { transform: translate(0); opacity: 1; }
-  5% { transform: translate(-0.8px, 0.5px); text-shadow: 1px 0 $red, -1px 0 $green; }
-  8% { transform: translate(0); text-shadow: none; }
-  45% { opacity: 0.98; }
-  47% { opacity: 1; transform: translate(0.5px, -0.5px); }
-  50% { transform: translate(0); }
-  100% { transform: translate(0); }
 }
