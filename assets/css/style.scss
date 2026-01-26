@@ -50,9 +50,9 @@ header {
     content: "";
     position: absolute;
     top: 0; left: 0;
-    width: 100%; height: 20px; // Doubled height
+    width: 100%; height: 25px; // Doubled height
     background: linear-gradient(to top, rgba($green, 0.4) 0%, transparent 100%);
-    opacity: 0.3;
+    opacity: 0.5;
     animation: scanLine 4s linear infinite;
     transition: all 0.4s ease;
     pointer-events: none;
@@ -103,7 +103,7 @@ header {
     transition: all 0.5s ease;
   }
 
-  /* PILL BUTTON NAV */
+  /* HEADER LINKS */
   .nav-menu {
     list-style: none !important;
     display: flex !important;
@@ -132,27 +132,6 @@ header {
       }
     }
   }
-}
-
-/* --- DECORATIVE: SYSTEM STATUS DOT --- */
-header::after {
-  content: "SYSTEM LIVE";
-  position: absolute;
-  top: 15px; right: 20px;
-  font-family: monospace;
-  font-size: 10px;
-  color: $green;
-  letter-spacing: 1px;
-}
-header::before {
-  content: "";
-  position: absolute;
-  top: 17px; right: 10px;
-  width: 6px; height: 6px;
-  background: $green;
-  border-radius: 50%;
-  animation: blink 1s infinite;
-  z-index: 10;
 }
 
 // 4. MAIN CONTENT
