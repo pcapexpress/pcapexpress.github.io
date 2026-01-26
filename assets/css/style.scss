@@ -94,22 +94,25 @@ section {
   h1, h2 { color: $red !important; }
   h3 { color: $orange !important; }
 
-  /* Reverted to clean Green text */
   h4 { 
     color: $green !important; 
-    border-bottom: none !important; // Removes the underline
-    display: block !important;       // Returns to standard header behavior
+    font-family: 'Courier New', monospace !important;
+    border-bottom: 1px solid rgba(74, 177, 157, 0.3);
+    display: inline-block;
   }
 
   p, div, li { color: $yellow !important; }
 
   blockquote {
-    border-left: 8px solid $red !important;
-    background: rgba(26, 39, 46, 0.5) !important;
+    border-left: 4px solid $red !important;
+    background: $dark-bg !important;
     padding: 15px 20px !important;
     margin: 20px 0 !important;
-    p { color: $yellow !important; font-style: italic; }
-  }
+    p { 
+      color: $yellow !important; 
+      font-style: italic; 
+      margin: 0 !important; // Keeps the text perfectly centered in the box
+    }
 }
 
 // 5. GLOBAL LINK STYLE (Restored Red Animation)
@@ -153,10 +156,24 @@ section ul li {
 
 // 7. CODE BLOCKS
 pre, code {
-  background: #1a1a1a !important;
+  background: $dark-bg !important;
   color: $green !important;
   border: 1px solid rgba($green, 0.2);
   font-family: 'Courier New', monospace !important;
+  
+  // REMOVE UNDERLINES
+  text-decoration: none !important;
+  background-image: none !important; 
+  
+  // TRANSITION FOR SMOOTHNESS
+  transition: all 0.3s ease;
+
+  &:hover {
+    // TRIGGER THE GLITCH
+    animation: subtleGlitch 2s ease-in-out infinite !important;
+    border-color: rgba($green, 0.8); // Make the border glow slightly
+    box-shadow: 0 0 10px rgba($green, 0.2);
+  }
 }
 
 // 8. CLEANUP
