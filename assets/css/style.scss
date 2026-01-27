@@ -31,7 +31,16 @@ body {
   width: 100% !important;
   margin: 0 auto !important;
   padding: 0 !important;
+  display: block !important;.wrapper {
+  max-width: 900px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  /* FIX: Ensure the wrapper doesn't have internal air at the bottom */
+  padding: 0 !important; 
   display: block !important;
+  /* This prevents the wrapper from stretching past its children */
+  height: auto !important; 
+  overflow: hidden !important; 
 }
 
 /* --- 3. HEADER ARCHITECTURE (SLIM & CLEAN) --- */
@@ -262,6 +271,7 @@ footer small {
   margin: 0 !important;
   padding: 0 !important;
 }
+  
 /* --- 9. SLIM FOOTER --- */
 footer {
   display: flex !important;
@@ -271,10 +281,12 @@ footer {
   width: 100% !important;
   height: 40px !important;
   
-  /* MARGIN: 0 top (attach to section), 40px bottom (float) */
   margin: 0 auto 10px auto !important; 
   padding: 0 20px !important; 
   position: relative !important;
+  
+  /* Ensure the footer image covers everything */
+  background-clip: padding-box !important;
 
   background: 
     linear-gradient(rgba(26, 39, 46, 0.80), rgba(26, 39, 46, 0.80)), 
@@ -283,6 +295,9 @@ footer {
   
   border-top: 3px solid $red !important; 
   border-radius: 0 0 8px 8px; 
+  border-bottom: none !important; // Kill any ghost bottom borders
+  outline: none !important;      // Remove any browser-added outlines
+  box-shadow: 0 1px 0 $dark-bg !important; 
   text-align: center !important;
   box-sizing: border-box !important;
   }
