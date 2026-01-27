@@ -255,6 +255,19 @@ section ul li {
 
 /* 8. CLEANUP - TARGETING THE GHOSTS */
 
+/* 8. CLEANUP - REMOVE DEFAULT THEME LINKS */
+
+header .view, 
+header p.view, 
+header ul:not(.nav-menu) {
+  display: none !important;
+  visibility: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
 section table, 
 section td, 
 section tr {
