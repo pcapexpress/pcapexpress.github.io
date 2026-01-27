@@ -150,7 +150,7 @@ header {
 }
 
 
-* --- 4. MAIN CONTENT AREA --- */
+// 4. MAIN CONTENT AREA
 section {
   max-width: 900px !important;
   margin: 0 auto !important;
@@ -253,28 +253,34 @@ section ul li {
   }
 }
 
-/* 8. CLEANUP - TARGETING THE GHOSTS */
+/* 8. CLEANUP - SURGICAL STRIKES */
 
-section table, 
-section td, 
-section tr {
-  border: none !important;
-  border-collapse: collapse !important;
+/* 8. CLEANUP - SURGICAL STRIKES */
+
+html {
+  background-color: $slate !important;
+  height: auto !important;
 }
 
-/* Kill the empty paragraphs Jekyll is inserting */
-p:empty {
-  display: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
+/* Fix the White Lines (Horizontal Rules) */
+hr {
+  border: 0;
+  height: 2px;
+  background: $red !important; 
+  margin: 20px 0 !important;
+  opacity: 0.3;
 }
 
-/* Kill the default theme text inside the footer so ONLY your © remains */
-footer p, 
-footer small {
-  display: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
+/* Kill the space created by the bottom links */
+section > p:last-child,
+section > table:last-child {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Kill the default margin on lists that might be pushing the footer */
+ul {
+  margin-bottom: 10px !important;
 }
 
 // 9. SLIM FOOTER
