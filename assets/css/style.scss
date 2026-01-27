@@ -14,7 +14,7 @@ $dark-bg: #1A272E;
 // 2. GLOBAL RESET
 body {
   background-color: $slate !important;
-  color: $orange !important;
+  color: $yellow !important;
   margin: 0 !important;
   padding: 0 !important;
   /* Use 'flex' to allow the wrapper to sit correctly, but 'auto' height to prevent stretching */
@@ -295,8 +295,7 @@ footer {
   border-radius: 0 0 8px 8px; 
   text-align: center !important;
   box-sizing: border-box !important;
-  z-index: 10;
-}
+  }
 
 footer:after {
   content: "© 2026 PcapExpress | Patience | Perseverance | Upward Mobility";
