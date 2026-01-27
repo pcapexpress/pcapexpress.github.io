@@ -11,19 +11,29 @@ $orange: #E17A47;
 $medium-bg: #263842;
 $dark-bg: #1A272E;
 
+html {
+  background-color: $slate !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: auto !important;
+}
+
 // 2. GLOBAL RESET
 body {
   background-color: $slate !important;
   color: $yellow !important;
   margin: 0 !important;
   padding: 0 !important;
-  min-height: 100vh !important;
+  
+  /* THE FIX: Remove the forced 100vh screen height */
+  min-height: auto !important; 
   height: auto !important; 
+  
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
   overflow-x: hidden;
-} 
+}
   .wrapper {
   max-width: 900px !important;
   width: 100% !important;
@@ -31,11 +41,13 @@ body {
   padding: 0 !important; 
   display: block !important;
   height: auto !important; 
-  
-  /* This ensures the rounded corners of the footer 
-     don't leak white space at the corners */
-  overflow: hidden !important; 
+  overflow: visible !important; /* Changed from hidden to allow footer shadow */
   position: relative !important;
+}
+
+/* Ensure nothing inside the wrapper pushes past the footer */
+.wrapper > *:last-child {
+  margin-bottom: 0 !important;
 }
 
 /* --- 3. HEADER ARCHITECTURE (SLIM & CLEAN) --- */
