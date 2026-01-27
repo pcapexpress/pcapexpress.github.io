@@ -241,7 +241,7 @@ section ul li {
   &:hover {
     background-color: $red !important; 
     color: #ffffff !important;           
-    transform: translateX(8px); // Slightly more movement for "impact"
+    transform: translateX(4px); // Slightly more movement for "impact"
 
     p, span, div, strong { color: #ffffff !important; }
     
@@ -255,18 +255,10 @@ section ul li {
 
 /* 8. CLEANUP - SURGICAL STRIKES */
 
-/* 8. CLEANUP - SURGICAL STRIKES */
-
-html {
-  background-color: $slate !important;
-  height: auto !important;
-}
-
 /* Fix the White Lines (Horizontal Rules) */
 hr {
   border: 0;
   height: 2px;
-  background: $red !important; 
   margin: 20px 0 !important;
   opacity: 0.3;
 }
@@ -278,11 +270,6 @@ section > table:last-child {
   padding-bottom: 0 !important;
 }
 
-/* Kill the default margin on lists that might be pushing the footer */
-ul {
-  margin-bottom: 10px !important;
-}
-
 // 9. SLIM FOOTER
 footer {
   display: flex !important;
@@ -292,7 +279,7 @@ footer {
   width: 100% !important;
   height: 40px !important;
   
-  margin: 0 auto 10px auto !important; 
+  margin: 10px auto 10px auto !important; 
   padding: 0 20px !important; 
   position: relative !important;
 
