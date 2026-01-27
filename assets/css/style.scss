@@ -17,15 +17,13 @@ body {
   color: $yellow !important;
   margin: 0 !important;
   padding: 0 !important;
-  /* Use 'flex' to allow the wrapper to sit correctly, but 'auto' height to prevent stretching */
   min-height: 100vh !important;
   height: auto !important; 
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
   overflow-x: hidden;
-}
-
+} 
   .wrapper {
   max-width: 900px !important;
   width: 100% !important;
@@ -292,8 +290,7 @@ footer {
   border-radius: 0 0 8px 8px; 
   border-bottom: none !important; // Kill any ghost bottom borders
   outline: none !important;      // Remove any browser-added outlines
-  box-shadow: 0 1px 0 $dark-bg !important; 
- 
+   
   text-align: center !important;
   box-sizing: border-box !important;
   }
@@ -308,7 +305,12 @@ footer:after {
 }
 
 // 10. ANIMATION ENGINES
-@keyframes scanLine { 0% { top: 0; opacity: 0; } 5% { opacity: 1; } 95% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
+@keyframes scanLine { 
+  0% { top: 0; opacity: 0; } 
+  5% { opacity: 1; } 
+  95% { opacity: 1; } 
+  100% { top: 100%; opacity: 0; } 
+}
 
 @keyframes glitchText {
   0% { transform: translate(0); text-shadow: -2px -2px $red, 2px 2px $green; }
