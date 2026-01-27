@@ -38,4 +38,4 @@
 * **Google Security**
 * **CompTia Security+**
 
-[Link to LinkedIn] | [Download Resume (PDF)]
+[Link to LinkedIn] | [Download Resume (PDF)] | [Heres a good MIX]
