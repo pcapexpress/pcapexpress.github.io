@@ -16,9 +16,11 @@ body {
   background-color: $slate !important;
   color: $orange !important;
   margin: 0 !important;
-  padding: 0 !important;      // Remove any global padding
+  padding: 0 !important;
+  /* Use 'flex' to allow the wrapper to sit correctly, but 'auto' height to prevent stretching */
   min-height: auto !important;
-  display: block !important;
+  height: auto !important; 
+  display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
   overflow-x: hidden;
@@ -250,23 +252,24 @@ section ul li {
 }
 
 /* --- 8. CLEANUP --- */
+/* Hide default theme elements */
 header .view, 
 header p.view, 
 header ul.downloads,
 header > ul:not(.nav-menu),
-//hides git hub tag
 footer small { 
   display: none !important;
   margin: 0 !important;
   padding: 0 !important;
-  /* Kill any theme-default footers outside your wrapper */
+}
+
+/* Kill any theme-default footers outside your wrapper */
 .site-footer, #footer, .footer-col-wrapper {
   display: none !important;
   visibility: hidden !important;
   height: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
-  }
 }
 
 /* --- 9. SLIM FOOTER --- */
