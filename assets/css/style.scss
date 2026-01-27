@@ -17,7 +17,7 @@ body {
   color: $orange !important;
   margin: 0 !important;
   padding: 0 !important;      // Remove any global padding
-  min-height: 100vh !important;
+  min-height: auto !important;
   display: block !important;
   flex-direction: column !important;
   align-items: center !important;
@@ -123,14 +123,11 @@ header {
     margin-top: 15px !important;
     padding: 0 !important;
     
-  }
-} 
-
     //PILL LINKS
-    /*li a {
+    li a {
       background: rgba($dark-bg, 0.8) !important;
-      border: 1px solid $green !important;
-      color: $green !important;
+      border: 1px solid $orange !important;
+      color: $orange !important;
       padding: 8px 20px !important;
       border-radius: 50px !important; // Makes them pills
       font-size: 0.9rem !important;
@@ -140,12 +137,15 @@ header {
       pointer-events: auto !important;
 
       &:hover {
-        background: $green !important;
+        background: $orange !important;
         color: $dark-bg !important;
-        box-shadow: 0 0 15px $green;
+        box-shadow: 0 0 15px $orange;
         transform: scale(1.05);
       }
-    }*/
+    }
+  }
+}
+
 
 /* --- 4. MAIN CONTENT AREA --- */
 section {
