@@ -11,37 +11,31 @@ $orange: #E17A47;
 $medium-bg: #263842;
 $dark-bg: #1A272E;
 
-html {
-  background-color: $slate !important;
-  height: auto !important;
-  margin: 0 !important;
-}
-
+// 2. GLOBAL RESET
 body {
   background-color: $slate !important;
+  color: $orange !important;
   margin: 0 !important;
   padding: 0 !important;
-  min-height: 0 !important;
-  height: auto !important;
+  /* Use 'flex' to allow the wrapper to sit correctly, but 'auto' height to prevent stretching */
+  min-height: auto !important;
+  height: auto !important; 
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
+  overflow-x: hidden;
 }
 
-  .wrapper {
+.wrapper {
   max-width: 900px !important;
   width: 100% !important;
   margin: 0 auto !important;
   padding: 0 !important; 
   display: block !important;
   height: auto !important; 
-  overflow: hidden !important; /* Changed from hidden to allow footer shadow */
+  /* 'hidden' ensures the wrapper ends exactly where the footer ends */
+  overflow: hidden !important; 
   position: relative !important;
-}
-
-/* Ensure nothing inside the wrapper pushes past the footer */
-.wrapper > *:last-child {
-  margin-bottom: 0 !important;
 }
 
 /* --- 3. HEADER ARCHITECTURE (SLIM & CLEAN) --- */
@@ -163,6 +157,8 @@ section {
   max-width: 900px !important;
   margin: 0 auto !important;
   padding: 40px 20px !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 20px !important; // Adjust this to control gap between content and footer
   display: block !important;
   width: 100% !important;
   box-sizing: border-box !important;
@@ -261,33 +257,38 @@ section ul li {
   }
 }
 
-/* --- 8. CLEANUP --- */
-/* Deletes the empty paragraphs Jekyll is injecting */
-p:empty, 
-header p, 
-footer p {
-  display: none !important; 
-  margin: 0 !important;
-  padding: 0 !important;
-  height: 0 !important;
+/* 8. CLEANUP - TARGETING THE GHOSTS */
+
+section table, 
+section td, 
+section tr {
+  border: none !important;
+  border-collapse: collapse !important;
 }
 
-/* 2. Kill the "Hosted on GitHub" text and its container <p> */
+/* Kill the empty paragraphs Jekyll is inserting */
+p:empty {
+  display: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Kill the default theme text inside the footer so ONLY your © remains */
 footer p, 
 footer small {
   display: none !important;
   margin: 0 !important;
   padding: 0 !important;
-  height: 0 !important;
 }
 
-/* Kills the default table spacing at the bottom of your section */
-section table {
+/* Ensure the Section doesn't have a massive bottom margin pushing the footer */
+section {
+  padding-bottom: 20px !important; // Adjust this to control gap between content and footer
   margin-bottom: 0 !important;
-  border-spacing: 0 !important;
 }
 
-/* --- 9. SLIM FOOTER --- */
+
+// 9. SLIM FOOTER
 footer {
   display: flex !important;
   align-items: center;
@@ -299,27 +300,21 @@ footer {
   margin: 0 auto 10px auto !important; 
   padding: 0 20px !important; 
   position: relative !important;
-  
+
   background: 
     linear-gradient(rgba(26, 39, 46, 0.80), rgba(26, 39, 46, 0.80)), 
     url("../images/footer.png") no-repeat center center !important;
   background-size: cover !important;
-  background-clip: padding-box !important;
   
   border-top: 3px solid $red !important; 
   border-radius: 0 0 8px 8px; 
-  box-shadow: 0 1px 0 $dark-bg !important; /* Acts as 'caulk' for the white line */
-  overflow: hidden !important;
-  border-bottom: none !important; // Kill any ghost bottom borders
-  outline: none !important;      // Remove any browser-added outlines
-   
   text-align: center !important;
   box-sizing: border-box !important;
-  }
+}
 
 footer:after {
   content: "© 2026 PcapExpress | Patience | Perseverance | Upward Mobility";
-  white-space: nowrap; 
+  white-space: pre; 
   color: $orange !important;
   font-family: 'Courier New', monospace;
   font-size: 0.85rem !important;
@@ -327,11 +322,12 @@ footer:after {
 }
 
 // 10. ANIMATION ENGINES
+
 @keyframes scanLine { 
   0% { top: 0; opacity: 0; } 
   5% { opacity: 1; } 
   95% { opacity: 1; } 
-  100% { top: 100%; opacity: 0; } 
+  100% { top: 100%; opacity: 0; }
 }
 
 @keyframes glitchText {
