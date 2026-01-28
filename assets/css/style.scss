@@ -191,26 +191,58 @@ section {
 }
 
 /* --- 5. CODE BLOCKS --- */
+
 pre, code {
   background-color: #0a0a0a !important; 
   background-image: repeating-conic-gradient(#1a1a1a 0% 25%, #222 0% 50%) !important;
   background-size: 4px 4px !important;
-  color: $green !important;
-  border: 1px solid rgba($green, 0.3);
-  padding: 15px !important;
+  color: $green; 
+  border: none !important; 
+  padding: 35px 15px 15px 15px !important; /* Space for buttons */
   display: block;
   font-family: 'Courier New', monospace !important;
   position: relative;
   overflow: hidden;
+  transition: background-color 0.3s ease;
 
-  &::before {
+  /* Scanline Overlay (Neutral Version) */
+  &::after {
     content: "";
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(255, 255, 255, 0.03);
-    animation: staticFlicker 0.2s infinite;
+    /* Subtle 1px lines, NO RED */
+    background: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.3) 50%);
+    background-size: 100% 2px;
     pointer-events: none;
+    z-index: 2;
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
   }
+
+  &:hover {
+    background-color: #0d0d0d !important;
+    &::after { opacity: 0.6; }
+  }
+
+  /* Color Classes for your .md file spans */
+  .red    { color: $red !important; text-shadow: 0 0 5px rgba($red, 0.5); }
+  .green  { color: $green !important; text-shadow: 0 0 5px rgba($green, 0.5); }
+  .yellow { color: $yellow !important; text-shadow: 0 0 5px rgba($yellow, 0.5); }
+  .orange { color: $orange !important; text-shadow: 0 0 5px rgba($orange, 0.5); }
+  .slate  { color: $slate !important; }
+}
+
+/* Data Label Style */
+pre[data-label]::after {
+  content: attr(data-label);
+  position: absolute;
+  top: 0; right: 0;
+  padding: 5px 10px;
+  background: $red;
+  color: white;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  z-index: 4;
 }
 
 /* --- 6. GLOBAL LINK STYLE --- */
@@ -228,6 +260,13 @@ a {
   &:hover {
     color: $yellow !important;
     background-size: 100% 2px;
+  }
+
+  /* ANTI-CONFLICT: Prevent code blocks from inheriting link styles */
+  a pre, a code {
+    background: transparent !important;
+    padding: 0 !important;
+    display: inline !important; /* Prevents double-boxing */
   }
 }
 
