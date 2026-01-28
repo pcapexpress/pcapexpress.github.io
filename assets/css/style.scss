@@ -84,19 +84,19 @@ header {
   }
 
   &:hover {
-    filter: brightness(1.2);
+    filter: brightness(1.1);
       // LINE 1: Green Scan - Speeding up from 4s to 1s
     &::after {
       opacity: 1;
       background: linear-gradient(to top, rgba($green, 0.6) 0%, rgba($green, 0.2) 50%, transparent 100%);
       box-shadow: 0 5px 25px rgba($green, 0.5);
-      animation: scanLine 1s linear infinite, dataStutter 0.5s steps(4) infinite;
+      animation: scanLine 3.5s linear infinite, dataStutter 0.5s steps(4) infinite;
     }
       // LINE 2: Red Laser - Speeding up from 1.5s to 0.4s
     &::before {
       background: rgba($red, 0.8);
       box-shadow: 0 0 10px #fff, 0 0 30px $red;
-      animation: scanLine 0.4s linear infinite, fastPulse 0.2s ease-in-out infinite;
+      animation: scanLine 1.1s linear infinite, fastPulse 0.2s ease-in-out infinite;
        
     }
     h1 a { animation: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite !important; }
