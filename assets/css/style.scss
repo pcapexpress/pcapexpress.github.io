@@ -84,19 +84,19 @@ header {
   }
 
   &:hover {
-    filter: brightness(0.5);
+    filter: brightness(1.05);
       // LINE 1: Green Scan - Speeding up from 4s to 1s
     &::after {
       opacity: 1;
       background: linear-gradient(to top, rgba($green, 0.6) 0%, rgba($green, 0.2) 50%, transparent 100%);
       box-shadow: 0 5px 25px rgba($green, 0.5);
-      animation: scanLine 4s linear infinite, dataStutter 2s steps(4) infinite;
+      animation: scanLine 3.8s linear infinite, dataStutter 0.5s steps(4) infinite;
     }
       // LINE 2: Red Laser - Speeding up from 1.5s to 0.4s
     &::before {
       background: rgba($red, 0.8);
       box-shadow: 0 0 10px #fff, 0 0 30px $red;
-      animation: scanLine 1.5s linear infinite, fastPulse 1.5s ease-in-out infinite;
+      animation: scanLine 1.4s linear infinite, fastPulse 0.2s ease-in-out infinite;
        
     }
     h1 a { animation: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite !important; }
@@ -383,27 +383,32 @@ footer {
   display: flex !important;
   align-items: center;
   justify-content: center;
-  max-width: 900px !important;
+  max-width: 900px !important; // Keeps it aligned with your main content
   width: 100% !important;
-  height: 40px !important;
-  
-  margin: 10px auto 10px auto !important; 
+  height: 60px !important;    // Increased slightly to handle the text better
+
+  /* GAP FIX: Zero out the bottom margin and top margin */
+  /* If you want space above the footer, use margin-top, but margin-bottom MUST be 0 */
+  margin: 40px auto 0 auto !important; 
   padding: 0 20px !important; 
   position: relative !important;
 
   background: 
     linear-gradient(rgba(26, 39, 46, 0.80), rgba(26, 39, 46, 0.80)), 
-    url("../images/footer.png") no-repeat center center !important;
+    url("../images/footer.png") no-repeat bottom center !important; /* Anchored to bottom */
   background-size: cover !important;
- 
   
   border-top: 3px solid $red !important; 
+  
+  /* Remove rounded corners on bottom so it sits flat against the screen */
   border-radius: 0 0 8px 8px; 
 
   border-bottom: none !important;
-  box-shadow: 0 1px 0 $dark-bg !important; /* This hides the white gap */
-  overflow: hidden !important;
   
+  /* This ensures the background color of the footer fills any sub-pixel gaps */
+  box-shadow: 0 5px 0 rgba(26, 39, 46, 1.0); 
+  
+  overflow: hidden !important;
   text-align: center !important;
   box-sizing: border-box !important;
 }
