@@ -61,17 +61,25 @@ header {
 
   // LINE 1: Green Scan
   &::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 25px;
-    background: linear-gradient(to top, rgba($green, 0.5) 0%, transparent 100%);
-    opacity: 0.6;
-    animation: scanLine 1s linear infinite;
-    transition: all 0.4s ease;
-    pointer-events: none;
-    z-index: 2;
-  }
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 35px; /* Increased height for better gradient falloff */
+  
+  /* The "Leading Edge" trick: A solid line at the bottom of the gradient makes it pop */
+  background: linear-gradient(
+    to top, 
+    rgba($green, 1.0) 0%,    /* Solid neon at the leading edge */
+    rgba($green, 0.4) 20%,   /* Mid-glow */
+    transparent 100%         /* Fade out */
+  );
+  
+  opacity: 0.8; 
+  animation: scanLine 1s linear infinite;
+  transition: all 0.4s ease;
+  pointer-events: none;
+  z-index: 2;
+}
 
   // LINE 2: Red Laser
   &::before {
@@ -90,10 +98,15 @@ header {
   &:hover {
     
     &::after {
-      opacity: 1.5;
-      background: linear-gradient(to top, rgba($green, 0.6) 0%, rgba($green, 0.2) 50%, transparent 100%);
-      box-shadow: 0 5px 25px rgba($green, 0.5);
-      animation: scanLine 4s linear infinite, dataStutter 1.5s steps(4) infinite;
+    opacity: 1;
+    
+    /* Stronger, multi-layered glow */
+    box-shadow: 
+      0 0 15px rgba($green, 0.8), 
+      0 0 30px rgba($green, 0.4); 
+    
+    /* Overclocked animation as we discussed */
+    animation: scanLine 0.8s linear infinite, dataStutter 0.2s steps(4) infinite;
     }
     &::before {
       background: rgba($red, 0.8);
@@ -347,37 +360,32 @@ section ul li {
 
 // 8. CLEANUP
 
+/* Grouping everything that needs to stay hidden to avoid repetition */
 header .view, 
 header p.view, 
-header ul:not(.nav-menu) {
-  display: none !important;
-  visibility: hidden !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  height: 0 !important;
-  overflow: hidden !important;
-}
-
-section table, 
-section td, 
-section tr {
-  border: none !important;
-  border-collapse: collapse !important;
-}
-
-/* Kill the empty paragraphs Jekyll is inserting */
-p:empty {
-  display: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* Kill the default theme text inside the footer so ONLY your © remains */
+header ul:not(.nav-menu),
+p:empty,
 footer p, 
 footer small {
   display: none !important;
   margin: 0 !important;
   padding: 0 !important;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none; /* Extra safety: prevents invisible elements from being clickable */
+}
+
+/* 2. TABLE RESET */
+/* We don't need !important on everything if we target the table properly */
+section table {
+  border: none;
+  border-collapse: collapse;
+  width: 100%; /* Usually good practice for dossiers */
+  
+  td, tr {
+    border: none;
+  }
 }
 
 // 9. SLIM FOOTER
