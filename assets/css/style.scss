@@ -207,18 +207,16 @@ pre, code {
   overflow: hidden;
   transition: background-color 0.3s ease;
 
-   /* Scanline Overlay */
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.3) 50%);
-    background-size: 100% 2px;
-    pointer-events: none;
-    z-index: 2;
-    opacity: 0.3;
-    transition: opacity 0.3s ease;
-  }
+   /* Scanline Overlay - Ensure this is strictly Black/Transparent */
+&::after {
+  /* ... other code ... */
+  background: linear-gradient(
+    rgba(0, 0, 0, 0) 50%, 
+    rgba(0, 0, 0, 0.4) 50%  /* This must be BLACK, not GREEN */
+  );
+  background-size: 100% 2px;
+  /* ... other code ... */
+}
 
   &:hover {
     background-color: #0d0d0d !important;
