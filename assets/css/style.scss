@@ -207,7 +207,7 @@ pre, code {
   overflow: hidden;
   transition: background-color 0.3s ease;
    
-   /* The subtle flicker effect */
+  /* The subtle flicker effect */
   &::before {
     content: "";
     position: absolute;
@@ -217,12 +217,11 @@ pre, code {
     pointer-events: none;
   }
     
-    &:hover {
+  &:hover {
     background-color: #0d0d0d !important;
-    &::after { opacity: 0.6; }
   }
-}
 
+  /* Color Classes - Now properly nested inside pre, code */
   .red    { color: $red !important; text-shadow: 0 0 5px rgba($red, 0.5); }
   .green  { color: $green !important; text-shadow: 0 0 5px rgba($green, 0.5); }
   .yellow { color: $yellow !important; text-shadow: 0 0 5px rgba($yellow, 0.5); }
@@ -230,19 +229,18 @@ pre, code {
   .slate  { color: $slate !important; }
 }
 
-/* Data Label */
+/* Data Label - Fixed semicolon and positioning */
 pre[data-label]::after {
   content: attr(data-label);
   position: absolute;
   top: 0; left: 0;
-  padding: 5px 5px;
-  background: $green; !important;
+  padding: 5px 10px;
+  background: $green !important; 
   color: white;
   font-size: 0.6rem;
   text-transform: uppercase;
   z-index: 4;
 }
-
 /* --- 6. GLOBAL LINK STYLE --- */
 a {
   color: $orange !important;
