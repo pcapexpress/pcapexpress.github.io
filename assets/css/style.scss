@@ -201,14 +201,20 @@ section {
     height: 1px !important;
     background-color: $orange !important;
     margin: 50px auto !important;
-    width: 85% !important;
-    opacity: 0.6;
+    width: 95% !important;
     display: block !important;
-    overflow: visible !important; // Ensures the glow isn't clipped
+    overflow: visible !important; 
+
+    /* SUBTLE GLOW ARCHITECTURE */
+    /* Layer 1: The "Tight" Glow (Subtle 4px spread) */
+    /* Layer 2: The "Shadow Glow" (Deep 15px spread, low opacity) */
+    box-shadow: 
+      0 0 4px rgba($orange, 0.4), 
+      0 0 15px rgba(0, 0, 0, 0.7); /* This creates the "Shadow" depth behind the glow */
     
-    /* The Warm Glow */
-    box-shadow: 0 0 10px rgba($orange, 0.8), 0 0 4px rgba($orange, 0.4);
-    
+    /* Overall line opacity - lowered for subtleness */
+    opacity: 0.5; 
+
     /* Applying the pulse */
     animation: staticFlicker 0.4s infinite alternate;
   }
