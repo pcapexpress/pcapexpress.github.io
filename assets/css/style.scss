@@ -231,17 +231,16 @@ section {
   /* box-shadow (glow) takes 0.2s (fast/snappy) */
   /* border-color takes 0.2s */
   transition: 
-    transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
-    box-shadow 0.2s ease-in-out, 
-    border-color 0.8s ease-in-out;
+    /* Property | Duration | Timing | Delay */
+    transform    0.4s cubic-bezier(0.165, 0.84, 0.44, 1) 0s,   /* Instant Zoom */
+    box-shadow   1.0s ease-in-out 0.3s,                       /* Wait 0.3s, then Glow slowly */
+    border-color 1.0s ease-in-out 0.3s;                       /* Wait 0.3s, then Color fade */
 
   &:hover {
+    transform: scale(1.02);
     border-color: $orange !important;
-    transform: scale(1.02); /* The slow lens zoom */
-    
-    /* The fast orange "power up" glow */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba($orange, 0.5);
-    }
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba($orange, 0.6);
+  }
   }
 }
 
