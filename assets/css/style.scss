@@ -198,8 +198,7 @@ section {
   
 hr {
     border: none !important;
-    height: 3px !important;
-    background-color: #fff !important; /* Pure white core for the hottest part of the light */
+    height: 1px !important;
     margin: 50px auto !important;
     width: 95% !important;
     display: block !important;
@@ -207,7 +206,7 @@ hr {
 
     /* ENHANCED GLOW ARCHITECTURE */
     box-shadow: 
-      0 0 1px #fff,                         /* Layer 1: The "Hot" center wire */
+      0 0 1px rgba($red, 1.0),              /* Layer 1: The "Hot" center wire */
       0 0 6px rgba($orange, 0.9),          /* Layer 2: The primary orange radiation */
       0 0 12px rgba($orange, 0.7);          /* Layer 3: The soft "Environmental" bloom */
     
@@ -215,14 +214,47 @@ hr {
     opacity: 0.9; 
 
     /* Applying the pulse */
-    animation: staticFlicker 0.5s infinite alternate;
+    animation: staticFlicker 1.5s infinite alternate;
   }
 
   /* Desync Logic - Using just hr: since it's nested */
   hr:nth-of-type(2n) { animation-delay: 0.1s; animation-duration: 0.35s; }
   hr:nth-of-type(3n) { animation-delay: 0.25s; animation-duration: 0.5s; }
   hr:nth-of-type(4n) { animation-delay: 0.05s; animation-duration: 0.45s; }
+
+  //IMAGE STYLING
+  section img {
+    /* 1. The Frame */
+    border: 2px solid rgba($orange, 0.4) !important;
+    padding: 8px !important; // Creates a "matting" effect between image and frame
+    background-color: rgba($dark-bg, 0.5) !important;
+  
+    /* 2. Rounded Corners */
+    border-radius: 12px !important;
+  
+    /* 3. Layout & Spacing */
+    display: block !important;
+    max-width: 90% !important; // Prevents images from hitting the edges
+    height: auto !important;
+    margin: 30px auto !important; // Centers the image and adds breathing room
+  
+    /* 4. Subtle Outer Glow (matches your dividers) */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 10px rgba($orange, 0.1);
+  
+    /* 5. Clean Transition */
+    transition: transform 0.3s ease, border-color 0.3s ease;
+
+    /* Hover Interaction */
+    &:hover {
+      border-color: $orange !important;
+      transform: scale(1.02); // Very slight "zoom" when inspecting
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 15px rgba($orange, 0.3);
+    }
+  }
 }
+
+
+
   
 // 5. CODE BLOCKS
 
