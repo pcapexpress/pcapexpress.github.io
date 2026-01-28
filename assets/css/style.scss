@@ -213,7 +213,7 @@ section {
 
   // IMAGE STYLING
   img {
-    border: 2px solid rgba($orange, 0.75) !important;
+    border: 2px solid rgba($orange, 0.4) !important;
     background-color: rgba($dark-bg, 0.5) !important;
     border-radius: 20px !important;
     overflow: hidden !important; 
@@ -222,16 +222,18 @@ section {
     max-width: 90% !important;
     height: auto !important;
     margin: 35px auto !important;
-  
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
-
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
+    
   transition: 
-    box-shadow   0.6s ease-in-out 0.1s,   /* Glow starts almost immediately (0.1s) */
-    border-color 0.6s ease-in-out 0.1s;   /* Finishes in 0.6s total instead of 1s */
+    box-shadow 0.5s ease-in-out, 
+    border-color 0.5s ease-in-out;
 
   &:hover {
-    border-color: $orange !important;
-    box-shadow: 0 7px 10px rgba(0, 0, 0, 0.9), 0 0 20px rgba($orange, 0.9);
+    border-color: rgba($orange, 1.0) !important;
+    box-shadow: 
+      0 4px 10px rgba(0, 0, 0, 0.8),  /* Tighter ground shadow */
+      0 0 25px rgba($orange, 0.6);   /* Soft ambient orange bloom */
+    filter: brightness(1.05);
     }
   }
 }
