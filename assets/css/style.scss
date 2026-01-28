@@ -17,7 +17,10 @@ body {
   color: $orange !important;
   margin: 0 !important;
   padding: 0 !important;
-  height: auto !important; 
+  
+  min-height: 100vh !important; 
+  height: auto !important;
+  
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
@@ -29,11 +32,12 @@ body {
   width: 100% !important;
   margin: 0 auto !important;
   padding: 0 !important; 
-  display: block !important;
+  
   height: auto !important; 
-  /* 'hidden' ensures the wrapper ends exactly where the footer ends */
   overflow: hidden !important; 
   position: relative !important;
+  margin-bottom: 0 !important; 
+  display: flow-root !important;
 }
 
 // 3. HEADER ARCHITECTURE
@@ -84,19 +88,16 @@ header {
   }
 
   &:hover {
-      // LINE 1: Green Scan - Speeding up from 4s to 1s
     &::after {
       opacity: 1;
       background: linear-gradient(to top, rgba($green, 0.6) 0%, rgba($green, 0.2) 50%, transparent 100%);
-      box-shadow: 0 5px 20px rgba($green, 0.5);
-      animation: scanLine 3.7s linear infinite, dataStutter 3s steps(4) infinite;
+      box-shadow: 0 5px 25px rgba($green, 0.5);
+      animation: scanLine 4s linear infinite, dataStutter 1.5s steps(4) infinite;
     }
-      // LINE 2: Red Laser - Speeding up from 1.5s to 0.4s
     &::before {
       background: rgba($red, 0.8);
       box-shadow: 0 0 10px #fff, 0 0 30px $red;
-      animation: scanLine 1.7s linear infinite, fastPulse 2s ease-in-out infinite;
-       
+      animation: scanLine 1.5s linear infinite, fastPulse 0.4s infinite;
     }
     h1 a { animation: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite !important; }
     .header-bio { text-shadow: 0 0 10px $green; filter: brightness(1.5); }
