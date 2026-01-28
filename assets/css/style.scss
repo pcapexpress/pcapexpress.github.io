@@ -127,6 +127,7 @@ header {
     padding: 0 !important;
  
     //PILL LINKS
+    
     li a {
       background: rgba($dark-bg, 0.8) !important;
       border: 1px solid $red !important;
@@ -195,21 +196,27 @@ section {
 
 // THE --- DIVIDER LINE
   
-  section hr {
-  border: none !important;
-  height: 1px !important;
-  background-color: $orange !important;
-  margin: 50px auto !important;
-  width: 85% !important;
-  opacity: 0.6;
-  display: block;
-  
-  /* The Warm Glow */
-  box-shadow: 0 0 10px rgba($orange, 0.4), 0 0 2px rgba($orange, 0.2);
-  
-  /* Applying the pulse */
-  animation: staticFlicker 0.4s infinite alternate;
+ hr {
+    border: none !important;
+    height: 1px !important;
+    background-color: $orange !important;
+    margin: 50px auto !important;
+    width: 85% !important;
+    opacity: 0.6;
+    display: block !important;
+    overflow: visible !important; // Ensures the glow isn't clipped
+    
+    /* The Warm Glow */
+    box-shadow: 0 0 10px rgba($orange, 0.8), 0 0 4px rgba($orange, 0.4);
+    
+    /* Applying the pulse */
+    animation: staticFlicker 0.4s infinite alternate;
   }
+
+  /* Desync Logic - Using just hr: since it's nested */
+  hr:nth-of-type(2n) { animation-delay: 0.1s; animation-duration: 0.35s; }
+  hr:nth-of-type(3n) { animation-delay: 0.25s; animation-duration: 0.5s; }
+  hr:nth-of-type(4n) { animation-delay: 0.05s; animation-duration: 0.45s; }
 }
   
 // 5. CODE BLOCKS
