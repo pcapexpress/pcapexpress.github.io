@@ -198,7 +198,7 @@ section {
   
 hr {
     border: none !important;
-    height: 1px !important;
+    height: 2px !important;
     background-color: $orange !important;
     margin: 50px auto !important;
     width: 95% !important;
@@ -207,12 +207,12 @@ hr {
 
     /* SUBTLE GLOW ARCHITECTURE */
     box-shadow: 
-      0 0 4px rgba($orange, 0.4), 
-      0 0 15px rgba(0, 0, 0, 0.7); /* This creates the "Shadow" depth behind the glow */
+      0 0 4px rgba($orange, 0.8), 
+      0 0 15px rgba(0, 0, 0, 1.0); /* This creates the "Shadow" depth behind the glow */
     
     /* Overall line opacity - lowered for subtleness */
-    opacity: 0.5; 
-    animation: staticFlicker 0.4s infinite alternate;
+    opacity: 0.6; 
+    animation: staticFlicker 0.8s infinite alternate;
   }
 
   /* Desync Logic - Using just hr: since it's nested */
@@ -223,12 +223,12 @@ hr {
   //IMAGE STYLING
   img {
     /* 1. The Frame */
-    border: 2px solid rgba($orange, 0.4) !important;
+    border: 2px solid rgba($orange, 0.8) !important;
     padding: 8px !important; // Creates a "matting" effect between image and frame
-    background-color: rgba($dark-bg, 0.5) !important;
+    background-color: rgba($dark-bg, 0.4) !important;
   
     /* 2. Rounded Corners */
-    border-radius: 12px !important;
+    border-radius: 8px !important;
   
     /* 3. Layout & Spacing */
     display: block !important;
@@ -237,10 +237,10 @@ hr {
     margin: 30px auto !important; // Centers the image and adds breathing room
   
     /* 4. Subtle Outer Glow (matches your dividers) */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 10px rgba($orange, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 10px rgba($orange, 0.3);
   
     /* 5. Clean Transition */
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    transition: transform 0.2s ease, border-color 0.8s ease;
 
     /* Hover Interaction */
     &:hover {
