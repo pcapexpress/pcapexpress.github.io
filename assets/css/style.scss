@@ -283,7 +283,7 @@ pre, code {
   overflow: hidden;
   transition: background-color 0.3s ease;
    
-  //FLICKER ANIMATION
+  //BLOCK FLICKER ANIMATION
   
   &::before {
     content: "";
@@ -294,7 +294,7 @@ pre, code {
     pointer-events: none;
   }
 
-  //COLOR AND GLOW
+  //TEXT COLOR AND GLOW
   
   .red    { color: $red !important; text-shadow: 0 0 5px rgba($red, 0.5); }
   .green  { color: $green !important; text-shadow: 0 0 5px rgba($green, 0.5); }
@@ -303,7 +303,7 @@ pre, code {
   .slate  { color: $slate !important; }
 }
 
-//DATA LABEL
+//CORNER LABEL
 
 pre[data-label]::after {
   content: attr(data-label);
@@ -364,7 +364,18 @@ section ul li {
 
 // 8. CLEANUP
 
-/* Grouping everything that needs to stay hidden to avoid repetition */
+/* This ensures the body container recognizes its true bottom edge */
+body::after {
+  content: "";
+  display: block;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+/* Grouping everything that needs to stay hidden */
 header .view, 
 header p.view, 
 header ul:not(.nav-menu),
@@ -374,18 +385,18 @@ footer small {
   display: none !important;
   margin: 0 !important;
   padding: 0 !important;
+  line-height: 0 !important;
   visibility: hidden;
   height: 0;
   overflow: hidden;
-  pointer-events: none; /* Extra safety: prevents invisible elements from being clickable */
+  pointer-events: none;
 }
 
 /* 2. TABLE RESET */
-/* We don't need !important on everything if we target the table properly */
 section table {
   border: none;
   border-collapse: collapse;
-  width: 100%; /* Usually good practice for dossiers */
+  width: 100%;
   
   td, tr {
     border: none;
