@@ -65,9 +65,9 @@ header {
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 25px;
-    background: linear-gradient(to top, rgba($green, 0.4) 0%, transparent 100%);
-    opacity: 0.5;
-    animation: scanLine 4s linear infinite;
+    background: linear-gradient(to top, rgba($green, 0.5) 0%, transparent 100%);
+    opacity: 0.6;
+    animation: scanLine 1s linear infinite;
     transition: all 0.4s ease;
     pointer-events: none;
     z-index: 2;
@@ -80,7 +80,7 @@ header {
     top: 0; left: 0;
     width: 100%; height: 3px;
     background: rgba($red, 0.3);
-    animation: scanLine 1.5s linear infinite;
+    animation: scanLine 0.5s linear infinite;
     animation-delay: 0.5s;
     transition: all 0.4s ease;
     pointer-events: none;
@@ -88,8 +88,9 @@ header {
   }
 
   &:hover {
+    
     &::after {
-      opacity: 1;
+      opacity: 1.5;
       background: linear-gradient(to top, rgba($green, 0.6) 0%, rgba($green, 0.2) 50%, transparent 100%);
       box-shadow: 0 5px 25px rgba($green, 0.5);
       animation: scanLine 4s linear infinite, dataStutter 1.5s steps(4) infinite;
@@ -157,31 +158,39 @@ header {
 // 4. MAIN CONTENT AREA
 section {
   max-width: 900px !important;
-  margin: 0 auto !important;
-  padding: 40px 20px 20px 20px !important;
-  display: block !important;
   width: 100% !important;
+  margin: 0 auto !important;
+  padding: 40px 20px 20px 20px !important; // CHECK THIS
+  display: block !important;
   box-sizing: border-box !important;
-  background-color: transparent !important;
+  background: none !important;
+  margin-bottom: 0 !important; 
+  &:last-of-type {
+    padding-bottom: 10px !important;
+}
 
+
+  //HEADERS
   h1, h2 { color: $red !important; }
   h3 { color: $orange !important; }
   h4 { color: $green !important; }
-
   h5 { 
     color: $green !important; 
     font-family: 'Courier New', monospace !important;
     border-bottom: 2px solid rgba(74, 177, 157, 0.3);
     display: inline-block;
   }
-
+  
+  //REGULAR TEXT
   p, div, li { color: $yellow !important; }
-
+  
+  //BOLD correction
   strong, b {
     color: inherit !important;
     font-weight: bold !important;
   }
 
+  //THE > BLOCK
   blockquote {
     border-left: 3px solid $red !important;
     background: $medium-bg !important;
@@ -371,12 +380,6 @@ footer small {
   padding: 0 !important;
 }
 
-/* Ensure the Section doesn't have a massive bottom margin pushing the footer */
-section {
-  padding-bottom: 20px !important; // Adjust this to control gap between content and footer
-  margin-bottom: 0 !important;
-}
-
 // 9. SLIM FOOTER
 
 footer {
@@ -424,7 +427,7 @@ footer:after {
   100% { transform: translate(0); text-shadow: -2px -2px $red, 2px 2px $green; }
 }
 
-//HEADER GREEN
+//IDLE SCAN LINES
 @keyframes scanLine { 
   0% { top: 0; opacity: 0; } 
   5% { opacity: 1; } 
@@ -432,13 +435,13 @@ footer:after {
   100% { top: 100%; opacity: 0; }
 }
 
-//HEADER RED
+//SCAN LINE RED
 @keyframes fastPulse {
   0%, 100% { filter: brightness(1); box-shadow: 0 0 10px $red; }
   50% { filter: brightness(3); box-shadow: 0 0 40px $red, 0 0 60px rgba($red, 0.6); }
 }
 
-//SCAN LINE GLITCH EFFECT
+//SCAN LINE GREEN
 @keyframes dataStutter {
   0%   { opacity: 0.8; }
   25%  { opacity: 0.3; }
@@ -449,17 +452,3 @@ footer:after {
     
 //CODE BLOCK FLICKER
 @keyframes staticFlicker { 0% { opacity: 0.5; } 50% { opacity: 0.8; } 100% { opacity: 0.5; } }
-
-//DIVIDER PULSE
-@keyframes laserPulse {
-  0%, 100% {
-    opacity: 0.6;
-    box-shadow: 0 0 8px rgba($red, 0.6);
-    transform: scaleX(0.98); /* Slight shrink */
-  }
-  50% {
-    opacity: 1;
-    box-shadow: 0 0 15px rgba($red, 1), 0 0 30px rgba($red, 0.5);
-    transform: scaleX(1);    /* Full width */
-  }
-}
