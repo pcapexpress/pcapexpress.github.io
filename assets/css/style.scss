@@ -125,6 +125,13 @@ header {
     gap: 15px !important;
     margin-top: 15px !important;
     padding: 0 !important;
+
+    //Fixing the **BOLD**
+
+    strong, b {
+  color: inherit !important; /* Forces it to match the paragraph color */
+  font-weight: bold !important;
+}
     
     //PILL LINKS
     li a {
@@ -191,13 +198,24 @@ pre, code {
   background-color: #0a0a0a !important; 
   background-image: repeating-conic-gradient(#1a1a1a 0% 25%, #222 0% 50%) !important;
   background-size: 4px 4px !important;
-  color: $green !important;
-  border: 1px solid rgba($green, 0.3);
+  
+  /* 1. Remove '!important' so we can override this color later */
+  color: $green; 
+  
+  /* 2. Remove the border box */
+  border: none !important; 
+  
   padding: 15px !important;
   display: block;
   font-family: 'Courier New', monospace !important;
   position: relative;
   overflow: hidden;
+
+  /* This allows us to use <span class="red"> inside code blocks */
+  .red    { color: $red !important; }
+  .yellow { color: $yellow !important; }
+  .orange { color: $orange !important; }
+  .slate   { color: $slate !important; }
 
   &::before {
     content: "";
