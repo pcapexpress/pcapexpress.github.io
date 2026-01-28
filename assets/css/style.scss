@@ -178,6 +178,8 @@ section {
   color: inherit !important; /* Forces it to match the paragraph color */
   font-weight: bold !important;
 }
+
+// THE > BLOCKQUOTE
   
   blockquote {
     border-left: 3px solid $red !important;
@@ -189,6 +191,21 @@ section {
       font-style: italic; 
       margin: 0 !important;
     }
+  }
+
+// THE --- DIVIDER LINE
+  
+  hr {
+    border: none;
+    height: 2px;
+    background-color: $red !important;
+    margin: 40px 0;
+  
+    /* REUSING YOUR ANIMATION */
+    animation: fastPulse 2s ease-in-out infinite;
+  
+    /* Optional: Making it look like a "wire" */
+    opacity: 0.8;
   }
 }
 
