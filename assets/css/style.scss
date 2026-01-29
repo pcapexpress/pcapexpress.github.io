@@ -59,7 +59,7 @@ header {  position: relative;
 
   background: 
     //linear-gradient(to bottom, rgba(26, 39, 46, 0.2) 10%, rgba(26, 39, 46, 0.95) 100%),
-    url("../images/header.png") no-repeat center center !important;
+    //url("../images/header.png") no-repeat center center !important;
   background-size: cover !important;
   border-bottom: 3px solid $red !important;
   border-radius: 8px 8px 0 0; 
@@ -416,17 +416,16 @@ body::after {
 header .view, 
 header p.view, 
 header ul:not(.nav-menu),
-p:empty,
 footer p, 
-footer small {
+footer small,
+footer p:empty {
   display: none !important;
   margin: 0 !important;
   padding: 0 !important;
+  height: 0 !important;
   line-height: 0 !important;
-  visibility: hidden;
-  height: 0;
-  overflow: hidden;
-  pointer-events: none;
+  font-size: 0 !important;
+  border: none !important;
 }
 
 /* 2. TABLE RESET */
@@ -438,12 +437,19 @@ section table {
   td, tr {
     border: none;
   }
+
+  /* Ensure the wrapper doesn't have extra padding at the bottom */
+  .wrapper {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
 }
 
 // 9. SLIM FOOTER
 
 footer {
   display: flex !important;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   max-width: 900px !important;
