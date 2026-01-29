@@ -1,8 +1,8 @@
-title: "PcapExpress"
-description: "A place to observe and reflect on packets passing by"
+title: PcapExpress
+description: A place to observe and reflect on packets passing by
 baseurl: ""
 url: "https://pcapexpress.github.io"
 
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
+# Forces Jekyll to ignore any theme gems
+theme: null
+remote_theme: null
