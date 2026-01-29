@@ -418,7 +418,8 @@ header p.view,
 header ul:not(.nav-menu),
 footer p, 
 footer small,
-footer p:empty {
+footer p:empty,
+p:empty {  /* Added p:empty here to catch Jekyll's middle-page injections too */
   display: none !important;
   margin: 0 !important;
   padding: 0 !important;
@@ -426,6 +427,8 @@ footer p:empty {
   line-height: 0 !important;
   font-size: 0 !important;
   border: none !important;
+  visibility: hidden;
+  overflow: hidden;
 }
 
 /* 2. TABLE RESET */
@@ -437,12 +440,14 @@ section table {
   td, tr {
     border: none;
   }
+}
 
-  /* Ensure the wrapper doesn't have extra padding at the bottom */
-  .wrapper {
-    padding-bottom: 0 !important;
-    margin-bottom: 0 !important;
-  }
+/* 3. WRAPPER SEAL (Moved outside of the table block) */
+.wrapper {
+  /* This is the final 10px gap between the footer and the edge of the screen */
+  padding-bottom: 10px !important; 
+  margin-bottom: 0 !important;
+  display: flow-root !important; /* Critical: forces the wrapper to contain all margins */
 }
 
 // 9. SLIM FOOTER
@@ -456,7 +461,7 @@ footer {
   width: 100% !important;
   height: 40px !important;
 
-  margin: 60px auto 10px auto !important; 
+  margin: 60px auto 0 auto !important; 
   padding: 0 20px !important; 
   position: relative !important;
 
@@ -464,6 +469,7 @@ footer {
     linear-gradient(rgba(26, 39, 46, 0.80), rgba(26, 39, 46, 0.80)), 
     url("../images/footer.png") no-repeat bottom center !important; /* Anchored to bottom */
   background-size: cover !important;
+  background-position: bottom center !important;
   
   border-top: 3px solid $red !important; 
   border-radius: 0 0 8px 8px; 
@@ -472,6 +478,7 @@ footer {
   overflow: hidden !important;
   text-align: center !important;
   box-sizing: border-box !important;
+
 }
 
 footer:after {
