@@ -46,116 +46,27 @@ body {
 }
 
 // 3. HEADER ARCHITECTURE
-header {  position: relative;
-  overflow: hidden; // Keeps the scanlines contained to the header
-  background-color: $slate !important; // Ensure there is a base color to "brighten"
+header {
+  position: relative !important;
+  overflow: hidden !important; 
+  background-color: $slate !important;
   max-width: 900px !important;  
   margin: 10px auto 0 auto !important; 
   width: 100% !important;
   display: block !important;
   box-sizing: border-box !important;
-  position: relative !important; 
-  overflow: hidden;
-
-  //background: 
-    //linear-gradient(to bottom, rgba(26, 39, 46, 0.2) 10%, rgba(26, 39, 46, 0.95) 100%),
-    //url("../images/header.png") no-repeat center center !important;
- // background-size: cover !important;
   border-bottom: 3px solid $red !important;
   border-radius: 8px 8px 0 0; 
-  padding: 80px 20px !important; // Slim Padding
+  padding: 80px 20px !important;
   text-align: center !important;
 
-  position: relative;
-  // ... other header styles ...
-
-  h1, .header-bio, .nav-menu {
-    position: relative; /* REQUIRED for z-index to work */
-    z-index: 5;        /* Higher than the 2 used for scanlines */
-    pointer-events: auto; /* Ensures links remain clickable */
-  }
-  
-  // SCAN LINE GREEN IDLE
-&::after {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 35px;
-  
-  background: linear-gradient(
-    to top, 
-    rgba($green, 1.0) 0%, 
-    rgba($green, 0.4) 20%, 
-    transparent 100%
-  );
-  
-  // LIGHTING STACK: Combine blend mode and backdrop-filter
-  mix-blend-mode: screen; 
-  backdrop-filter: brightness(1.4) saturate(1.2); 
-  box-shadow: 0 5px 15px rgba($green, 0.3);
-  
-  // Set initial filter so hover has something to transition FROM
-  filter: brightness(1); 
-  
-  animation: scanLine 4s linear infinite;
-  transition: filter 0.4s ease, box-shadow 0.4s ease;
-  pointer-events: none;
-  z-index: 2;
-}
-
-// SCAN LINE RED IDLE
-&::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 3px;
-  background: $red; // Solid color for cleaner transition
-  
-  mix-blend-mode: screen;
-  box-shadow: 0 0 10px $red;
-  filter: brightness(0.6); // Start dimmed so hover looks like a surge
-  
-  animation: scanLine 1s linear infinite;
-  animation-delay: 0.5s;
-  transition: all 0.4s ease;
-  pointer-events: none;
-  z-index: 2;
-}
-
-// ON MOUSE HOVER
-&:hover {
-  // GREEN LINE HOVER
-  &::after {
-    // Instead of opacity, we "overclock" the filter
-    filter: brightness(2) contrast(1.2); 
-    box-shadow: 
-      0 0 20px rgba($green, 0.9), 
-      0 0 40px rgba($green, 0.4); 
-    animation: scanLine 4s linear infinite, dataStutter 0.15s steps(4) infinite;
-  }
-
-  // RED LINE HOVER
-  &::before {
-    background: #fff; // The "Hot Core"
-    filter: brightness(1); // Reset brightness since the color is now white
-    box-shadow: 
-      0 0 15px #fff, 
-      0 0 30px $red, 
-      0 0 50px $red;
-    animation: scanLine 1s linear infinite, fastPulse 0.1s infinite;
-  }
-}
-
-  // Ensure text sits ABOVE the vivid lines
+  // Foreground Elements (Text & Nav)
   h1, .header-bio, .nav-menu {
     position: relative;
     z-index: 5;
+    pointer-events: auto; /* Nav links still clickable */
   }
 
-    //HEADER GLITCH
-    h1 a { animation: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite !important; }
-    .header-bio { text-shadow: 0 0 10px $green; filter: brightness(1.5); }
-  
   h1 {
     margin: 0 !important;
     a {
@@ -163,7 +74,8 @@ header {  position: relative;
       font-size: 2.2rem !important;
       font-weight: 900 !important;
       text-decoration: none !important;
-      pointer-events: none !important;
+      pointer-events: none !important; /* Makes title unclickable so hover hits header */
+      transition: all 0.2s ease;
     }
   }
 
@@ -173,15 +85,70 @@ header {  position: relative;
     font-size: 0.9rem !important;
     margin: 5px 0 !important;
     display: block !important;
+    text-shadow: 0 0 5px rgba($green, 0.5); /* Subtle idle glow */
   }
 
-  .nav-menu {
-    list-style: none !important;
-    display: flex !important;
-    justify-content: center !important;
-    gap: 15px !important;
-    margin-top: 15px !important;
-    padding: 0 !important;
+  // --- SCAN LINES (IDLE) ---
+  
+  &::after { // GREEN LINE
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 35px;
+    background: linear-gradient(to top, rgba($green, 1.0) 0%, rgba($green, 0.4) 20%, transparent 100%);
+    mix-blend-mode: screen; 
+    backdrop-filter: brightness(1.4) saturate(1.2); 
+    box-shadow: 0 5px 15px rgba($green, 0.3);
+    filter: brightness(1); 
+    animation: scanLine 4s linear infinite;
+    transition: all 0.4s ease;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  &::before { // RED LINE
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: $red;
+    mix-blend-mode: screen;
+    box-shadow: 0 0 10px $red;
+    filter: brightness(0.6); 
+    animation: scanLine 1s linear infinite;
+    animation-delay: 0.5s;
+    transition: all 0.4s ease;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  // --- INTERACTIVE (HOVER) ---
+
+  &:hover {
+    // 1. Reactive Text Effects
+    h1 a { 
+      animation: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite !important; 
+    }
+    .header-bio { 
+      filter: brightness(1.8); 
+      text-shadow: 0 0 12px $green; 
+    }
+
+    // 2. Green Line Hover
+    &::after {
+      filter: brightness(2) contrast(1.2); 
+      box-shadow: 0 0 20px rgba($green, 0.9), 0 0 40px rgba($green, 0.4); 
+      animation: scanLine 4s linear infinite, dataStutter 0.15s steps(4) infinite;
+    }
+
+    // 3. Red Line Hover
+    &::before {
+      background: #fff;
+      filter: brightness(1); 
+      box-shadow: 0 0 15px #fff, 0 0 30px $red, 0 0 50px $red;
+      animation: scanLine 1s linear infinite, fastPulse 0.1s infinite;
+    }
+  }
  
     //PILL LINKS
     
@@ -205,20 +172,9 @@ header {  position: relative;
       }
     }
   }
-}
+
 
 // 4. MAIN CONTENT AREA
-section {
-  This confirms that your layout is suffering from Negative Margin Bleed and Overlapping Stacking Contexts.
-
-The "white lines" you are seeing in the Inspector are the browser's way of visualizing uncontained margins from the theme's default styles. The reason your footer is "bleeding over" the section when you hover is that the theme likely has a negative margin on the footer to pull it up, or the section has no "bottom seal," allowing the footer to slide under it.
-
-The "Surgical Alignment" Fix
-We need to "seal" the bottom of the section and the top of the footer so they meet like two perfectly cut blocks of stone.
-
-1. The Section "Seal" Update your section block. We are going to use overflow: hidden to truncate any leaking margins and ensure it doesn't let the footer slide underneath it.
-
-SCSS
 section {
   max-width: 900px !important;
   margin: 0 auto !important;
