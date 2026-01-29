@@ -42,6 +42,9 @@ body {
 
 // 3. HEADER ARCHITECTURE
 header {
+  position: relative;
+  overflow: hidden; // Keeps the scanlines contained to the header
+  background-color: $slate !important; // Ensure there is a base color to "brighten"
   max-width: 900px !important;  
   margin: 10px auto 0 auto !important; 
   width: 100% !important;
@@ -70,67 +73,82 @@ header {
   
   // SCAN LINE GREEN IDLE
   &::after {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 35px; /* Increased height for better gradient falloff */
-  background: linear-gradient(
-    to top, 
-    rgba($green, 1.0) 0%,    /* Solid neon at the leading edge */
-    rgba($green, 0.4) 20%,   /* Mid-glow */
-    transparent 100%         /* Fade out */
-  );
-  
-  filter: brightness(1.5) blur(1px); 
-    /* Remove opacity if you want it at full power */
-  opacity: 0.9; 
-    /* Use 'plus-lighter' if your browser supports it, otherwise 'screen' */
-  mix-blend-mode: plus-lighter; 
-  animation: scanLine 4s linear infinite;
-  z-index: 2;
-  pointer-events: none;
-}
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 35px;
+    
+    // Gradient with a "Hot" leading edge
+    background: linear-gradient(
+      to top, 
+      rgba($green, 1.0) 0%,     /* The Laser line */
+      rgba($green, 0.4) 20%,    /* The Glow */
+      transparent 100%
+    );
+    
+    // Additive brightness 
+    mix-blend-mode: screen; 
+    filter: brightness(1.5) blur(0.5px);
+    opacity: 0.8; 
+    
+    // Even in idle, a small glow helps it feel "vivid"
+    box-shadow: 0 0 10px rgba($green, 0.3);
+    
+    animation: scanLine 4s linear infinite;
+    transition: all 0.4s ease;
+    pointer-events: none;
+    z-index: 2;
+  }
 
   // SCAN LINE RED IDLE
   &::before {
     content: "";
     position: absolute;
     top: 0; left: 0;
-    width: 100%; height: 3px; /* Slightly thicker */
-    background: $red; // Solid color for a sharper "beam"
-    opacity: 0.5; // Increased from 0.3
-    background: rgba($red, 0.3);
+    width: 100%; height: 3px;
+    background: rgba($red, 0.6); // Increased idle visibility
+    
+    mix-blend-mode: screen;
+    box-shadow: 0 0 5px $red;
+    
     animation: scanLine 1s linear infinite;
     animation-delay: 0.5s;
     transition: all 0.4s ease;
     pointer-events: none;
     z-index: 2;
   }
-  //ON MOUSE HOVER
+
+  // ON MOUSE HOVER
   &:hover {
-
-    //GREEN LINE HOVER
+    // GREEN LINE HOVER
     &::after {
-    opacity: 1;
-    /* Stronger, multi-layered glow */
-    box-shadow: 
-      0 0 15px rgba($green, 0.9), 
-      0 0 30px rgba($green, 0.6); 
-    
-    filter: brightness(1.2) contrast(1.2); /* Boosts vibrancy further */
-    animation: scanLine 4s linear infinite, dataStutter 0.15s steps(4) infinite;
+      opacity: 1;
+      // Stronger, multi-layered glow that bleeds into the background
+      box-shadow: 
+        0 0 20px rgba($green, 0.9), 
+        0 0 40px rgba($green, 0.4); 
+      
+      filter: brightness(1.8) contrast(1.2); 
+      animation: scanLine 4s linear infinite, dataStutter 0.15s steps(4) infinite;
     }
 
-    //RED LINE HOVER
+    // RED LINE HOVER
     &::before {
-      opacity: 0.9;
-      background: #fff; /* The "Hot Core" - turns white in the center for intense heat */
+      background: #fff; // Turns white to look like "hot" energy
+      opacity: 1;
       box-shadow: 
-      0 0 2px #fff, 
-      0 0 10px $red, 
-      0 0 20px $red;
-      animation: scanLine 1.5s linear infinite, fastPulse 0.2s infinite;
+        0 0 10px #fff, 
+        0 0 20px $red, 
+        0 0 40px $red;
+      animation: scanLine 1s linear infinite, fastPulse 0.15s infinite;
     }
+  }
+
+  // Ensure text sits ABOVE the vivid lines
+  h1, .header-bio, .nav-menu {
+    position: relative;
+    z-index: 5;
+  }
 
     //HEADER GLITCH
     h1 a { animation: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite !important; }
