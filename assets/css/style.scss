@@ -209,21 +209,34 @@ header {  position: relative;
 
 // 4. MAIN CONTENT AREA
 section {
+  This confirms that your layout is suffering from Negative Margin Bleed and Overlapping Stacking Contexts.
+
+The "white lines" you are seeing in the Inspector are the browser's way of visualizing uncontained margins from the theme's default styles. The reason your footer is "bleeding over" the section when you hover is that the theme likely has a negative margin on the footer to pull it up, or the section has no "bottom seal," allowing the footer to slide under it.
+
+The "Surgical Alignment" Fix
+We need to "seal" the bottom of the section and the top of the footer so they meet like two perfectly cut blocks of stone.
+
+1. The Section "Seal" Update your section block. We are going to use overflow: hidden to truncate any leaking margins and ensure it doesn't let the footer slide underneath it.
+
+SCSS
+section {
   max-width: 900px !important;
   margin: 0 auto !important;
   padding: 40px 20px 20px 20px !important;
   width: 100% !important;
   box-sizing: border-box !important;
-  background: none;
-
-  /* THE FIXES: */
-  display: flow-root !important;     /* Forces margins to stay INSIDE the section */
-  border-top: 1px solid transparent; /* Acts as a 'physical' barrier for top margins */
-  border-bottom: 1px solid transparent; /* Acts as a 'physical' barrier for bottom margins */
-
-  /* Ensure the first and last elements don't add extra vertical bulk */
-  & > *:first-child { margin-top: 0 !important; }
-  & > *:last-child { margin-bottom: 0 !important; }
+  
+  /* THE FIX: Seal the container */
+  display: block !important;
+  overflow: hidden !important; /* Prevents children margins from leaking */
+  position: relative !important;
+  z-index: 1; /* Keeps it on its own layer */
+  
+  /* Kill the margin on the very last element to prevent the bottom 'white line' */
+  & > *:last-child {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
 }
 
 
@@ -404,6 +417,11 @@ section ul li {
 
 // 8. CLEANUP
 
+section, footer, header, .wrapper {
+  border: none !important;
+  outline: none !important;
+}
+
 /* This ensures the body container recognizes its true bottom edge */
 body::after {
   content: "";
@@ -464,7 +482,7 @@ footer {
   width: 100% !important;
   height: 40px !important;
 
-  margin: 60px auto 0 auto !important; 
+  margin: 60px auto 10px auto !important; 
   padding: 0 20px !important; 
   position: relative !important;
 
@@ -482,6 +500,13 @@ footer {
   text-align: center !important;
   box-sizing: border-box !important;
 
+   z-index: 2; /* Ensures it sits 'cleanly' */
+  clear: both !important; /* Breaks any float interactions */
+  
+  /* Kill the hover bleed */
+  &:hover {
+    transform: none !important; /* Ensure a hover effect isn't shifting the box up */
+  }
 }
 
 footer:after {
