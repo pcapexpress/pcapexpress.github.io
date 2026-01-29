@@ -59,14 +59,21 @@ header {
   padding: 80px 20px !important; // Slim Padding
   text-align: center !important;
 
+  position: relative;
+  // ... other header styles ...
+
+  h1, .header-bio, .nav-menu {
+    position: relative; /* REQUIRED for z-index to work */
+    z-index: 5;        /* Higher than the 2 used for scanlines */
+    pointer-events: auto; /* Ensures links remain clickable */
+  }
+  
   // SCAN LINE GREEN IDLE
   &::after {
   content: "";
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 35px; /* Increased height for better gradient falloff */
-  
-  /* The "Leading Edge" trick: A solid line at the bottom of the gradient makes it pop */
   background: linear-gradient(
     to top, 
     rgba($green, 1.0) 0%,    /* Solid neon at the leading edge */
@@ -74,7 +81,7 @@ header {
     transparent 100%         /* Fade out */
   );
   
-  opacity: 0.8; 
+  opacity: 0.6; 
   animation: scanLine 4s linear infinite;
   transition: all 0.4s ease;
   pointer-events: none;
@@ -111,7 +118,7 @@ header {
 
     //RED LINE HOVER
     &::before {
-      background: rgba($red, 0.8);
+      background: rgba($red, 0.7);
       box-shadow: 0 0 10px #fff, 0 0 30px $red;
       animation: scanLine 1.5s linear infinite, fastPulse 0.2s infinite;
     }
