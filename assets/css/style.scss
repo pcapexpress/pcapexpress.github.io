@@ -38,9 +38,10 @@ header {
   border-radius: 8px 8px 0 0; 
   padding: 80px 20px !important;
   text-align: center !important;
-  p.view { display: none !important; }
 
-  /* RESTORED HEADER BACKGROUND */
+  // Kill theme-injected elements
+  p.view, .view { display: none !important; }
+
   background: 
     linear-gradient(to bottom, rgba(26, 39, 46, 0.2) 10%, rgba(26, 39, 46, 0.95) 100%),
     url("../images/header.png") no-repeat center center !important;
@@ -205,24 +206,18 @@ section {
   }
 }
 
-// 5. CODE BLOCKS
-// 5. CODE BLOCKS
-
-pre, code {
+// 5. CODE BLOCKS - FIXED STRUCTURE
+pre {
   background-color: #0a0a0a !important; 
   background-image: repeating-conic-gradient(#1a1a1a 0% 25%, #222 0% 50%) !important;
   background-size: 4px 4px !important;
-  color: $green; 
   border: none !important; 
   padding: 15px !important; 
-  display: block;
+  display: block !important;
   font-family: 'Courier New', monospace !important;
   position: relative;
   overflow: hidden;
-  transition: background-color 0.3s ease;
-   
-  //BLOCK FLICKER ANIMATION
-  
+
   &::before {
     content: "";
     position: absolute;
@@ -230,18 +225,26 @@ pre, code {
     background: rgba(255, 255, 255, 0.03);
     animation: staticFlicker 0.2s infinite;
     pointer-events: none;
+    z-index: 1;
   }
 
-  //TEXT COLOR AND GLOW
-  
-  .red    { color: $red !important; text-shadow: 0 0 5px rgba($red, 0.5); }
-  .green  { color: $green !important; text-shadow: 0 0 5px rgba($green, 0.5); }
-  .yellow { color: $yellow !important; text-shadow: 0 0 5px rgba($yellow, 0.5); }
-  .orange { color: $orange !important; text-shadow: 0 0 5px rgba($orange, 0.5); }
+  code {
+    background: none !important;
+    padding: 0 !important;
+    color: $green !important;
+    text-shadow: 0 0 5px rgba($green, 0.5);
+    display: inline !important; // Keeps text flowing correctly
+    position: relative;
+    z-index: 2;
+  }
+
+  // Syntax highlighting hooks
+  .red, .kd, .k    { color: $red !important; text-shadow: 0 0 5px rgba($red, 0.5); }
+  .green, .mi, .m  { color: $green !important; text-shadow: 0 0 5px rgba($green, 0.5); }
+  .yellow, .s, .s2 { color: $yellow !important; text-shadow: 0 0 5px rgba($yellow, 0.5); }
+  .orange, .nc, .nf { color: $orange !important; text-shadow: 0 0 5px rgba($orange, 0.5); }
   .slate  { color: $slate !important; }
 }
-
-//CORNER LABEL
 
 pre[data-label]::after {
   content: attr(data-label);
@@ -252,6 +255,7 @@ pre[data-label]::after {
   color: white;
   font-size: 0.6rem;
   text-transform: uppercase;
+  z-index: 3;
 }
 
 // 6. GLOBAL LINK STYLE
@@ -292,8 +296,7 @@ section ul li {
   padding-bottom: 10px !important; 
 }
 
-header .view, header p.view, header ul:not(.nav-menu),
-footer p, footer small, footer p:empty, p:empty { display: none !important; }
+header ul:not(.nav-menu), footer p, footer small, p:empty { display: none !important; }
 
 // 9. SLIM FOOTER
 footer {
@@ -307,18 +310,16 @@ footer {
   margin: 60px auto 10px auto !important; 
   padding: 0 20px !important; 
   position: relative !important;
-  
-  /* RESTORED FOOTER BACKGROUND */
   background: 
     linear-gradient(rgba(26, 39, 46, 0.80), rgba(26, 39, 46, 0.80)), 
     url("../images/footer.png") no-repeat bottom center !important;
   background-size: cover !important;
-
   border-top: 3px solid $red !important; 
   border-radius: 0 0 8px 8px; 
   overflow: hidden !important;
   z-index: 2;
   clear: both !important;
+  &:hover { transform: none !important; }
 }
 
 footer:after {
