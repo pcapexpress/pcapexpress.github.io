@@ -43,3 +43,4 @@ layout: default
 * **CompTia Security+**
 
 [Link to LinkedIn] | [Download Resume (PDF)] | [Heres a good MIX]
+ "Force Rebuild"
