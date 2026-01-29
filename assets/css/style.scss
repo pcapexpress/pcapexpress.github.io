@@ -76,75 +76,75 @@ header {  position: relative;
   }
   
   // SCAN LINE GREEN IDLE
+&::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 35px;
+  
+  background: linear-gradient(
+    to top, 
+    rgba($green, 1.0) 0%, 
+    rgba($green, 0.4) 20%, 
+    transparent 100%
+  );
+  
+  // LIGHTING STACK: Combine blend mode and backdrop-filter
+  mix-blend-mode: screen; 
+  backdrop-filter: brightness(1.4) saturate(1.2); 
+  box-shadow: 0 5px 15px rgba($green, 0.3);
+  
+  // Set initial filter so hover has something to transition FROM
+  filter: brightness(1); 
+  
+  animation: scanLine 4s linear infinite;
+  transition: filter 0.4s ease, box-shadow 0.4s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+// SCAN LINE RED IDLE
+&::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 3px;
+  background: $red; // Solid color for cleaner transition
+  
+  mix-blend-mode: screen;
+  box-shadow: 0 0 10px $red;
+  filter: brightness(0.6); // Start dimmed so hover looks like a surge
+  
+  animation: scanLine 1s linear infinite;
+  animation-delay: 0.5s;
+  transition: all 0.4s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+// ON MOUSE HOVER
+&:hover {
+  // GREEN LINE HOVER
   &::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 35px;
-    
-    // Gradient with a "Hot" leading edge
-    background: linear-gradient(
-      to top, 
-      rgba($green, 1.0) 0%,     /* The Laser line */
-      rgba($green, 0.4) 20%,    /* The Glow */
-      transparent 100%
-    );
-    
-    // This forces the gray background to brighten as it passes over
-    backdrop-filter: brightness(1.4) saturate(1.2); 
-    
-    // This creates the "glow" that bleeds onto the gray
-    box-shadow: 0 5px 15px rgba($green, 0.4);
-    
-    animation: scanLine 4s linear infinite;
-    transition: all 0.4s ease;
-    pointer-events: none;
-    z-index: 2;
+    // Instead of opacity, we "overclock" the filter
+    filter: brightness(2) contrast(1.2); 
+    box-shadow: 
+      0 0 20px rgba($green, 0.9), 
+      0 0 40px rgba($green, 0.4); 
+    animation: scanLine 4s linear infinite, dataStutter 0.15s steps(4) infinite;
   }
 
-  // SCAN LINE RED IDLE
+  // RED LINE HOVER
   &::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 3px;
-    background: rgba($red, 0.6); // Increased idle visibility
-    
-    box-shadow: 0 0 10px $red, 0 0 20px rgba($red, 0.5);
-    filter: brightness(1.2);
-    
-    animation: scanLine 1s linear infinite;
-    animation-delay: 0.5s;
-    transition: all 0.4s ease;
-    pointer-events: none;
-    z-index: 2;
+    background: #fff; // The "Hot Core"
+    filter: brightness(1); // Reset brightness since the color is now white
+    box-shadow: 
+      0 0 15px #fff, 
+      0 0 30px $red, 
+      0 0 50px $red;
+    animation: scanLine 1s linear infinite, fastPulse 0.1s infinite;
   }
-
-  // ON MOUSE HOVER
-  &:hover {
-    // GREEN LINE HOVER
-    &::after {
-      opacity: 1;
-      // Stronger, multi-layered glow that bleeds into the background
-      box-shadow: 
-        0 0 20px rgba($green, 0.9), 
-        0 0 40px rgba($green, 0.4); 
-      
-      filter: brightness(1.8) contrast(1.2); 
-      animation: scanLine 4s linear infinite, dataStutter 0.15s steps(4) infinite;
-    }
-
-    // RED LINE HOVER
-    &::before {
-      background: #fff; // Turns white to look like "hot" energy
-      opacity: 1;
-      box-shadow: 
-        0 0 10px #fff, 
-        0 0 20px $red, 
-        0 0 40px $red;
-      animation: scanLine 1s linear infinite, fastPulse 0.15s infinite;
-    }
-  }
+}
 
   // Ensure text sits ABOVE the vivid lines
   h1, .header-bio, .nav-menu {
@@ -212,13 +212,16 @@ section {
   max-width: 900px !important;
   margin: 0 auto !important;
   padding: 40px 20px 20px 20px !important;
-  display: flex !important;           /* Changed to Flex */
-  flex-direction: column !important;    /* Stack content vertically */
   width: 100% !important;
   box-sizing: border-box !important;
   background: none;
 
-  /* This stops the H1 and the last Paragraph from pushing 'white lines' outside */
+  /* THE FIXES: */
+  display: flow-root !important;     /* Forces margins to stay INSIDE the section */
+  border-top: 1px solid transparent; /* Acts as a 'physical' barrier for top margins */
+  border-bottom: 1px solid transparent; /* Acts as a 'physical' barrier for bottom margins */
+
+  /* Ensure the first and last elements don't add extra vertical bulk */
   & > *:first-child { margin-top: 0 !important; }
   & > *:last-child { margin-bottom: 0 !important; }
 }
