@@ -5,17 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ page.title }} | {{ site.title }}</title>
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-  </head>
+</head>
 <body>
+
+  <header>
+    <h1><a href="/">{{ site.title }}</a></h1>
+    <p class="header-bio">{{ site.description }}</p>
+    <ul class="nav-menu">
+      <li><a href="/">Home</a></li>
+      <li><a href="/pcap-analysis">PCAP</a></li>
+      <li><a href="/malware-analysis">Malware</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
+  </header>
+
   <div class="wrapper">
-    {% include header.html %}
-    
     <section>
       {{ content }}
     </section>
-
-    <footer>
-      </footer>
   </div>
+
+  <footer>
+    </footer>
+
 </body>
 </html>
