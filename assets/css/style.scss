@@ -41,8 +41,7 @@ body {
 }
 
 // 3. HEADER ARCHITECTURE
-header {
-  position: relative;
+header {  position: relative;
   overflow: hidden; // Keeps the scanlines contained to the header
   background-color: $slate !important; // Ensure there is a base color to "brighten"
   max-width: 900px !important;  
@@ -153,8 +152,7 @@ header {
     //HEADER GLITCH
     h1 a { animation: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite !important; }
     .header-bio { text-shadow: 0 0 10px $green; filter: brightness(1.5); }
-  }
-
+  
   h1 {
     margin: 0 !important;
     a {
