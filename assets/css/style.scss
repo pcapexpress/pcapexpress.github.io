@@ -1,6 +1,5 @@
 ---
 ---
-// REMOVED: @import "{{ site.theme }}"; 
 
 // 1. PALETTE & VARIABLES
 $slate: #344E5C;
@@ -11,39 +10,45 @@ $orange: #E17A47;
 $medium-bg: #263842;
 $dark-bg: #1A272E;
 
-// 2. GLOBAL RESET (Enhanced for No-Theme Mode)
-* { box-sizing: border-box; } // Essential for layout math
+// 2. GLOBAL RESET
+* { 
+  box-sizing: border-box; 
+}
 
 body {
-  background-color: $slate !important;
-  color: $orange !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  font-family: 'Courier New', monospace; // Forensic default
-  min-height: 100vh !important; 
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
+  background-color: $slate;
+  color: $orange;
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier New', monospace;
+  
+  /* Layout Architecture */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   overflow-x: hidden;
+  
+  /* The "Floating Capsule" gap */
+  padding-bottom: 10px; 
 }
 
 // 3. HEADER ARCHITECTURE
 header {
-  position: relative !important;
-  overflow: hidden !important; 
-  max-width: 900px !important;  
-  margin: 10px auto 0 auto !important; 
-  width: 100% !important;
-  display: block !important;
-  border-bottom: 3px solid $red !important;
+  position: relative;
+  overflow: hidden; 
+  max-width: 900px;  
+  margin: 10px auto 0 auto; 
+  width: 100%;
+  display: block;
+  border-bottom: 3px solid $red;
   border-radius: 8px 8px 0 0; 
-  padding: 80px 20px !important;
-  text-align: center !important;
+  padding: 80px 20px;
+  text-align: center;
 
   background: 
     linear-gradient(to bottom, rgba(26, 39, 46, 0.2) 10%, rgba(26, 39, 46, 0.95) 100%),
-    url("../images/header.png") no-repeat center center !important;
-  background-size: cover !important;
+    url("../images/header.png") no-repeat center center;
+  background-size: cover;
 
   h1, .header-bio, .nav-menu {
     position: relative;
@@ -51,54 +56,56 @@ header {
   }
 
   h1 {
-    margin: 0 !important;
+    margin: 0;
     a {
-      color: $orange !important;
-      font-size: 2.2rem !important;
-      font-weight: 900 !important;
-      text-decoration: none !important;
+      color: $orange;
+      font-size: 2.2rem;
+      font-weight: 900;
+      text-decoration: none;
       transition: all 0.2s ease;
     }
   }
 
   .header-bio {
-    color: $green !important;
-    font-weight: bold !important;
-    font-size: 0.9rem !important;
-    margin: 5px 0 !important;
-    display: block !important;
+    color: $green;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin: 5px 0;
+    display: block;
+    transition: all 0.3s ease; // Smooth glow transition
   }
 
   .nav-menu {
-    list-style: none !important;
-    display: flex !important;
-    justify-content: center !important;
-    gap: 15px !important;
-    margin-top: 15px !important;
-    padding: 0 !important;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+    padding: 0;
 
     li a {
-      background: rgba($dark-bg, 0.8) !important;
-      border: 1px solid $red !important;
-      color: $orange !important;
-      padding: 8px 20px !important;
-      border-radius: 50px !important; 
-      font-size: 0.7rem !important;
+      background: rgba($dark-bg, 0.8);
+      border: 1px solid $red;
+      color: $orange;
+      padding: 8px 20px;
+      border-radius: 50px; 
+      font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 1px;
-      transition: 0.5s all ease !important;
+      text-decoration: none;
+      transition: 0.5s all ease;
 
       &:hover {
-        background: $orange !important;
-        color: $dark-bg !important;
+        background: $orange;
+        color: $dark-bg;
         box-shadow: 0 0 15px $red;
         transform: scale(1.05);
       }
     }
   }
 
-  // SCAN LINES
-  &::after { // GREEN
+  /* SCAN LINES */
+  &::after { // GREEN LINE
     content: "";
     position: absolute;
     top: 0; left: 0;
@@ -112,7 +119,7 @@ header {
     z-index: 2;
   }
 
-  &::before { // RED
+  &::before { // RED LINE
     content: "";
     position: absolute;
     top: 0; left: 0;
@@ -127,8 +134,16 @@ header {
     z-index: 2;
   }
 
+  /* SYSTEM HOVER EFFECTS */
   &:hover {
-    h1 a { animation: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite !important; }
+    h1 a { animation: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite; }
+    
+    // THIS FIXES THE GLOW
+    .header-bio { 
+      filter: brightness(1.8); 
+      text-shadow: 0 0 12px $green; 
+    }
+
     &::after {
       filter: brightness(2) contrast(1.2); 
       animation: scanLine 4s linear infinite, dataStutter 0.15s steps(4) infinite;
@@ -138,38 +153,94 @@ header {
 
 // 4. MAIN CONTENT AREA
 section {
-  max-width: 900px !important;
-  margin: 0 auto !important;
-  padding: 40px 20px !important;
-  width: 100% !important;
-  display: flow-root !important; 
-  position: relative !important;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  width: 100%;
+  display: flow-root; // Prevents margin leakage without needing !important
+  position: relative;
   z-index: 1; 
 
-  h1, h2 { color: $red !important; }
-  h3 { color: $orange !important; }
-  h4 { color: $green !important; }
-  p, div, li { color: $yellow !important; line-height: 1.6; }
+  /* Header Hierarchy Colors */
+  h1, h2 { color: $red; }
+  h3 { color: $orange; }
+  h4 { color: $green; }
   
+  /* Body Text Legibility */
+  p, div, li { 
+    color: $yellow; 
+    line-height: 1.6; 
+  }
+
+ /* hr {
+    border: none !important;
+    height: 2px !important;
+    background-color: $orange !important;
+    margin: 50px auto !important;
+    width: 95% !important;
+    box-shadow: 0 0 4px rgba($orange, 0.8), 0 0 15px rgba(0, 0, 0, 1.0);
+    animation: staticFlicker 0.8s infinite alternate;
+  }*/
+
+  hr {
+  border: none;
+  height: 1px;
+  // Creates a "laser" line that fades out at the edges
+  background: linear-gradient(
+    to right, 
+    transparent, 
+    rgba($orange, 0.8) 50%, 
+    transparent
+  );
+  margin: 50px auto;
+  width: 80%;
+  position: relative;
+  overflow: visible;
+  animation: dividerPulse 4s ease-in-out infinite;
+
+  // The glowing "node" in the center of the line
+  &::after {
+    content: "◆";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: $orange;
+    font-size: 10px;
+    text-shadow: 0 0 10px $orange;
+  }
+}
+  
+  /* Forensic Image Styling */
   img {
-    border: 2px solid rgba($orange, 0.4) !important;
-    border-radius: 20px !important;
-    display: block !important;
-    max-width: 90% !important;
-    margin: 35px auto !important;
+    border: 2px solid rgba($orange, 0.4);
+    border-radius: 20px;
+    display: block;
+    max-width: 90%;
+    margin: 35px auto;
+    transition: all 0.4s ease; // Smooth transition for forensic hover
+
+    &:hover {
+      border-color: $orange;
+      box-shadow: 0 0 20px rgba($orange, 0.3);
+      transform: scale(1.01);
+    }
   }
 }
 
 // 5. CODE BLOCKS
 pre {
-  background-color: #0a0a0a !important; 
-  background-image: repeating-conic-gradient(#1a1a1a 0% 25%, #222 0% 50%) !important;
-  background-size: 4px 4px !important;
-  padding: 15px !important; 
-  display: block !important;
+  background-color: #0a0a0a; 
+  background-image: repeating-conic-gradient(#1a1a1a 0% 25%, #222 0% 50%);
+  background-size: 4px 4px;
+  padding: 15px; 
+  display: block;
   position: relative;
   overflow-x: auto;
+  white-space: pre-wrap; // Wraps long hex strings or packet data
+  word-wrap: break-word;
   border-radius: 4px;
+  border: 1px solid rgba($green, 0.2); // Subtle terminal border
 
   &::before {
     content: "";
@@ -182,98 +253,179 @@ pre {
   }
 
   code {
-    background: none !important;
-    color: $green !important;
+    background: none;
+    color: $green;
     text-shadow: 0 0 5px rgba($green, 0.5);
+    font-family: 'Courier New', monospace;
+    position: relative;
     z-index: 2;
   }
 
-  // Rouge Highlighting Classes
-  .k, .kd, .kp { color: $red !important; }
-  .s, .s1, .s2 { color: $yellow !important; }
-  .nc, .nf, .na { color: $orange !important; }
-  .mi, .m, .mf  { color: $green !important; }
+  /* Rouge Syntax Highlighting Hooks */
+  .k, .kd, .kp { color: $red; text-shadow: 0 0 5px rgba($red, 0.3); }     // Keywords
+  .s, .s1, .s2 { color: $yellow; }                                      // Strings
+  .nc, .nf, .na { color: $orange; }                                     // Functions/Classes
+  .mi, .m, .mf  { color: $green; font-weight: bold; }                   // Numbers/Constants
+  .c, .c1       { color: rgba($green, 0.5); font-style: italic; }       // Comments
 }
 
+/* Optional Data Labels (e.g., [data-label="Wireshark"]) */
 pre[data-label]::after {
   content: attr(data-label);
   position: absolute;
-  top: 0; left: 0;
-  padding: 5px 10px;
-  background: $green !important; 
-  color: white;
+  top: 0; right: 0; // Moved to the right for better terminal look
+  padding: 2px 8px;
+  background: $green; 
+  color: $dark-bg;
   font-size: 0.6rem;
+  font-weight: bold;
   text-transform: uppercase;
   z-index: 3;
+  border-radius: 0 0 0 4px;
 }
 
 // 6. GLOBAL LINK STYLE
 a {
-  color: $orange !important;
+  color: $orange;
   text-decoration: none;
   font-weight: bold;
-  border-bottom: 2px solid transparent;
-  transition: 0.3s;
-  &:hover { color: $yellow !important; border-bottom: 2px solid $red; }
+  position: relative; // Needed to anchor the underline
+  transition: color 0.3s ease;
+  
+  // The "Hidden" Underline
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0; // Starts at zero length
+    height: 2px;
+    background-color: $red;
+    transition: width 0.3s ease-in-out; // The stretching animation
+    box-shadow: 0 0 5px $red; // Forensic glow
+  }
+
+  &:hover { 
+    color: $yellow;
+    text-shadow: 0 0 8px rgba($yellow, 0.5);
+
+    &::after {
+      width: 100%; // Stretches to full width on hover
+    }
+  }
 }
 
-// 7. ANIMATED CARDS
+// 7. FORENSIC INFO CARDS (Modules)
 section ul li {
   list-style: none;
-  background: $medium-bg !important;
+  background: $medium-bg;
   margin-bottom: 12px;
   padding: 20px;
   border-left: 5px solid $red;
   border-radius: 4px;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+
+  // This handles the text inside when you hover
   &:hover {
-    background-color: $red !important; 
-    transform: translateX(4px);
-    * { color: #ffffff !important; }
+    background-color: $red; 
+    transform: translateX(8px); // Slightly more dramatic shift
+    color: #ffffff;
+    box-shadow: -5px 0 15px rgba($red, 0.4);
+
+    // Forces all nested text (h3, p, etc.) to white on hover
+    h1, h2, h3, h4, p, span, strong { 
+      color: #ffffff; 
+      text-shadow: none;
+    }
   }
 }
 
 // 8. WRAPPER
 .wrapper {
-  max-width: 900px !important;
-  width: 100% !important;
-  margin: 0 auto !important;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  
+  /* Ensuring the 10px floating gap at the bottom */
+  padding-bottom: 10px; 
+  
+  /* Flexbox consistency */
+  display: flex;
+  flex-direction: column;
 }
 
 // 9. SLIM FOOTER
 footer {
-  display: flex !important;
+  display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 900px !important;
-  width: 100% !important;
-  height: 40px !important;
-  margin: 60px auto 10px auto !important; 
-  position: relative !important;
+  max-width: 900px;
+  width: 100%;
+  height: 40px;
+  /* 60px top margin to breathe, 10px bottom margin for your 'floating' look */
+  margin: 60px auto 10px auto; 
+  position: relative;
   background: 
     linear-gradient(rgba(26, 39, 46, 0.80), rgba(26, 39, 46, 0.80)), 
-    url("../images/footer.png") no-repeat bottom center !important;
-  background-size: cover !important;
-  border-top: 3px solid $red !important; 
+    url("../images/footer.png") no-repeat bottom center;
+  background-size: cover;
+  border-top: 3px solid $red; 
   border-radius: 0 0 8px 8px; 
+  
+  /* Text Styling */
+  color: $orange;
+  font-size: 0.85rem;
+  font-weight: bold;
 }
 
-footer:after {
+footer::after {
   content: "© 2026 PcapExpress | Patience | Perseverance | Upward Mobility";
-  color: $orange !important;
-  font-size: 0.85rem !important;
+  /* No !important needed - this is the only rule for footer text */
 }
 
 // 10. ANIMATIONS
+
+@keyframes glitchText {
+  0% { transform: translate(0); text-shadow: -2px -2px $red, 2px 2px $green; }
+  25% { transform: translate(-1px, 1px); text-shadow: 2px -2px $red, -2px 2px $green; }
+  50% { transform: translate(2px, -2px); text-shadow: -2px 2px $red, 2px -2px $green; }
+  75% { transform: translate(-2px, -1px); text-shadow: 1px 1px $red, -1px -1px $green; }
+  100% { transform: translate(0); }
+}
+
 @keyframes scanLine { 
   0% { top: -50px; opacity: 0; } 
   10%, 90% { opacity: 1; } 
   100% { top: 100%; opacity: 0; }
 }
-@keyframes glitchText {
-  0% { transform: translate(0); text-shadow: -2px -2px $red, 2px 2px $green; }
-  50% { transform: translate(2px, -2px); text-shadow: -2px 2px $red, 2px -2px $green; }
-  100% { transform: translate(0); }
+
+@keyframes dataStutter { 
+  0%, 100% { opacity: 0.9; } 
+  50% { opacity: 0.4; } 
 }
-@keyframes staticFlicker { 0%, 100% { opacity: 0.5; } 50% { opacity: 0.8; } }
-@keyframes dataStutter { 0%, 100% { opacity: 0.9; } 50% { opacity: 0.4; } }
+
+//SCAN LINE RED
+@keyframes fastPulse {
+  0%, 100% { filter: brightness(1); box-shadow: 0 0 10px $red; }
+  10%, 20% { filter: brightness(1.2) contrast(1.5); box-shadow: 0 0 25px $red, 0 0 50px rgba($red, 0.8); }
+}
+
+//SCAN LINE GREEN
+@keyframes dataStutter {
+  0%   { opacity: 0.8; }
+  25%  { opacity: 0.3; }
+  50%  { opacity: 1.0; }
+  75%  { opacity: 0.5; }
+  100% { opacity: 0.9; }
+}
+    
+//CODE BLOCK FLICKER
+@keyframes staticFlicker { 0% { opacity: 0.5; } 50% { opacity: 0.8; } 100% { opacity: 0.5; } }
+
+// Add this to Section 10: ANIMATIONS
+@keyframes dividerPulse {
+  0%, 100% { opacity: 0.4; filter: contrast(1); }
+  50% { opacity: 1; filter: contrast(1.5) brightness(1.2); }
+}
