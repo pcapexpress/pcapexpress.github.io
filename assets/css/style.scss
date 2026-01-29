@@ -17,39 +17,18 @@ body {
   color: $orange !important;
   margin: 0 !important;
   padding: 0 !important;
-  
   min-height: 100vh !important; 
   height: auto !important;
-  
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
   overflow-x: hidden;
 }
 
-.wrapper {
-  max-width: 900px !important;
-  width: 100% !important;
-  margin: 0 auto !important;
-  padding: 0 !important; 
-  
-  /* CHANGE 1: Force it to shrink-wrap the content */
-  display: block !important; 
-  height: min-content !important; 
-  
-  /* CHANGE 2: Fix the "leak" */
-  overflow: visible !important; /* Changed from hidden to see if content is pushing it */
-  position: relative !important;
-  
-  /* CHANGE 3: The magic bullet for Inspector "Ghost" space */
-  display: flow-root !important;
-}
-
 // 3. HEADER ARCHITECTURE
 header {
   position: relative !important;
   overflow: hidden !important; 
-  background-color: $slate !important;
   max-width: 900px !important;  
   margin: 10px auto 0 auto !important; 
   width: 100% !important;
@@ -60,11 +39,16 @@ header {
   padding: 80px 20px !important;
   text-align: center !important;
 
-  // Foreground Elements (Text & Nav)
+  /* RESTORED HEADER BACKGROUND */
+  background: 
+    linear-gradient(to bottom, rgba(26, 39, 46, 0.2) 10%, rgba(26, 39, 46, 0.95) 100%),
+    url("../images/header.png") no-repeat center center !important;
+  background-size: cover !important;
+
   h1, .header-bio, .nav-menu {
     position: relative;
     z-index: 5;
-    pointer-events: auto; /* Nav links still clickable */
+    pointer-events: auto; 
   }
 
   h1 {
@@ -74,7 +58,7 @@ header {
       font-size: 2.2rem !important;
       font-weight: 900 !important;
       text-decoration: none !important;
-      pointer-events: none !important; /* Makes title unclickable so hover hits header */
+      pointer-events: none !important; 
       transition: all 0.2s ease;
     }
   }
@@ -85,79 +69,22 @@ header {
     font-size: 0.9rem !important;
     margin: 5px 0 !important;
     display: block !important;
-    text-shadow: 0 0 5px rgba($green, 0.5); /* Subtle idle glow */
   }
 
-  // --- SCAN LINES (IDLE) ---
-  
-  &::after { // GREEN LINE
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 35px;
-    background: linear-gradient(to top, rgba($green, 1.0) 0%, rgba($green, 0.4) 20%, transparent 100%);
-    mix-blend-mode: screen; 
-    backdrop-filter: brightness(1.4) saturate(1.2); 
-    box-shadow: 0 5px 15px rgba($green, 0.3);
-    filter: brightness(1); 
-    animation: scanLine 4s linear infinite;
-    transition: all 0.4s ease;
-    pointer-events: none;
-    z-index: 2;
-  }
+  .nav-menu {
+    list-style: none !important;
+    display: flex !important;
+    justify-content: center !important;
+    gap: 15px !important;
+    margin-top: 15px !important;
+    padding: 0 !important;
 
-  &::before { // RED LINE
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 3px;
-    background: $red;
-    mix-blend-mode: screen;
-    box-shadow: 0 0 10px $red;
-    filter: brightness(0.6); 
-    animation: scanLine 1s linear infinite;
-    animation-delay: 0.5s;
-    transition: all 0.4s ease;
-    pointer-events: none;
-    z-index: 2;
-  }
-
-  // --- INTERACTIVE (HOVER) ---
-
-  &:hover {
-    // 1. Reactive Text Effects
-    h1 a { 
-      animation: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite !important; 
-    }
-    .header-bio { 
-      filter: brightness(1.8); 
-      text-shadow: 0 0 12px $green; 
-    }
-
-    // 2. Green Line Hover
-    &::after {
-      filter: brightness(2) contrast(1.2); 
-      box-shadow: 0 0 20px rgba($green, 0.9), 0 0 40px rgba($green, 0.4); 
-      animation: scanLine 4s linear infinite, dataStutter 0.15s steps(4) infinite;
-    }
-
-    // 3. Red Line Hover
-    &::before {
-      background: #fff;
-      filter: brightness(1); 
-      box-shadow: 0 0 15px #fff, 0 0 30px $red, 0 0 50px $red;
-      animation: scanLine 1s linear infinite, fastPulse 0.1s infinite;
-    }
-  }
- 
-    //PILL LINKS
-    
     li a {
       background: rgba($dark-bg, 0.8) !important;
       border: 1px solid $red !important;
       color: $orange !important;
       padding: 8px 20px !important;
-      border-radius: 50px !important; // Makes them pills
+      border-radius: 50px !important; 
       font-size: 0.7rem !important;
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -173,6 +100,54 @@ header {
     }
   }
 
+  // SCAN LINES
+  &::after { // GREEN
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 35px;
+    background: linear-gradient(to top, rgba($green, 1.0) 0%, rgba($green, 0.4) 20%, transparent 100%);
+    mix-blend-mode: screen; 
+    backdrop-filter: brightness(1.4) saturate(1.2); 
+    box-shadow: 0 5px 15px rgba($green, 0.3);
+    animation: scanLine 4s linear infinite;
+    transition: all 0.4s ease;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  &::before { // RED
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: $red;
+    mix-blend-mode: screen;
+    box-shadow: 0 0 10px $red;
+    filter: brightness(0.6); 
+    animation: scanLine 1s linear infinite;
+    animation-delay: 0.5s;
+    transition: all 0.4s ease;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  &:hover {
+    h1 a { animation: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite !important; }
+    .header-bio { filter: brightness(1.8); text-shadow: 0 0 12px $green; }
+    &::after {
+      filter: brightness(2) contrast(1.2); 
+      box-shadow: 0 0 20px rgba($green, 0.9), 0 0 40px rgba($green, 0.4); 
+      animation: scanLine 4s linear infinite, dataStutter 0.15s steps(4) infinite;
+    }
+    &::before {
+      background: #fff;
+      filter: brightness(1); 
+      box-shadow: 0 0 15px #fff, 0 0 30px $red, 0 0 50px $red;
+      animation: scanLine 1s linear infinite, fastPulse 0.1s infinite;
+    }
+  }
+}
 
 // 4. MAIN CONTENT AREA
 section {
@@ -181,119 +156,65 @@ section {
   padding: 40px 20px 20px 20px !important;
   width: 100% !important;
   box-sizing: border-box !important;
-  
-  /* THE FIX: Seal the container */
-  display: block !important;
-  overflow: hidden !important; /* Prevents children margins from leaking */
+  display: flow-root !important; 
+  overflow: hidden !important; 
   position: relative !important;
-  z-index: 1; /* Keeps it on its own layer */
-  
-  /* Kill the margin on the very last element to prevent the bottom 'white line' */
-  & > *:last-child {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-  }
-}
+  z-index: 1; 
 
+  & > *:last-child { margin-bottom: 0 !important; padding-bottom: 0 !important; }
 
-  //HEADERS
   h1, h2 { color: $red !important; }
   h3 { color: $orange !important; }
   h4 { color: $green !important; }
-  h5 { 
-    color: $green !important; 
-    font-family: 'Courier New', monospace !important;
-    border-bottom: 2px solid rgba(74, 177, 157, 0.3);
-    display: inline-block;
-  }
-  
-  //REGULAR TEXT
   p, div, li { color: $yellow !important; }
   
-  //BOLD correction
-  strong, b {
-    color: inherit !important;
-    font-weight: bold !important;
-  }
+  strong, b { color: inherit !important; font-weight: bold !important; }
 
-  //THE > BLOCK
   blockquote {
     border-left: 3px solid $red !important;
     background: $medium-bg !important;
     padding: 15px 20px !important;
     margin: 20px 0 !important;
-    p { 
-      color: $yellow !important; 
-      font-style: italic; 
-      margin: 0 !important;
-    }
+    p { color: $yellow !important; font-style: italic; margin: 0 !important; }
   }
 
-  // THE --- DIVIDER LINE
   hr {
     border: none !important;
     height: 2px !important;
     background-color: $orange !important;
     margin: 50px auto !important;
     width: 95% !important;
-    display: block !important;
-    overflow: visible !important; 
-    box-shadow: 
-      0 0 4px rgba($orange, 0.8), 
-      0 0 15px rgba(0, 0, 0, 1.0);
-    opacity: 0.6; 
+    box-shadow: 0 0 4px rgba($orange, 0.8), 0 0 15px rgba(0, 0, 0, 1.0);
     animation: staticFlicker 0.8s infinite alternate;
   }
 
-  /* Desync Logic */
-  hr:nth-of-type(2n) { animation-delay: 0.1s; animation-duration: 0.35s; }
-  hr:nth-of-type(3n) { animation-delay: 0.25s; animation-duration: 0.5s; }
-  hr:nth-of-type(4n) { animation-delay: 0.05s; animation-duration: 0.45s; }
-
-  // IMAGE STYLING
   img {
     border: 2px solid rgba($orange, 0.4) !important;
     background-color: rgba($dark-bg, 0.5) !important;
     border-radius: 20px !important;
-    overflow: hidden !important; 
-    padding: 0 !important;
     display: block !important;
     max-width: 90% !important;
-    height: auto !important;
     margin: 35px auto !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
-    
-  transition: 
-    box-shadow 0.5s ease-in-out, 
-    border-color 0.5s ease-in-out;
-
-  &:hover {
-    border-color: rgba($orange, 1.0) !important;
-    box-shadow: 
-      0 4px 10px rgba(0, 0, 0, 0.8),  /* Tighter ground shadow */
-      0 0 25px rgba($orange, 0.6);   /* Soft ambient orange bloom */
-    filter: brightness(1.05);
+    transition: all 0.5s ease-in-out;
+    &:hover {
+      border-color: rgba($orange, 1.0) !important;
+      box-shadow: 0 0 25px rgba($orange, 0.6); 
+      filter: brightness(1.05);
     }
   }
 }
 
 // 5. CODE BLOCKS
-
 pre, code {
   background-color: #0a0a0a !important; 
   background-image: repeating-conic-gradient(#1a1a1a 0% 25%, #222 0% 50%) !important;
   background-size: 4px 4px !important;
   color: $green; 
-  border: none !important; 
   padding: 15px !important; 
-  display: block;
   font-family: 'Courier New', monospace !important;
   position: relative;
   overflow: hidden;
-  transition: background-color 0.3s ease;
-   
-  //BLOCK FLICKER ANIMATION
-  
+
   &::before {
     content: "";
     position: absolute;
@@ -302,17 +223,7 @@ pre, code {
     animation: staticFlicker 0.2s infinite;
     pointer-events: none;
   }
-
-  //TEXT COLOR AND GLOW
-  
-  .red    { color: $red !important; text-shadow: 0 0 5px rgba($red, 0.5); }
-  .green  { color: $green !important; text-shadow: 0 0 5px rgba($green, 0.5); }
-  .yellow { color: $yellow !important; text-shadow: 0 0 5px rgba($yellow, 0.5); }
-  .orange { color: $orange !important; text-shadow: 0 0 5px rgba($orange, 0.5); }
-  .slate  { color: $slate !important; }
 }
-
-//CORNER LABEL
 
 pre[data-label]::after {
   content: attr(data-label);
@@ -322,30 +233,21 @@ pre[data-label]::after {
   background: $green !important; 
   color: white;
   font-size: 0.6rem;
-  text-transform: uppercase;
 }
 
 // 6. GLOBAL LINK STYLE
-
 a {
   color: $orange !important;
-  text-decoration: none !important;
   background-image: linear-gradient($red, $red);
   background-position: 0% 100%;
   background-repeat: no-repeat;
   background-size: 0% 2px;
-  transition: background-size 0.3s ease, color 0.3s ease;
-  padding-bottom: 2px;
+  transition: all 0.3s ease;
   font-weight: bold;
-
-  &:hover {
-    color: $yellow !important;
-    background-size: 100% 2px;
-  }
+  &:hover { color: $yellow !important; background-size: 100% 2px; }
 }
 
-// 7.ANIMATED CARDS
-
+// 7. ANIMATED CARDS
 section ul li {
   list-style: none;
   background: $medium-bg !important;
@@ -353,82 +255,28 @@ section ul li {
   padding: 20px;
   border-left: 5px solid $red;
   border-radius: 4px;
-  color: $yellow !important;
   transition: all 0.3s ease;
-
   &:hover {
     background-color: $red !important; 
     color: #ffffff !important;           
-    transform: translateX(4px); // Slightly more movement for "impact"
-
-    p, span, div, strong { color: #ffffff !important; }
-    
-    // Adjusts links inside the card so they don't disappear
-    a { 
-      color: #ffffff !important; 
-      background-image: linear-gradient(#ffffff, #ffffff);
-    }
+    transform: translateX(4px);
+    p, span, div, strong, a { color: #ffffff !important; }
   }
 }
 
-// 8. CLEANUP
-
-section, footer, header, .wrapper {
-  border: none !important;
-  outline: none !important;
-}
-
-/* This ensures the body container recognizes its true bottom edge */
-body::after {
-  content: "";
-  display: block;
-  height: 0;
-  margin: 0;
-  padding: 0;
-  clear: both;
-  visibility: hidden;
-}
-
-/* Grouping everything that needs to stay hidden */
-header .view, 
-header p.view, 
-header ul:not(.nav-menu),
-footer p, 
-footer small,
-footer p:empty,
-p:empty {  /* Added p:empty here to catch Jekyll's middle-page injections too */
-  display: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  height: 0 !important;
-  line-height: 0 !important;
-  font-size: 0 !important;
-  border: none !important;
-  visibility: hidden;
-  overflow: hidden;
-}
-
-/* 2. TABLE RESET */
-section table {
-  border: none;
-  border-collapse: collapse;
-  width: 100%;
-  
-  td, tr {
-    border: none;
-  }
-}
-
-/* 3. WRAPPER SEAL (Moved outside of the table block) */
+// 8. CLEANUP & WRAPPER
 .wrapper {
-  /* This is the final 10px gap between the footer and the edge of the screen */
+  max-width: 900px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  display: flow-root !important;
   padding-bottom: 10px !important; 
-  margin-bottom: 0 !important;
-  display: flow-root !important; /* Critical: forces the wrapper to contain all margins */
 }
+
+header .view, header p.view, header ul:not(.nav-menu),
+footer p, footer small, footer p:empty, p:empty { display: none !important; }
 
 // 9. SLIM FOOTER
-
 footer {
   display: flex !important;
   flex-direction: column;
@@ -437,93 +285,46 @@ footer {
   max-width: 900px !important;
   width: 100% !important;
   height: 40px !important;
-
   margin: 60px auto 10px auto !important; 
   padding: 0 20px !important; 
   position: relative !important;
-
+  
+  /* RESTORED FOOTER BACKGROUND */
   background: 
     linear-gradient(rgba(26, 39, 46, 0.80), rgba(26, 39, 46, 0.80)), 
-    url("../images/footer.png") no-repeat bottom center !important; /* Anchored to bottom */
+    url("../images/footer.png") no-repeat bottom center !important;
   background-size: cover !important;
-  background-position: bottom center !important;
-  
+
   border-top: 3px solid $red !important; 
   border-radius: 0 0 8px 8px; 
-  border-bottom: none !important;
-  
   overflow: hidden !important;
-  text-align: center !important;
-  box-sizing: border-box !important;
-
-   z-index: 2; /* Ensures it sits 'cleanly' */
-  clear: both !important; /* Breaks any float interactions */
-  
-  /* Kill the hover bleed */
-  &:hover {
-    transform: none !important; /* Ensure a hover effect isn't shifting the box up */
-  }
+  z-index: 2;
+  clear: both !important;
 }
 
 footer:after {
   content: "© 2026 PcapExpress | Patience | Perseverance | Upward Mobility";
-  white-space: pre; 
   color: $orange !important;
   font-family: 'Courier New', monospace;
   font-size: 0.85rem !important;
-  line-height: 1.4;
 }
 
-// 10. ANIMATION ENGINES
-
-//HEADER TITLE
+// 10. ANIMATIONS
 @keyframes glitchText {
   0% { transform: translate(0); text-shadow: -2px -2px $red, 2px 2px $green; }
   25% { transform: translate(-2px, 2px); text-shadow: 2px 2px $red, -2px -2px $green; }
   50% { transform: translate(2px, -2px); text-shadow: -2px 2px $red, 2px -2px $green; }
   100% { transform: translate(0); text-shadow: -2px -2px $red, 2px 2px $green; }
 }
-
-//IDLE SCAN LINES
 @keyframes scanLine { 
-  0% { 
-    top: -50px; /* Start completely out of view */
-    opacity: 0; 
-  } 
-  10% { 
-    opacity: 1; /* Fade in quickly as it enters */
-  } 
-  90% { 
-    opacity: 1; /* Stay solid through the middle */
-  } 
-  100% { 
-    top: 100%;  /* End exactly at the bottom edge */
-    opacity: 0; /* Fade out just as it hits the floor */
-  }
+  0% { top: -50px; opacity: 0; } 
+  10% { opacity: 1; } 
+  90% { opacity: 1; } 
+  100% { top: 100%; opacity: 0; }
 }
-
-//SCAN LINE RED
 @keyframes fastPulse {
-  /* The "Cool" State */
-  0%, 100% { 
-    filter: brightness(1); 
-    box-shadow: 0 0 10px $red; 
-  }
-  /* The "Spark" State */
-  10%, 20% { 
-    filter: brightness(1.2) contrast(1.5); 
-    box-shadow: 0 0 25px $red, 0 0 50px rgba($red, 0.8);
-  }
+  0%, 100% { filter: brightness(1); box-shadow: 0 0 10px $red; }
+  10%, 20% { filter: brightness(1.2) contrast(1.5); box-shadow: 0 0 25px $red, 0 0 50px rgba($red, 0.8); }
 }
-
-//SCAN LINE GREEN
-@keyframes dataStutter {
-  0%   { opacity: 0.8; }
-  25%  { opacity: 0.3; }
-  50%  { opacity: 1.0; }
-  75%  { opacity: 0.5; }
-  100% { opacity: 0.9; }
-}
-    
-//CODE BLOCK FLICKER
-@keyframes staticFlicker { 0% { opacity: 0.5; } 50% { opacity: 0.8; } 100% { opacity: 0.5; } }
+@keyframes dataStutter { 0%, 100% { opacity: 0.9; } 25% { opacity: 0.3; } 50% { opacity: 1.0; } }
+@keyframes staticFlicker { 0%, 100% { opacity: 0.5; } 50% { opacity: 0.8; } }
