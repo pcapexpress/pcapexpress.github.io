@@ -1,6 +1,6 @@
 title: "PcapExpress"
 theme: jekyll-theme-minimal
-description: "A place to observe and reflect on packets passing by"
+description: >
   <p class="header-bio">A place to observe and reflect on packets passing by</p>
   <ul class="nav-menu">
     <li><a href="/">Home</a></li>
