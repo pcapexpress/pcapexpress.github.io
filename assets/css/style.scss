@@ -103,12 +103,14 @@ header {
     }
   }
 
-&::after { // GREEN
+  //SCAN LINES
+  //GREEN LINE PASIVE
+  &::after { 
     content: "";
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 35px;
-    background: linear-gradient(to top, rgba($green, 1.0) 0%, rgba($green, 0.4) 20%, transparent 100%);
+    background: linear-gradient(to top, rgba($green, 0.8) 0%, rgba($green, 0.3) 20%, transparent 100%);
     mix-blend-mode: screen; 
     backdrop-filter: brightness(1.4) saturate(1.2); 
     box-shadow: 0 5px 15px rgba($green, 0.3);
@@ -118,11 +120,12 @@ header {
     z-index: 2;
   }
 
-  &::before { // RED
+  //RED LINE PASSIVE
+  &::before { 
     content: "";
     position: absolute;
     top: 0; left: 0;
-    width: 100%; height: 3px;
+    width: 100%; height: 2px;
     background: $red;
     mix-blend-mode: screen;
     box-shadow: 0 0 10px $red;
@@ -133,39 +136,6 @@ header {
     pointer-events: none;
     z-index: 2;
   }
-  
- /* //SCAN LINES
-  //GREEN LINE PASIVE
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 60px; // Taller for a better "wash"
-    background: linear-gradient(to top, rgba($green, 0.2) 0%, transparent 100%);
-    mix-blend-mode: plus-lighter; // Better for "lighting up" dark backgrounds
-    opacity: 0.3;
-    animation: scanLine 4s linear infinite;
-    pointer-events: none;
-    z-index: 2;
-    transition: all 0.4s ease;
-  }
-
-  //RED LINE PASSIVE
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; 
-    height: 1px; // Razor thin
-    background: $red;
-    opacity: 0.5;
-    box-shadow: 0 0 3px $red;
-    animation: scanLine 1.2s linear infinite;
-    animation-delay: 0.5s;
-    pointer-events: none;
-    z-index: 3; // Ensure it sits ABOVE the green wash
-    transition: all 0.4s ease;
-  } */
 
   //HEADER HOVER EFFECTS
   //PCAPEXPRESS GLITCH
@@ -181,37 +151,22 @@ header {
     &:hover {
     h1 a { animation: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite !important; }
     .header-bio { filter: brightness(1.8); text-shadow: 0 0 12px $green; }
+    
+    }
+    
+   //GREEN LINE ACTIVE
     &::after {
-      filter: brightness(2) contrast(1.2); 
+      filter: brightness(1.8) contrast(1.2); 
       box-shadow: 0 0 20px rgba($green, 0.9), 0 0 40px rgba($green, 0.4); 
-      animation: scanLine 4s linear infinite, dataStutter 0.15s steps(4) infinite;
-    }
-    &::before {
-      background: #fff;
-      filter: brightness(1); 
-      box-shadow: 0 0 15px #fff, 0 0 30px $red, 0 0 50px $red;
-      animation: scanLine 1s linear infinite, fastPulse 0.1s infinite;
-    }
-   /* //GREEN LINE ACTIVE
-    &::before {
-      opacity: 1;
-      height: 100px; // Expands the light wash
-      background: linear-gradient(to top, rgba($green, 0.5) 0%, rgba($green, 0.1) 40%, transparent 100%);
-      backdrop-filter: brightness(1.3); // Subtle lift
-      animation: scanLine 3s linear infinite;
-    }
+      animation: scanLine 4.5s linear infinite, dataStutter 0.15s steps(4) infinite;
   
     //RED LINE ACTIVE
-    &::after {
-      opacity: 1;
-      height: 1px; // KEEP IT THIN
-      background: #fff; // White core for that high-intensity laser look
-      box-shadow: 
-        0 0 3px $red, 
-        0 0 6px $red; 
-      filter: brightness(1.2);
-      animation: scanLine 1.5s linear infinite;
-    } */
+    &::before {
+      background: #fff;
+      filter: brightness(0.8); 
+      box-shadow: 0 0 15px #fff, 0 0 30px $red, 0 0 50px $red;
+      animation: scanLine 1.7s linear infinite, fastPulse 0.2s infinite;
+    }
   }
 }
 
