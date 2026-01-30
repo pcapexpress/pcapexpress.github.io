@@ -52,16 +52,13 @@ h1, h2, h3, .nav-menu, .header-bio, footer {
 header {
   position: relative;
   overflow: hidden; 
-  width: 100%; 
+  width: 100%;       /* It now fills the 900px of the wrapper */
   display: block;
   border-bottom: 3px solid $red;
   
-  /* THE FIXES */
-  margin: 0;           /* Remove the 10px top margin here */
-  border-radius: 0;    /* Remove rounding; the .wrapper's overflow:hidden handles this */
-  
+  margin: 0 !important;   /* Forcefully remove any gaps at the top */
   padding: 80px 20px;
-  text-align: center;
+  border-radius: 0;
 
   background: 
     linear-gradient(to bottom, rgba(26, 39, 46, 0.2) 10%, rgba(26, 39, 46, 0.95) 100%),
