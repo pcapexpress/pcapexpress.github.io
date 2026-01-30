@@ -11,8 +11,13 @@ $orange: #E17A47;
 $medium-bg: #263842;
 $dark-bg: #1A272E;
 
+//FONTS
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Share+Tech+Mono&display=swap');
+
 // 2. GLOBAL RESET AND BODY
 * { box-sizing: border-box; }
+
+//HTML BIT
 html {
   background-color: $darker-slate;
   background-image: repeating-linear-gradient(
@@ -22,15 +27,25 @@ html {
   margin: 0; padding: 0;
 }
 
+//BODY STRUCTURE
 body {
   background-color: transparent; 
   color: $orange;
-  margin: 0; padding: 0;
-  font-family: 'Courier New', monospace;
+  margin: 0;
+  padding: 0;
+  font-family: 'JetBrains Mono', monospace; // Clean, modern body font
   display: flex;
   flex-direction: column;
   align-items: center; 
+  overflow-x: hidden;
   min-height: 100vh;
+  width: 100%;
+}
+
+//2.1 TYPOGRAPHY OVERRIDES
+h1, h2, h3, .nav-menu, .header-bio, footer {
+  font-family: 'Share Tech Mono', monospace;
+  letter-spacing: 0.5px;
 }
 
 // 3. HEADER ARCHITECTURE
@@ -59,23 +74,22 @@ header {
   //HEADER TITLE
   h1 {
     margin: 0;
+    pointer-events: none; // Makes the entire H1 non-reactive
+    
     a {
       color: $orange !important;
       font-size: 2.2rem;
       font-weight: 900;
-      text-decoration: none !important; // Forced removal
-      transition: all 0.2s ease;
-      position: relative;
+      text-decoration: none !important;
+      cursor: default; // Keeps the mouse as an arrow, not a pointer
+      
+      // Ensure the hover glitch animation in your "header:hover" section 
+      // doesn't affect this specific link.
+      animation: none !important; 
 
-      // Kills the global underline for Title
       &::after { 
         content: none !important; 
         display: none !important; 
-        width: 0 !important;
-      }
-      
-      &:hover::after {
-        content: none !important;
       }
     }
   }
@@ -87,7 +101,8 @@ header {
     font-size: 0.9rem;
     margin: 5px 0;
     display: block;
-    transition: all 0.3s ease; 
+    pointer-events: none; // Prevents brightness/glow shifts on mouse over
+    transition: none; // Removes the smooth glow transition
   }
 
   //HEADER MENU LINKS
@@ -105,10 +120,11 @@ header {
       border: 1px solid $red;
       color: $orange;
       padding: 8px 20px;
-      border-radius: 50px; 
-      font-size: 0.7rem;
+      border-radius: 50px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.8rem; // Slightly increased for this specific font
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
       text-decoration: none !important; // Forced removal
       transition: 0.5s all ease;
       position: relative; 
@@ -261,7 +277,9 @@ pre {
   color: $green; 
   padding: 15px; 
   display: block;
-  font-family: 'Courier New', monospace;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  font-weight: 400;
   position: relative;
   overflow: hidden;
   border-radius: 4px;
@@ -401,14 +419,14 @@ hr {
 .wrapper {
   max-width: 900px;
   width: 100%;
-  margin: 10px auto; // Creates that floating gap at top and bottom
+  margin: 10px auto; // 10px at top and 10px at bottom creates the "floating" look
   background-color: $slate; 
-  box-shadow: 0 0 80px rgba(0, 0, 0, 0.8); 
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.6); 
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 20px); // Subtracts the margins to fit perfectly
+  min-height: calc(100vh - 20px); // Stretches pod to fit screen height minus the gaps
   border-radius: 8px;
-  overflow: hidden; // Keeps header/footer corners within the radius
+  overflow: hidden; // Critical: clips header/footer to the wrapper's rounded corners
 }
 
 // 9. SLIM FOOTER
@@ -416,9 +434,9 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%; // Fills the wrapper
+  width: 100%;      /* Now it fills exactly 900px of the wrapper */
   height: 40px;
-  margin-top: auto; // Pushes footer to the bottom of the wrapper pod
+  margin-top: auto; /* Keeps footer pinned to the bottom of the content */
   
   position: relative;
   background: 
@@ -426,9 +444,10 @@ footer {
     url("../images/footer.png") no-repeat bottom center;
   background-size: cover;
   
+  /* BORDER FIXES */
   border-top: 1px solid rgba($red, 0.3);
   border-bottom: 3px solid $red;
-  border-radius: 0 0 8px 8px;
+  // border-radius: 0 0 8px 8px; // Handled by wrapper's overflow:hidden now
   
   color: $orange;
   font-size: 0.85rem;
