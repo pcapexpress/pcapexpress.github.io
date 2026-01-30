@@ -28,7 +28,7 @@ html {
 }
 
 body {
-  background-color: $slate;
+  background-color: transparent; // Critical fix
   color: $orange;
   margin: 0;
   padding: 0;
@@ -37,9 +37,13 @@ body {
   flex-direction: column;
   align-items: center;
   overflow-x: hidden;
-  padding-bottom: 10px;
-  min-height: 100vh; // Ensures the slate goes to the bottom
+  min-height: 100vh;
 
+  /* THE FIX: Constraints */
+  max-width: 900px;   /* Match your header/footer width */
+  margin: 0 auto;     /* Centers the pod */
+  width: 100%;
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.5); /* Adds depth over the background */
 }
 
 // 3. HEADER ARCHITECTURE
@@ -403,11 +407,12 @@ hr {
   max-width: 900px;
   width: 100%;
   margin: 0 auto;
-  background-color: $slate; // The content area "pod"
-  box-shadow: 0 0 50px rgba(0,0,0,0.3); // Optional: adds depth against the dark background
+  background-color: $slate; 
+  box-shadow: 0 0 50px rgba(0,0,0,0.5); 
   padding-bottom: 10px;
   display: flex;
   flex-direction: column;
+  min-height: 100vh; // Keeps the pod stretched to the bottom
 }
 
 // 9. SLIM FOOTER
