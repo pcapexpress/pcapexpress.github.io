@@ -152,13 +152,13 @@ header {
     }
 
     //GREEN LINE ACTIVE
-    &::before {
+    &::after {
       opacity: 1;
       animation: scanLine 3s linear infinite;
     }
 
     //RED LINE ACTIVE
-    &::after {
+    &::before {
       opacity: 1;
       filter: brightness(2) contrast(1.2); 
       // We use a slight delay or different duration so they don't overlap perfectly
@@ -426,8 +426,17 @@ footer::after {
 //CODE BLOCK FLICKER
 @keyframes staticFlicker { 0% { opacity: 0.5; } 50% { opacity: 0.8; } 100% { opacity: 0.5; } }
 
-// Add this to Section 10: ANIMATIONS
-@keyframes dividerPulse {
-  0%, 100% { opacity: 0.4; filter: contrast(1); }
-  50% { opacity: 1; filter: contrast(1.5) brightness(1.2); }
+//DIVIDER PULSE BEHAVIOUR
+@keyframes dividerBreath {
+  0%, 100% { 
+    transform: scaleX(0.7); // Shrinks sideways
+    opacity: 0.3; 
+    filter: blur(1px);      // Softens when dim
+  }
+  50% { 
+    transform: scaleX(1);   // Expands sideways
+    opacity: 1; 
+    filter: blur(0px);      // Sharpens when bright
+    box-shadow: 0 0 25px rgba($orange, 0.6); 
+  }
 }
