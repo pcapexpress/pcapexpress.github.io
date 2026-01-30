@@ -76,7 +76,7 @@ header {
   //HEADER TITLE
  h1 {
     margin: 0;
-    pointer-events: none; // Keeps the text non-clickable
+    // Removed pointer-events from here
     
     a {
       color: $orange !important;
@@ -84,8 +84,9 @@ header {
       font-weight: 900;
       text-decoration: none !important;
       cursor: default;
+      pointer-events: none; // Put it here so the text isn't clickable
     }
-}
+  }
 
   //HEADER GREEN TEXT
   .header-bio {
@@ -211,12 +212,12 @@ header {
 // 4. MAIN CONTENT AREA
 section {
   max-width: 900px;
-  margin: 0 auto;
+  margin: 0 auto;       /* Keep this as 0 auto */
   padding: 40px 20px;
   width: 100%;
-  display: flow-root; // Prevents margin leakage without needing !important
+  display: block;       /* Changed from flow-root to block for better flush fit */
   position: relative;
-  z-index: 1; 
+  z-index: 1;
 
   //HEADER COLORS
   & > h1, & > h2 { color: $red; }
@@ -414,14 +415,17 @@ hr {
 .wrapper {
   max-width: 900px;
   width: 100%;
-  margin: 20px auto;   /* This provides the 20px gap at the very top and bottom of the page */
+  margin: 20px auto; 
   background-color: $slate; 
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.7); 
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 40px); /* Adjusting for the 20px top/bottom margins */
+  min-height: calc(100vh - 40px); 
   border-radius: 12px;
-  overflow: hidden;    /* This magic line rounds the header and footer corners automatically */
+  overflow: hidden; 
+  
+  /* ADD THIS */
+  align-items: stretch; 
 }
 
 // 9. SLIM FOOTER
