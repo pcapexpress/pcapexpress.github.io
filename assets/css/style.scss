@@ -10,10 +10,8 @@ $orange: #E17A47;
 $medium-bg: #263842;
 $dark-bg: #1A272E;
 
-// 2. GLOBAL RESET
-* { 
-  box-sizing: border-box; 
-}
+// 2. GLOBAL RESET AND BODY
+* { box-sizing: border-box; }
 
 body {
   background-color: $slate;
@@ -21,26 +19,18 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Courier New', monospace;
-  
-  /* Layout Architecture */
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow-x: hidden;
-  
-  /* The "Floating Capsule" gap */
   padding-bottom: 10px; 
-}
 
-  //CURSOR ATEMPT
-  cursor: url('../images/cursor.svg'), auto;
-
-  // Option B: Inline SVG (No extra file needed!)
+  // CUSTOM CURSOR (ORANGE OUTLINE)
   cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'><path d='M5.5 3.21V20.8c0 .45.54.67.85.35l4.83-4.83 3.06 7.25c.14.34.52.5.86.35l2.02-.85c.34-.14.5-.52.35-.86l-3.03-7.18h6.14c.32 0 .48-.39.25-.61L6.35 2.86a.5.5 0 0 0-.85.35z' fill='%231A272E' stroke='%23E17A47' stroke-width='1.5'/></svg>"), auto;
 }
 
-// Ensure interactive elements still feel clickable
-a, button, .nav-menu li a {
+// Interactive Elements Cursor Inversion
+a, button, .nav-menu li a, hr {
   cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'><path d='M5.5 3.21V20.8c0 .45.54.67.85.35l4.83-4.83 3.06 7.25c.14.34.52.5.86.35l2.02-.85c.34-.14.5-.52.35-.86l-3.03-7.18h6.14c.32 0 .48-.39.25-.61L6.35 2.86a.5.5 0 0 0-.85.35z' fill='%23E17A47' stroke='%231A272E' stroke-width='1.5'/></svg>"), pointer;
 }
 
@@ -174,7 +164,7 @@ header {
     //RED LINE ACTIVE
     &::after {
       opacity: 1;
-      filter: brightness(1)
+      filter: brightness(1);
       animation: scanLine 1.5s linear infinite, fastPulse 0.15s steps(4) infinite;
       border-bottom: 1px solid $red; // Ensures the line is red
       box-shadow: 0 0 15px $red;
