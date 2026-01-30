@@ -3,6 +3,7 @@
 
 // 1. PALETTE & VARIABLES
 $slate: #344E5C;
+$darker-slate: #1c2a31; //PAGE BACKGROUND
 $yellow: #EFC958;
 $red: #EF3D59;
 $green: #4AB19D;
@@ -10,40 +11,55 @@ $orange: #E17A47;
 $medium-bg: #263842;
 $dark-bg: #1A272E;
 
-// 2. GLOBAL RESET
-* { 
-  box-sizing: border-box; 
+//FONTS
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+// 2. GLOBAL RESET AND BODY
+* { box-sizing: border-box; }
+
+//HTML BIT
+html {
+  background-color: $darker-slate;
+  background-image: repeating-linear-gradient(
+    0deg, rgba(0, 0, 0, 0.15) 0px, rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px, transparent 3px
+  );
+  margin: 0; padding: 0;
 }
 
+//BODY STRUCTURE
 body {
-  background-color: $slate;
+  background-color: transparent; 
   color: $orange;
   margin: 0;
   padding: 0;
-  font-family: 'Courier New', monospace;
-  
-  /* Layout Architecture */
+  font-family: 'JetBrains Mono', monospace; // Clean, modern body font
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; 
   overflow-x: hidden;
-  
-  /* The "Floating Capsule" gap */
-  padding-bottom: 10px; 
+  min-height: 100vh;
+  width: 100%;
+}
+
+// 2.1 TYPOGRAPHY OVERRIDES
+h1, h2, h3, .nav-menu, .header-bio, footer {
+  font-family: 'IBM Plex Mono', monospace; // Or 'Exo 2', sans-serif
+  letter-spacing: 1px; // Monospace fonts often need a tiny bit of extra space
+  text-transform: uppercase; // Makes tech fonts look much more "official"
 }
 
 // 3. HEADER ARCHITECTURE
 header {
   position: relative;
   overflow: hidden; 
-  max-width: 900px;  
-  margin: 10px auto 0 auto; 
-  width: 100%;
+  width: 100%;       /* It now fills the 900px of the wrapper */
   display: block;
   border-bottom: 3px solid $red;
-  border-radius: 8px 8px 0 0; 
+  
+  margin: 0 !important;   /* Forcefully remove any gaps at the top */
   padding: 80px 20px;
-  text-align: center;
+  border-radius: 0;       /* The wrapper handles the rounding */
 
   background: 
     linear-gradient(to bottom, rgba(26, 39, 46, 0.2) 10%, rgba(26, 39, 46, 0.95) 100%),
@@ -56,14 +72,21 @@ header {
   }
 
   //HEADER TITLE
-  h1 {
+   h1 {
     margin: 0;
+    pointer-events: auto; /* The H1 container must be "active" to feel the mouse */
+    
     a {
-      color: $orange;
+      color: $orange !important;
       font-size: 2.2rem;
-      font-weight: 900;
-      text-decoration: none;
-      transition: all 0.2s ease;
+      text-decoration: none !important;
+      cursor: default;
+      pointer-events: none; // Keeps the text itself from being a clickable link
+      display: inline-block;
+
+      /* ADD THESE TWO LINES HERE */
+      font-weight: 700; 
+      letter-spacing: -1px;
     }
   }
 
@@ -74,7 +97,8 @@ header {
     font-size: 0.9rem;
     margin: 5px 0;
     display: block;
-    transition: all 0.3s ease; // Smooth glow transition
+    pointer-events: none; // Prevents brightness/glow shifts on mouse over
+    transition: none; // Removes the smooth glow transition
   }
 
   //HEADER MENU LINKS
@@ -92,18 +116,33 @@ header {
       border: 1px solid $red;
       color: $orange;
       padding: 8px 20px;
-      border-radius: 50px; 
-      font-size: 0.7rem;
+      border-radius: 50px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.8rem; // Slightly increased for this specific font
       text-transform: uppercase;
-      letter-spacing: 1px;
-      text-decoration: none;
+      letter-spacing: 1.5px;
+      text-decoration: none !important; // Forced removal
       transition: 0.5s all ease;
+      position: relative; 
+      
+      // THE FIX: Explicitly kill the global red underline
+      &::after { 
+        content: none !important; 
+        display: none !important; 
+        width: 0 !important;
+      }
 
       &:hover {
         background: $orange;
         color: $dark-bg;
         box-shadow: 0 0 15px $red;
         transform: scale(1.05);
+
+        // Ensure underline doesn't reappear on hover
+        &::after { 
+          content: none !important; 
+          width: 0 !important; 
+        }
       }
     }
   }
@@ -115,11 +154,12 @@ header {
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 35px;
-    background: linear-gradient(to top, rgba($green, 1.0) 0%, rgba($green, 0.4) 20%, transparent 100%);
+    background: linear-gradient(to top, rgba($green, 0.8) 0%, rgba($green, 0.3) 20%, transparent 100%);
     mix-blend-mode: screen; 
     backdrop-filter: brightness(1.4) saturate(1.2); 
     box-shadow: 0 5px 15px rgba($green, 0.3);
     animation: scanLine 4s linear infinite;
+    transition: all 0.4s ease;
     pointer-events: none;
     z-index: 2;
   }
@@ -129,13 +169,14 @@ header {
     content: "";
     position: absolute;
     top: 0; left: 0;
-    width: 100%; height: 3px;
+    width: 100%; height: 2px;
     background: $red;
     mix-blend-mode: screen;
     box-shadow: 0 0 10px $red;
     filter: brightness(0.6); 
     animation: scanLine 1s linear infinite;
     animation-delay: 0.5s;
+    transition: all 0.4s ease;
     pointer-events: none;
     z-index: 2;
   }
@@ -143,28 +184,29 @@ header {
   //HEADER HOVER EFFECTS
   //PCAPEXPRESS GLITCH
   &:hover {
-    h1 a { animation: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite; }
-
+    // We target the 'a' inside the 'h1' when the 'header' is hovered
+    h1 a { 
+      animation: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite !important; 
+    }
     //HEADER GREEN GLOW
     .header-bio { 
       filter: brightness(1.8); 
       text-shadow: 0 0 12px $green; 
     }
-
+  
     //GREEN LINE ACTIVE
     &::after {
-      opacity: 1;
-      animation: scanLine 3s linear infinite;
+      filter: brightness(1.8) contrast(1.2); 
+      box-shadow: 0 0 20px rgba($green, 0.9), 0 0 40px rgba($green, 0.4); 
+      animation: scanLine 4.5s linear infinite, dataStutter 0.15s steps(4) infinite;
     }
-
+  
     //RED LINE ACTIVE
     &::before {
-      opacity: 1;
-      filter: brightness(2) contrast(1.2); 
-      // We use a slight delay or different duration so they don't overlap perfectly
-      animation: scanLine 4s linear infinite reverse, dataStutter 0.15s steps(4) infinite;
-      border-bottom: 2px solid $red; // Ensures the line is red
-      box-shadow: 0 0 15px $red;
+      background: #fff;
+      filter: brightness(0.8); 
+      box-shadow: 0 0 15px #fff, 0 0 30px $red, 0 0 50px $red;
+      animation: scanLine 1.7s linear infinite, fastPulse 0.2s infinite;
     }
   }
 }
@@ -172,17 +214,17 @@ header {
 // 4. MAIN CONTENT AREA
 section {
   max-width: 900px;
-  margin: 0 auto;
+  margin: 0 auto;       /* Keep this as 0 auto */
   padding: 40px 20px;
   width: 100%;
-  display: flow-root; // Prevents margin leakage without needing !important
+  display: block;       /* Changed from flow-root to block for better flush fit */
   position: relative;
-  z-index: 1; 
+  z-index: 1;
 
   //HEADER COLORS
-  h1, h2 { color: $red; }
-  h3 { color: $orange; }
-  h4 { color: $green; }
+  & > h1, & > h2 { color: $red; }
+  & > h3 { color: $orange; }
+  & > h4 { color: $green; }
   
   //BODY TEXT
   p, div, li { 
@@ -233,7 +275,9 @@ pre {
   color: $green; 
   padding: 15px; 
   display: block;
-  font-family: 'Courier New', monospace;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  font-weight: 400;
   position: relative;
   overflow: hidden;
   border-radius: 4px;
@@ -287,23 +331,23 @@ pre[data-label]::after {
 }
 
 // 6. GLOBAL LINK STYLE
-a {
+section a, .header-bio a { 
   color: $orange;
   text-decoration: none;
   font-weight: bold;
-  position: relative; // Needed to anchor the underline
+  position: relative; // Anchors the custom underline
   transition: color 0.3s ease;
   
-  // The "Hidden" Underline
+  // The Animated Red Underline
   &::after {
     content: "";
     position: absolute;
-    bottom: -2px;
+    bottom: -2px; 
     left: 0;
-    width: 0; // Starts at zero length
+    width: 0; // Starts hidden
     height: 2px;
     background-color: $red;
-    transition: width 0.3s ease-in-out; // The stretching animation
+    transition: width 0.3s ease-in-out;
     box-shadow: 0 0 5px $red; // Forensic glow
   }
 
@@ -311,7 +355,7 @@ a {
     color: $yellow;
     text-shadow: 0 0 8px rgba($yellow, 0.5);
 
-    &::after {
+    &::after { 
       width: 100%; // Stretches to full width on hover
     }
   }
@@ -344,54 +388,46 @@ section ul li {
   }
 }
 
-//7.2 GLOWING DIVIDERS
+// 7.2 AMBIENT WIRE DIVIDER
 hr {
-  border: none;
-  height: 2px;
-  width: 80%;
+  border: none !important;
+  height: 1px !important; 
+  background-color: transparent !important;
+  
+  background-image: linear-gradient(
+    to right, 
+    transparent 0%, 
+    rgba($orange, 0.4) 10%, 
+    rgba($orange, 0.8) 50%, 
+    rgba($orange, 0.4) 90%, 
+    transparent 100%
+  ) !important;
+
+  width: 90%; 
   margin: 60px auto;
   position: relative;
   overflow: visible;
-
-  // The Laser Line
-  background: linear-gradient(
-    to right, 
-    transparent 0%, 
-    $orange 50%, 
-    transparent 100%
-  );
   
-  // The Glow & Shadow
-  box-shadow: 0 0 15px rgba($orange, 0.4);
-  
-  /* The Sideways Breathing & Pulse Animation */
-  animation: dividerBreath 5s ease-in-out infinite;
-
-  // The Central Data Node
-  &::after {
-    content: "◆";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    color: $orange;
-    font-size: 12px;
-    text-shadow: 0 0 10px $orange, 0 0 20px rgba($orange, 0.5);
-  }
+  animation: 
+    dividerStretch 12s ease-in-out infinite,
+    wireEnergize 4s ease-in-out infinite; 
 }
 
 // 8. WRAPPER
 .wrapper {
   max-width: 900px;
   width: 100%;
-  margin: 0 auto;
-  
-  /* Ensuring the 10px floating gap at the bottom */
-  padding-bottom: 10px; 
-  
-  /* Flexbox consistency */
+  margin: 20px auto;     /* Centered with 20px gap from screen top/bottom */
+  background-color: $slate; 
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.7); 
   display: flex;
   flex-direction: column;
+  min-height: calc(100vh - 40px); 
+  border-radius: 12px;
+  overflow: hidden;      /* Clips the header and footer to 12px corners */
+  
+  // Forces children (header/section/footer) to sit flush
+  align-items: stretch;  
 }
 
 // 9. SLIM FOOTER
@@ -399,28 +435,21 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 900px;
   width: 100%;
-  height: 40px;
-  /* 60px top margin to breathe, 10px bottom margin for your 'floating' look */
-  margin: 60px auto 10px auto; 
-  position: relative;
-  background: 
-    linear-gradient(rgba(26, 39, 46, 0.80), rgba(26, 39, 46, 0.80)), 
-    url("../images/footer.png") no-repeat bottom center;
-  background-size: cover;
-  border-top: 3px solid $red; 
-  border-radius: 0 0 8px 8px; 
+  height: 45px;
+  margin-top: auto; 
+  background-color: rgba(26, 39, 46, 0.85); 
+  border-top: 1px solid rgba($red, 0.4);
+  border-bottom: 4px solid $red;
   
-  /* Text Styling */
+  // These were outside the bracket in your code:
   color: $orange;
   font-size: 0.85rem;
   font-weight: bold;
 }
-
+  
 footer::after {
   content: "© 2026 PcapExpress | Patience | Perseverance | Upward Mobility";
-  /* No !important needed - this is the only rule for footer text */
 }
 
 // 10. ANIMATIONS
@@ -456,19 +485,22 @@ footer::after {
 }
     
 //CODE BLOCK FLICKER
-@keyframes staticFlicker { 0% { opacity: 0.5; } 50% { opacity: 0.8; } 100% { opacity: 0.5; } }
+@keyframes staticFlicker { 0% { opacity: 0.7; } 50% { opacity: 0.9; } 100% { opacity: 0.7; } }
 
-//DIVIDER PULSE BEHAVIOUR
-@keyframes dividerBreath {
+//DIVIDER STRETCH/PULSE BEHAVIOUR
+@keyframes wireEnergize {
   0%, 100% { 
-    transform: scaleX(0.7); // Shrinks sideways
-    opacity: 0.3; 
-    filter: blur(1px);      // Softens when dim
+    opacity: 0.6;
+    // No brightness filter here to prevent graying/dulling
+    box-shadow: 0 0 5px rgba($orange, 0.2); 
   }
   50% { 
-    transform: scaleX(1);   // Expands sideways
-    opacity: 1; 
-    filter: blur(0px);      // Sharpens when bright
-    box-shadow: 0 0 25px rgba($orange, 0.6); 
+    opacity: 1;
+    // We removed filter: brightness to keep the $orange "pure"
+    // Instead, we stack shadows to create a rich glow:
+    box-shadow: 
+      0 0 8px rgba($orange, 0.9),  /* Core Glow */
+      0 0 20px rgba($orange, 0.5), /* Mid Bloom */
+      0 0 35px rgba($orange, 0.2); /* Far Atmosphere */
   }
 }
