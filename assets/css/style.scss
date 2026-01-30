@@ -25,13 +25,6 @@ body {
   overflow-x: hidden;
   padding-bottom: 10px; 
 
-  // CUSTOM CURSOR (ORANGE OUTLINE)
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'><path d='M5.5 3.21V20.8c0 .45.54.67.85.35l4.83-4.83 3.06 7.25c.14.34.52.5.86.35l2.02-.85c.34-.14.5-.52.35-.86l-3.03-7.18h6.14c.32 0 .48-.39.25-.61L6.35 2.86a.5.5 0 0 0-.85.35z' fill='%231A272E' stroke='%23E17A47' stroke-width='1.5'/></svg>"), auto;
-}
-
-// Interactive Elements Cursor Inversion
-a, button, .nav-menu li a, hr {
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'><path d='M5.5 3.21V20.8c0 .45.54.67.85.35l4.83-4.83 3.06 7.25c.14.34.52.5.86.35l2.02-.85c.34-.14.5-.52.35-.86l-3.03-7.18h6.14c.32 0 .48-.39.25-.61L6.35 2.86a.5.5 0 0 0-.85.35z' fill='%23E17A47' stroke='%231A272E' stroke-width='1.5'/></svg>"), pointer;
 }
 
 // 3. HEADER ARCHITECTURE
@@ -134,7 +127,7 @@ header {
     width: 100%; height: 3px;
     background: $red;
     mix-blend-mode: screen;
-    box-shadow: 0 0 10px $red;
+    box-shadow: 0 0 3px $red;
     filter: brightness(0.6); 
     animation: scanLine 1s linear infinite;
     animation-delay: 0.5s;
@@ -157,6 +150,7 @@ header {
     &::before {
       opacity: 1;
       backdrop-filter: brightness(1.1) saturate(1.2);
+      filter: brightness(1);
       background: linear-gradient(to top, rgba($green, 0.8) 0%, rgba($green, 0.4) 20%, transparent 100%);
       animation: scanLine 2.7s linear infinite, dataStutter 0.2s steps(4) infinite;
     }
@@ -167,7 +161,7 @@ header {
       filter: brightness(1);
       animation: scanLine 1.5s linear infinite, fastPulse 0.15s steps(4) infinite;
       border-bottom: 1px solid $red; // Ensures the line is red
-      box-shadow: 0 0 15px $red;
+      box-shadow: 0 0 3px $red;
     }
   }
 }
@@ -357,9 +351,9 @@ hr {
   background-image: linear-gradient(
     to right, 
     transparent 0%, 
-    rgba($orange, 0.4) 10%, 
-    rgba($orange, 0.8) 50%, 
-    rgba($orange, 0.4) 90%, 
+    rgba($orange, 0.6) 10%, 
+    rgba($orange, 0.9) 50%, 
+    rgba($orange, 0.6) 90%, 
     transparent 100%
   ) !important;
 
@@ -372,19 +366,6 @@ hr {
   animation: 
     dividerStretch 12s ease-in-out infinite, // Even slower, natural stretch
     wireEnergize 4s ease-in-out infinite;    // The "Pulse" from dull to bright
-
-  &::after {
-    content: "◆";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    color: $orange;
-    font-size: 10px;
-    // Passive node glow
-    text-shadow: 0 0 5px rgba($orange, 0.5);
-    animation: wireEnergize 4s ease-in-out infinite;
-  }
 }
 
 // 8. WRAPPER
@@ -463,7 +444,7 @@ footer::after {
 }
     
 //CODE BLOCK FLICKER
-@keyframes staticFlicker { 0% { opacity: 0.5; } 50% { opacity: 0.8; } 100% { opacity: 0.5; } }
+@keyframes staticFlicker { 0% { opacity: 0.7; } 50% { opacity: 0.9; } 100% { opacity: 0.7; } }
 
 //DIVIDER STRETCH/PULSE BEHAVIOUR
 @keyframes wireEnergize {
@@ -474,7 +455,7 @@ footer::after {
   }
   50% { 
     opacity: 1;
-    filter: brightness(1.5) contrast(1.2);
+    filter: brightness(1.1) contrast(1.1);
     // Mimicking the Image Glow style: Ground Shadow + Ambient Bloom
     box-shadow: 
       0 0 15px rgba($orange, 0.6), 
