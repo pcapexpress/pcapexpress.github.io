@@ -1,6 +1,5 @@
 ---
 ---
-@import "{{ site.theme }}";
 
 // 1. PALETTE & VARIABLES
 $slate: #344E5C;
@@ -12,279 +11,238 @@ $medium-bg: #263842;
 $dark-bg: #1A272E;
 
 // 2. GLOBAL RESET
-body {
-  background-color: $slate !important;
-  color: $orange !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  
-  min-height: 100vh !important; 
-  height: auto !important;
-  
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  overflow-x: hidden;
+* { 
+  box-sizing: border-box; 
 }
 
-.wrapper {
-  max-width: 900px !important;
-  width: 100% !important;
-  margin: 0 auto !important;
-  padding: 0 !important; 
+body {
+  background-color: $slate;
+  color: $orange;
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier New', monospace;
   
-  height: auto !important; 
-  overflow: hidden !important; 
-  position: relative !important;
-  margin-bottom: 0 !important; 
-  display: flow-root !important;
+  /* Layout Architecture */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  
+  /* The "Floating Capsule" gap */
+  padding-bottom: 10px; 
 }
 
 // 3. HEADER ARCHITECTURE
 header {
-  max-width: 900px !important;  
-  margin: 10px auto 0 auto !important; 
-  width: 100% !important;
-  display: block !important;
-  box-sizing: border-box !important;
-  position: relative !important; 
-  overflow: hidden;
+  position: relative;
+  overflow: hidden; 
+  max-width: 900px;  
+  margin: 10px auto 0 auto; 
+  width: 100%;
+  display: block;
+  border-bottom: 3px solid $red;
+  border-radius: 8px 8px 0 0; 
+  padding: 80px 20px;
+  text-align: center;
 
   background: 
     linear-gradient(to bottom, rgba(26, 39, 46, 0.2) 10%, rgba(26, 39, 46, 0.95) 100%),
-    url("../images/header.png") no-repeat center center !important;
-  background-size: cover !important;
-  border-bottom: 3px solid $red !important;
-  border-radius: 8px 8px 0 0; 
-  padding: 80px 20px !important; // Slim Padding
-  text-align: center !important;
+    url("../images/header.png") no-repeat center center;
+  background-size: cover;
 
-  // SCAN LINE GREEN IDLE
-  &::after {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 35px; /* Increased height for better gradient falloff */
-  
-  /* The "Leading Edge" trick: A solid line at the bottom of the gradient makes it pop */
-  background: linear-gradient(
-    to top, 
-    rgba($green, 1.0) 0%,    /* Solid neon at the leading edge */
-    rgba($green, 0.4) 20%,   /* Mid-glow */
-    transparent 100%         /* Fade out */
-  );
-  
-  opacity: 0.8; 
-  animation: scanLine 4s linear infinite;
-  transition: all 0.4s ease;
-  pointer-events: none;
-  z-index: 2;
-}
+  h1, .header-bio, .nav-menu {
+    position: relative;
+    z-index: 5;
+  }
 
-  // SCAN LINE RED IDLE
-  &::before {
+  //HEADER TITLE
+  h1 {
+    margin: 0;
+    a {
+      color: $orange;
+      font-size: 2.2rem;
+      font-weight: 900;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+  }
+
+  //HEADER GREEN TEXT
+  .header-bio {
+    color: $green;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin: 5px 0;
+    display: block;
+    transition: all 0.3s ease; // Smooth glow transition
+  }
+
+  //HEADER MENU LINKS
+  .nav-menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+    padding: 0;
+
+    //LINKS STYLE {PILLS}
+    li a {
+      background: rgba($dark-bg, 0.8);
+      border: 1px solid $red;
+      color: $orange;
+      padding: 8px 20px;
+      border-radius: 50px; 
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-decoration: none;
+      transition: 0.5s all ease;
+
+      &:hover {
+        background: $orange;
+        color: $dark-bg;
+        box-shadow: 0 0 15px $red;
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  //SCAN LINES
+  //GREEN LINE PASIVE
+  &::after { 
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 35px;
+    background: linear-gradient(to top, rgba($green, 1.0) 0%, rgba($green, 0.4) 20%, transparent 100%);
+    mix-blend-mode: screen; 
+    backdrop-filter: brightness(1.4) saturate(1.2); 
+    box-shadow: 0 5px 15px rgba($green, 0.3);
+    animation: scanLine 4s linear infinite;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  //RED LINE PASSIVE
+  &::before { 
     content: "";
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 3px;
-    background: rgba($red, 0.3);
+    background: $red;
+    mix-blend-mode: screen;
+    box-shadow: 0 0 10px $red;
+    filter: brightness(0.6); 
     animation: scanLine 1s linear infinite;
     animation-delay: 0.5s;
-    transition: all 0.4s ease;
     pointer-events: none;
     z-index: 2;
   }
-  //ON MOUSE HOVER
+
+  //HEADER HOVER EFFECTS
+  //PCAPEXPRESS GLITCH
   &:hover {
+    h1 a { animation: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite; }
 
-    //GREEN LINE HOVER
+    //HEADER GREEN GLOW
+    .header-bio { 
+      filter: brightness(1.8); 
+      text-shadow: 0 0 12px $green; 
+    }
+
+    //GREEN LINE ACTIVE
     &::after {
-    opacity: 1;
-    /* Stronger, multi-layered glow */
-    box-shadow: 
-      0 0 15px rgba($green, 0.8), 
-      0 0 30px rgba($green, 0.4); 
-    
-    /* Overclocked animation as we discussed */
-    animation: scanLine 4s linear infinite, dataStutter 0.1s steps(4) infinite;
+      opacity: 1;
+      animation: scanLine 3s linear infinite;
     }
 
-    //RED LINE HOVER
+    //RED LINE ACTIVE
     &::before {
-      background: rgba($red, 0.8);
-      box-shadow: 0 0 10px #fff, 0 0 30px $red;
-      animation: scanLine 1.5s linear infinite, fastPulse 0.2s infinite;
-    }
-
-    //HEADER GLITCH
-    h1 a { animation: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite !important; }
-    .header-bio { text-shadow: 0 0 10px $green; filter: brightness(1.5); }
-  }
-
-  h1 {
-    margin: 0 !important;
-    a {
-      color: $orange !important;
-      font-size: 2.2rem !important;
-      font-weight: 900 !important;
-      text-decoration: none !important;
-      pointer-events: none !important;
-    }
-  }
-
-  .header-bio {
-    color: $green !important;
-    font-weight: bold !important;
-    font-size: 0.9rem !important;
-    margin: 5px 0 !important;
-    display: block !important;
-  }
-
-  .nav-menu {
-    list-style: none !important;
-    display: flex !important;
-    justify-content: center !important;
-    gap: 15px !important;
-    margin-top: 15px !important;
-    padding: 0 !important;
- 
-    //PILL LINKS
-    
-    li a {
-      background: rgba($dark-bg, 0.8) !important;
-      border: 1px solid $red !important;
-      color: $orange !important;
-      padding: 8px 20px !important;
-      border-radius: 50px !important; // Makes them pills
-      font-size: 0.7rem !important;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: 0.5s all ease !important;
-      pointer-events: auto !important;
-
-      &:hover {
-        background: $orange !important;
-        color: $dark-bg !important;
-        box-shadow: 0 0 15px $red;
-        transform: scale(1.05);
-      }
+      opacity: 1;
+      filter: brightness(2) contrast(1.2); 
+      // We use a slight delay or different duration so they don't overlap perfectly
+      animation: scanLine 4s linear infinite reverse, dataStutter 0.15s steps(4) infinite;
+      border-bottom: 2px solid $red; // Ensures the line is red
+      box-shadow: 0 0 15px $red;
     }
   }
 }
 
 // 4. MAIN CONTENT AREA
 section {
-  max-width: 900px !important;
-  width: 100% !important;
-  margin: 0 auto !important;
-  padding: 40px 20px 20px 20px !important; // CHECK THIS
-  display: block !important;
-  box-sizing: border-box !important;
-  background: none !important;
-  margin-bottom: 0 !important; 
-  &:last-of-type {
-    padding-bottom: 10px !important;
-}
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  width: 100%;
+  display: flow-root; // Prevents margin leakage without needing !important
+  position: relative;
+  z-index: 1; 
 
-
-  //HEADERS
-  h1, h2 { color: $red !important; }
-  h3 { color: $orange !important; }
-  h4 { color: $green !important; }
-  h5 { 
-    color: $green !important; 
-    font-family: 'Courier New', monospace !important;
-    border-bottom: 2px solid rgba(74, 177, 157, 0.3);
-    display: inline-block;
-  }
+  //HEADER COLORS
+  h1, h2 { color: $red; }
+  h3 { color: $orange; }
+  h4 { color: $green; }
   
-  //REGULAR TEXT
-  p, div, li { color: $yellow !important; }
+  //BODY TEXT
+  p, div, li { 
+    color: $yellow; 
+    line-height: 1.6; 
+  }
+
+//ATMOSPHERIC IMAGE
+img {
+  border: 2px solid rgba($orange, 0.4);
+  background-color: rgba($dark-bg, 0.5);
+  border-radius: 20px;
+  display: block;
+  max-width: 90%;
+  height: auto;
+  margin: 35px auto;
   
-  //BOLD correction
-  strong, b {
-    color: inherit !important;
-    font-weight: bold !important;
-  }
+  //SHADOW UNDERNEATH
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
+  
+  //RENDERING FIX???
+  backface-visibility: hidden;
+  transform: translateZ(0);
 
-  //THE > BLOCK
-  blockquote {
-    border-left: 3px solid $red !important;
-    background: $medium-bg !important;
-    padding: 15px 20px !important;
-    margin: 20px 0 !important;
-    p { 
-      color: $yellow !important; 
-      font-style: italic; 
-      margin: 0 !important;
-    }
-  }
-
-  // THE --- DIVIDER LINE
-  hr {
-    border: none !important;
-    height: 2px !important;
-    background-color: $orange !important;
-    margin: 50px auto !important;
-    width: 95% !important;
-    display: block !important;
-    overflow: visible !important; 
-    box-shadow: 
-      0 0 4px rgba($orange, 0.8), 
-      0 0 15px rgba(0, 0, 0, 1.0);
-    opacity: 0.6; 
-    animation: staticFlicker 0.8s infinite alternate;
-  }
-
-  /* Desync Logic */
-  hr:nth-of-type(2n) { animation-delay: 0.1s; animation-duration: 0.35s; }
-  hr:nth-of-type(3n) { animation-delay: 0.25s; animation-duration: 0.5s; }
-  hr:nth-of-type(4n) { animation-delay: 0.05s; animation-duration: 0.45s; }
-
-  // IMAGE STYLING
-  img {
-    border: 2px solid rgba($orange, 0.4) !important;
-    background-color: rgba($dark-bg, 0.5) !important;
-    border-radius: 20px !important;
-    overflow: hidden !important; 
-    padding: 0 !important;
-    display: block !important;
-    max-width: 90% !important;
-    height: auto !important;
-    margin: 35px auto !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
-    
   transition: 
-    box-shadow 0.5s ease-in-out, 
-    border-color 0.5s ease-in-out;
+    box-shadow 0.6s ease-in-out, 
+    border-color 0.6s ease-in-out,
+    filter 0.6s ease-in-out;
 
   &:hover {
-    border-color: rgba($orange, 1.0) !important;
+    border-color: rgba($orange, 0.8);
+    filter: brightness(1.05); // Slight "power up" effect
+
+    //GLOW AND BLOOM
     box-shadow: 
-      0 4px 10px rgba(0, 0, 0, 0.8),  /* Tighter ground shadow */
-      0 0 25px rgba($orange, 0.6);   /* Soft ambient orange bloom */
-    filter: brightness(1.05);
+      0 15px 35px rgba(0, 0, 0, 0.7),   /* Deeper lift shadow */
+      0 0 30px rgba($orange, 0.4),      /* Primary orange bloom */
+      0 0 60px rgba($orange, 0.1);      /* Far-reaching atmospheric glow */
     }
   }
 }
 
 // 5. CODE BLOCKS
-
-pre, code {
-  background-color: #0a0a0a !important; 
-  background-image: repeating-conic-gradient(#1a1a1a 0% 25%, #222 0% 50%) !important;
-  background-size: 4px 4px !important;
+pre {
+  background-color: #0a0a0a; 
+  background-image: repeating-conic-gradient(#1a1a1a 0% 25%, #222 0% 50%);
+  background-size: 4px 4px;
   color: $green; 
-  border: none !important; 
-  padding: 15px !important; 
+  padding: 15px; 
   display: block;
-  font-family: 'Courier New', monospace !important;
+  font-family: 'Courier New', monospace;
   position: relative;
   overflow: hidden;
-  transition: background-color 0.3s ease;
-   
-  //BLOCK FLICKER ANIMATION
-  
+  border-radius: 4px;
+
+  // THE ORANGE GLOW
+  border-left: 3px solid $orange;
+  box-shadow: 0 0 15px rgba($orange, 0.2); 
+  transition: all 0.3s ease;
+
   &::before {
     content: "";
     position: absolute;
@@ -292,197 +250,197 @@ pre, code {
     background: rgba(255, 255, 255, 0.03);
     animation: staticFlicker 0.2s infinite;
     pointer-events: none;
+    z-index: 1; // Keeps the flicker as a background layer
   }
 
-  //TEXT COLOR AND GLOW
-  
-  .red    { color: $red !important; text-shadow: 0 0 5px rgba($red, 0.5); }
-  .green  { color: $green !important; text-shadow: 0 0 5px rgba($green, 0.5); }
-  .yellow { color: $yellow !important; text-shadow: 0 0 5px rgba($yellow, 0.5); }
-  .orange { color: $orange !important; text-shadow: 0 0 5px rgba($orange, 0.5); }
-  .slate  { color: $slate !important; }
+  // Syntax Highlighting & Glows
+  .red    { color: $red; text-shadow: 0 0 5px rgba($red, 0.5); }
+  .green  { color: $green; text-shadow: 0 0 5px rgba($green, 0.5); }
+  .yellow { color: $yellow; text-shadow: 0 0 5px rgba($yellow, 0.5); }
+  .orange { color: $orange; text-shadow: 0 0 8px rgba($orange, 0.6); }
+  .slate  { color: $slate; }
+
+  .red, .green, .yellow, .orange, .slate {
+  position: relative;
+  z-index: 2;
+  }
+
+  &:hover {
+    box-shadow: 0 0 25px rgba($orange, 0.4); // Intense glow on hover
+    background-color: #0d0d0d;
+  }
 }
 
-//CORNER LABEL
-
+//DATA LABEL
 pre[data-label]::after {
   content: attr(data-label);
   position: absolute;
-  top: 0; left: 0;
-  padding: 5px 10px;
-  background: $green !important; 
-  color: white;
+  top: 0; right: 0; // Moved to the right for better terminal look
+  padding: 2px 8px;
+  background: $green; 
+  color: $dark-bg;
   font-size: 0.6rem;
+  font-weight: bold;
   text-transform: uppercase;
+  z-index: 3;
+  border-radius: 0 0 0 4px;
 }
 
 // 6. GLOBAL LINK STYLE
-
 a {
-  color: $orange !important;
-  text-decoration: none !important;
-  background-image: linear-gradient($red, $red);
-  background-position: 0% 100%;
-  background-repeat: no-repeat;
-  background-size: 0% 2px;
-  transition: background-size 0.3s ease, color 0.3s ease;
-  padding-bottom: 2px;
+  color: $orange;
+  text-decoration: none;
   font-weight: bold;
-
-  &:hover {
-    color: $yellow !important;
-    background-size: 100% 2px;
+  position: relative; // Needed to anchor the underline
+  transition: color 0.3s ease;
+  
+  // The "Hidden" Underline
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0; // Starts at zero length
+    height: 2px;
+    background-color: $red;
+    transition: width 0.3s ease-in-out; // The stretching animation
+    box-shadow: 0 0 5px $red; // Forensic glow
   }
-}
 
-// 7.ANIMATED CARDS
+  &:hover { 
+    color: $yellow;
+    text-shadow: 0 0 8px rgba($yellow, 0.5);
 
-section ul li {
-  list-style: none;
-  background: $medium-bg !important;
-  margin-bottom: 12px;
-  padding: 20px;
-  border-left: 5px solid $red;
-  border-radius: 4px;
-  color: $yellow !important;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background-color: $red !important; 
-    color: #ffffff !important;           
-    transform: translateX(4px); // Slightly more movement for "impact"
-
-    p, span, div, strong { color: #ffffff !important; }
-    
-    // Adjusts links inside the card so they don't disappear
-    a { 
-      color: #ffffff !important; 
-      background-image: linear-gradient(#ffffff, #ffffff);
+    &::after {
+      width: 100%; // Stretches to full width on hover
     }
   }
 }
 
-// 8. CLEANUP
-
-/* This ensures the body container recognizes its true bottom edge */
-body::after {
-  content: "";
-  display: block;
-  height: 0;
-  margin: 0;
-  padding: 0;
-  clear: both;
-  visibility: hidden;
-}
-
-/* Grouping everything that needs to stay hidden */
-header .view, 
-header p.view, 
-header ul:not(.nav-menu),
-p:empty,
-footer p, 
-footer small {
-  display: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  line-height: 0 !important;
-  visibility: hidden;
-  height: 0;
+// 7.1 FORENSIC INFO CARDS (Modules)
+section ul li {
+  list-style: none;
+  background: $medium-bg;
+  margin-bottom: 12px;
+  padding: 20px;
+  border-left: 5px solid $red;
+  border-radius: 4px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
   overflow: hidden;
-  pointer-events: none;
+
+  // This handles the text inside when you hover
+  &:hover {
+    background-color: $red; 
+    transform: translateX(8px); // Slightly more dramatic shift
+    color: #ffffff;
+    box-shadow: -5px 0 15px rgba($red, 0.4);
+
+    // Forces all nested text (h3, p, etc.) to white on hover
+    h1, h2, h3, h4, p, span, strong { 
+      color: #ffffff; 
+      text-shadow: none;
+    }
+  }
 }
 
-/* 2. TABLE RESET */
-section table {
+//7.2 GLOWING DIVIDERS
+hr {
   border: none;
-  border-collapse: collapse;
-  width: 100%;
+  height: 2px;
+  width: 80%;
+  margin: 60px auto;
+  position: relative;
+  overflow: visible;
+
+  // The Laser Line
+  background: linear-gradient(
+    to right, 
+    transparent 0%, 
+    $orange 50%, 
+    transparent 100%
+  );
   
-  td, tr {
-    border: none;
+  // The Glow & Shadow
+  box-shadow: 0 0 15px rgba($orange, 0.4);
+  
+  /* The Sideways Breathing & Pulse Animation */
+  animation: dividerBreath 5s ease-in-out infinite;
+
+  // The Central Data Node
+  &::after {
+    content: "◆";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: $orange;
+    font-size: 12px;
+    text-shadow: 0 0 10px $orange, 0 0 20px rgba($orange, 0.5);
   }
+}
+
+// 8. WRAPPER
+.wrapper {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  
+  /* Ensuring the 10px floating gap at the bottom */
+  padding-bottom: 10px; 
+  
+  /* Flexbox consistency */
+  display: flex;
+  flex-direction: column;
 }
 
 // 9. SLIM FOOTER
-
 footer {
-  display: flex !important;
+  display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 900px !important;
-  width: 100% !important;
-  height: 40px !important;
-
-  margin: 60px auto 10px auto !important; 
-  padding: 0 20px !important; 
-  position: relative !important;
-
+  max-width: 900px;
+  width: 100%;
+  height: 40px;
+  /* 60px top margin to breathe, 10px bottom margin for your 'floating' look */
+  margin: 60px auto 10px auto; 
+  position: relative;
   background: 
     linear-gradient(rgba(26, 39, 46, 0.80), rgba(26, 39, 46, 0.80)), 
-    url("../images/footer.png") no-repeat bottom center !important; /* Anchored to bottom */
-  background-size: cover !important;
-  
-  border-top: 3px solid $red !important; 
+    url("../images/footer.png") no-repeat bottom center;
+  background-size: cover;
+  border-top: 3px solid $red; 
   border-radius: 0 0 8px 8px; 
-  border-bottom: none !important;
   
-  overflow: hidden !important;
-  text-align: center !important;
-  box-sizing: border-box !important;
+  /* Text Styling */
+  color: $orange;
+  font-size: 0.85rem;
+  font-weight: bold;
 }
 
-footer:after {
+footer::after {
   content: "© 2026 PcapExpress | Patience | Perseverance | Upward Mobility";
-  white-space: pre; 
-  color: $orange !important;
-  font-family: 'Courier New', monospace;
-  font-size: 0.85rem !important;
-  line-height: 1.4;
+  /* No !important needed - this is the only rule for footer text */
 }
 
-// 10. ANIMATION ENGINES
-
-//HEADER TITLE
+// 10. ANIMATIONS
+//TITLE GLITCH
 @keyframes glitchText {
   0% { transform: translate(0); text-shadow: -2px -2px $red, 2px 2px $green; }
-  25% { transform: translate(-2px, 2px); text-shadow: 2px 2px $red, -2px -2px $green; }
+  25% { transform: translate(-1px, 1px); text-shadow: 2px -2px $red, -2px 2px $green; }
   50% { transform: translate(2px, -2px); text-shadow: -2px 2px $red, 2px -2px $green; }
-  100% { transform: translate(0); text-shadow: -2px -2px $red, 2px 2px $green; }
+  75% { transform: translate(-2px, -1px); text-shadow: 1px 1px $red, -1px -1px $green; }
+  100% { transform: translate(0); }
 }
 
-//IDLE SCAN LINES
+//PASIVE LINES
 @keyframes scanLine { 
-  0% { 
-    top: -50px; /* Start completely out of view */
-    opacity: 0; 
-  } 
-  10% { 
-    opacity: 1; /* Fade in quickly as it enters */
-  } 
-  90% { 
-    opacity: 1; /* Stay solid through the middle */
-  } 
-  100% { 
-    top: 100%;  /* End exactly at the bottom edge */
-    opacity: 0; /* Fade out just as it hits the floor */
-  }
+  0% { top: -50px; opacity: 0; } 
+  10%, 90% { opacity: 1; } 
+  100% { top: 100%; opacity: 0; }
 }
 
-//SCAN LINE RED
-@keyframes fastPulse {
-  /* The "Cool" State */
-  0%, 100% { 
-    filter: brightness(1); 
-    box-shadow: 0 0 10px $red; 
-  }
-  /* The "Spark" State */
-  10%, 20% { 
-    filter: brightness(1.2) contrast(1.5); 
-    box-shadow: 0 0 25px $red, 0 0 50px rgba($red, 0.8);
-  }
-}
-
-//SCAN LINE GREEN
+//GREEN LINE ACTIVE
 @keyframes dataStutter {
   0%   { opacity: 0.8; }
   25%  { opacity: 0.3; }
@@ -490,6 +448,27 @@ footer:after {
   75%  { opacity: 0.5; }
   100% { opacity: 0.9; }
 }
+
+//RED LINE ACTIVE
+@keyframes fastPulse {
+  0%, 100% { filter: brightness(1); box-shadow: 0 0 10px $red; }
+  10%, 20% { filter: brightness(1.2) contrast(1.5); box-shadow: 0 0 25px $red, 0 0 50px rgba($red, 0.8); }
+}
     
 //CODE BLOCK FLICKER
 @keyframes staticFlicker { 0% { opacity: 0.5; } 50% { opacity: 0.8; } 100% { opacity: 0.5; } }
+
+//DIVIDER PULSE BEHAVIOUR
+@keyframes dividerBreath {
+  0%, 100% { 
+    transform: scaleX(0.7); // Shrinks sideways
+    opacity: 0.3; 
+    filter: blur(1px);      // Softens when dim
+  }
+  50% { 
+    transform: scaleX(1);   // Expands sideways
+    opacity: 1; 
+    filter: blur(0px);      // Sharpens when bright
+    box-shadow: 0 0 25px rgba($orange, 0.6); 
+  }
+}
