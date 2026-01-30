@@ -115,9 +115,9 @@ header {
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 35px;
-    background: linear-gradient(to top, rgba($green, 0.8) 0%, rgba($green, 0.4) 20%, transparent 100%);
+    background: linear-gradient(to top, rgba($green, 0.6) 0%, rgba($green, 0.3) 20%, transparent 100%);
     mix-blend-mode: screen; 
-    backdrop-filter: brightness(1.1) saturate(2.5); 
+    backdrop-filter: brightness(1.1) saturate(1.1); 
     box-shadow: 0 5px 15px rgba($green, 0.3);
     animation: scanLine 4s linear infinite;
     pointer-events: none;
@@ -154,16 +154,17 @@ header {
     //GREEN LINE ACTIVE
     &::before {
       opacity: 1;
+      backdrop-filter: brightness(1.1) saturate(1.2);
+      background: linear-gradient(to top, rgba($green, 0.8) 0%, rgba($green, 0.4) 20%, transparent 100%);
       animation: scanLine 2.7s linear infinite, dataStutter 0.2s steps(4) infinite;
     }
   
     //RED LINE ACTIVE
     &::after {
       opacity: 1;
-      filter: brightness(2) contrast(1.2); 
-      // We use a slight delay or different duration so they don't overlap perfectly
+      filter: brightness(1)
       animation: scanLine 1.5s linear infinite, fastPulse 0.15s steps(4) infinite;
-      border-bottom: 2px solid $red; // Ensures the line is red
+      border-bottom: 1px solid $red; // Ensures the line is red
       box-shadow: 0 0 15px $red;
     }
   }
@@ -347,25 +348,28 @@ section ul li {
 //7.2 GLOWING DIVIDERS
 hr {
   border: none !important;
-  height: 1px !important; // Thinner line for a sharper laser look
+  height: 1px !important; 
   background-color: transparent !important;
   
+  // PASSIVE: The "Dull" state (using a slightly darker orange)
   background-image: linear-gradient(
     to right, 
     transparent 0%, 
-    $orange 50%, 
+    rgba($orange, 0.4) 10%, 
+    rgba($orange, 0.8) 50%, 
+    rgba($orange, 0.4) 90%, 
     transparent 100%
   ) !important;
 
-  width: 90%; // Stretched to your request
+  width: 90%; 
   margin: 60px auto;
   position: relative;
   overflow: visible;
   
-  // Apply two separate animations with different durations to de-sync them
+  // DE-SYNCED ANIMATION
   animation: 
-    dividerStretch 8s ease-in-out infinite, // Slow, subtle stretch
-    dividerGlow 0.3s infinite;              // Fast, erratic flicker
+    dividerStretch 12s ease-in-out infinite, // Even slower, natural stretch
+    wireEnergize 4s ease-in-out infinite;    // The "Pulse" from dull to bright
 
   &::after {
     content: "◆";
@@ -375,9 +379,9 @@ hr {
     transform: translate(-50%, -50%);
     color: $orange;
     font-size: 10px;
-    text-shadow: 0 0 10px $orange;
-    // The node flickers with the line
-    animation: dividerGlow 0.3s infinite alternate;
+    // Passive node glow
+    text-shadow: 0 0 5px rgba($orange, 0.5);
+    animation: wireEnergize 4s ease-in-out infinite;
   }
 }
 
@@ -460,18 +464,18 @@ footer::after {
 @keyframes staticFlicker { 0% { opacity: 0.5; } 50% { opacity: 0.8; } 100% { opacity: 0.5; } }
 
 //DIVIDER STRETCH/PULSE BEHAVIOUR
-// Subtly stretches sideways (Slow 8s cycle)
-@keyframes dividerStretch {
-  0%, 100% { transform: scaleX(0.95); }
-  50%      { transform: scaleX(1); }
-}
-
-// Erratic, randomized-feel flicker (Fast 0.3s cycle)
-@keyframes dividerGlow {
-  0%   { opacity: 0.4; filter: brightness(1); }
-  20%  { opacity: 0.8; filter: brightness(1.3); }
-  40%  { opacity: 0.5; filter: brightness(0.9); }
-  60%  { opacity: 0.9; filter: brightness(1.5); }
-  80%  { opacity: 0.6; filter: brightness(1.1); }
-  100% { opacity: 0.4; filter: brightness(1); }
+@keyframes wireEnergize {
+  0%, 100% { 
+    opacity: 0.5;
+    filter: brightness(0.7) contrast(0.8);
+    box-shadow: 0 0 5px rgba($orange, 0.2); 
+  }
+  50% { 
+    opacity: 1;
+    filter: brightness(1.5) contrast(1.2);
+    // Mimicking the Image Glow style: Ground Shadow + Ambient Bloom
+    box-shadow: 
+      0 0 15px rgba($orange, 0.6), 
+      0 0 30px rgba($orange, 0.3); 
+  }
 }
