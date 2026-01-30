@@ -54,12 +54,15 @@ header {
   h1 {
     margin: 0;
     a {
-      color: $orange; !important;
+      color: $orange !important;
       font-size: 2.2rem;
       font-weight: 900;
       text-decoration: none;
       transition: all 0.2s ease;
-      &::after { display: none !important; }
+      &::after { 
+        content: none !important; 
+        display: none !important; 
+      }
     }
   }
 
@@ -94,14 +97,18 @@ header {
       letter-spacing: 1px;
       text-decoration: none;
       transition: 0.5s all ease;
-
-      &::after { display: none !important; }
+      
+      &::after { 
+        content: none !important; 
+        display: none !important; 
+      }
 
       &:hover {
         background: $orange;
         color: $dark-bg;
         box-shadow: 0 0 15px $red;
         transform: scale(1.05);
+        &::after { content: none !important; }
       }
     }
   }
