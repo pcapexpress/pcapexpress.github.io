@@ -3,6 +3,7 @@
 
 // 1. PALETTE & VARIABLES
 $slate: #344E5C;
+$darker-slate: #253842;
 $yellow: #EFC958;
 $red: #EF3D59;
 $green: #4AB19D;
@@ -12,6 +13,11 @@ $dark-bg: #1A272E;
 
 // 2. GLOBAL RESET AND BODY
 * { box-sizing: border-box; }
+html {
+  background-color: $darker-slate; // This fills the outside "void"
+  margin: 0;
+  padding: 0;
+}
 
 body {
   background-color: $slate;
@@ -23,7 +29,8 @@ body {
   flex-direction: column;
   align-items: center;
   overflow-x: hidden;
-  padding-bottom: 10px; 
+  padding-bottom: 10px;
+  min-height: 100vh; // Ensures the slate goes to the bottom
 
 }
 
@@ -388,11 +395,9 @@ hr {
   max-width: 900px;
   width: 100%;
   margin: 0 auto;
-  
-  /* Ensuring the 10px floating gap at the bottom */
-  padding-bottom: 10px; 
-  
-  /* Flexbox consistency */
+  background-color: $slate; // The content area "pod"
+  box-shadow: 0 0 50px rgba(0,0,0,0.3); // Optional: adds depth against the dark background
+  padding-bottom: 10px;
   display: flex;
   flex-direction: column;
 }
