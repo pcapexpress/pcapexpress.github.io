@@ -52,14 +52,11 @@ h1, h2, h3, .nav-menu, .header-bio, footer {
 header {
   position: relative;
   overflow: hidden; 
-  max-width: 900px;  
-  margin: 10px auto 0 auto; 
-  width: 100%;
+  width: 100%; // Now follows the wrapper's 900px automatically
   display: block;
   border-bottom: 3px solid $red;
-  border-radius: 8px 8px 0 0; 
+  border-radius: 8px 8px 0 0; // Keeps top corners rounded
   padding: 80px 20px;
-  text-align: center;
 
   background: 
     linear-gradient(to bottom, rgba(26, 39, 46, 0.2) 10%, rgba(26, 39, 46, 0.95) 100%),
@@ -72,27 +69,18 @@ header {
   }
 
   //HEADER TITLE
-  h1 {
+ h1 {
     margin: 0;
-    pointer-events: none; // Makes the entire H1 non-reactive
+    pointer-events: none; // Keeps the text non-clickable
     
     a {
       color: $orange !important;
       font-size: 2.2rem;
       font-weight: 900;
       text-decoration: none !important;
-      cursor: default; // Keeps the mouse as an arrow, not a pointer
-      
-      // Ensure the hover glitch animation in your "header:hover" section 
-      // doesn't affect this specific link.
-      animation: none !important; 
-
-      &::after { 
-        content: none !important; 
-        display: none !important; 
-      }
+      cursor: default;
     }
-  }
+}
 
   //HEADER GREEN TEXT
   .header-bio {
@@ -188,7 +176,10 @@ header {
   //HEADER HOVER EFFECTS
   //PCAPEXPRESS GLITCH
   &:hover {
-    h1 a { animation: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite; }
+    // This targets the link inside the h1 specifically when the header is hovered
+    h1 a { 
+      animation: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite; 
+    }
 
     //HEADER GREEN GLOW
     .header-bio { 
@@ -419,14 +410,14 @@ hr {
 .wrapper {
   max-width: 900px;
   width: 100%;
-  margin: 10px auto; // 10px at top and 10px at bottom creates the "floating" look
+  margin: 10px auto; // This creates the 10px gap at the very top and very bottom
   background-color: $slate; 
-  box-shadow: 0 0 100px rgba(0, 0, 0, 0.6); 
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.7); 
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 20px); // Stretches pod to fit screen height minus the gaps
-  border-radius: 8px;
-  overflow: hidden; // Critical: clips header/footer to the wrapper's rounded corners
+  min-height: calc(100vh - 20px); 
+  border-radius: 12px;
+  overflow: hidden; // This is the secret sauce that rounds the header and footer corners
 }
 
 // 9. SLIM FOOTER
@@ -434,21 +425,14 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;      /* Now it fills exactly 900px of the wrapper */
-  height: 40px;
-  margin-top: auto; /* Keeps footer pinned to the bottom of the content */
-  
-  position: relative;
-  background: 
-    linear-gradient(rgba(26, 39, 46, 0.80), rgba(26, 39, 46, 0.80)), 
-    url("../images/footer.png") no-repeat bottom center;
-  background-size: cover;
-  
-  /* BORDER FIXES */
-  border-top: 1px solid rgba($red, 0.3);
-  border-bottom: 3px solid $red;
-  // border-radius: 0 0 8px 8px; // Handled by wrapper's overflow:hidden now
-  
+  width: 100%;
+  height: 45px;
+  margin-top: auto; // Pushes it to the bottom of the wrapper
+  background-color: rgba(26, 39, 46, 0.85); // Matches your theme
+  border-top: 1px solid rgba($red, 0.4);
+  border-bottom: 4px solid $red;
+}
+
   color: $orange;
   font-size: 0.85rem;
   font-weight: bold;
