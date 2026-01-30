@@ -115,9 +115,9 @@ header {
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 35px;
-    background: linear-gradient(to top, rgba($green, 1.0) 0%, rgba($green, 0.4) 20%, transparent 100%);
+    background: linear-gradient(to top, rgba($green, 0.8) 0%, rgba($green, 0.4) 20%, transparent 100%);
     mix-blend-mode: screen; 
-    backdrop-filter: brightness(1.2) saturate(1.8); 
+    backdrop-filter: brightness(1.1) saturate(2.5); 
     box-shadow: 0 5px 15px rgba($green, 0.3);
     animation: scanLine 4s linear infinite;
     pointer-events: none;
@@ -154,7 +154,7 @@ header {
     //GREEN LINE ACTIVE
     &::before {
       opacity: 1;
-      animation: scanLine 3s linear infinite, dataStutter 0.2s steps(4) infinite;
+      animation: scanLine 2.7s linear infinite, dataStutter 0.2s steps(4) infinite;
     }
   }
 
@@ -163,7 +163,7 @@ header {
       opacity: 1;
       filter: brightness(2) contrast(1.2); 
       // We use a slight delay or different duration so they don't overlap perfectly
-      animation: scanLine 4s linear infinite reverse, fastPulse 0.15s steps(4) infinite;
+      animation: scanLine 1.5s linear infinite, fastPulse 0.15s steps(4) infinite;
       border-bottom: 2px solid $red; // Ensures the line is red
       box-shadow: 0 0 15px $red;
     }
@@ -347,11 +347,10 @@ section ul li {
 
 //7.2 GLOWING DIVIDERS
 hr {
-  border: none !important;            // Kill any default borders
-  height: 2px !important;            // Force the height
-  background-color: transparent !important; // Kill the white background
+  border: none !important;
+  height: 1px !important; // Thinner line for a sharper laser look
+  background-color: transparent !important;
   
-  // The Laser Line (The actual color source)
   background-image: linear-gradient(
     to right, 
     transparent 0%, 
@@ -359,12 +358,15 @@ hr {
     transparent 100%
   ) !important;
 
-  width: 80%;
+  width: 90%; // Stretched to your request
   margin: 60px auto;
   position: relative;
   overflow: visible;
-  box-shadow: 0 0 15px rgba($orange, 0.4);
-  animation: dividerBreath 5s ease-in-out infinite;
+  
+  // Apply two separate animations with different durations to de-sync them
+  animation: 
+    dividerStretch 8s ease-in-out infinite, // Slow, subtle stretch
+    dividerGlow 0.3s infinite;              // Fast, erratic flicker
 
   &::after {
     content: "◆";
@@ -373,8 +375,10 @@ hr {
     top: 50%;
     transform: translate(-50%, -50%);
     color: $orange;
-    font-size: 12px;
-    text-shadow: 0 0 10px $orange, 0 0 20px rgba($orange, 0.5);
+    font-size: 10px;
+    text-shadow: 0 0 10px $orange;
+    // The node flickers with the line
+    animation: dividerGlow 0.3s infinite alternate;
   }
 }
 
@@ -456,17 +460,19 @@ footer::after {
 //CODE BLOCK FLICKER
 @keyframes staticFlicker { 0% { opacity: 0.5; } 50% { opacity: 0.8; } 100% { opacity: 0.5; } }
 
-//DIVIDER PULSE BEHAVIOUR
-@keyframes dividerBreath {
-  0%, 100% { 
-    transform: scaleX(0.7); // Shrinks sideways
-    opacity: 0.3; 
-    filter: blur(1px);      // Softens when dim
-  }
-  50% { 
-    transform: scaleX(1);   // Expands sideways
-    opacity: 1; 
-    filter: blur(0px);      // Sharpens when bright
-    box-shadow: 0 0 25px rgba($orange, 0.6); 
-  }
+//DIVIDER STRETCH/PULSE BEHAVIOUR
+// Subtly stretches sideways (Slow 8s cycle)
+@keyframes dividerStretch {
+  0%, 100% { transform: scaleX(0.95); }
+  50%      { transform: scaleX(1); }
+}
+
+// Erratic, randomized-feel flicker (Fast 0.3s cycle)
+@keyframes dividerGlow {
+  0%   { opacity: 0.4; filter: brightness(1); }
+  20%  { opacity: 0.8; filter: brightness(1.3); }
+  40%  { opacity: 0.5; filter: brightness(0.9); }
+  60%  { opacity: 0.9; filter: brightness(1.5); }
+  80%  { opacity: 0.6; filter: brightness(1.1); }
+  100% { opacity: 0.4; filter: brightness(1); }
 }
