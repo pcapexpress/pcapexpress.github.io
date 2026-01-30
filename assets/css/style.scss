@@ -156,8 +156,7 @@ header {
       opacity: 1;
       animation: scanLine 2.7s linear infinite, dataStutter 0.2s steps(4) infinite;
     }
-  }
-
+  
     //RED LINE ACTIVE
     &::after {
       opacity: 1;
