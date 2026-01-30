@@ -110,7 +110,7 @@ header {
 
   //SCAN LINES
   //GREEN LINE PASIVE
-  &::before { 
+  &::after { 
     content: "";
     position: absolute;
     top: 0; left: 0;
@@ -125,7 +125,7 @@ header {
   }
 
   //RED LINE PASSIVE
-  &::after { 
+  &::before { 
     content: "";
     position: absolute;
     top: 0; left: 0;
@@ -152,16 +152,18 @@ header {
     }
 
     //GREEN LINE ACTIVE
-    &::before {
+    &::after {
       opacity: 1;
-      animation: scanLine 3s linear infinite, dataStutter 0.2s steps(4) infinite;
+      animation: scanLine 3s linear infinite;
     }
 
     //RED LINE ACTIVE
-    &::after {
+    &::before {
       opacity: 1;
       filter: brightness(2) contrast(1.2); 
-      animation: scanLine 2s linear infinite reverse, fastPulse 0.15s infinite;
+      // We use a slight delay or different duration so they don't overlap perfectly
+      animation: scanLine 4s linear infinite reverse, dataStutter 0.15s steps(4) infinite;
+      border-bottom: 2px solid $red; // Ensures the line is red
       box-shadow: 0 0 15px $red;
     }
   }
@@ -198,10 +200,10 @@ img {
   height: auto;
   margin: 35px auto;
   
-  /* Natural "Off" State Shadow */
+  //SHADOW UNDERNEATH
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
   
-  /* Rendering fixes to keep it crisp */
+  //RENDERING FIX???
   backface-visibility: hidden;
   transform: translateZ(0);
 
@@ -214,7 +216,7 @@ img {
     border-color: rgba($orange, 0.8);
     filter: brightness(1.05); // Slight "power up" effect
 
-    /* Layered Glow: 1. Core Shadow 2. Ambient Bloom */
+    //GLOW AND BLOOM
     box-shadow: 
       0 15px 35px rgba(0, 0, 0, 0.7),   /* Deeper lift shadow */
       0 0 30px rgba($orange, 0.4),      /* Primary orange bloom */
@@ -315,7 +317,7 @@ a {
   }
 }
 
-// 7. FORENSIC INFO CARDS (Modules)
+// 7.1 FORENSIC INFO CARDS (Modules)
 section ul li {
   list-style: none;
   background: $medium-bg;
@@ -339,6 +341,42 @@ section ul li {
       color: #ffffff; 
       text-shadow: none;
     }
+  }
+}
+
+//7.2 GLOWING DIVIDERS
+hr {
+  border: none;
+  height: 2px;
+  width: 80%;
+  margin: 60px auto;
+  position: relative;
+  overflow: visible;
+
+  // The Laser Line
+  background: linear-gradient(
+    to right, 
+    transparent 0%, 
+    $orange 50%, 
+    transparent 100%
+  );
+  
+  // The Glow & Shadow
+  box-shadow: 0 0 15px rgba($orange, 0.4);
+  
+  /* The Sideways Breathing & Pulse Animation */
+  animation: dividerBreath 5s ease-in-out infinite;
+
+  // The Central Data Node
+  &::after {
+    content: "◆";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: $orange;
+    font-size: 12px;
+    text-shadow: 0 0 10px $orange, 0 0 20px rgba($orange, 0.5);
   }
 }
 
@@ -386,7 +424,7 @@ footer::after {
 }
 
 // 10. ANIMATIONS
-
+//TITLE GLITCH
 @keyframes glitchText {
   0% { transform: translate(0); text-shadow: -2px -2px $red, 2px 2px $green; }
   25% { transform: translate(-1px, 1px); text-shadow: 2px -2px $red, -2px 2px $green; }
@@ -395,25 +433,26 @@ footer::after {
   100% { transform: translate(0); }
 }
 
+//PASIVE LINES
 @keyframes scanLine { 
   0% { top: -50px; opacity: 0; } 
   10%, 90% { opacity: 1; } 
   100% { top: 100%; opacity: 0; }
 }
 
-//SCAN LINE RED
-@keyframes fastPulse {
-  0%, 100% { filter: brightness(1); box-shadow: 0 0 10px $red; }
-  50% { filter: brightness(1.5) contrast(1.5); box-shadow: 0 0 25px $red; }
-}
-
-//SCAN LINE GREEN
+//GREEN LINE ACTIVE
 @keyframes dataStutter {
   0%   { opacity: 0.8; }
   25%  { opacity: 0.3; }
   50%  { opacity: 1.0; }
   75%  { opacity: 0.5; }
   100% { opacity: 0.9; }
+}
+
+//RED LINE ACTIVE
+@keyframes fastPulse {
+  0%, 100% { filter: brightness(1); box-shadow: 0 0 10px $red; }
+  10%, 20% { filter: brightness(1.2) contrast(1.5); box-shadow: 0 0 25px $red, 0 0 50px rgba($red, 0.8); }
 }
     
 //CODE BLOCK FLICKER
