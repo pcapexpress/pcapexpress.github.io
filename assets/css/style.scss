@@ -28,22 +28,17 @@ html {
 }
 
 body {
-  background-color: transparent; // Critical fix
+  background-color: transparent; 
   color: $orange;
   margin: 0;
   padding: 0;
   font-family: 'Courier New', monospace;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; // This keeps the wrapper centered
   overflow-x: hidden;
   min-height: 100vh;
-
-  /* THE FIX: Constraints */
-  max-width: 900px;   /* Match your header/footer width */
-  margin: 0 auto;     /* Centers the pod */
-  width: 100%;
-  box-shadow: 0 0 100px rgba(0, 0, 0, 0.5); /* Adds depth over the background */
+  width: 100%; // Takes up the full screen width to show scanlines
 }
 
 // 3. HEADER ARCHITECTURE
@@ -408,11 +403,12 @@ hr {
   width: 100%;
   margin: 0 auto;
   background-color: $slate; 
-  box-shadow: 0 0 50px rgba(0,0,0,0.5); 
-  padding-bottom: 10px;
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.6); // Heavy shadow for depth
   display: flex;
   flex-direction: column;
-  min-height: 100vh; // Keeps the pod stretched to the bottom
+  min-height: 100vh; 
+  /* Remove padding-bottom here so the footer can sit flush at the bottom */
+  padding-bottom: 0; 
 }
 
 // 9. SLIM FOOTER
@@ -420,13 +416,9 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 900px;
-  width: 100%;
+  width: 100%; // Fills the wrapper
   height: 40px;
-  
-  /* REMOVED the top margin to connect it to the wrapper above */
-  /* Keep a small bottom margin if you want the whole unit to float off the screen bottom */
-  margin: 0 auto 10px auto; 
+  margin-top: auto; // Pushes footer to the bottom of the wrapper pod
   
   position: relative;
   background: 
@@ -434,16 +426,15 @@ footer {
     url("../images/footer.png") no-repeat bottom center;
   background-size: cover;
   
-  /* BORDER FIXES */
-  border-top: 1px solid rgba($red, 0.3); // Subtle connection line
-  border-bottom: 3px solid $red;         // Strong base line
-  border-radius: 0 0 8px 8px;            // Only rounded at the very bottom
+  border-top: 1px solid rgba($red, 0.3);
+  border-bottom: 3px solid $red;
+  border-radius: 0 0 8px 8px;
   
   color: $orange;
   font-size: 0.85rem;
   font-weight: bold;
 }
-
+  
 footer::after {
   content: "© 2026 PcapExpress | Patience | Perseverance | Upward Mobility";
   /* No !important needed - this is the only rule for footer text */
