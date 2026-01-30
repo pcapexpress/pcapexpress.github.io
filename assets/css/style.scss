@@ -12,7 +12,7 @@ $medium-bg: #263842;
 $dark-bg: #1A272E;
 
 //FONTS
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap');
 
 // 2. GLOBAL RESET AND BODY
 * { box-sizing: border-box; }
@@ -42,10 +42,11 @@ body {
   width: 100%;
 }
 
-//2.1 TYPOGRAPHY OVERRIDES
+// 2.1 TYPOGRAPHY OVERRIDES
 h1, h2, h3, .nav-menu, .header-bio, footer {
-  font-family: 'Share Tech Mono', monospace;
-  letter-spacing: 0.5px;
+  font-family: 'IBM Plex Mono', monospace; // Or 'Exo 2', sans-serif
+  letter-spacing: 1px; // Monospace fonts often need a tiny bit of extra space
+  text-transform: uppercase; // Makes tech fonts look much more "official"
 }
 
 // 3. HEADER ARCHITECTURE
@@ -58,7 +59,7 @@ header {
   
   margin: 0 !important;   /* Forcefully remove any gaps at the top */
   padding: 80px 20px;
-  border-radius: 0;
+  border-radius: 0;       /* The wrapper handles the rounding */
 
   background: 
     linear-gradient(to bottom, rgba(26, 39, 46, 0.2) 10%, rgba(26, 39, 46, 0.95) 100%),
@@ -71,17 +72,21 @@ header {
   }
 
   //HEADER TITLE
- h1 {
+   h1 {
     margin: 0;
-    // Removed pointer-events from here
+    pointer-events: auto; /* The H1 container must be "active" to feel the mouse */
     
     a {
       color: $orange !important;
       font-size: 2.2rem;
-      font-weight: 900;
       text-decoration: none !important;
       cursor: default;
-      pointer-events: none; // Put it here so the text isn't clickable
+      pointer-events: none; // Keeps the text itself from being a clickable link
+      display: inline-block;
+
+      /* ADD THESE TWO LINES HERE */
+      font-weight: 700; 
+      letter-spacing: -1px;
     }
   }
 
@@ -412,17 +417,17 @@ hr {
 .wrapper {
   max-width: 900px;
   width: 100%;
-  margin: 20px auto; 
+  margin: 20px auto;     /* Centered with 20px gap from screen top/bottom */
   background-color: $slate; 
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.7); 
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 40px); 
   border-radius: 12px;
-  overflow: hidden; 
+  overflow: hidden;      /* Clips the header and footer to 12px corners */
   
-  /* ADD THIS */
-  align-items: stretch; 
+  // Forces children (header/section/footer) to sit flush
+  align-items: stretch;  
 }
 
 // 9. SLIM FOOTER
