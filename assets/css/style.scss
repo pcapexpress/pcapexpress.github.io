@@ -86,7 +86,7 @@ header {
     padding: 0;
 
     //LINKS STYLE {PILLS}
-    li a {
+   li a {
       background: rgba($dark-bg, 0.8);
       border: 1px solid $red;
       color: $orange;
@@ -97,10 +97,13 @@ header {
       letter-spacing: 1px;
       text-decoration: none;
       transition: 0.5s all ease;
+      position: relative; // Ensures it anchors correctly for the override
       
+      // THE FIX: Explicitly kill the global red underline
       &::after { 
         content: none !important; 
         display: none !important; 
+        width: 0 !important;
       }
 
       &:hover {
@@ -108,7 +111,12 @@ header {
         color: $dark-bg;
         box-shadow: 0 0 15px $red;
         transform: scale(1.05);
-        &::after { content: none !important; }
+
+        // Ensure underline doesn't reappear on hover
+        &::after { 
+          content: none !important; 
+          width: 0 !important; 
+        }
       }
     }
   }
