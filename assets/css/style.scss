@@ -110,7 +110,7 @@ header {
 
   //SCAN LINES
   //GREEN LINE PASIVE
-  &::after { 
+  &::before { 
     content: "";
     position: absolute;
     top: 0; left: 0;
@@ -125,7 +125,7 @@ header {
   }
 
   //RED LINE PASSIVE
-  &::before { 
+  &::after { 
     content: "";
     position: absolute;
     top: 0; left: 0;
@@ -152,18 +152,16 @@ header {
     }
 
     //GREEN LINE ACTIVE
-    &::after {
+    &::before {
       opacity: 1;
-      animation: scanLine 3s linear infinite;
+      animation: scanLine 3s linear infinite, dataStutter 0.2s steps(4) infinite;
     }
 
     //RED LINE ACTIVE
-    &::before {
+    &::after {
       opacity: 1;
       filter: brightness(2) contrast(1.2); 
-      // We use a slight delay or different duration so they don't overlap perfectly
-      animation: scanLine 4s linear infinite reverse, dataStutter 0.15s steps(4) infinite;
-      border-bottom: 2px solid $red; // Ensures the line is red
+      animation: scanLine 2s linear infinite reverse, fastPulse 0.15s infinite;
       box-shadow: 0 0 15px $red;
     }
   }
@@ -403,15 +401,10 @@ footer::after {
   100% { top: 100%; opacity: 0; }
 }
 
-@keyframes dataStutter { 
-  0%, 100% { opacity: 0.9; } 
-  50% { opacity: 0.4; } 
-}
-
 //SCAN LINE RED
 @keyframes fastPulse {
   0%, 100% { filter: brightness(1); box-shadow: 0 0 10px $red; }
-  10%, 20% { filter: brightness(1.2) contrast(1.5); box-shadow: 0 0 25px $red, 0 0 50px rgba($red, 0.8); }
+  50% { filter: brightness(1.5) contrast(1.5); box-shadow: 0 0 25px $red; }
 }
 
 //SCAN LINE GREEN
