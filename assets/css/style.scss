@@ -148,13 +148,7 @@ header {
       text-shadow: 0 0 12px $green; 
     }
   
-    &:hover {
-    h1 a { animation: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite !important; }
-    .header-bio { filter: brightness(1.8); text-shadow: 0 0 12px $green; }
-    
-    }
-    
-   //GREEN LINE ACTIVE
+    //GREEN LINE ACTIVE
     &::after {
       filter: brightness(1.8) contrast(1.2); 
       box-shadow: 0 0 20px rgba($green, 0.9), 0 0 40px rgba($green, 0.4); 
@@ -166,6 +160,7 @@ header {
       filter: brightness(0.8); 
       box-shadow: 0 0 15px #fff, 0 0 30px $red, 0 0 50px $red;
       animation: scanLine 1.7s linear infinite, fastPulse 0.2s infinite;
+      }
     }
   }
 }
