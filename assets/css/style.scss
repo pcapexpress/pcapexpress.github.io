@@ -110,14 +110,14 @@ header {
 
   //SCAN LINES
   //GREEN LINE PASIVE
-  &::after { 
+  &::before { 
     content: "";
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 35px;
     background: linear-gradient(to top, rgba($green, 1.0) 0%, rgba($green, 0.4) 20%, transparent 100%);
     mix-blend-mode: screen; 
-    backdrop-filter: brightness(1.4) saturate(1.2); 
+    backdrop-filter: brightness(1.2) saturate(1.8); 
     box-shadow: 0 5px 15px rgba($green, 0.3);
     animation: scanLine 4s linear infinite;
     pointer-events: none;
@@ -125,7 +125,7 @@ header {
   }
 
   //RED LINE PASSIVE
-  &::before { 
+  &::after { 
     content: "";
     position: absolute;
     top: 0; left: 0;
@@ -152,17 +152,18 @@ header {
     }
 
     //GREEN LINE ACTIVE
-    &::after {
+    &::before {
       opacity: 1;
-      animation: scanLine 3s linear infinite;
+      animation: scanLine 3s linear infinite, dataStutter 0.2s steps(4) infinite;
     }
+  }
 
     //RED LINE ACTIVE
-    &::before {
+    &::after {
       opacity: 1;
       filter: brightness(2) contrast(1.2); 
       // We use a slight delay or different duration so they don't overlap perfectly
-      animation: scanLine 4s linear infinite reverse, dataStutter 0.15s steps(4) infinite;
+      animation: scanLine 4s linear infinite reverse, fastPulse 0.15s steps(4) infinite;
       border-bottom: 2px solid $red; // Ensures the line is red
       box-shadow: 0 0 15px $red;
     }
@@ -346,28 +347,25 @@ section ul li {
 
 //7.2 GLOWING DIVIDERS
 hr {
-  border: none;
-  height: 2px;
-  width: 80%;
-  margin: 60px auto;
-  position: relative;
-  overflow: visible;
-
-  // The Laser Line
-  background: linear-gradient(
+  border: none !important;            // Kill any default borders
+  height: 2px !important;            // Force the height
+  background-color: transparent !important; // Kill the white background
+  
+  // The Laser Line (The actual color source)
+  background-image: linear-gradient(
     to right, 
     transparent 0%, 
     $orange 50%, 
     transparent 100%
-  );
-  
-  // The Glow & Shadow
+  ) !important;
+
+  width: 80%;
+  margin: 60px auto;
+  position: relative;
+  overflow: visible;
   box-shadow: 0 0 15px rgba($orange, 0.4);
-  
-  /* The Sideways Breathing & Pulse Animation */
   animation: dividerBreath 5s ease-in-out infinite;
 
-  // The Central Data Node
   &::after {
     content: "◆";
     position: absolute;
