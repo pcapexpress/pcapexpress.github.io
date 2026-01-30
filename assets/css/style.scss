@@ -427,12 +427,12 @@ footer {
   justify-content: center;
   width: 100%;
   height: 45px;
-  margin-top: auto; // Pushes it to the bottom of the wrapper
-  background-color: rgba(26, 39, 46, 0.85); // Matches your theme
+  margin-top: auto; 
+  background-color: rgba(26, 39, 46, 0.85); 
   border-top: 1px solid rgba($red, 0.4);
   border-bottom: 4px solid $red;
-}
-
+  
+  // These were outside the bracket in your code:
   color: $orange;
   font-size: 0.85rem;
   font-weight: bold;
@@ -440,7 +440,6 @@ footer {
   
 footer::after {
   content: "© 2026 PcapExpress | Patience | Perseverance | Upward Mobility";
-  /* No !important needed - this is the only rule for footer text */
 }
 
 // 10. ANIMATIONS
