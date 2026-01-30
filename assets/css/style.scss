@@ -15,30 +15,22 @@ $dark-bg: #1A272E;
 * { box-sizing: border-box; }
 html {
   background-color: $darker-slate;
-  // This creates the scanline stripe effect
   background-image: repeating-linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.15) 0px,
-    rgba(0, 0, 0, 0.15) 1px,
-    transparent 1px,
-    transparent 3px
+    0deg, rgba(0, 0, 0, 0.15) 0px, rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px, transparent 3px
   );
-  margin: 0;
-  padding: 0;
+  margin: 0; padding: 0;
 }
 
 body {
   background-color: transparent; 
   color: $orange;
-  margin: 0;
-  padding: 0;
+  margin: 0; padding: 0;
   font-family: 'Courier New', monospace;
   display: flex;
   flex-direction: column;
-  align-items: center; // This keeps the wrapper centered
-  overflow-x: hidden;
+  align-items: center; 
   min-height: 100vh;
-  width: 100%; // Takes up the full screen width to show scanlines
 }
 
 // 3. HEADER ARCHITECTURE
@@ -71,11 +63,19 @@ header {
       color: $orange !important;
       font-size: 2.2rem;
       font-weight: 900;
-      text-decoration: none;
+      text-decoration: none !important; // Forced removal
       transition: all 0.2s ease;
+      position: relative;
+
+      // Kills the global underline for Title
       &::after { 
         content: none !important; 
         display: none !important; 
+        width: 0 !important;
+      }
+      
+      &:hover::after {
+        content: none !important;
       }
     }
   }
@@ -87,7 +87,7 @@ header {
     font-size: 0.9rem;
     margin: 5px 0;
     display: block;
-    transition: all 0.3s ease; // Smooth glow transition
+    transition: all 0.3s ease; 
   }
 
   //HEADER MENU LINKS
@@ -100,7 +100,7 @@ header {
     padding: 0;
 
     //LINKS STYLE {PILLS}
-   li a {
+    li a {
       background: rgba($dark-bg, 0.8);
       border: 1px solid $red;
       color: $orange;
@@ -109,9 +109,9 @@ header {
       font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 1px;
-      text-decoration: none;
+      text-decoration: none !important; // Forced removal
       transition: 0.5s all ease;
-      position: relative; // Ensures it anchors correctly for the override
+      position: relative; 
       
       // THE FIX: Explicitly kill the global red underline
       &::after { 
@@ -315,23 +315,23 @@ pre[data-label]::after {
 }
 
 // 6. GLOBAL LINK STYLE
-a {
+section a, .header-bio a { 
   color: $orange;
   text-decoration: none;
   font-weight: bold;
-  position: relative; // Needed to anchor the underline
+  position: relative; // Anchors the custom underline
   transition: color 0.3s ease;
   
-  // The "Hidden" Underline
+  // The Animated Red Underline
   &::after {
     content: "";
     position: absolute;
-    bottom: -2px;
+    bottom: -2px; 
     left: 0;
-    width: 0; // Starts at zero length
+    width: 0; // Starts hidden
     height: 2px;
     background-color: $red;
-    transition: width 0.3s ease-in-out; // The stretching animation
+    transition: width 0.3s ease-in-out;
     box-shadow: 0 0 5px $red; // Forensic glow
   }
 
@@ -339,7 +339,7 @@ a {
     color: $yellow;
     text-shadow: 0 0 8px rgba($yellow, 0.5);
 
-    &::after {
+    &::after { 
       width: 100%; // Stretches to full width on hover
     }
   }
@@ -401,14 +401,14 @@ hr {
 .wrapper {
   max-width: 900px;
   width: 100%;
-  margin: 0 auto;
+  margin: 10px auto; // Creates that floating gap at top and bottom
   background-color: $slate; 
-  box-shadow: 0 0 100px rgba(0, 0, 0, 0.6); // Heavy shadow for depth
+  box-shadow: 0 0 80px rgba(0, 0, 0, 0.8); 
   display: flex;
   flex-direction: column;
-  min-height: 100vh; 
-  /* Remove padding-bottom here so the footer can sit flush at the bottom */
-  padding-bottom: 0; 
+  min-height: calc(100vh - 20px); // Subtracts the margins to fit perfectly
+  border-radius: 8px;
+  overflow: hidden; // Keeps header/footer corners within the radius
 }
 
 // 9. SLIM FOOTER
