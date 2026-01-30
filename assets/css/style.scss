@@ -153,6 +153,7 @@ header {
       filter: brightness(1.8) contrast(1.2); 
       box-shadow: 0 0 20px rgba($green, 0.9), 0 0 40px rgba($green, 0.4); 
       animation: scanLine 4.5s linear infinite, dataStutter 0.15s steps(4) infinite;
+    }
   
     //RED LINE ACTIVE
     &::before {
@@ -160,7 +161,6 @@ header {
       filter: brightness(0.8); 
       box-shadow: 0 0 15px #fff, 0 0 30px $red, 0 0 50px $red;
       animation: scanLine 1.7s linear infinite, fastPulse 0.2s infinite;
-      }
     }
   }
 }
