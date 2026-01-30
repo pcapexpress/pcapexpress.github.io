@@ -149,19 +149,32 @@ header {
     //GREEN LINE ACTIVE
     &::before {
       opacity: 1;
-      backdrop-filter: brightness(1.1) saturate(1.2);
-      filter: brightness(1);
-      background: linear-gradient(to top, rgba($green, 0.8) 0%, rgba($green, 0.4) 20%, transparent 100%);
+      // High saturation and brightness to "light up" the background image
+      backdrop-filter: brightness(1.5) saturate(200%); 
+      
+      background: linear-gradient(
+        to top, 
+        rgba($green, 0.9) 0%, 
+        rgba($green, 0.5) 30%, 
+        transparent 100%
+      );
+      
+      // Wide bloom shadow for atmospheric light
+      box-shadow: 0 10px 40px rgba($green, 0.4); 
+      
       animation: scanLine 2.7s linear infinite, dataStutter 0.2s steps(4) infinite;
     }
   
     //RED LINE ACTIVE
     &::after {
       opacity: 1;
-      filter: brightness(1);
+      filter: brightness(1.5); // Sharp increase in power
+      
+      // Keep the glow tight (3px to 5px) so it doesn't extend borders
+      box-shadow: 0 0 5px $red, 0 0 2px white; 
+      
       animation: scanLine 1.5s linear infinite, fastPulse 0.15s steps(4) infinite;
-      border-bottom: 1px solid $red; // Ensures the line is red
-      box-shadow: 0 0 3px $red;
+      border-bottom: 1px solid $red;
     }
   }
 }
@@ -342,18 +355,26 @@ section ul li {
 }
 
 //7.2 GLOWING DIVIDERS
+The reason your glow is turning "almost white" is likely due to the filter: brightness(1.5) in your @keyframes wireEnergize. In CSS, when you push brightness on a high-saturation color like orange, the browser eventually "clips" the color toward white to simulate light intensity.
+
+To fix this and keep it rich orange, we will remove the brightness filter and instead use multiple layers of box-shadow with different spread radii. This creates "depth" and "bloom" without washing out the color.
+
+The Fixed Divider & Animation
+I've updated the wireEnergize keyframes to use "Bloom Logic" instead of "Brightness Logic."
+
+SCSS
+// 7.2 AMBIENT WIRE DIVIDER
 hr {
   border: none !important;
   height: 1px !important; 
   background-color: transparent !important;
   
-  // PASSIVE: The "Dull" state (using a slightly darker orange)
   background-image: linear-gradient(
     to right, 
     transparent 0%, 
-    rgba($orange, 0.6) 10%, 
-    rgba($orange, 0.9) 50%, 
-    rgba($orange, 0.6) 90%, 
+    rgba($orange, 0.4) 10%, 
+    rgba($orange, 0.8) 50%, 
+    rgba($orange, 0.4) 90%, 
     transparent 100%
   ) !important;
 
@@ -362,10 +383,9 @@ hr {
   position: relative;
   overflow: visible;
   
-  // DE-SYNCED ANIMATION
   animation: 
-    dividerStretch 12s ease-in-out infinite, // Even slower, natural stretch
-    wireEnergize 4s ease-in-out infinite;    // The "Pulse" from dull to bright
+    dividerStretch 12s ease-in-out infinite,
+    wireEnergize 4s ease-in-out infinite; 
 }
 
 // 8. WRAPPER
@@ -449,16 +469,17 @@ footer::after {
 //DIVIDER STRETCH/PULSE BEHAVIOUR
 @keyframes wireEnergize {
   0%, 100% { 
-    opacity: 0.5;
-    filter: brightness(0.7) contrast(0.8);
+    opacity: 0.4;
+    // No brightness filter here to prevent graying/dulling
     box-shadow: 0 0 5px rgba($orange, 0.2); 
   }
   50% { 
     opacity: 1;
-    filter: brightness(1.1) contrast(1.1);
-    // Mimicking the Image Glow style: Ground Shadow + Ambient Bloom
+    // We removed filter: brightness to keep the $orange "pure"
+    // Instead, we stack shadows to create a rich glow:
     box-shadow: 
-      0 0 15px rgba($orange, 0.6), 
-      0 0 30px rgba($orange, 0.3); 
+      0 0 8px rgba($orange, 0.8),  /* Core Glow */
+      0 0 20px rgba($orange, 0.4), /* Mid Bloom */
+      0 0 35px rgba($orange, 0.1); /* Far Atmosphere */
   }
 }
