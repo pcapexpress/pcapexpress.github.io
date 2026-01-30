@@ -189,7 +189,7 @@ section {
   background: linear-gradient(
     to right, 
     transparent, 
-    rgba($orange, 0.8) 50%, 
+    rgba($orange, 0.8) 90%, 
     transparent
   );
   margin: 50px auto;
@@ -212,35 +212,58 @@ section {
 }
   
   /* Forensic Image Styling */
-  img {
-    border: 2px solid rgba($orange, 0.4);
-    border-radius: 20px;
-    display: block;
-    max-width: 90%;
-    margin: 35px auto;
-    transition: all 0.4s ease; // Smooth transition for forensic hover
+  // 4. MAIN CONTENT AREA - IMAGE FIX
+img {
+  border: 2px solid rgba($orange, 0.4);
+  background-color: rgba($dark-bg, 0.5);
+  border-radius: 20px;
+  overflow: hidden; 
+  padding: 0;
+  display: block;
+  max-width: 90%;
+  height: auto;
+  margin: 35px auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
 
-    &:hover {
-      border-color: $orange;
-      box-shadow: 0 0 20px rgba($orange, 0.3);
-      transform: scale(1.01);
-    }
+  /* ANTI-BLUR RENDER HINTS */
+  backface-visibility: hidden;      // Forces hardware acceleration
+  transform: translateZ(0);          // Triggers 3D rendering to keep pixels crisp
+  image-rendering: -webkit-optimize-contrast; // Keeps edges sharp on high-res screens
+  -webkit-font-smoothing: subpixel-antialiased;
+
+  transition: 
+    box-shadow 0.5s ease-in-out, 
+    border-color 0.5s ease-in-out,
+    filter 0.5s ease-in-out;
+
+  &:hover {
+    border-color: rgba($orange, 1.0);
+    box-shadow: 
+      0 4px 10px rgba(0, 0, 0, 0.8),  /* Tighter ground shadow */
+      0 0 25px rgba($orange, 0.6);    /* Soft ambient orange bloom */
+    filter: brightness(1.05);         // Subtle forensic lift
   }
 }
+}
 
+// 5. CODE BLOCKS
 // 5. CODE BLOCKS
 pre {
   background-color: #0a0a0a; 
   background-image: repeating-conic-gradient(#1a1a1a 0% 25%, #222 0% 50%);
   background-size: 4px 4px;
+  color: $green; 
   padding: 15px; 
   display: block;
+  font-family: 'Courier New', monospace;
   position: relative;
-  overflow-x: auto;
-  white-space: pre-wrap; // Wraps long hex strings or packet data
-  word-wrap: break-word;
+  overflow: hidden;
   border-radius: 4px;
-  border: 1px solid rgba($green, 0.2); // Subtle terminal border
+
+  // THE ORANGE GLOW
+  border-left: 3px solid $orange;
+  box-shadow: 0 0 15px rgba($orange, 0.2); 
+  transition: all 0.3s ease;
 
   &::before {
     content: "";
@@ -249,24 +272,19 @@ pre {
     background: rgba(255, 255, 255, 0.03);
     animation: staticFlicker 0.2s infinite;
     pointer-events: none;
-    z-index: 1;
   }
 
-  code {
-    background: none;
-    color: $green;
-    text-shadow: 0 0 5px rgba($green, 0.5);
-    font-family: 'Courier New', monospace;
-    position: relative;
-    z-index: 2;
-  }
+  // Syntax Highlighting & Glows
+  .red    { color: $red; text-shadow: 0 0 5px rgba($red, 0.5); }
+  .green  { color: $green; text-shadow: 0 0 5px rgba($green, 0.5); }
+  .yellow { color: $yellow; text-shadow: 0 0 5px rgba($yellow, 0.5); }
+  .orange { color: $orange; text-shadow: 0 0 8px rgba($orange, 0.6); }
+  .slate  { color: $slate; }
 
-  /* Rouge Syntax Highlighting Hooks */
-  .k, .kd, .kp { color: $red; text-shadow: 0 0 5px rgba($red, 0.3); }     // Keywords
-  .s, .s1, .s2 { color: $yellow; }                                      // Strings
-  .nc, .nf, .na { color: $orange; }                                     // Functions/Classes
-  .mi, .m, .mf  { color: $green; font-weight: bold; }                   // Numbers/Constants
-  .c, .c1       { color: rgba($green, 0.5); font-style: italic; }       // Comments
+  &:hover {
+    box-shadow: 0 0 25px rgba($orange, 0.4); // Intense glow on hover
+    background-color: #0d0d0d;
+  }
 }
 
 /* Optional Data Labels (e.g., [data-label="Wireshark"]) */
