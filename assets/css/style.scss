@@ -92,15 +92,8 @@ header {
       cursor: default;
       pointer-events: none; 
       display: inline-block;
-      animation: glitchText 0.3s infinite;
-      animation-play-state: running; 
-      
-      /* Base state: No glitch visible */
-      filter: contrast(1) brightness(1) blur(0);
-      text-shadow: 0 0 0 transparent;
-      
-      /* Slow transition for the glitch intensity */
-      transition: filter 1.5s ease-out, text-shadow 1.5s ease-out;
+      /* Animation is removed from the base state entirely */
+      transition: none; 
     }
   }
 
@@ -112,17 +105,9 @@ header {
     margin: 5px 0;
     display: block;
     pointer-events: none;
-    
-    // This is the "Engine" for the slow glow
-    // We transition the color AND the shadow/filter
-    transition: 
-      color 1.5s ease-in-out, 
-      text-shadow 1.5s ease-in-out, 
-      filter 1.5s ease-in-out;
-    
-    /* Starting point: no glow */
+    /* This stays slow and smooth */
+    transition: color 1.0s ease, text-shadow 1.0s ease, filter 1.0s ease;
     text-shadow: 0 0 0 rgba($green, 0);
-    filter: brightness(1);
   }
 
   //HEADER MENU LINKS
@@ -188,26 +173,42 @@ header {
     z-index: 2;
   }
 
+ It looks like the "mess up" on the red line is coming from having two transition properties inside that block. The second one (transition: none;) is clobbering the first one, which can cause the line to behave erratically or "snap" poorly.
+
+Also, since we want to remove the 1s delay on the red line so both scanlines launch at the exact same time, we need to sync their animation-delay values.
+
+The Cleaned Up Red Line (Passive)
+Here is the corrected code. I've removed the double transition and synced the timing so the red and green lines start their descent together.
+
+SCSS
   // RED LINE PASSIVE
   &::before {
     content: "";
     position: absolute;
     top: 0; left: 0;
-    width: 100%; height: 1.5px;
+    width: 100%; 
+    height: 1.5px;
     background: rgba($red, 0.4);
     z-index: 2;
-    transition: all 0.6s ease;
-    /* Using drop-shadow for better rendering on thin lines */
+    
+    /* Using drop-shadow for that crisp forensic glow */
     filter: drop-shadow(0 0 2px rgba($red, 0.5));
+    
+    /* REMOVED: transition: none; (It was fighting the 0.6s ease) */
+    transition: all 0.6s ease;
+    
+    /* SYNCED: Removed the 1s delay so it starts with the green line */
+    animation: scanLine 2s linear infinite; 
+    animation-delay: 0s; 
+    pointer-events: none;
   }
 
   // HEADER HOVER EFFECTS
   // PCAPEXPRESS GLITCH
-  &:hover {
+ &:hover {
+    // REVERTED: Glitch is instant again
     h1 a {
-      /* On hover, we "reveal" the intensity slowly */
-      filter: contrast(1.4) brightness(1.2);
-      text-shadow: -2px -2px $red, 2px 2px $green; 
+      animation: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite !important; 
     }
 
     //GREEN TEXT GLOWUP
