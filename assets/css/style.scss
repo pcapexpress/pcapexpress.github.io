@@ -43,8 +43,9 @@ body {
 }
 
 // 2.1 TYPOGRAPHY OVERRIDES
+// 2.1 TYPOGRAPHY OVERRIDES
 h1, h2, h3, .nav-menu, .header-bio, footer {
-  font-family: 'Share Tech Mono', sans-serif; // You'll need to add Michroma to your Google Import
+  font-family: 'Share Tech Mono', monospace; 
   letter-spacing: 2px;
   text-transform: uppercase;
 }
@@ -56,11 +57,11 @@ header {
   width: 100%; 
   display: flex;
   flex-direction: column;
-  align-items: center;    /* This aligns the 'boxes' to the center */
+  align-items: center;    
   justify-content: center;
   
   margin: 0 !important;
-  padding: 60px 20px;
+  padding: 80px 20px;
   border-bottom: 3px solid $red;
 
   background: 
@@ -68,36 +69,30 @@ header {
     url("../images/header.png") no-repeat center center;
   background-size: cover;
 
-  // The fix is here: force the children to be full-width and center their text
+  // Global centering for header elements
   h1, .header-bio, .nav-menu {
     position: relative;
     z-index: 5;
-    width: 100%;           /* Take up the full 900px */
-    text-align: center;    /* Force text to the middle of that width */
-    margin-left: 0;        /* Kill any rogue left margins */
-    margin-right: 0;
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   //HEADER TITLE
    h1 {
-    margin: 0;
-    pointer-events: auto; /* The H1 container must be "active" to feel the mouse */
-    text-align: center; /* Ensures content inside these blocks stays centered */
-    width: 100%;        /* Allows text-align to calculate the center correctly */
-     
+    margin: 0 0 5px 0;
+    pointer-events: auto; 
+    
     a {
       color: $orange !important;
       font-size: 2.2rem;
-      text-decoration: none !important;
-      cursor: default;
-      pointer-events: none; // Keeps the text itself from being a clickable link
-      display: inline-block;
-      margin: 0 auto;       /* Forces the h1 container to the horizontal middle */
-      pointer-events: auto; 
-      text-align: center;   /* Double-down on centering the text */
-      
-      /* ADD THESE TWO LINES HERE */
       font-weight: 700; 
       letter-spacing: -1px;
+      text-decoration: none !important;
+      cursor: default;
+      pointer-events: none; 
+      display: inline-block;
     }
   }
 
@@ -108,8 +103,7 @@ header {
     font-size: 0.9rem;
     margin: 5px 0;
     display: block;
-    pointer-events: none; // Prevents brightness/glow shifts on mouse over
-    transition: none; // Removes the smooth glow transition
+    pointer-events: none; 
   }
 
   //HEADER MENU LINKS
@@ -118,7 +112,7 @@ header {
     display: flex;
     justify-content: center;
     gap: 15px;
-    margin-top: 15px;
+    margin: 15px 0 0 0;
     padding: 0;
 
     //LINKS STYLE {PILLS}
@@ -128,32 +122,19 @@ header {
       color: $orange;
       padding: 8px 20px;
       border-radius: 50px;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.8rem; // Slightly increased for this specific font
+      font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      text-decoration: none !important; // Forced removal
+      text-decoration: none !important;
       transition: 0.5s all ease;
-      position: relative; 
       
-      // THE FIX: Explicitly kill the global red underline
-      &::after { 
-        content: none !important; 
-        display: none !important; 
-        width: 0 !important;
-      }
+      &::after { content: none !important; display: none !important; }
 
       &:hover {
         background: $orange;
         color: $dark-bg;
         box-shadow: 0 0 15px $red;
         transform: scale(1.05);
-
-        // Ensure underline doesn't reappear on hover
-        &::after { 
-          content: none !important; 
-          width: 0 !important; 
-        }
       }
     }
   }
