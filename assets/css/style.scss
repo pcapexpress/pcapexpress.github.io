@@ -193,8 +193,7 @@ header {
       color: #bffff0; 
       filter: brightness(1.2); 
       text-shadow: 0 0 5px $green; 
-    }
-    
+    }    
   
     //GREEN LINE ACTIVE
     &::after {
@@ -221,7 +220,6 @@ header {
       }
     }
   }
-}
 
 // 4. MAIN CONTENT AREA
 section {
