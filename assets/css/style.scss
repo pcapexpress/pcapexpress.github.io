@@ -93,9 +93,14 @@ header {
       pointer-events: none; 
       display: inline-block;
       animation: glitchText 0.3s infinite;
-      animation-play-state: paused; /* Keep it still until hover */
-      opacity: 1;
-      transition: filter 0.8s ease, text-shadow 0.8s ease;
+      animation-play-state: running; 
+      
+      /* Base state: No glitch visible */
+      filter: contrast(1) brightness(1) blur(0);
+      text-shadow: 0 0 0 transparent;
+      
+      /* Slow transition for the glitch intensity */
+      transition: filter 1.5s ease-out, text-shadow 1.5s ease-out;
     }
   }
 
@@ -107,7 +112,17 @@ header {
     margin: 5px 0;
     display: block;
     pointer-events: none;
-    transition: filter 1.2s ease, text-shadow 1.2s ease, color 1.2s ease;
+    
+    // This is the "Engine" for the slow glow
+    // We transition the color AND the shadow/filter
+    transition: 
+      color 1.5s ease-in-out, 
+      text-shadow 1.5s ease-in-out, 
+      filter 1.5s ease-in-out;
+    
+    /* Starting point: no glow */
+    text-shadow: 0 0 0 rgba($green, 0);
+    filter: brightness(1);
   }
 
   //HEADER MENU LINKS
@@ -190,17 +205,24 @@ header {
   // PCAPEXPRESS GLITCH
   &:hover {
     h1 a {
-      animation-play-state: running; /* Start the shake */
-      /* Gradual "energy" increase via filters */
-      filter: contrast(1.5) brightness(1.2);
+      /* On hover, we "reveal" the intensity slowly */
+      filter: contrast(1.4) brightness(1.2);
+      text-shadow: -2px -2px $red, 2px 2px $green; 
+    }
+
+    //GREEN TEXT GLOWUP
+    &:hover {
+    .header-bio {
+      color: #e0fdf5; /* A very pale, whitish-green */
+      filter: brightness(1.5);
+      
+      // Layered glow: tight green core + wide soft white bloom
+      text-shadow: 
+        0 0 8px $green, 
+        0 0 15px rgba($green, 0.6), 
+        0 0 30px rgba(255, 255, 255, 0.2);
     }
     
-    //HEADER GREEN GLOW
-    .header-bio {
-      color: #fff; /* Shifts from green to white-ish green slowly */
-      filter: brightness(1.8);
-      text-shadow: 0 0 15px $green, 0 0 25px rgba($green, 0.5);
-    }
   
     //GREEN LINE ACTIVE
     &::after {
