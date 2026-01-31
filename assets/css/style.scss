@@ -101,7 +101,7 @@ header {
     display: block;
     
     /* ULTRA-FAST: Feels mechanical and instant */
-    transition: all 0.1s ease-in-out; 
+    transition: all 0.4s ease-in-out; 
     
     text-shadow: 0 0 0 rgba($green, 0);
     filter: brightness(1);
@@ -234,7 +234,7 @@ section {
   //HEADER COLORS
   h1, h2, h3, h4 {
     display: inline-block; // Ensures shadow renders tightly
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     width: 100%; // Or remove if you want them centered tightly
   }
 
@@ -256,8 +256,8 @@ section {
        1px -1px 0 $dark-bg,
       -1px  1px 0 $dark-bg,
        1px  1px 0 $dark-bg,
-       0 0 10px rgba($orange, 0.8),
-       0 0 20px rgba($orange, 0.3);
+       //0 0 10px rgba($orange, 0.8),
+       //0 0 20px rgba($orange, 0.3);
   }
   
   h4 { 
@@ -267,7 +267,7 @@ section {
        1px -1px 0 $dark-bg,
       -1px  1px 0 $dark-bg,
        1px  1px 0 $dark-bg,
-       0 0 15px rgba($green, 0.6);
+       //0 0 15px rgba($green, 0.6);
   }
   
   //BODY TEXT
