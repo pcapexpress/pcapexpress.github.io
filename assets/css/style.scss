@@ -173,14 +173,6 @@ header {
     z-index: 2;
   }
 
- It looks like the "mess up" on the red line is coming from having two transition properties inside that block. The second one (transition: none;) is clobbering the first one, which can cause the line to behave erratically or "snap" poorly.
-
-Also, since we want to remove the 1s delay on the red line so both scanlines launch at the exact same time, we need to sync their animation-delay values.
-
-The Cleaned Up Red Line (Passive)
-Here is the corrected code. I've removed the double transition and synced the timing so the red and green lines start their descent together.
-
-SCSS
   // RED LINE PASSIVE
   &::before {
     content: "";
