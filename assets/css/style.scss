@@ -12,7 +12,7 @@ $medium-bg: #263842;
 $dark-bg: #1A272E;
 
 //FONTS
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Share+Tech+Mono&display=swap');
 
 // 2. GLOBAL RESET AND BODY
 * { box-sizing: border-box; }
@@ -43,50 +43,56 @@ body {
 }
 
 // 2.1 TYPOGRAPHY OVERRIDES
+// 2.1 TYPOGRAPHY OVERRIDES
 h1, h2, h3, .nav-menu, .header-bio, footer {
-  font-family: 'IBM Plex Mono', monospace; // Or 'Exo 2', sans-serif
-  letter-spacing: 1px; // Monospace fonts often need a tiny bit of extra space
-  text-transform: uppercase; // Makes tech fonts look much more "official"
+  font-family: 'Share Tech Mono', monospace; 
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 // 3. HEADER ARCHITECTURE
 header {
   position: relative;
   overflow: hidden; 
-  width: 100%;       /* It now fills the 900px of the wrapper */
-  display: block;
-  border-bottom: 3px solid $red;
+  width: 100%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;    
+  justify-content: center;
   
-  margin: 0 !important;   /* Forcefully remove any gaps at the top */
+  margin: 0 !important;
   padding: 80px 20px;
-  border-radius: 0;       /* The wrapper handles the rounding */
+  border-bottom: 3px solid $red;
 
   background: 
     linear-gradient(to bottom, rgba(26, 39, 46, 0.2) 10%, rgba(26, 39, 46, 0.95) 100%),
     url("../images/header.png") no-repeat center center;
   background-size: cover;
 
+  // Global centering for header elements
   h1, .header-bio, .nav-menu {
     position: relative;
     z-index: 5;
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   //HEADER TITLE
    h1 {
-    margin: 0;
-    pointer-events: auto; /* The H1 container must be "active" to feel the mouse */
+    margin: 0 0 5px 0;
+    pointer-events: auto; 
     
     a {
       color: $orange !important;
       font-size: 2.2rem;
-      text-decoration: none !important;
-      cursor: default;
-      pointer-events: none; // Keeps the text itself from being a clickable link
-      display: inline-block;
-
-      /* ADD THESE TWO LINES HERE */
       font-weight: 700; 
       letter-spacing: -1px;
+      text-decoration: none !important;
+      cursor: default;
+      pointer-events: none; 
+      display: inline-block;
     }
   }
 
@@ -97,8 +103,7 @@ header {
     font-size: 0.9rem;
     margin: 5px 0;
     display: block;
-    pointer-events: none; // Prevents brightness/glow shifts on mouse over
-    transition: none; // Removes the smooth glow transition
+    pointer-events: none; 
   }
 
   //HEADER MENU LINKS
@@ -107,7 +112,7 @@ header {
     display: flex;
     justify-content: center;
     gap: 15px;
-    margin-top: 15px;
+    margin: 15px 0 0 0;
     padding: 0;
 
     //LINKS STYLE {PILLS}
@@ -117,32 +122,19 @@ header {
       color: $orange;
       padding: 8px 20px;
       border-radius: 50px;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.8rem; // Slightly increased for this specific font
+      font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      text-decoration: none !important; // Forced removal
+      text-decoration: none !important;
       transition: 0.5s all ease;
-      position: relative; 
       
-      // THE FIX: Explicitly kill the global red underline
-      &::after { 
-        content: none !important; 
-        display: none !important; 
-        width: 0 !important;
-      }
+      &::after { content: none !important; display: none !important; }
 
       &:hover {
         background: $orange;
         color: $dark-bg;
         box-shadow: 0 0 15px $red;
         transform: scale(1.05);
-
-        // Ensure underline doesn't reappear on hover
-        &::after { 
-          content: none !important; 
-          width: 0 !important; 
-        }
       }
     }
   }
@@ -228,9 +220,10 @@ section {
   
   //BODY TEXT
   p, div, li { 
-    color: $yellow; 
-    line-height: 1.6; 
-  }
+  color: $yellow; 
+  line-height: 1.7;    /* Increased from 1.6 for better JetBrains readability */
+  letter-spacing: 0.2px; /* Subtle opening of the text */
+}
 
 //ATMOSPHERIC IMAGE
 img {
