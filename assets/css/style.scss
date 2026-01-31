@@ -237,9 +237,38 @@ section {
   z-index: 1;
 
   //HEADER COLORS
-  & > h1, & > h2 { color: $red; }
-  & > h3 { color: $orange; }
-  & > h4 { color: $green; }
+  & > h1, & > h2 { 
+    color: $red; 
+    
+    // This creates a 1px solid dark outline
+    text-shadow: 
+      -1px -1px 0 $darker-slate,  
+       1px -1px 0 $darker-slate,
+      -1px  1px 0 $darker-slate,
+       1px  1px 0 $darker-slate;
+     
+    text-shadow: ... , 0 0 10px rgba($red, 0.3); 
+  }
+  
+  & > h3 { color: $orange;
+    text-shadow: 
+      -1px -1px 0 $darker-slate,  
+       1px -1px 0 $darker-slate,
+      -1px  1px 0 $darker-slate,
+       1px  1px 0 $darker-slate;
+
+    text-shadow: ... , 0 0 10px rgba($orange, 0.3);
+    }
+  
+  & > h4 { color: $green; 
+    text-shadow: 
+      -1px -1px 0 $darker-slate,  
+       1px -1px 0 $darker-slate,
+      -1px  1px 0 $darker-slate,
+       1px  1px 0 $darker-slate;
+     
+    text-shadow: ... , 0 0 10px rgba($green, 0.3);
+  }
   
   //BODY TEXT
   p, div, li { 
