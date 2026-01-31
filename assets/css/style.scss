@@ -151,8 +151,8 @@ header {
       to top, 
       rgba($green, 0.5) 0%,   /* The leading edge color */
       rgba($green, 0.5) 2px,  /* Leading edge thickness */
-      rgba($green, 0.2) 5px,  /* Softening the transition */
-      rgba($green, 0.05) 40%, /* Fading out */
+      rgba($green, 0.3) 5px,  /* Softening the transition */
+      rgba($green, 0.02) 40%, /* Fading out */
       transparent 100%
     );
     
@@ -162,7 +162,7 @@ header {
     // Applying two animations: One for moving, one for breathing
     animation: 
       scanLine 7s linear infinite, 
-      greenBreathe 4s ease-in-out infinite; 
+      greenBreathe 1s ease-in-out infinite; 
       
     transition: all 0.4s ease;
     pointer-events: none;
@@ -175,12 +175,11 @@ header {
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 2px;
-    background: $red;
+    background: rgba($red, 0.5); /* Dimmed red when idle */
     mix-blend-mode: screen;
-    box-shadow: 0 0 10px $red;
-    filter: brightness(0.6); 
-    animation: scanLine 1s linear infinite;
-    animation-delay: 0.5s;
+    box-shadow: 0 0 5px rgba($red, 0.3);
+    animation: scanLine 2s linear infinite;
+    animation-delay: 1s;
     transition: all 0.4s ease;
     pointer-events: none;
     z-index: 2;
@@ -208,10 +207,14 @@ header {
   
     //RED LINE ACTIVE
     &::before {
-      background: #fff;
-      filter: brightness(0.8); 
-      box-shadow: 0 0 15px #fff, 0 0 30px $red, 0 0 50px $red;
-      animation: scanLine 1.7s linear infinite, fastPulse 0.2s infinite;
+      background: $red; /* Solid Red, no white */
+      filter: brightness(1.5); 
+      /* Stacked shadows to create "Red Bloom" without turning white */
+      box-shadow: 
+        0 0 10px $red, 
+        0 0 20px $red, 
+        0 0 40px rgba($red, 0.6);
+      animation: scanLine 1s linear infinite, fastPulse 0.2s infinite;
     }
   }
 }
@@ -478,11 +481,11 @@ footer::after {
 //GREEN BREATE
 @keyframes greenBreathe {
   0%, 100% { 
-    opacity: 0.4; 
+    opacity: 0.6; 
     box-shadow: 0 5px 10px rgba($green, 0.1); 
   }
   50% { 
-    opacity: 0.8; 
+    opacity: 1.0; 
     box-shadow: 0 5px 20px rgba($green, 0.3); 
     filter: brightness(1.2);
   }
