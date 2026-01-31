@@ -201,16 +201,17 @@ header {
   
     //GREEN LINE ACTIVE
     &::after {
+      /* Toned down the alpha and the filters */
       background: linear-gradient(
         to top, 
-        rgba($green, 0.4) 0%,   /* Subtle leading edge */
-        rgba($green, 0.4) 2px, 
-        rgba($green, 0.1) 5px, 
+        rgba($green, 0.5) 0%,   /* Reduced from 0.8 */
+        rgba($green, 0.5) 2px, 
+        rgba($green, 0.2) 5px, 
         transparent 100%
       );
-      filter: brightness(1.1); /* Minimal boost */
-      box-shadow: 0 0 8px rgba($green, 0.3); 
-      animation: scanLine 5s linear infinite, dataStutter 0.3s steps(2) infinite;
+      filter: brightness(1.2) contrast(1.1); /* Reduced intensity */
+      box-shadow: 0 0 10px rgba($green, 0.5); /* Smaller glow */
+      animation: scanLine 5s linear infinite, dataStutter 0.2s steps(2) infinite;
     }
   
     //RED LINE ACTIVE
