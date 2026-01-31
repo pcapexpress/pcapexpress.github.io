@@ -239,17 +239,13 @@ section {
        1px -1px 0 $dark-bg,
       -1px  1px 0 $dark-bg,
        1px  1px 0 $dark-bg,
-       //0 0 10px rgba($red, 0.4);
+       0 0 20px rgba($red, 0.9);
   }
   
   h3 { 
     color: $orange;
     text-shadow: 
-      -1px -1px 0 $dark-bg,  
-       1px -1px 0 $dark-bg,
-      -1px  1px 0 $dark-bg,
-       1px  1px 0 $dark-bg,
-       0 0 10px rgba($orange, 0.8); 
+       0 0 10px rgba($orange, 1.8); 
   }
   
   h4 { 
