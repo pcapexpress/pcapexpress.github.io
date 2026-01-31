@@ -12,7 +12,7 @@ $medium-bg: #263842;
 $dark-bg: #1A272E;
 
 //FONTS
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Teck+Mono:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap');
 
 // 2. GLOBAL RESET AND BODY
 * { box-sizing: border-box; }
@@ -44,22 +44,24 @@ body {
 
 // 2.1 TYPOGRAPHY OVERRIDES
 h1, h2, h3, .nav-menu, .header-bio, footer {
-  font-family: 'IBM Plex Mono', monospace; // Or 'Exo 2', sans-serif
-  letter-spacing: 1px; // Monospace fonts often need a tiny bit of extra space
-  text-transform: uppercase; // Makes tech fonts look much more "official"
+  font-family: 'Share Tech Mono', sans-serif; // You'll need to add Michroma to your Google Import
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 // 3. HEADER ARCHITECTURE
 header {
   position: relative;
   overflow: hidden; 
-  width: 100%;       /* It now fills the 900px of the wrapper */
-  display: block;
-  border-bottom: 3px solid $red;
+  width: 100%; 
+  display: flex;             /* Changed to Flex */
+  flex-direction: column;    /* Stack title, bio, and nav vertically */
+  align-items: center;       /* Centers them horizontally */
+  justify-content: center;   /* Centers them vertically */
   
-  margin: 0 !important;   /* Forcefully remove any gaps at the top */
-  padding: 80px 20px;
-  border-radius: 0;       /* The wrapper handles the rounding */
+  margin: 0 !important;
+  padding: 60px 20px;        /* Reduced padding slightly for a tighter look */
+  border-bottom: 3px solid $red;       /* The wrapper handles the rounding */
 
   background: 
     linear-gradient(to bottom, rgba(26, 39, 46, 0.2) 10%, rgba(26, 39, 46, 0.95) 100%),
