@@ -255,9 +255,7 @@ section {
       -1px -1px 0 $dark-bg,  
        1px -1px 0 $dark-bg,
       -1px  1px 0 $dark-bg,
-       1px  1px 0 $dark-bg,
-       //0 0 10px rgba($orange, 0.8),
-       //0 0 20px rgba($orange, 0.3);
+       1px  1px 0 $dark-bg; // Removed the comma here so it ends strictly
   }
   
   h4 { 
@@ -266,8 +264,7 @@ section {
       -1px -1px 0 $dark-bg,  
        1px -1px 0 $dark-bg,
       -1px  1px 0 $dark-bg,
-       1px  1px 0 $dark-bg,
-       //0 0 15px rgba($green, 0.6);
+       1px  1px 0 $dark-bg; // Ends here, no glow lines exist
   }
   
   //BODY TEXT
