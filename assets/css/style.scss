@@ -232,34 +232,44 @@ section {
   z-index: 1;
 
   //HEADER COLORS
+  h1, h2, h3, h4 {
+    display: inline-block; // Ensures shadow renders tightly
+    margin-bottom: 15px;
+    width: 100%; // Or remove if you want them centered tightly
+  }
+
   h1, h2 { 
-    color: $red; 
+    color: $red !important; 
     text-shadow: 
       -1px -1px 0 $dark-bg,  
        1px -1px 0 $dark-bg,
       -1px  1px 0 $dark-bg,
        1px  1px 0 $dark-bg,
-       0 0 20px rgba($red, 0.9); // Deep, strong glow
+       0 0 10px rgba($red, 0.8), // Inner core glow
+       0 0 20px rgba($red, 0.4); // Outer atmospheric bloom
   }
   
   h3 { 
-    color: $orange;
+    color: $orange !important;
     text-shadow: 
       -1px -1px 0 $dark-bg,  
        1px -1px 0 $dark-bg,
       -1px  1px 0 $dark-bg,
        1px  1px 0 $dark-bg,
-       0 0 10px rgba($orange, 1); // Fixed: 1.8 changed to 1
+       0 0 10px rgba($orange, 0.8),
+       0 0 20px rgba($orange, 0.3);
   }
   
   h4 { 
-    color: $green; 
+    color: $green !important; 
     text-shadow: 
-      -1px -1px 0 $darker-slate,  
-       1px -1px 0 $darker-slate,
-      -1px  1px 0 $darker-slate,
-       1px  1px 0 $darker-slate; // Fixed: Removed trailing comma
+      -1px -1px 0 $dark-bg,  
+       1px -1px 0 $dark-bg,
+      -1px  1px 0 $dark-bg,
+       1px  1px 0 $dark-bg,
+       0 0 15px rgba($green, 0.6);
   }
+}
   
   //BODY TEXT
   p, div, li { 
@@ -419,7 +429,7 @@ section ul li {
     // Forces all nested text (h3, p, etc.) to white on hover
     h1, h2, h3, h4, p, span, strong { 
       color: #ffffff; 
-      text-shadow: none;
+      text-shadow: inherit;
     }
   }
 }
