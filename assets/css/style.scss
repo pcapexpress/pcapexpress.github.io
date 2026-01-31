@@ -209,7 +209,7 @@ header {
         rgba($green, 0.2) 5px, 
         transparent 100%
       );
-      filter: brightness(1.2) contrast(1.1); /* Reduced intensity */
+      filter: brightness(1.4) contrast(1.2); /* Reduced intensity */
       box-shadow: 0 0 10px rgba($green, 0.5); /* Smaller glow */
       animation: scanLine 5s linear infinite, dataStutter 0.2s steps(2) infinite;
     }
@@ -239,35 +239,32 @@ section {
   //HEADER COLORS
   & > h1, & > h2 { 
     color: $red; 
-    
-    // This creates a 1px solid dark outline
     text-shadow: 
       -1px -1px 0 $darker-slate,  
        1px -1px 0 $darker-slate,
       -1px  1px 0 $darker-slate,
-       1px  1px 0 $darker-slate;
-     
-    text-shadow: ... , 0 0 10px rgba($red, 0.3); 
+       1px  1px 0 $darker-slate,
+       0 0 10px rgba($red, 0.4); // Combined here!
   }
   
-  & > h3 { color: $orange;
+  & > h3 { 
+    color: $orange;
     text-shadow: 
       -1px -1px 0 $darker-slate,  
        1px -1px 0 $darker-slate,
       -1px  1px 0 $darker-slate,
-       1px  1px 0 $darker-slate;
-
-    text-shadow: ... , 0 0 10px rgba($orange, 0.3);
-    }
+       1px  1px 0 $darker-slate,
+       0 0 10px rgba($orange, 0.4); 
+  }
   
-  & > h4 { color: $green; 
+  & > h4 { 
+    color: $green; 
     text-shadow: 
       -1px -1px 0 $darker-slate,  
        1px -1px 0 $darker-slate,
       -1px  1px 0 $darker-slate,
-       1px  1px 0 $darker-slate;
-     
-    text-shadow: ... , 0 0 10px rgba($green, 0.3);
+       1px  1px 0 $darker-slate,
+       0 0 10px rgba($green, 0.4);
   }
   
   //BODY TEXT
