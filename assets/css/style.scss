@@ -220,9 +220,10 @@ section {
   
   //BODY TEXT
   p, div, li { 
-    color: $yellow; 
-    line-height: 1.6; 
-  }
+  color: $yellow; 
+  line-height: 1.7;    /* Increased from 1.6 for better JetBrains readability */
+  letter-spacing: 0.2px; /* Subtle opening of the text */
+}
 
 //ATMOSPHERIC IMAGE
 img {
