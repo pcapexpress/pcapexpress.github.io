@@ -100,9 +100,7 @@ header {
     margin: 5px 0;
     display: block;
     
-    /* ULTRA-FAST: Feels mechanical and instant */
-    transition: all 0.4s ease-in-out; 
-    
+    transition: all 0.8s ease-in-out;
     text-shadow: 0 0 0 rgba($green, 0);
     filter: brightness(1);
   }
@@ -233,38 +231,41 @@ section {
 
   //HEADER COLORS
   h1, h2, h3, h4 {
-    display: inline-block; // Ensures shadow renders tightly
+    display: inline-block; 
     margin-bottom: 10px;
-    width: 100%; // Or remove if you want them centered tightly
+    width: 100%; 
   }
 
   h1, h2 { 
     color: $red !important; 
+    /* Every line ends in a comma EXCEPT the last glow line */
     text-shadow: 
       -1px -1px 0 $dark-bg,  
        1px -1px 0 $dark-bg,
       -1px  1px 0 $dark-bg,
        1px  1px 0 $dark-bg,
-       0 0 10px rgba($red, 0.8), // Inner core glow
-       0 0 20px rgba($red, 0.4); // Outer atmospheric bloom
+       0 0 10px rgba($red, 0.8),
+       0 0 20px rgba($red, 0.4) !important; 
   }
   
   h3 { 
     color: $orange !important;
+    /* Ends strictly at the outline - No comma at the end */
     text-shadow: 
       -1px -1px 0 $dark-bg,  
        1px -1px 0 $dark-bg,
       -1px  1px 0 $dark-bg,
-       1px  1px 0 $dark-bg; // Removed the comma here so it ends strictly
+       1px  1px 0 $dark-bg !important; 
   }
   
   h4 { 
     color: $green !important; 
+    /* Ends strictly at the outline - No comma at the end */
     text-shadow: 
       -1px -1px 0 $dark-bg,  
        1px -1px 0 $dark-bg,
       -1px  1px 0 $dark-bg,
-       1px  1px 0 $dark-bg; // Ends here, no glow lines exist
+       1px  1px 0 $dark-bg !important; 
   }
   
   //BODY TEXT
