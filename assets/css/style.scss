@@ -235,21 +235,21 @@ section {
   h1, h2 { 
     color: $red; 
     text-shadow: 
-      -1px -1px 0 $darker-slate,  
-       1px -1px 0 $darker-slate,
-      -1px  1px 0 $darker-slate,
-       1px  1px 0 $darker-slate,
+      -1px -1px 0 $dark-bg,  
+       1px -1px 0 $dark-bg,
+      -1px  1px 0 $dark-bg,
+       1px  1px 0 $dark-bg,
        0 0 10px rgba($red, 0.4);
   }
   
   h3 { 
     color: $orange;
     text-shadow: 
-      -1px -1px 0 $darker-slate,  
-       1px -1px 0 $darker-slate,
-      -1px  1px 0 $darker-slate,
-       1px  1px 0 $darker-slate,
-       0 0 10px rgba($orange, 0.4); 
+      -1px -1px 0 $dark-bg,  
+       1px -1px 0 $dark-bg,
+      -1px  1px 0 $dark-bg,
+       1px  1px 0 $dark-bg,
+       0 0 10px rgba($dark-bg, 0.4); 
   }
   
   h4 { 
@@ -259,7 +259,7 @@ section {
        1px -1px 0 $darker-slate,
       -1px  1px 0 $darker-slate,
        1px  1px 0 $darker-slate,
-       0 0 10px rgba($green, 0.4);
+       0 0 10px rgba($dark-bg, 0.4);
   }
   
   //BODY TEXT
