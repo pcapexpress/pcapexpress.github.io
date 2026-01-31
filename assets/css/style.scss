@@ -54,24 +54,28 @@ header {
   position: relative;
   overflow: hidden; 
   width: 100%; 
-  display: flex;             /* Changed to Flex */
-  flex-direction: column;    /* Stack title, bio, and nav vertically */
-  align-items: center;       /* Centers them horizontally */
-  justify-content: center;   /* Centers them vertically */
+  display: flex;
+  flex-direction: column;
+  align-items: center;    /* This aligns the 'boxes' to the center */
+  justify-content: center;
   
   margin: 0 !important;
-  padding: 60px 20px;        /* Reduced padding slightly for a tighter look */
-  border-bottom: 3px solid $red;       /* The wrapper handles the rounding */
+  padding: 60px 20px;
+  border-bottom: 3px solid $red;
 
   background: 
     linear-gradient(to bottom, rgba(26, 39, 46, 0.2) 10%, rgba(26, 39, 46, 0.95) 100%),
     url("../images/header.png") no-repeat center center;
   background-size: cover;
 
+  // The fix is here: force the children to be full-width and center their text
   h1, .header-bio, .nav-menu {
     position: relative;
     z-index: 5;
-  }
+    width: 100%;           /* Take up the full 900px */
+    text-align: center;    /* Force text to the middle of that width */
+    margin-left: 0;        /* Kill any rogue left margins */
+    margin-right: 0;
 
   //HEADER TITLE
    h1 {
