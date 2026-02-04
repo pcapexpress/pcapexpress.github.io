@@ -239,33 +239,35 @@ section {
   h1, h2 { 
     color: $red !important; 
     /* Every line ends in a comma EXCEPT the last glow line */
-    text-shadow: 
+    /*text-shadow: 
       -1px -1px 0 $dark-bg,  
        1px -1px 0 $dark-bg,
       -1px  1px 0 $dark-bg,
-       1px  1px 0 $dark-bg,
+       1px  1px 0 $dark-bg,*/
        0 0 10px rgba($red, 0.8),
-       0 0 20px rgba($red, 0.4) !important; 
+       0 0 20px rgba($red, 0.4) !important;
   }
   
   h3 { 
     color: $orange !important;
     /* Ends strictly at the outline - No comma at the end */
-    text-shadow: 
+   /* text-shadow: 
       -1px -1px 0 $dark-bg,  
        1px -1px 0 $dark-bg,
       -1px  1px 0 $dark-bg,
-       1px  1px 0 $dark-bg !important; 
+       1px  1px 0 $dark-bg !important; */
   }
   
   h4 { 
     color: $green !important; 
     /* Ends strictly at the outline - No comma at the end */
     text-shadow: 
-      -1px -1px 0 $dark-bg,  
-       1px -1px 0 $dark-bg,
-      -1px  1px 0 $dark-bg,
-       1px  1px 0 $dark-bg !important; 
+      -1px -1px 0 $darker-slate,  
+       1px -1px 0 $darker-slate,
+      -1px  1px 0 $darker-slate,
+       1px  1px 0 $darker-slate,
+       0 0 10px rgba($red, 0.8),
+       0 0 20px rgba($red, 0.4) !important; 
   }
   
   //BODY TEXT
@@ -341,11 +343,11 @@ pre {
   }
 
   // Syntax Highlighting & Glows
-  //.red    { color: $red; text-shadow: 0 0 5px rgba($red, 0.5); }
-  //.green  { color: $green; text-shadow: 0 0 5px rgba($green, 0.5); }
-  //.yellow { color: $yellow; text-shadow: 0 0 5px rgba($yellow, 0.5); }
-  //.orange { color: $orange; text-shadow: 0 0 8px rgba($orange, 0.6); }
-  //.slate  { color: $slate; }
+  .red    { color: $red; text-shadow: 0 0 5px rgba($red, 0.5); }
+  .green  { color: $green; text-shadow: 0 0 5px rgba($green, 0.5); }
+  .yellow { color: $yellow; text-shadow: 0 0 5px rgba($yellow, 0.5); }
+  .orange { color: $orange; text-shadow: 0 0 8px rgba($orange, 0.6); }
+  .slate  { color: $slate; }
 
   .red, .green, .yellow, .orange, .slate {
   position: relative;
