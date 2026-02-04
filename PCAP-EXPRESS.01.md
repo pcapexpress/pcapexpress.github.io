@@ -21,8 +21,8 @@ In the mean time the IT department will handle wiping the affected machine.
 * <span class="orange"><strong>Domain:</strong></span>  bluemoontuesday[.]com
 * <span class="orange"><strong>Active Directory (AD) domain controller:</strong></span>  10.1.17[.]2 - WIN-GSH54QLW48D
 * <span class="orange"><strong>AD environment name:</strong></span>  BLUEMOONTUESDAY
-* <span class="orange">LAN segment gateway:</span>  10.1.17[.]1
-* <span class="orange">LAN segment broadcast address:</strong></span>  10.1.17[.]255
+* <span class="orange"><strong>LAN segment gateway:</strong></span>  10.1.17[.]1
+* <span class="orange"><strong>LAN segment broadcast address:</strong></span>  10.1.17[.]255
 </code></pre>
 
 #### **TASK:**
