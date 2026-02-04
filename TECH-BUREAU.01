@@ -15,14 +15,14 @@ We are a SOC analyst, we are contacted due to a coworker downloading a suspiciou
 We confirm that an infection has occurred, we are supplied a pcap file and tasked to writing an incident report focusing on some key questions written below.
 In the mean time the IT department will handle wiping the affected machine. 
 
-## LAN SEGMENT DETAILS FROM THE PCAP
+##Machine Recognisence Using nmap
 <pre data-label="Network Environment"><code>
-* <span class="orange"><strong>LAN segment range:</strong></span>  10.1.17[.]0/24   (10.1.17[.]0 through 10.1.17[.]255)
-* <span class="orange"><strong>Domain:</strong></span>  bluemoontuesday[.]com
+* <span class="red"><strong>AT4CK-3XPR3S$:</strong></span>  nmap -nP -p 22, 443 TECH-BUREAU
+* <span class="orange"><strong>open:</strong></span>  SSH
 * <span class="orange"><strong>Active Directory (AD) domain controller:</strong></span>  10.1.17[.]2 - WIN-GSH54QLW48D
 * <span class="orange"><strong>AD environment name:</strong></span>  BLUEMOONTUESDAY
-* <span class="orange">LAN segment gateway:</span>  10.1.17[.]1
-* <span class="orange">LAN segment broadcast address:</strong></span>  10.1.17[.]255
+* <span class="orange"><strong>LAN segment gateway:</strong></span>  10.1.17[.]1
+* <span class="orange"><strong>LAN segment broadcast address:</strong></span>  10.1.17[.]255
 </code></pre>
 
 #### **TASK:**
