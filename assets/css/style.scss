@@ -229,7 +229,7 @@ section {
   position: relative;
   z-index: 1;
 
-  //HEADER COLORS
+// 4. MAIN CONTENT AREA - HEADER COLORS
   h1, h2, h3, h4 {
     display: inline-block; 
     margin-bottom: 10px;
@@ -238,36 +238,27 @@ section {
 
   h1, h2 { 
     color: $red !important; 
-    /* Every line ends in a comma EXCEPT the last glow line */
-    /*text-shadow: 
-      -1px -1px 0 $dark-bg,  
-       1px -1px 0 $dark-bg,
-      -1px  1px 0 $dark-bg,
-       1px  1px 0 $dark-bg,*/
+    // Property name must be outside the comment
+    text-shadow: 
        0 0 10px rgba($red, 0.8),
        0 0 20px rgba($red, 0.4) !important;
   }
   
   h3 { 
     color: $orange !important;
-    /* Ends strictly at the outline - No comma at the end */
-   /* text-shadow: 
-      -1px -1px 0 $dark-bg,  
-       1px -1px 0 $dark-bg,
-      -1px  1px 0 $dark-bg,
-       1px  1px 0 $dark-bg !important; */
+    // If you want the effects gone, set it to none
+    text-shadow: none !important; 
   }
   
   h4 { 
     color: $green !important; 
-    /* Ends strictly at the outline - No comma at the end */
     text-shadow: 
       -1px -1px 0 $darker-slate,  
        1px -1px 0 $darker-slate,
       -1px  1px 0 $darker-slate,
        1px  1px 0 $darker-slate,
-       0 0 10px rgba($red, 0.8),
-       0 0 20px rgba($red, 0.4) !important; 
+       0 0 10px rgba($green, 0.8), // Changed from $red to $green
+       0 0 20px rgba($green, 0.4) !important; 
   }
   
   //BODY TEXT
