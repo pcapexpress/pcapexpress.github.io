@@ -266,10 +266,6 @@ img {
   
   //SHADOW UNDERNEATH
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); 
-  
-  //RENDERING FIX???
-  //backface-visibility: hidden;
-  //transform: translateZ(0);
 
   transition: 
     box-shadow 0.6s ease-in-out, 
@@ -278,12 +274,12 @@ img {
 
   &:hover {
     border-color: rgba($orange, 0.9);
-    filter: brightness(1.1); // Slight "power up" effect
+    filter: brightness(1.2); // Slight "power up" effect
 
     //GLOW AND BLOOM
     box-shadow: 
       0 15px 35px rgba(0, 0, 0, 0.7),   /* Deeper lift shadow */
-      0 0 30px rgba($orange, 0.4),      /* Primary orange bloom */
+      0 0 30px rgba($orange, 0.5),      /* Primary orange bloom */
       0 0 60px rgba($orange, 0.1);      /* Far-reaching atmospheric glow */
     }
   }
@@ -306,7 +302,7 @@ pre {
 
   // THE ORANGE GLOW
   border-left: 3px solid $orange;
-  box-shadow: 0 0 15px rgba($orange, 0.3); 
+  box-shadow: 0 0 15px rgba($orange, 0.5); 
   transition: all 0.3s ease;
 
   &::before {
@@ -465,9 +461,13 @@ hr {
 //  );
   /////////
 
-  background-image: 
-  repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 4px),
-  repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 4px);
+  background-image: repeating-linear-gradient(
+    0deg, 
+    rgba(0, 0, 0, 0.12) 0px, 
+    rgba(0, 0, 0, 0.12) 1px,
+    transparent 1px, 
+    transparent 3px
+  );
 
   /////////
   
