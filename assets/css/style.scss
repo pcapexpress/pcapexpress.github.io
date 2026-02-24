@@ -203,7 +203,11 @@ header {
         transparent 100%
       );
       /* This brightness interacts with the pixels of your image via mix-blend-mode */
-      filter: brightness(1.5) contrast(1.2) saturate(1.3);
+      
+      ///filter: brightness(1.5) contrast(1.2) saturate(1.3);
+      
+      backdrop-filter: brightness(1.5) contrast(1.2) saturate(1.3);
+      
       box-shadow: 0 0 15px rgba($green, 0.4); 
       animation: scanLine 4s linear infinite, dataStutter 0.2s steps(2) infinite;
     }
@@ -309,8 +313,8 @@ pre {
     content: "";
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(255, 255, 255, 0.02);
-    animation: staticFlicker 0.3s infinite;
+    background: rgba(255, 255, 255, 0.08);
+    animation: staticFlicker 0.15s infinite;
     pointer-events: none;
     z-index: 1; // Keeps the flicker as a background layer
   }
@@ -326,11 +330,22 @@ pre {
   position: relative;
   z-index: 2;
   }
-
+////
+  //&:hover {
+    //box-shadow: 0 0 25px rgba($orange, 0.6); // Intense glow on hover
+    //background-color: #0d0d0d;
+  //}
   &:hover {
-    box-shadow: 0 0 25px rgba($orange, 0.4); // Intense glow on hover
-    background-color: #0d0d0d;
+    border-color: rgba($orange, 0.9);
+    filter: brightness(1.2); // Slight "power up" effect
+
+    //GLOW AND BLOOM
+    box-shadow: 
+      0 15px 35px rgba(0, 0, 0, 0.7),   /* Deeper lift shadow */
+      0 0 30px rgba($orange, 0.5),      /* Primary orange bloom */
+      0 0 60px rgba($orange, 0.1);      /* Far-reaching atmospheric glow */
   }
+  /////
 }
 
 //DATA LABEL
@@ -434,9 +449,15 @@ hr {
     left: 50%;
     transform: translate(-50%, -50%);
     color: $orange;
-    font-size: 1.2rem;
-    text-shadow: 0 0 10px rgba($orange, 0.8);
-  }
+    font-size: 1.4rem;
+    background: transparent;    
+    text-shadow: 
+      -2px -2px 0 $darker-slate,
+       2px -2px 0 $darker-slate,
+      -2px  2px 0 $darker-slate,
+       2px  2px 0 $darker-slate,
+       0 0 8px rgba($orange, 0.4); // Subtle base glow    
+      }
   
   animation: 
     dividerStretch 12s ease-in-out infinite,
@@ -452,22 +473,22 @@ hr {
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.7); 
 
   //////////
-//  background-image: repeating-linear-gradient(
-//    0deg, 
-//    rgba(255, 255, 255, 0.05) 0px, 
-//    rgba(255, 255, 255, 0.05) 1px,
-//    transparent 1px, 
-//    transparent 4px // Increased to 4px for a cleaner look on mid-tones
-//  );
-  /////////
-
   background-image: repeating-linear-gradient(
     0deg, 
-    rgba(0, 0, 0, 0.12) 0px, 
-    rgba(0, 0, 0, 0.12) 1px,
+    rgba(255, 255, 255, 0.05) 0px, 
+    rgba(255, 255, 255, 0.05) 1px,
     transparent 1px, 
-    transparent 3px
+    transparent 4px // Increased to 4px for a cleaner look on mid-tones
   );
+  /////////
+
+  //background-image: repeating-linear-gradient(
+    //0deg, 
+    //rgba(0, 0, 0, 0.12) 0px, 
+    //rgba(0, 0, 0, 0.12) 1px,
+    //transparent 1px, 
+    //transparent 3px
+  //);
 
   /////////
   
@@ -558,7 +579,16 @@ footer::after {
 }
     
 // CODE BLOCK FLICKER
-@keyframes staticFlicker { 0% { opacity: 0.85; } 50% { opacity: 0.9; } 100% { opacity: 0.6; } }
+///@keyframes staticFlicker { 0% { opacity: 0.85; } 50% { opacity: 0.9; } 100% { opacity: 0.6; } }
+
+@keyframes staticFlicker { 
+  0%   { opacity: 0.1; } 
+  20%  { opacity: 0.8; }
+  40%  { opacity: 0.3; }
+  60%  { opacity: 1.0; } 
+  80%  { opacity: 0.2; }
+  100% { opacity: 0.5; } 
+}
 
 // DIVIDER STRETCH/PULSE BEHAVIOUR
 @keyframes dividerStretch {
@@ -567,7 +597,7 @@ footer::after {
     opacity: 0.8;
   }
   50% { 
-    width: 40%; // Shrinks down significantly
+    width: 70%; // Shrinks down
     opacity: 1; 
   }
 }
