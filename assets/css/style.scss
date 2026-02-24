@@ -64,7 +64,7 @@ header {
   border-bottom: 3px solid $red;
 
   background: 
-    linear-gradient(to bottom, rgba(26, 39, 46, 0.2) 10%, rgba(26, 39, 46, 0.95) 100%),
+    //linear-gradient(to bottom, rgba(26, 39, 46, 0.2) 10%, rgba(26, 39, 46, 0.95) 100%),
     url("../images/header.png") no-repeat center center;
   background-size: cover;
 
@@ -313,8 +313,8 @@ pre {
     content: "";
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(255, 255, 255, 0.08);
-    animation: staticFlicker 0.15s infinite;
+    background: rgba(255, 255, 255, 0.06);
+    animation: dataStutter 0.5s infinite; ///staticFlicker
     pointer-events: none;
     z-index: 1; // Keeps the flicker as a background layer
   }
@@ -330,22 +330,11 @@ pre {
   position: relative;
   z-index: 2;
   }
-////
-  //&:hover {
-    //box-shadow: 0 0 25px rgba($orange, 0.6); // Intense glow on hover
-    //background-color: #0d0d0d;
-  //}
+  
   &:hover {
-    border-color: rgba($orange, 0.9);
-    filter: brightness(1.2); // Slight "power up" effect
-
-    //GLOW AND BLOOM
-    box-shadow: 
-      0 15px 35px rgba(0, 0, 0, 0.7),   /* Deeper lift shadow */
-      0 0 30px rgba($orange, 0.5),      /* Primary orange bloom */
-      0 0 60px rgba($orange, 0.1);      /* Far-reaching atmospheric glow */
+    box-shadow: 0 0 25px rgba($orange, 0.6); // Intense glow on hover
+    background-color: #0d0d0d;
   }
-  /////
 }
 
 //DATA LABEL
@@ -452,11 +441,7 @@ hr {
     font-size: 1.4rem;
     background: transparent;    
     text-shadow: 
-      -2px -2px 0 $darker-slate,
-       2px -2px 0 $darker-slate,
-      -2px  2px 0 $darker-slate,
-       2px  2px 0 $darker-slate,
-       0 0 8px rgba($orange, 0.4); // Subtle base glow    
+      0 0 8px rgba($orange, 0.4); // Subtle base glow    
       }
   
   animation: 
@@ -510,12 +495,12 @@ footer {
   width: 100%;
   height: 45px;
   margin-top: auto; 
-  background-color: rgba(26, 39, 46, 0.85); 
+  //background-color: rgba(26, 39, 46, 0.85); 
   background:
     linear-gradient(rgba(26, 39, 46, 0.8), rgba(26, 39, 46, 0.8)),
     url("../images/footer.png") no-repeat center center;
   background-size: cover;
-  border-top: 2px solid rgba($red, 0.4);
+  border-top: 3px solid $red; ///rgba($red, 0.4)
   border-bottom: 4px solid $red;
   
   color: $orange;
@@ -614,7 +599,7 @@ footer::after {
     // Instead, we stack shadows to create a rich glow:
     box-shadow: 
       0 0 8px rgba($orange, 0.9),  /* Core Glow */
-      0 0 20px rgba($orange, 0.5), /* Mid Bloom */
-      0 0 35px rgba($orange, 0.2); /* Far Atmosphere */
+      0 0 20px rgba($orange, 0.4), /* Mid Bloom */
+      0 0 35px rgba($orange, 0.1); /* Far Atmosphere */
   }
 }
