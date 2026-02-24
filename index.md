@@ -25,13 +25,13 @@ Here is a robust collection of quick forensic investigations using Wireshark and
 Lets take a look at some common techniques to observe malicious traffic and scripts in action.
 **All of the samples are kindly provided by malware.....**
 
-### [PCAP EXPRESS SERIES: Exercise 01 Fake Website ](./PCAP-EXPRESS.01.md)
+### [PCAP EXPRESS SERIES: Exercise 01 Fake Website ](./PCAP-EXPRESS-01.md)
 *Some interesting malicious activity.*
 
-### [PCAP EXPRESS SERIES: Exercise 02 Nematodes ](./PCAP-EXPRESS.02.md)
+### [PCAP EXPRESS SERIES: Exercise 02 Nematodes ](./PCAP-EXPRESS-02.md)
 *Starting to check alerts.*
 
-### [PCAP EXPRESS SERIES: Exercise 03 Big Fish ](./PCAP-EXPRESS.03.md)
+### [PCAP EXPRESS SERIES: Exercise 03 Big Fish ](./PCAP-EXPRESS-03.md)
 *Not a full pcap.*
 
 ---
