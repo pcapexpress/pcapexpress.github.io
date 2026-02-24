@@ -247,11 +247,7 @@ section {
   h4 { 
     color: $green !important; 
     text-shadow: 
-      -1px -1px 0 $darker-slate,  
-       1px -1px 0 $darker-slate,
-      -1px  1px 0 $darker-slate,
-       1px  1px 0 $darker-slate,
-       0 0 10px rgba($green, 0.8), // Changed from $red to $green
+       0 0 10px rgba($green, 0.8),
        0 0 20px rgba($green, 0.4) !important; 
   }
   
@@ -264,8 +260,8 @@ section {
 
 //ATMOSPHERIC IMAGE
 img {
-  border: 2px solid rgba($orange, 0.4);
-  background-color: rgba($dark-bg, 0.5);
+  border: 2px solid rgba($orange, 0.5);
+  background-color: rgba($dark-bg, 0.55);
   border-radius: 20px;
   display: block;
   max-width: 90%;
@@ -273,11 +269,11 @@ img {
   margin: 35px auto;
   
   //SHADOW UNDERNEATH
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); 
   
   //RENDERING FIX???
-  backface-visibility: hidden;
-  transform: translateZ(0);
+  //backface-visibility: hidden;
+  //transform: translateZ(0);
 
   transition: 
     box-shadow 0.6s ease-in-out, 
@@ -285,8 +281,8 @@ img {
     filter 0.6s ease-in-out;
 
   &:hover {
-    border-color: rgba($orange, 0.8);
-    filter: brightness(1.05); // Slight "power up" effect
+    border-color: rgba($orange, 0.9);
+    filter: brightness(1.1); // Slight "power up" effect
 
     //GLOW AND BLOOM
     box-shadow: 
