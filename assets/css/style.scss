@@ -64,7 +64,7 @@ header {
   border-bottom: 3px solid $red;
 
   background: 
-    linear-gradient(to bottom, rgba(26, 39, 46, 0.2) 10%, rgba(26, 39, 46, 0.95) 100%),
+    linear-gradient(rgba(26, 39, 46, 0.8), rgba(26, 39, 46, 0.8)),
     url("../images/header.png") no-repeat center center;
   background-size: cover;
 
@@ -310,7 +310,7 @@ pre {
 
   // THE ORANGE GLOW
   border-left: 3px solid $orange;
-  box-shadow: 0 0 15px rgba($orange, 0.2); 
+  box-shadow: 0 0 15px rgba($orange, 0.3); 
   transition: all 0.3s ease;
 
   &::before {
@@ -417,7 +417,7 @@ section ul li {
 // 7.2 AMBIENT WIRE DIVIDER
 hr {
   border: none !important;
-  height: 3px !important; 
+  height: 2px !important; 
   background-color: transparent !important;
   
   background-image: linear-gradient(
@@ -425,7 +425,7 @@ hr {
     transparent 0%, 
     rgba($red, 0.4) 10%, 
     rgba($orange, 0.9) 50%, 
-    rgba($green, 0.4) 90%, 
+    rgba($red, 0.4) 90%, 
     transparent 100%
   ) !important;
 
@@ -433,6 +433,20 @@ hr {
   margin: 60px auto;
   position: relative;
   overflow: visible;
+
+  // THE CENTER SYMBOL
+  &::after {
+    content: "\25C6"; // Diamond (Use \29BF for the Node/Circle) The Cyber Diamond	◈	\25C8 The Target/Node	⦿	\29BF
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: $darker-slate; // Matches page background to "cut" the line
+    padding: 0 10px;
+    color: $orange;
+    font-size: 1.2rem;
+    text-shadow: 0 0 10px rgba($orange, 0.8);
+  }
   
   animation: 
     dividerStretch 12s ease-in-out infinite,
@@ -446,6 +460,17 @@ hr {
   margin: 20px auto;     /* Centered with 20px gap from screen top/bottom */
   background-color: $slate; 
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.7); 
+
+  //////////
+  background-image: repeating-linear-gradient(
+    0deg, 
+    rgba(255, 255, 255, 0.05) 0px, 
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 1px, 
+    transparent 4px // Increased to 4px for a cleaner look on mid-tones
+  );
+  /////////
+  
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 40px); 
@@ -533,9 +558,20 @@ footer::after {
 }
     
 // CODE BLOCK FLICKER
-@keyframes staticFlicker { 0% { opacity: 0.85; } 50% { opacity: 0.95; } 100% { opacity: 0.85; } }
+@keyframes staticFlicker { 0% { opacity: 0.85; } 50% { opacity: 0.9; } 100% { opacity: 0.6; } }
 
 // DIVIDER STRETCH/PULSE BEHAVIOUR
+@keyframes dividerStretch {
+  0%, 100% { 
+    width: 90%; 
+    opacity: 0.8;
+  }
+  50% { 
+    width: 40%; // Shrinks down significantly
+    opacity: 1; 
+  }
+}
+
 @keyframes wireEnergize {
   0%, 100% { 
     opacity: 0.6;
