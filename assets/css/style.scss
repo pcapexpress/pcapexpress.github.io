@@ -481,15 +481,19 @@ hr {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 95%;
+  width: 100%;
   max-width: 850px;
   margin: 60px auto;
   gap: 20px;
+  background: transparent; // Ensure no container-level box shows up
 
   .line {
     display: block;
-    flex-grow: 1;
+    flex: 1; 
     height: 2px;
+    // Remove any potential inherited box-shadow or background
+    box-shadow: none; 
+    
     background-image: linear-gradient(
       to right, 
       transparent, 
@@ -497,23 +501,28 @@ hr {
       $orange 100%
     );
 
-    // LEFT LINE LOGIC
-    &:first-child {
-      transform-origin: right center; // Anchor to the symbol (right side of this line)
+    // LEFT LINE
+    &:first-of-type {
+      transform-origin: right center; 
       animation: dividerStretchLeft 8s ease-in-out infinite;
     }
 
-    // RIGHT LINE LOGIC
-    &:last-child {
-      transform-origin: left center;  // Anchor to the symbol (left side of this line)
-      // Note: We move the scaleX(-1) into the animation to keep it clean
+    // RIGHT LINE
+    &:last-of-type {
+      // We set the mirror here permanently
+      transform: scaleX(-1); 
+      transform-origin: left center; 
       animation: dividerStretchRight 8s ease-in-out infinite;
     }
   }
 
   .symbol {
+    display: inline-block;
     color: $orange;
     font-size: 1.4rem;
+    line-height: 1;       // Prevents vertical "box" stretching
+    background: transparent !important; // Kills the "box halo"
+    box-shadow: none !important;        // Kills any inherited glow box
     text-shadow: 0 0 15px rgba($orange, 0.7);
     flex-shrink: 0;
     opacity: 0.8;
@@ -687,13 +696,14 @@ footer::after {
   50% { transform: scaleX(-0.8); opacity: 1; }
 }*/
 
-// 10. DEDICATED SYMMETRIC ANIMATIONS
+// 10. RE-CALIBRATED SYMMETRIC ANIMATIONS
 @keyframes dividerStretchLeft {
   0%, 100% { transform: scaleX(1); opacity: 0.6; }
-  50% { transform: scaleX(0.4); opacity: 1; }
+  50% { transform: scaleX(0.3); opacity: 1; }
 }
 
 @keyframes dividerStretchRight {
-  0%, 100% { transform: scaleX(-1); opacity: 0.6; } // Starts mirrored
-  50% { transform: scaleX(-0.4); opacity: 1; }     // Stays mirrored while shrinking
+  /* We must include the mirror (scaleX(-1)) in every frame of this animation */
+  0%, 100% { transform: scaleX(-1); opacity: 0.6; }
+  50% { transform: scaleX(-0.3); opacity: 1; }
 }
