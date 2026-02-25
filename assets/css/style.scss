@@ -450,7 +450,7 @@ hr {
     
     // Default: Left line anchors to the symbol (right)
     transform-origin: right center;
-    animation: dividerStretch 8s ease-in-out infinite;
+    animation: dividerStretch 4s ease-in-out infinite;
 
     // TARGET THE SECOND LINE
     &:nth-child(3) {
@@ -469,13 +469,23 @@ hr {
     animation: wireEnergize 4s ease-in-out infinite; <---------------------- CHECK*/
 
     display: inline-block;
+    flex-shrink: 0;
+    
+    // THE "HALO" KILLERS
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important; 
+    outline: none !important;
+    
+    // THE VISUALS
     color: $orange;
     font-size: 1.4rem;
     line-height: 1;
-    background: transparent !important;
-    text-shadow: 0 0 15px rgba($orange, 0.7);
-    flex-shrink: 0;
     opacity: 0.8;
+    
+    // This glow follows the symbol shape, not the box
+    text-shadow: 0 0 15px rgba($orange, 0.7); 
+    
     animation: wireEnergize 4s ease-in-out infinite;
   }
 }
