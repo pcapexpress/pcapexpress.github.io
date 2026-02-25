@@ -64,10 +64,17 @@ header {
   padding: 80px 20px;
   border-bottom: 3px solid $red;
 
+  /*background: 
+    linear-gradient(to bottom, rgba(26, 39, 46, 0.2) 10%, rgba(26, 39, 46, 0.95) 100%),
+    url("../images/header.png") no-repeat center center;
+  background-size: cover;*/
+
   background: 
     linear-gradient(to bottom, rgba(26, 39, 46, 0.2) 10%, rgba(26, 39, 46, 0.95) 100%),
     url("../images/header.png") no-repeat center center;
-  background-size: cover;
+  background-size: cover; 
+  // Force the background to stay behind the content
+  background-attachment: scroll;
 
   // Global centering for header elements
   h1, .header-bio, .nav-menu {
@@ -312,8 +319,8 @@ pre {
     content: "";
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(255, 255, 255, 0.05);
-    animation: dataStutter 2s infinite; ///staticFlicker
+    background: rgba(255, 255, 255, 0.02);
+    animation: dataStutter 1s infinite; ///staticFlicker
     pointer-events: none;
     z-index: 1; // Keeps the flicker as a background layer
   }
@@ -411,6 +418,9 @@ section ul li {
 
 // 7.2 AMBIENT WIRE DIVIDER
 hr {
+  position: relative; ///
+  overflow: visible; // Critical: allows symbol to "pop" out of the line
+  z-index: 1; ///
   border: none !important;
   height: 2px !important; 
   background-color: transparent !important;
@@ -431,13 +441,13 @@ hr {
   
   // Only the Line gets the Stretch and Glow
   animation: 
-    //dividerStretch 8s ease-in-out infinite,
-    wireEnergize 4s ease-in-out infinite;
+    dividerStretch 6s ease-in-out infinite,
+    wireEnergize 3s ease-in-out infinite;
 
   // THE CENTER SYMBOL
   &::after {
-    content: "\29BF"; // \25C6 - Diamond; \25C8 - Cyber Diamond; \29BF -Circle;
-    /*position: absolute;
+    /*content: "\29BF"; // \25C6 - Diamond; \25C8 - Cyber Diamond; \29BF -Circle;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -446,23 +456,28 @@ hr {
     background: transparent;    
     text-shadow: 
       0 0 8px rgba($orange, 0.5); // Subtle base glow*/
+    content: "\29BF";
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     
-    // Use a slightly transparent color so it "breathes" with the line's opacity
+    /* FIX: Use fixed centering relative to the parent's center point */
+    /* instead of the parent's fluctuating width */
+    left: 50%; 
+    
+    /* Use backface-visibility and translate3d to force GPU rendering */
+    /* This stops the 1px 'jiggle' */
+    transform: translate3d(-50%, -50%, 0);
+    backface-visibility: hidden;
+    
+    z-index: 10; // Pulls it ABOVE the line
     color: rgba($orange, 0.8);
     font-size: 1.4rem;
-    
-    // This text-shadow will appear to grow stronger as the parent hr 
-    // reaches its 1.0 opacity peak in the wireEnergize animation.
     text-shadow: 0 0 12px $orange;
-
-    // This ensures the symbol follows the parent's "wireEnergize" pulse
-    opacity: inherit; 
     
-    // Adds a smooth reaction if you ever change the color on hover
+    background: $darker-slate; // Add a tiny bit of background to mask the line behind it
+    padding: 0 5px; // Creates a small gap in the line for the symbol
+    
+    opacity: inherit;
     transition: text-shadow 0.6s ease-in-out, color 0.6s ease-in-out;
   }
 }
