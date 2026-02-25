@@ -44,9 +44,7 @@ md5sum – calculating file hashes
 <div class="divider-wire">
   <span class="line"></span>
   <span class="symbol">⦿</span>
-  <div class="mirror-wrap">
-    <span class="line"></span>
-  </div>
+  <span class="line"></span>
 </div>
 
 ## 00: Prologue
@@ -61,9 +59,7 @@ Let the Upward Mobility commence.
 <div class="divider-wire">
   <span class="line"></span>
   <span class="symbol">⦿</span>
-  <div class="mirror-wrap">
-    <span class="line"></span>
-  </div>
+  <span class="line"></span>
 </div>
 
 ## 01: Host Discovery
