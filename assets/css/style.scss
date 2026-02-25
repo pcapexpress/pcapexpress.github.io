@@ -476,7 +476,6 @@ hr {
   }
 }*/
 
-// 7.2 WIRE DIVIDER WITH SYMBOL
 .divider-wire {
   display: flex;
   align-items: center;
@@ -488,39 +487,28 @@ hr {
 
   .line {
     display: block;
-    flex: 1; 
     height: 2px;
-    background-image: linear-gradient(
-      to right, 
-      transparent, 
-      rgba($orange, 0.8) 50%, 
-      $orange 100%
-    );
+    flex: 1; // Forces both lines to be exactly equal width
+    background-image: linear-gradient(to right, transparent, $orange);
     
-    // Both lines now anchor to the right (the symbol side)
-    transform-origin: right center; 
+    // Default: Left line anchors to the symbol (right)
+    transform-origin: right center;
     animation: dividerStretch 8s ease-in-out infinite;
-  }
 
-  .mirror-wrap {
-    flex: 1; // Take up same space as the left line
-    display: flex;
-    transform: scaleX(-1); // FLIP EVERYTHING INSIDE
-    
-    .line {
-        width: 100%; // Ensure it fills the flipped container
+    // TARGET THE SECOND LINE
+    &:nth-child(3) {
+      // Anchor it to its left side (where it touches the symbol)
+      transform-origin: left center;
+      // Mirror the gradient so the orange meets the symbol
+      background-image: linear-gradient(to left, transparent, $orange);
     }
   }
 
   .symbol {
-    display: inline-block;
+    flex-shrink: 0;
     color: $orange;
     font-size: 1.4rem;
-    line-height: 1;
-    background: transparent !important;
-    text-shadow: 0 0 15px rgba($orange, 0.7);
-    flex-shrink: 0;
-    opacity: 0.8;
+    text-shadow: 0 0 15px $orange;
     animation: wireEnergize 4s ease-in-out infinite;
   }
 }
@@ -691,8 +679,8 @@ footer::after {
   50% { transform: scaleX(-0.8); opacity: 1; }
 }*/
 
-// 10. SIMPLIFIED ANIMATION
+// SINGLE ANIMATION - No mirroring inside the keyframes
 @keyframes dividerStretch {
-  0%, 100% { transform: scaleX(1); opacity: 0.6; }
-  50% { transform: scaleX(0.3); opacity: 1; }
+  0%, 100% { transform: scaleX(1); opacity: 0.5; }
+  50% { transform: scaleX(0.4); opacity: 1; }
 }
