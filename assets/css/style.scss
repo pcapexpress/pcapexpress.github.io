@@ -433,49 +433,6 @@ hr {
 }
 
 // 7.2 WIRE DIVIDER WITH SYMBOL
-/*.divider-wire {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 95%;          // Overall width of the assembly
-  max-width: 850px;
-  margin: 60px auto;
-  gap: 20px;           // The clean space around your symbol
-  overflow: visible;
-
-  .line {
-    display: block;    // Add this!
-    flex-grow: 1;      // This makes the lines stretch to fill space
-    height: 2px;
-    background-image: linear-gradient(
-      to right, 
-      transparent, 
-      rgba($orange, 0.8) 50%, 
-      $orange 100%
-    );
-    
-    // Applying the stretch to the lines only
-    transform-origin: center; 
-    animation: dividerStretch 8s ease-in-out infinite;
-
-    // Flip the second line so the "hot" orange end meets the symbol
-    &:last-child {
-      transform: scaleX(-1);
-      animation: dividerStretchMirror 8s ease-in-out infinite;
-    }
-  }
-
-  .symbol {
-    color: $orange;
-    font-size: 1.4rem;
-    text-shadow: 0 0 15px rgba($orange, 0.7);
-    flex-shrink: 0;    // Prevents the symbol from ever being squished
-    opacity: 0.8;
-    // The symbol can pulse in brightness without moving
-    animation: wireEnergize 4s ease-in-out infinite;
-  }
-}*/
-
 .divider-wire {
   display: flex;
   align-items: center;
@@ -505,10 +462,20 @@ hr {
   }
 
   .symbol {
-    flex-shrink: 0;
+    /*flex-shrink: 0;
     color: $orange;
     font-size: 1.4rem;
     text-shadow: 0 0 15px $orange;
+    animation: wireEnergize 4s ease-in-out infinite; <---------------------- CHECK*/
+
+    display: inline-block;
+    color: $orange;
+    font-size: 1.4rem;
+    line-height: 1;
+    background: transparent !important;
+    text-shadow: 0 0 15px rgba($orange, 0.7);
+    flex-shrink: 0;
+    opacity: 0.8;
     animation: wireEnergize 4s ease-in-out infinite;
   }
 }
