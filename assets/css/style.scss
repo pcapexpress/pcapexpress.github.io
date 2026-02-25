@@ -1,8 +1,6 @@
 ---
 ---
 
-.symbol { border: 5px solid red !important; }
-
 // 1. PALETTE & VARIABLES
 $slate: #344E5C;
 $darker-slate: #1c2a31; //PAGE BACKGROUND
@@ -313,7 +311,7 @@ pre {
     top: 0; left: 0; width: 100%; height: 100%;
     //background: rgba(255, 255, 255, 0.01); //<----- pale white
     background: rgba($green, 0.03);
-    animation: dataStutter 1 ssteps(4) infinite; ///staticFlicker
+    animation: dataStutter 1 steps(4) infinite; ///staticFlicker
     pointer-events: none;
     z-index: 1; // Keeps the flicker as a background layer
   }
@@ -409,7 +407,7 @@ section ul li {
   }
 }
 
-// 7.2 AMBIENT WIRE DIVIDER
+// 7.1 AMBIENT WIRE DIVIDER ---
 /*hr {
   border: none !important;
   height: 2px !important; 
@@ -428,29 +426,14 @@ section ul li {
   margin: 60px auto;
   position: relative;
   overflow: visible;
-  
-  // Only the Line gets the Stretch and Glow
+
   animation: 
     dividerStretch 6s ease-in-out infinite,
     wireEnergize 3s ease-in-out infinite;
-
-  // THE CENTER SYMBOL
-  &::after {
-    content: "\29BF"; // \25C6 - Diamond; \25C8 - Cyber Diamond; \29BF -Circle;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: $orange;
-    font-size: 1.4rem;
-    background: transparent;    
-    text-shadow: 
-      0 0 8px rgba($orange, 0.5); // Subtle base glow
-  }
 }*/
 
-// 7.2 NEW STABLE WIRE DIVIDER
-.divider-wire {
+// 7.2 WIRE DIVIDER WITH SYMBOL
+/*.divider-wire {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -489,6 +472,50 @@ section ul li {
     flex-shrink: 0;    // Prevents the symbol from ever being squished
     opacity: 0.8;
     // The symbol can pulse in brightness without moving
+    animation: wireEnergize 4s ease-in-out infinite;
+  }
+}*/
+
+// 7.2 WIRE DIVIDER WITH SYMBOL
+.divider-wire {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 95%;
+  max-width: 850px;
+  margin: 60px auto;
+  gap: 20px;
+  overflow: visible;
+
+  .line {
+    display: block;
+    flex-grow: 1;
+    height: 2px;
+    background-image: linear-gradient(
+      to right, 
+      transparent, 
+      rgba($orange, 0.8) 50%, 
+      $orange 100%
+    );
+    
+    // ANCHOR: The line grows/shrinks from the edge touching the symbol
+    transform-origin: right center; 
+    animation: dividerStretch 8s ease-in-out infinite;
+
+    &:last-child {
+      // ANCHOR: The mirrored line needs the opposite anchor
+      transform-origin: left center;
+      transform: scaleX(-1);
+      animation: dividerStretchMirror 8s ease-in-out infinite;
+    }
+  }
+
+  .symbol {
+    color: $orange;
+    font-size: 1.4rem;
+    text-shadow: 0 0 15px rgba($orange, 0.7);
+    flex-shrink: 0;
+    opacity: 0.8;
     animation: wireEnergize 4s ease-in-out infinite;
   }
 }
@@ -648,7 +675,7 @@ footer::after {
 }*/
 
 // 10. UPDATED ANIMATIONS FOR FLEX DIVIDER
-@keyframes dividerStretch {
+/*@keyframes dividerStretch {
   0%, 100% { transform: scaleX(1); opacity: 0.6; }
   50% { transform: scaleX(0.8); opacity: 1; }
 }
@@ -657,4 +684,15 @@ footer::after {
 @keyframes dividerStretchMirror {
   0%, 100% { transform: scaleX(-1); opacity: 0.6; }
   50% { transform: scaleX(-0.8); opacity: 1; }
+}*/
+
+// 10. UPDATED ANIMATIONS (Ensure scaleX(-1) is preserved for the mirror)
+@keyframes dividerStretch {
+  0%, 100% { transform: scaleX(1); opacity: 0.6; }
+  50% { transform: scaleX(0.4); opacity: 1; } // Dropped to 0.4 for a more dramatic reach
+}
+
+@keyframes dividerStretchMirror {
+  0%, 100% { transform: scaleX(-1); opacity: 0.6; }
+  50% { transform: scaleX(-0.4); opacity: 1; } // Mirrors the dramatic reach
 }
