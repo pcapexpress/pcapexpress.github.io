@@ -485,34 +485,30 @@ hr {
   max-width: 850px;
   margin: 60px auto;
   gap: 20px;
-  background: transparent; // Ensure no container-level box shows up
 
   .line {
     display: block;
     flex: 1; 
     height: 2px;
-    // Remove any potential inherited box-shadow or background
-    box-shadow: none; 
-    
     background-image: linear-gradient(
       to right, 
       transparent, 
       rgba($orange, 0.8) 50%, 
       $orange 100%
     );
+    
+    // Both lines now anchor to the right (the symbol side)
+    transform-origin: right center; 
+    animation: dividerStretch 8s ease-in-out infinite;
+  }
 
-    // LEFT LINE
-    &:first-of-type {
-      transform-origin: right center; 
-      animation: dividerStretchLeft 8s ease-in-out infinite;
-    }
-
-    // RIGHT LINE
-    &:last-of-type {
-      // We set the mirror here permanently
-      transform: scaleX(-1); 
-      transform-origin: left center; 
-      animation: dividerStretchRight 8s ease-in-out infinite;
+  .mirror-wrap {
+    flex: 1; // Take up same space as the left line
+    display: flex;
+    transform: scaleX(-1); // FLIP EVERYTHING INSIDE
+    
+    .line {
+        width: 100%; // Ensure it fills the flipped container
     }
   }
 
@@ -520,9 +516,8 @@ hr {
     display: inline-block;
     color: $orange;
     font-size: 1.4rem;
-    line-height: 1;       // Prevents vertical "box" stretching
-    background: transparent !important; // Kills the "box halo"
-    box-shadow: none !important;        // Kills any inherited glow box
+    line-height: 1;
+    background: transparent !important;
     text-shadow: 0 0 15px rgba($orange, 0.7);
     flex-shrink: 0;
     opacity: 0.8;
@@ -696,14 +691,8 @@ footer::after {
   50% { transform: scaleX(-0.8); opacity: 1; }
 }*/
 
-// 10. RE-CALIBRATED SYMMETRIC ANIMATIONS
-@keyframes dividerStretchLeft {
+// 10. SIMPLIFIED ANIMATION
+@keyframes dividerStretch {
   0%, 100% { transform: scaleX(1); opacity: 0.6; }
   50% { transform: scaleX(0.3); opacity: 1; }
-}
-
-@keyframes dividerStretchRight {
-  /* We must include the mirror (scaleX(-1)) in every frame of this animation */
-  0%, 100% { transform: scaleX(-1); opacity: 0.6; }
-  50% { transform: scaleX(-0.3); opacity: 1; }
 }
