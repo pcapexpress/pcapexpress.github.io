@@ -41,7 +41,13 @@ VirusTotal – checking for malicious IPs and Files
 CyberChef – decoding malicious traffic
 md5sum – calculating file hashes
 
----
+<div class="divider-wire">
+  <span class="line"></span>
+  <span class="symbol">⦿</span>
+  <div class="mirror-wrap">
+    <span class="line"></span>
+  </div>
+</div>
 
 ## 00: Prologue
 
@@ -55,7 +61,9 @@ Let the Upward Mobility commence.
 <div class="divider-wire">
   <span class="line"></span>
   <span class="symbol">⦿</span>
-  <span class="line"></span>
+  <div class="mirror-wrap">
+    <span class="line"></span>
+  </div>
 </div>
 
 ## 01: Host Discovery
