@@ -408,7 +408,7 @@ section ul li {
 }
 
 // 7.1 AMBIENT WIRE DIVIDER ---
-/*hr {
+hr {
   border: none !important;
   height: 2px !important; 
   background-color: transparent !important;
@@ -430,7 +430,7 @@ section ul li {
   animation: 
     dividerStretch 6s ease-in-out infinite,
     wireEnergize 3s ease-in-out infinite;
-}*/
+}
 
 // 7.2 WIRE DIVIDER WITH SYMBOL
 /*.divider-wire {
@@ -485,7 +485,6 @@ section ul li {
   max-width: 850px;
   margin: 60px auto;
   gap: 20px;
-  overflow: visible;
 
   .line {
     display: block;
@@ -497,16 +496,18 @@ section ul li {
       rgba($orange, 0.8) 50%, 
       $orange 100%
     );
-    
-    // ANCHOR: The line grows/shrinks from the edge touching the symbol
-    transform-origin: right center; 
-    animation: dividerStretch 8s ease-in-out infinite;
 
+    // LEFT LINE LOGIC
+    &:first-child {
+      transform-origin: right center; // Anchor to the symbol (right side of this line)
+      animation: dividerStretchLeft 8s ease-in-out infinite;
+    }
+
+    // RIGHT LINE LOGIC
     &:last-child {
-      // ANCHOR: The mirrored line needs the opposite anchor
-      transform-origin: left center;
-      transform: scaleX(-1);
-      animation: dividerStretchMirror 8s ease-in-out infinite;
+      transform-origin: left center;  // Anchor to the symbol (left side of this line)
+      // Note: We move the scaleX(-1) into the animation to keep it clean
+      animation: dividerStretchRight 8s ease-in-out infinite;
     }
   }
 
@@ -646,7 +647,7 @@ footer::after {
 }
 
 // DIVIDER STRETCH/PULSE BEHAVIOUR
-/*@keyframes dividerStretch {
+@keyframes dividerStretch {
   0%, 100% { 
     width: 90%; 
     opacity: 0.8;
@@ -672,7 +673,7 @@ footer::after {
       0 0 20px rgba($orange, 0.4), 
       0 0 35px rgba($orange, 0.1); 
   }
-}*/
+}
 
 // 10. UPDATED ANIMATIONS FOR FLEX DIVIDER
 /*@keyframes dividerStretch {
@@ -686,13 +687,13 @@ footer::after {
   50% { transform: scaleX(-0.8); opacity: 1; }
 }*/
 
-// 10. UPDATED ANIMATIONS (Ensure scaleX(-1) is preserved for the mirror)
-@keyframes dividerStretch {
+// 10. DEDICATED SYMMETRIC ANIMATIONS
+@keyframes dividerStretchLeft {
   0%, 100% { transform: scaleX(1); opacity: 0.6; }
-  50% { transform: scaleX(0.4); opacity: 1; } // Dropped to 0.4 for a more dramatic reach
+  50% { transform: scaleX(0.4); opacity: 1; }
 }
 
-@keyframes dividerStretchMirror {
-  0%, 100% { transform: scaleX(-1); opacity: 0.6; }
-  50% { transform: scaleX(-0.4); opacity: 1; } // Mirrors the dramatic reach
+@keyframes dividerStretchRight {
+  0%, 100% { transform: scaleX(-1); opacity: 0.6; } // Starts mirrored
+  50% { transform: scaleX(-0.4); opacity: 1; }     // Stays mirrored while shrinking
 }
