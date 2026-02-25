@@ -52,7 +52,11 @@ The outcome of the investigation will be checked with the answers provided. Ther
 I’m trying to show what I can do at the time of writing. A long way to go and no better time than now.
 Let the Upward Mobility commence. 
 
----
+<div class="divider-wire">
+  <span class="line"></span>
+  <span class="symbol">⦿</span>
+  <span class="line"></span>
+</div>
 
 ## 01: Host Discovery
 
