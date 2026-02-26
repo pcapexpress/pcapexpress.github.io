@@ -231,17 +231,15 @@ section {
   z-index: 1;
 
 // 4. MAIN CONTENT AREA - HEADER COLORS
-  h1, h2, h3, h4 {
+  h1, h2, h3, h4, .h4-style {//<-----------------------------
     display: inline-block; 
     margin-bottom: 10px;
     width: 100%; 
   }
 
-  h1, h2 {color: $red !important;}
-  
-  h3 {color: $orange !important;}
-  
-  h4 { 
+  h1, h2 {color: $red !important;}  
+  h3 {color: $orange !important;}  
+  h4, .h4-style { //<--------------------------------------------
     color: $green !important; 
     text-shadow: 
        0 0 5px rgba($green, 0.8),
@@ -380,7 +378,7 @@ section a, .header-bio a {
   }
 }
 
-// 7.1 FORENSIC INFO CARDS (Modules)
+// 7. FORENSIC INFO CARDS (Modules)
 section ul li {
   list-style: none;
   background: $medium-bg;
@@ -407,7 +405,7 @@ section ul li {
   }
 }
 
-// 7.1 AMBIENT WIRE DIVIDER ---
+// 8.1 AMBIENT WIRE DIVIDER ---
 hr {
   border: none !important;
   height: 2px !important; 
@@ -428,8 +426,6 @@ hr {
   overflow: visible;
 
   animation: 
-    //dividerStretch 6s ease-in-out infinite,
-    //wireEnergize 3s ease-in-out infinite;
     dataStutter 2s ease-in-out infinite,
     wireEnergize 2s ease-in-out infinite;
   }
@@ -449,16 +445,12 @@ hr {
     height: 2px;
     flex: 1; // Forces both lines to be exactly equal width
     background-image: linear-gradient(to right, transparent, $orange);
-    
     // Default: Left line anchors to the symbol (right)
     transform-origin: right center;
     animation: dividerStretch 3s ease-in-out infinite;
-
     // TARGET THE SECOND LINE
     &:nth-child(3) {
-      // Anchor it to its left side (where it touches the symbol)
       transform-origin: left center;
-      // Mirror the gradient so the orange meets the symbol
       background-image: linear-gradient(to left, transparent, $orange);
     }
   }
@@ -488,7 +480,7 @@ hr {
   background-color: $slate; 
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.7); 
 
-  ////////// THE WHITE STRIPE VERSION
+  //THE WHITE STRIPE VERSION
   background-image: repeating-linear-gradient(
     0deg, 
     rgba(255, 255, 255, 0.05) 0px, 
@@ -504,14 +496,12 @@ hr {
     transparent 1px, 
     transparent 3px
   );*/
-
-  /////////
   
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 40px); 
   border-radius: 12px;
-  overflow: hidden;      /* Clips the header and footer to 12px corners */
+  overflow: hidden;
   
   // Forces children (header/section/footer) to sit flush
   align-items: stretch;  
@@ -602,8 +592,6 @@ footer::after {
   }
   50% { 
     opacity: 1;
-    // We removed filter: brightness to keep the $orange "pure"
-    // Instead, we stack shadows to create a rich glow:
     box-shadow: 
       0 0 8px rgba($orange, 0.9),  
       0 0 20px rgba($orange, 0.4), 
