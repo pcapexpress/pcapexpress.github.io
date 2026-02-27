@@ -17,7 +17,10 @@ layout: default
 
 <span class="badge-red">**Platform:**</span> https://www.malware-traffic-analysis.net/<br>
 <span class="badge-data">**Pcap File:**</span> 2025-01-22-traffic-analysis-exercise.pcap/<br>
-TEXTONAMINATRIX!!!1
+<section>
+  <ul class="hover-card"> <li> TEXTONAMINATRIX!!!1 </li>
+  </ul>
+</section>
 
 
 ## Briefing:
@@ -171,4 +174,4 @@ request details
 
 <<WAZUH CAT AS INTERN>>
 <<WIRESHARK HTTP.SERVER>>
-In the HTTP stream we can observe a connection handshake followed by a GET request for the Frame_specs file, followed by a [PHS,ACK] push, that's the moment our data is getting exfiltrated. We than see an http code 200 and a connection closing sequence of  [FIN,ACK] → [ACK] 2ice (graceful close).
+In the HTTP stream we can observe a connection handshake followed by a GET request for the Frame_specs file, followed by a [PHS,ACK] push, that's the moment our data is getting exfiltrated. We than see an http code 200 and a connection closing sequence of  [FIN,ACK] → [ACK] 2ice (graceful close)</br>
