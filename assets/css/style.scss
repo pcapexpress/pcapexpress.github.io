@@ -49,7 +49,7 @@ body {
 }
 
 // 2.1 TYPOGRAPHY OVERRIDES
-h1, h2, h3, .nav-menu, .header-bio, footer {
+h1, h2, h3, .header-title, .nav-menu, .header-bio, footer {
   font-family: 'Share Tech Mono', monospace; 
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -88,16 +88,14 @@ header {
   }
 
   //HEADER TITLE
-  .header-title {
+  .header-title span {
     margin: 0 0 5px 0;
-    a {
-      color: $orange !important;
-      font-size: 2.2rem;
-      font-weight: 700; 
-      letter-spacing: -1px;
-      text-decoration: none !important;
-      display: inline-block;
-    }
+    color: $orange !important;
+    font-size: 2.2rem;
+    font-weight: 700; 
+    letter-spacing: -1px;
+    text-decoration: none !important;
+    display: inline-block;
   }
 
   // HEADER GREEN MIDDLE TEXT
@@ -188,7 +186,7 @@ header {
   // HEADER HOVER EFFECTS
   // PCAPEXPRESS GLITCH
  &:hover {
-    h1 a {
+    .header-title span {
       animation: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite !important; 
     }
 
