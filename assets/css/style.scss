@@ -221,11 +221,11 @@ header {
       opacity: 1;
       /* Reduced from triple glow to a single sharp drop-shadow */
       filter: 
-        //brightness(1.5) 
+        brightness(1.5) 
         //saturate(2)     < ------------------------------------------------------------------------
         //contrast(1.2) 
         drop-shadow(0 0 4px $red); 
-      animation: scanLine 1.5s linear infinite, fastPulse 0.5s steps(2) infinite;
+      animation: scanLine 1.5s linear infinite, dataStutter 0.2s steps(2) infinite; //fastPulse
       }
     }
   }
