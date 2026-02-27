@@ -215,15 +215,10 @@ header {
   
     //RED LINE ACTIVE
     &::before {
-      background: rgba($red, 0.8); /* Not fully opaque red */
+      background: rgba($red, 0.8);
       opacity: 1;
-      /* Reduced from triple glow to a single sharp drop-shadow */
-      filter: 
-        brightness(1.5) 
-        saturate(2)     //< ------------------------------------------------------------------------
-        contrast(1.2) 
-        drop-shadow(0 0 4px $red); 
-      animation: scanLine 2s linear infinite, fastPulse 1s ease-in-out infinite; //fastPulse //1.5 speed
+      filter: brightness(1.5) saturate(2) contrast(1.2) drop-shadow(0 0 4px $red); 
+      animation: scanLine 1s linear infinite, fastPulse 0.5s ease-in-out infinite;
       }
     }
   }
@@ -445,8 +440,8 @@ section a, .header-bio a {
   }
 }
 
-// 7. FORENSIC INFO CARDS (Modules)
-section ul li {
+// 7. HOVER CARDS
+.hover-card li {
   list-style: none;
   background: $medium-bg;
   margin-bottom: 12px;
