@@ -241,21 +241,21 @@ section {
   z-index: 1;
 
 // 4.1 MAIN CONTENT AREA - HEADER COLORS
-  h2, h3, h4, h5 {
+  h1, h2, h3, h4 {
     display: inline-block; 
     margin-bottom: 10px;
     width: 100%; 
   }
 
-  h2, h3 {
+  h1, h2 {
     color: $red !important;
     -webkit-text-stroke: 1px rgba($red, 0.3);
   }
-  h4 {
+  h3 {
     color: $orange !important;
     -webkit-text-stroke: 1px rgba($orange, 0.3);
   }  
-  h5 {
+  h4 {
     color: $green !important;
     text-shadow: 
        0 0 5px rgba($green, 0.8),
