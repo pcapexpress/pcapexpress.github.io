@@ -6,17 +6,17 @@ layout: default
 
 ## Phase 01: RECON/BRUTEFORCE/EXFILTRATION
 
-<span class=".text-green">**Platform:**</span> https://www.malware-traffic-analysis.net/<br>
-<span class=".text-orange">**Pcap File:**</span> 2025-01-22-traffic-analysis-exercise.pcap
+<span class="text-green">**Platform:**</span> https://www.malware-traffic-analysis.net/<br>
+<span class="text-orange">**Pcap File:**</span> 2025-01-22-traffic-analysis-exercise.pcap
 
-<span class=".text-red">**Platform:**</span> https://www.malware-traffic-analysis.net/<br>
-<span class=".text-data">**Pcap File:**</span> 2025-01-22-traffic-analysis-exercise.pcap
+<span class="text-red">**Platform:**</span> https://www.malware-traffic-analysis.net/<br>
+<span class="text-data">**Pcap File:**</span> 2025-01-22-traffic-analysis-exercise.pcap
 
-<span class=".badge-green">**Platform:**</span> https://www.malware-traffic-analysis.net/<br>
-<span class=".badge-orange">**Pcap File:**</span> 2025-01-22-traffic-analysis-exercise.pcap
+<span class="badge-green">**Platform:**</span> https://www.malware-traffic-analysis.net/<br>
+<span class="badge-orange">**Pcap File:**</span> 2025-01-22-traffic-analysis-exercise.pcap
 
-<span class=".badge-red">**Platform:**</span> https://www.malware-traffic-analysis.net/<br>
-<span class=".badge-data">**Pcap File:**</span> 2025-01-22-traffic-analysis-exercise.pcap
+<span class="badge-red">**Platform:**</span> https://www.malware-traffic-analysis.net/<br>
+<span class="badge-data">**Pcap File:**</span> 2025-01-22-traffic-analysis-exercise.pcap/<br>
 TEXTONAMINATRIX!!!1
 
 
