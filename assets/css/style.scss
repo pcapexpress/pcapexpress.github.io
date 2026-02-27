@@ -78,7 +78,7 @@ header {
   background-attachment: scroll;
 
   // Global centering for header elements
-  h1, .header-bio, .nav-menu {
+  .header-title, .header-bio, .nav-menu {
     position: relative;
     z-index: 5;
     width: 100%;
@@ -88,7 +88,7 @@ header {
   }
 
   //HEADER TITLE
-   h1 {
+  .header-title {
     margin: 0 0 5px 0;
     a {
       color: $orange !important;
