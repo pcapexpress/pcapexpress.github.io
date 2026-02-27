@@ -19,7 +19,7 @@ $dark-bg: #1A272E;
 
 //HTML BIT
 html {
-  background-color: $darker-slate;
+  background-color: $dark-bg; //darker-slate;
   background-image: repeating-linear-gradient(
     0deg, rgba(0, 0, 0, 0.15) 0px, rgba(0, 0, 0, 0.15) 1px,
     transparent 1px, transparent 3px
@@ -220,7 +220,7 @@ header {
     }
   }
 
-// 4. MAIN CONTENT AREA
+// 4.0 MAIN CONTENT AREA
 section {
   max-width: 900px;
   margin: 0 auto;
@@ -230,8 +230,8 @@ section {
   position: relative;
   z-index: 1;
 
-// 4. MAIN CONTENT AREA - HEADER COLORS
-  h1, h2, h3, h4, .h4-style {//<-----------------------------
+// 4.1 MAIN CONTENT AREA - HEADER COLORS
+  h1, h2, h3, h4 {
     display: inline-block; 
     margin-bottom: 10px;
     width: 100%; 
@@ -239,21 +239,74 @@ section {
 
   h1, h2 {color: $red !important;}  
   h3 {color: $orange !important;}  
-  h4, .h4-style { //<--------------------------------------------
+  h4 {
     color: $green !important; 
     text-shadow: 
        0 0 5px rgba($green, 0.8),
        0 0 10px rgba($green, 0.4) !important; 
   }
+
+  // 4.2 TEXT HIGHLIGHTS
+.text-green  { color: $green;  text-shadow: 0 0 8px rgba($green, 0.4); font-weight: bold; }
+.text-orange { color: $orange; text-shadow: 0 0 8px rgba($orange, 0.4); font-weight: bold; }
+.text-red    { color: $red;    text-shadow: 0 0 8px rgba($red, 0.4);    font-weight: bold; }
+
+// Use this for a "Data Value" look (Cyan/Blueish)
+.text-data {
+  color: #00f2ff;
+  text-shadow: 0 0 5px rgba(0, 242, 255, 0.5);
+  font-family: $font-family-mono;
+}
+
+  // 4.3 HIGHLIGHT BADGES
+[class^="badge-"] {
+  display: inline-block;
+  padding: 2px 6px;
+  margin: 0 2px;
+  border-radius: 3px;
+  font-weight: bold;
+  font-family: $font-family-mono;
+  font-size: 0.9em; // Slightly smaller to fit perfectly in lines
+  line-height: 1;
+}
+
+.badge-green {
+  color: #a0ff9d; // Lighter green for readability
+  background: rgba(20, 46, 20, 0.8); // Dark Forest Green
+  border: 1px solid rgba($green, 0.3);
+  text-shadow: 0 0 5px rgba($green, 0.5);
+}
+
+.badge-orange {
+  color: #ffcc80; 
+  background: rgba(46, 33, 20, 0.8); // Dark Amber
+  border: 1px solid rgba($orange, 0.3);
+  text-shadow: 0 0 5px rgba($orange, 0.5);
+}
+
+.badge-red {
+  color: #ff9d9d;
+  background: rgba(46, 20, 20, 0.8); // Dark Maroon
+  border: 1px solid rgba($red, 0.3);
+  text-shadow: 0 0 5px rgba($red, 0.5);
+}
+
+// THE "SOLID" NEUTRAL BADGE
+.badge-data {
+  color: #ffffff;
+  background: #1a272e; // Your header-slate color
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
+}
   
-  //BODY TEXT
+  // 4.4 BODY TEXT
   p, div, li { 
   color: $yellow; 
   line-height: 1.7;
   letter-spacing: 0.2px;
 }
 
-//ATMOSPHERIC IMAGE
+// 4.5 ATMOSPHERIC IMAGE
 img {
   border: 2px solid rgba($orange, 0.5);
   background-color: rgba($dark-bg, 0.55);
@@ -430,7 +483,7 @@ hr {
     wireEnergize 2s ease-in-out infinite;
   }
 
-// 7.2 WIRE DIVIDER WITH SYMBOL
+// 8.2 WIRE DIVIDER WITH SYMBOL
 .divider-wire {
   display: flex;
   align-items: center;
@@ -472,7 +525,7 @@ hr {
   }
 }
 
-// 8. WRAPPER
+// 9. WRAPPER
 .wrapper {
   max-width: 900px;
   width: 100%;
@@ -507,7 +560,7 @@ hr {
   align-items: stretch;  
 }
 
-// 9. SLIM FOOTER
+// 10. SLIM FOOTER
 footer {
   display: flex;
   align-items: center;
@@ -532,7 +585,7 @@ footer::after {
   content: "© 2026 PcapExpress | Patience | Perseverance | Upward Mobility";
 }
 
-// 10. ANIMATIONS
+// 11. ANIMATIONS
 //TITLE GLITCH
 @keyframes glitchText {
   0% { transform: translate(0); text-shadow: -2px -2px $red, 2px 2px $green; }
