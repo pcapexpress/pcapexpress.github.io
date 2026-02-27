@@ -196,9 +196,9 @@ header {
     &::after {
       background: linear-gradient(
         to top, 
-        rgba($green, 0.6) 0%,   /* The "light source" */
-        rgba($green, 0.6) 3px,  /* Sharper leading edge */
-        rgba($green, 0.2) 15px, /* Light spill */
+        rgba($green, 0.6) 0%,
+        rgba($green, 0.6) 3px,
+        rgba($green, 0.2) 15px,
         transparent 100%
       );
       
@@ -214,8 +214,12 @@ header {
       background: rgba($red, 0.8); /* Not fully opaque red */
       opacity: 1;
       /* Reduced from triple glow to a single sharp drop-shadow */
-      filter: drop-shadow(0 0 4px $red);
-      animation: scanLine 1.5s linear infinite;
+      filter: 
+        //brightness(1.5) 
+        //saturate(2)     < ------------------------------------------------------------------------
+        //contrast(1.2) 
+        drop-shadow(0 0 4px $red); 
+      animation: scanLine 1.5s linear infinite, fastPulse 0.5s steps(2) infinite;
       }
     }
   }
@@ -265,7 +269,7 @@ section {
   margin: 0 2px;
   border-radius: 3px;
   font-weight: bold;
-  font-family: $font-family-mono;
+  //font-family: $font-family-mono; < ----------------------------------------------------------0
   font-size: 0.9em; // Slightly smaller to fit perfectly in lines
   line-height: 1;
 }
