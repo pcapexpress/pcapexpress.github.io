@@ -2,9 +2,9 @@
 layout: default
 ---
 
-# TECH-BUREAU SERIES
+## TECH-BUREAU SERIES
 
-## Phase 01: RECON/BRUTEFORCE/EXFILTRATION
+### Phase 01: RECON/BRUTEFORCE/EXFILTRATION
 
 <span class="text-green">**Platform:**</span> https://www.malware-traffic-analysis.net/<br>
 <span class="text-orange">**Pcap File:**</span> 2025-01-22-traffic-analysis-exercise.pcap
@@ -20,7 +20,7 @@ layout: default
 TEXTONAMINATRIX!!!1
 
 
-## Briefing:
+### Briefing:
 
 ... 
 
