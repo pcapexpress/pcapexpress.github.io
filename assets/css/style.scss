@@ -2,9 +2,9 @@
 ---
 
 // 1. PALETTE & VARIABLES
-$slate: #344E5C;
-$darker-slate: #1c2a31; //PAGE BACKGROUND
-$yellow: #EFC958;
+$slate: #344E5C; //WRAPPER
+$darker-slate: #1C2A31; //BACKGROUND
+$yellow: #EFC958; //MAIN TEXT
 $red: #EF3D59;
 $green: #4AB19D;
 $orange: #E17A47;
@@ -25,7 +25,7 @@ $font-header: 'Rajdhani', sans-serif;        // Large Titles (Classy Tech)
 
 //HTML BIT
 html {
-  background-color: $dark-bg; //darker-slate;
+  background-color: $darker-slate;
   background-image: repeating-linear-gradient(
     0deg, rgba(0, 0, 0, 0.15) 0px, rgba(0, 0, 0, 0.15) 1px,
     transparent 1px, transparent 3px
@@ -225,7 +225,7 @@ header {
         //saturate(2)     < ------------------------------------------------------------------------
         //contrast(1.2) 
         drop-shadow(0 0 4px $red); 
-      animation: scanLine 1.5s linear infinite, dataStutter 0.2s steps(2) infinite; //fastPulse
+      animation: scanLine 5s linear infinite, dataStutter 1s steps(2) infinite; //fastPulse //1.5 speed
       }
     }
   }
@@ -257,9 +257,9 @@ section {
   }
 
   // 4.2 TEXT HIGHLIGHTS
-.text-green  { color: $green;  text-shadow: 0 0 8px rgba($green, 0.4); font-weight: bold; }
-.text-orange { color: $orange; text-shadow: 0 0 8px rgba($orange, 0.4); font-weight: bold; }
-.text-red    { color: $red;    text-shadow: 0 0 8px rgba($red, 0.4);    font-weight: bold; }
+.text-green  { color: $green;  text-shadow: 0 0 8px rgba($green, 0.4); font-family: $font-code; font-weight: bold; }
+.text-orange { color: $orange; text-shadow: 0 0 8px rgba($orange, 0.4); font-family: $font-code; font-weight: bold; }
+.text-red    { color: $red;    text-shadow: 0 0 8px rgba($red, 0.4); font-family: $font-code; font-weight: bold; }
 
 // Use this for a "Data Value" look (Cyan/Blueish)
 .text-data {
@@ -272,11 +272,11 @@ section {
 [class^="badge-"] {
   display: inline-block;
   padding: 2px 6px;
-  margin: 0 2px;
+  margin: 0 1px; // 2px
   border-radius: 3px;
   font-weight: bold;
   font-family: $font-header; // < ----------------------------- THE FONT
-  font-size: 0.9em; // Slightly smaller to fit perfectly in lines
+  font-size: 1em; // Slightly smaller to fit perfectly in lines 0.9em
   line-height: 1;
 }
 
