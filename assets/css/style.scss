@@ -220,10 +220,10 @@ header {
       /* Reduced from triple glow to a single sharp drop-shadow */
       filter: 
         brightness(1.5) 
-        //saturate(2)     < ------------------------------------------------------------------------
-        //contrast(1.2) 
+        saturate(2)     < ------------------------------------------------------------------------
+        contrast(1.2) 
         drop-shadow(0 0 4px $red); 
-      animation: scanLine 5s linear infinite, dataStutter 1s steps(2) infinite; //fastPulse //1.5 speed
+      animation: scanLine 2s linear infinite, fastPulse 1s ease-in-out infinite; //fastPulse //1.5 speed
       }
     }
   }
@@ -247,11 +247,11 @@ section {
 
   h1, h2 {
     color: $red !important;
-    -webkit-text-stroke: 1px rgba($red, 0.3);
+    //-webkit-text-stroke: 1px rgba($red, 0.3);
   }
   h3 {
     color: $orange !important;
-    -webkit-text-stroke: 1px rgba($orange, 0.3);
+    //-webkit-text-stroke: 1px rgba($orange, 0.3);
   }  
   h4 {
     color: $green !important;
