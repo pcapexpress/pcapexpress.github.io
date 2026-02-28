@@ -211,7 +211,7 @@ header {
       //backdrop-filter: brightness(2.0) contrast(1.5) saturate(1.2);
       
       box-shadow: 0 0 15px rgba($green, 0.4); 
-      animation: scanLine 7s linear infinite, dataStutter 1s ease-in-out infinite;
+      animation: scanLine 7s linear infinite, dataStutter 0.5s ease-in-out infinite;
     }
   
     //RED LINE ACTIVE
@@ -241,14 +241,8 @@ section {
     width: 100%; 
   }
 
-  h1, h2 {
-    color: $red !important;
-    -webkit-text-stroke: 1px rgba($red, 0.3);
-  }
-  h3 {
-    color: $orange !important;
-    -webkit-text-stroke: 1px rgba($orange, 0.3);
-  }  
+  h1, h2 { color: $red !important; }
+  h3 { color: $orange !important; }  
   h4 {
     color: $green !important;
     text-shadow: 
@@ -310,7 +304,7 @@ section {
 }
   
   // 4.4 BODY TEXT
-  p, div, li { 
+p, div, li { 
   color: $yellow; 
   line-height: 1.7;
   letter-spacing: 0.2px;
@@ -381,8 +375,8 @@ pre {
   .orange { color: $orange; text-shadow: 0 0 8px rgba($orange, 0.6); }
   
   .red, .green, .orange, {
-  position: relative;
-  z-index: 2;
+    position: relative;
+    z-index: 2;
   }
   
   &:hover {
@@ -444,14 +438,25 @@ pre {
     ul li {
     list-style: none !important;
     background: $medium-bg;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     padding: 20px;
     border-left: 5px solid $red;
-    display: block; // Ensures it takes up the full width
+    border-radius: 4px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
     
     &:hover {
-      background-color: $red;
-      transform: translateX(8px);
+        background-color: $red; 
+        transform: translateX(8px); // Slightly more dramatic shift
+        color: #ffffff;
+        box-shadow: -5px 0 15px rgba($red, 0.4);
+
+        // Forces all nested text (h3, p, etc.) to white on hover
+        h1, h2, h3, h4, p, span, strong { 
+          color: #ffffff; 
+          text-shadow: inherit;
+          }
     }
   }
   /*ul {
