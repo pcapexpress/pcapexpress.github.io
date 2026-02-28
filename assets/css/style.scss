@@ -455,11 +455,12 @@ section a, .header-bio a {
   // This handles the text inside when you hover
   &:hover {
     background-color: $red; 
-    transform: translateX(6px); // Slightly more dramatic shift
+    transform: translateX(8px); // Slightly more dramatic shift
     color: #ffffff;
     box-shadow: -5px 0 15px rgba($red, 0.4);
 
-    p, span, strong { 
+    // Forces all nested text (h3, p, etc.) to white on hover
+    h1, h2, h3, h4, p, span, strong { 
       color: #ffffff; 
       text-shadow: inherit;
     }
@@ -647,7 +648,7 @@ footer::after {
 // DIVIDER STRETCH/PULSE BEHAVIOUR
 @keyframes wireEnergize {
   0%, 100% { 
-    opacity: 0.8;
+    opacity: 0.6;
     // No brightness filter here to prevent graying/dulling
     box-shadow: 0 0 5px rgba($orange, 0.2); 
   }
@@ -661,6 +662,6 @@ footer::after {
 }
 
 @keyframes dividerStretch {
-  0%, 100% { transform: scaleX(1); opacity: 1; } //0.8
+  0%, 100% { transform: scaleX(1); opacity: 0.8; }
   60% { transform: scaleX(0.8); opacity: 1; }
 }
