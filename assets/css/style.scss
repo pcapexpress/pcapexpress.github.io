@@ -122,7 +122,7 @@ header {
 
     //LINK PILLS
     li a {
-      display: inline-block; // Important for the scale transform to work
+      //display: inline-block; // <-----------------------------------CHECK
       background: rgba($dark-bg, 0.8);
       border: 1px solid $red;
       color: $orange;
@@ -146,29 +146,7 @@ header {
     }
   }
 }
-    
-    /*li a {
-      background: rgba($dark-bg, 0.8);
-      border: 1px solid $red;
-      color: $orange;
-      padding: 8px 20px;
-      border-radius: 50px;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      text-decoration: none !important;
-      transition: 0.5s all ease;
-      
-      &::after { content: none !important; display: none !important; }
-
-      &:hover {
-        background: $orange;
-        color: $dark-bg;
-        box-shadow: 0 0 15px $red;
-        transform: scale(1.05);
-      }
-    }*/
-  
+          
   //SCAN LINES
   //GREEN LINE PASIVE
   &::after { 
@@ -222,7 +200,7 @@ header {
     }
   
     //GREEN LINE ACTIVE
-    /*&::after {
+    &::after {
       background: linear-gradient(
         to top, 
         rgba($green, 0.6) 0%,
@@ -230,8 +208,8 @@ header {
         rgba($green, 0.2) 15px,
         transparent 100%);
       
-      mix-blend-mode: color-dodge; 
-      backdrop-filter: brightness(2.0) contrast(1.5) saturate(1.2);
+      //mix-blend-mode: color-dodge; 
+      //backdrop-filter: brightness(2.0) contrast(1.5) saturate(1.2);
       
       box-shadow: 0 0 15px rgba($green, 0.4); 
       animation: scanLine 7s linear infinite, dataStutter 1s ease-in-out infinite;
@@ -243,7 +221,7 @@ header {
       opacity: 1;
       filter: brightness(1.5) saturate(2) contrast(1.2) drop-shadow(0 0 4px $red); 
       animation: scanLine 2s linear infinite, fastPulse 0.5s ease-in-out infinite;
-    }*/
+    }
   }
 }
 
@@ -266,11 +244,11 @@ section {
 
   h1, h2 {
     color: $red !important;
-    //-webkit-text-stroke: 1px rgba($red, 0.3);
+    -webkit-text-stroke: 1px rgba($red, 0.3);
   }
   h3 {
     color: $orange !important;
-    //-webkit-text-stroke: 1px rgba($orange, 0.3);
+    -webkit-text-stroke: 1px rgba($orange, 0.3);
   }  
   h4 {
     color: $green !important;
@@ -416,28 +394,28 @@ pre {
   }
 }
 
-//DATA LABEL
-pre[data-label]::after {
-  content: attr(data-label);
-  position: absolute;
-  top: 0; right: 0; // Moved to the right for better terminal look
-  padding: 2px 8px;
-  background: $green; 
-  color: $dark-bg;
-  font-size: 0.6rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  z-index: 3;
-  border-radius: 0 0 0 4px;
-}
+  //DATA LABEL
+  pre[data-label]::after {
+    content: attr(data-label);
+    position: absolute;
+    top: 0; right: 0; // Moved to the right for better terminal look
+    padding: 2px 8px;
+    background: $green; 
+    color: $dark-bg;
+    font-size: 0.6rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    z-index: 3;
+    border-radius: 0 0 0 4px;
+  }
 
-/*// 6. GLOBAL LINK STYLE
-section a, .header-bio a { 
-  color: $orange;
-  text-decoration: none;
-  font-weight: bold;
-  position: relative; // Anchors the custom underline
-  transition: color 0.3s ease;
+// 6. GLOBAL LINK STYLE
+  section a { 
+    color: $orange;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative; 
+    transition: color 0.3s ease;
   
   // The Animated Red Underline
   &::after {
@@ -492,7 +470,7 @@ section a, .header-bio a {
         }
       }
     }
-  }*/
+  }
 
 // 8.1 AMBIENT WIRE DIVIDER ---
 hr {
