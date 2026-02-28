@@ -455,13 +455,12 @@ section a, .header-bio a {
   // This handles the text inside when you hover
   &:hover {
     background-color: $red; 
-    transform: translateX(6px); // Slightly more dramatic shift
+    transform: translateX(6px);
     color: #ffffff;
     box-shadow: -5px 0 15px rgba($red, 0.4);
 
-    p, span, strong { 
-      color: #ffffff; 
-      text-shadow: inherit;
+    h1, h2, h3, h4, p, span, strong { 
+      color: #ffffff;
     }
   }
 }
