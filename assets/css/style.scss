@@ -96,6 +96,8 @@ header {
     letter-spacing: -1px;
     text-decoration: none !important;
     display: inline-block;
+
+    transition: all 0.8s ease-in-out; //<----------------------------------maybe 
   }
 
   // HEADER GREEN MIDDLE TEXT
@@ -166,7 +168,8 @@ header {
       scanLine 7s linear infinite, 
       greenBreathe 1s ease-in-out infinite; 
       
-    transition: all 0.4s ease;
+    //transition: all 0.4s ease;
+    transition: all 0.8s ease-in-out; //<----------------------------------maybe
     pointer-events: none;
     z-index: 2;
   }
@@ -181,6 +184,7 @@ header {
     filter: drop-shadow(0 0 2px rgba($red, 0.5));
     animation: scanLine 2s linear infinite; 
     z-index: 2;
+    transition: all 0.8s ease-in-out; //<----------------------------------maybe
   }
 
   // HEADER HOVER EFFECTS
