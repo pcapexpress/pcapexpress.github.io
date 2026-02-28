@@ -187,7 +187,7 @@ header {
   // HEADER HOVER EFFECTS
   // PCAPEXPRESS GLITCH
  &:hover {
-    .header-title span {
+    /*.header-title span {
       animation: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite !important; 
     }
 
@@ -195,7 +195,7 @@ header {
       color: #bffff0; 
       filter: brightness(1.2); 
       text-shadow: 0 0 5px $green; 
-    }    
+    }*/
   
     //GREEN LINE ACTIVE
     &::after {
@@ -370,7 +370,6 @@ pre {
     content: "";
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    //background: rgba(255, 255, 255, 0.01); //<----- pale white
     background: rgba($green, 0.03);
     animation: dataStutter 1s steps(4) infinite; ///staticFlicker
     pointer-events: none;
