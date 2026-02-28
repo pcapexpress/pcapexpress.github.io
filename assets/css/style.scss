@@ -185,7 +185,7 @@ header {
 
   // HEADER HOVER EFFECTS
   // PCAPEXPRESS GLITCH
- /*&:hover {
+ &:hover {
     .header-title span {
       animation: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite !important; 
     }
@@ -197,7 +197,7 @@ header {
     }
   
     //GREEN LINE ACTIVE
-    &::after {
+    /*&::after {
       background: linear-gradient(
         to top, 
         rgba($green, 0.6) 0%,
