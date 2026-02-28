@@ -197,7 +197,7 @@ header {
     }
   
     //GREEN LINE ACTIVE
-    /*&::after {
+    &::after {
       background: linear-gradient(
         to top, 
         rgba($green, 0.6) 0%,
@@ -210,10 +210,10 @@ header {
       backdrop-filter: brightness(2.0) contrast(1.5) saturate(1.2);
       
       box-shadow: 0 0 15px rgba($green, 0.4); 
-      animation: scanLine 7s linear infinite, dataStutter 1s ease-in-out infinite;//7
+      animation: scanLine 7s linear infinite, dataStutter 1s ease-in-out infinite;
     }
   
-    //RED LINE ACTIVE
+    /*//RED LINE ACTIVE
     &::before {
       background: rgba($red, 0.8);
       opacity: 1;
@@ -440,28 +440,33 @@ section a/*, .header-bio a*/ {
 }
 
 // 7. HOVER CARDS
-.hover-card li {
-  list-style: none;
-  background: $medium-bg;
-  margin-bottom: 12px;
-  padding: 20px;
-  border-left: 5px solid $red;
-  border-radius: 4px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
+.hover-card {
+  ul {
+    padding-left: 0; // Remove default indentation
+    list-style: none; // Hide the default bullet dots 
+    li {
+      list-style: none;
+      background: $medium-bg;
+      margin-bottom: 12px;
+      padding: 20px;
+      border-left: 5px solid $red;
+      border-radius: 4px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
 
-  // This handles the text inside when you hover
-  &:hover {
-    background-color: $red; 
-    transform: translateX(8px); // Slightly more dramatic shift
-    color: #ffffff;
-    box-shadow: -5px 0 15px rgba($red, 0.4);
+      // This handles the text inside when you hover
+      &:hover {
+        background-color: $red; 
+        transform: translateX(8px); // Slightly more dramatic shift
+        color: #ffffff;
+        box-shadow: -5px 0 15px rgba($red, 0.4);
 
-    // Forces all nested text (h3, p, etc.) to white on hover
-    h1, h2, h3, h4, p, span, strong { 
-      color: #ffffff; 
-      text-shadow: inherit;
+        // Forces all nested text (h3, p, etc.) to white on hover
+        h1, h2, h3, h4, p, span, strong { 
+          color: #ffffff; 
+          text-shadow: inherit;
+      }
     }
   }
 }
