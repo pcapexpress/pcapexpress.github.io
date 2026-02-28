@@ -256,7 +256,7 @@ section {
        0 0 10px rgba($green, 0.4) !important; 
   }
 
-  // 4.2 TEXT HIGHLIGHTS
+  /*// 4.2 TEXT HIGHLIGHTS
 .text-green  { color: $green;  text-shadow: 0 0 8px rgba($green, 0.4); font-family: $font-code; font-weight: bold; }
 .text-orange { color: $orange; text-shadow: 0 0 8px rgba($orange, 0.4); font-family: $font-code; font-weight: bold; }
 .text-red    { color: $red;    text-shadow: 0 0 8px rgba($red, 0.4); font-family: $font-code; font-weight: bold; }
@@ -307,7 +307,7 @@ section {
   background: #1a272e; // Your header-slate color
   border: 1px solid rgba(255, 255, 255, 0.1);
   text-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
-}
+}*/
   
   // 4.4 BODY TEXT
   p, div, li { 
@@ -441,7 +441,7 @@ section a, .header-bio a {
   }
 }
 
-// 7. HOVER CARDS
+/*// 7. HOVER CARDS
 .hover-card li {
   list-style: none;
   background: $medium-bg;
@@ -466,7 +466,7 @@ section a, .header-bio a {
       text-shadow: inherit;
     }
   }
-}
+}*/
 
 // 8.1 AMBIENT WIRE DIVIDER ---
 hr {
