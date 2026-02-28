@@ -6,6 +6,7 @@ layout: default
 ## All Abord the PCAPEXPRESS
 ### 3 of these things
 #### AM I GREEN? Ow yea you bet!
+* **Tools:** Wireshark, Snort, Suricata, Zeek, Nmap.
 
 > **Quick Links:** [Home](index.md) | [PCAP Deep-Dive](pcap-analysis.md) | [Malware Analysis](malware-analysis.md) | [About Me](about.md)
 
@@ -52,6 +53,7 @@ Creating several scenarios of attack and defence, showcasing and documenting bot
 
 
 ## Skills
+* **Tools:** Wireshark, Snort, Suricata, Zeek, Nmap.
 <section>
   <ul class="hover-card"> <li>**Tools:** Wireshark, Snort, Suricata, Zeek, Nmap.</li>
   </ul>
