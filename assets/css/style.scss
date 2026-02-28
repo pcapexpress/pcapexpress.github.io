@@ -26,7 +26,7 @@ $font-header: 'Rajdhani', sans-serif;        // Large Titles (Classy Tech)
 //HTML BIT
 html {
   background-color: $darker-slate;
-  background-image: repeating-near-gradient(
+  background-image: repeating-linear-gradient(
     0deg, rgba(0, 0, 0, 0.15) 0px, rgba(0, 0, 0, 0.15) 1px,
     transparent 1px, transparent 3px
   );
@@ -42,7 +42,7 @@ body {
   font-family: 'JetBrains Mono', monospace; // Clean, modern body font
   display: flex;
   flex-direction: column;
-  agn-items: center; 
+  align-items: center; 
   overflow-x: hidden;
   min-height: 100vh;
   width: 100%;
@@ -63,15 +63,15 @@ header {
   width: 100%; 
   display: flex;
   flex-direction: column;
-  agn-items: center;    
+  align-items: center;    
   justify-content: center;
   
   margin: 0 !important;
   padding: 80px 20px;
-  border-bottom: 3px sod $red;
+  border-bottom: 3px solid $red;
 
   background: 
-    near-gradient(to bottom, rgba(26, 39, 46, 0.2) 10%, rgba(26, 39, 46, 0.95) 100%),
+    linear-gradient(to bottom, rgba(26, 39, 46, 0.2) 10%, rgba(26, 39, 46, 0.95) 100%),
     url("../images/header.png") no-repeat center center;
   background-size: cover; 
   // Force the background to stay behind the content
@@ -82,7 +82,7 @@ header {
     position: relative;
     z-index: 5;
     width: 100%;
-    text-agn: center;
+    text-align: center;
     margin-left: auto;
     margin-right: auto;
   }
@@ -95,7 +95,7 @@ header {
     font-weight: 700; 
     letter-spacing: -1px;
     text-decoration: none !important;
-    display: inne-block;
+    display: inline-block;
   }
 
   // HEADER GREEN MIDDLE TEXT
@@ -111,9 +111,9 @@ header {
     filter: brightness(1);
   }
 
-  //HEADER MENU NKS
+  //HEADER MENU LINKS
   .nav-menu {
-    st-style: none;
+    list-style: none;
     display: flex;
     justify-content: center;
     gap: 15px;
@@ -132,24 +132,14 @@ header {
       letter-spacing: 1.5px;
       text-decoration: none !important;
       transition: 0.5s all ease;
-      //display: inline-block; // Essential for transforms to work smoothly
-  
-      // FIX: Only transition specific properties to prevent "jiggles"
-     // transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-  
-      // FIX: Sub-pixel stability
-      backface-visibility: hidden;
-      transform: translateZ(0);
       
-    &::after { content: none !important; display: none !important; }
+      &::after { content: none !important; display: none !important; }
 
       &:hover {
         background: $orange;
         color: $dark-bg;
         box-shadow: 0 0 15px $red;
         transform: scale(1.05);
-        // Keep scale if you like it, but the scoped selector prevents it from hitting other text
-        transform: scale(1.05) translateZ(0);*/
       }
     }
   }
@@ -465,12 +455,13 @@ section a, .header-bio a {
   // This handles the text inside when you hover
   &:hover {
     background-color: $red; 
-    transform: translateX(6px);
+    transform: translateX(6px); // Slightly more dramatic shift
     color: #ffffff;
     box-shadow: -5px 0 15px rgba($red, 0.4);
 
-    h1, h2, h3, h4, p, span, strong { 
-      color: #ffffff;
+    p, span, strong { 
+      color: #ffffff; 
+      text-shadow: inherit;
     }
   }
 }
