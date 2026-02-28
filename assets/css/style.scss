@@ -106,7 +106,7 @@ header {
     margin: 5px 0;
     display: block;
     
-    transition: all 0.8s ease-in-out;
+    //transition: all 0.8s ease-in-out; < -----------------------------------------------YOU?
     text-shadow: 0 0 0 rgba($green, 0);
     filter: brightness(1);
   }
@@ -131,7 +131,7 @@ header {
       text-transform: uppercase;
       letter-spacing: 1.5px;
       text-decoration: none !important;
-      transition: 0.5s all ease;
+      //transition: 0.5s all ease; < -----------------------------------------OR YOU?
       
       &::after { content: none !important; display: none !important; }
 
