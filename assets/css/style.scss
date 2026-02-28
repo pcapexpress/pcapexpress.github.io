@@ -12,13 +12,13 @@ $medium-bg: #263842;
 $dark-bg: #1A272E;
 
 //FONTS
-//@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Share+Tech+Mono&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Rajdhani:wght@500;700&family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Share+Tech+Mono&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Rajdhani:wght@500;700&family=Share+Tech+Mono&display=swap');
 
 $font-main: 'JetBrains Mono', monospace;     // Primary Reading
 $font-tech: 'Share Tech Mono', monospace;    // UI / Labels
 $font-code: 'Fira Code', monospace;          // Terminal / Code blocks
-$font-header: 'Rajdhani', sans-serif;        // Large Titles (Classy Tech)
+$font-header: 'Rajdhani', sans-serif;        // Large Titles (Classy Tech)*/
 
 // 2. GLOBAL RESET AND BODY
 * { box-sizing: border-box; }
@@ -135,12 +135,12 @@ header {
       
       &::after { content: none !important; display: none !important; }
 
-      &:hover {
+      /*&:hover {
         background: $orange;
         color: $dark-bg;
         box-shadow: 0 0 15px $red;
         transform: scale(1.05);
-      }
+      }*/
     }
   }
 
@@ -181,13 +181,12 @@ header {
     filter: drop-shadow(0 0 2px rgba($red, 0.5));
     animation: scanLine 2s linear infinite; 
     z-index: 2;
-    transition: all 0.4s ease-in-out; //<----------------------------------maybe
   }
 
   // HEADER HOVER EFFECTS
   // PCAPEXPRESS GLITCH
- &:hover {
-    /*.header-title span {
+ /*&:hover {
+    .header-title span {
       animation: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite !important; 
     }
 
@@ -195,7 +194,7 @@ header {
       color: #bffff0; 
       filter: brightness(1.2); 
       text-shadow: 0 0 5px $green; 
-    }*/
+    }
   
     //GREEN LINE ACTIVE
     &::after {
@@ -221,7 +220,7 @@ header {
       filter: brightness(1.5) saturate(2) contrast(1.2) drop-shadow(0 0 4px $red); 
       animation: scanLine 2s linear infinite, fastPulse 0.5s ease-in-out infinite;//1
       }
-    }
+    }*/
   }
 
 // 4.0 MAIN CONTENT AREA
