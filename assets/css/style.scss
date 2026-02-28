@@ -106,7 +106,7 @@ header {
     margin: 5px 0;
     display: block;
     
-    //transition: all 0.8s ease-in-out; < -----------------------------------------------YOU?
+    transition: all 0.8s ease-in-out;
     text-shadow: 0 0 0 rgba($green, 0);
     filter: brightness(1);
   }
@@ -121,7 +121,7 @@ header {
     padding: 0;
 
     //LINK PILLS
-    /*li a {
+    li a {
       background: rgba($dark-bg, 0.8);
       border: 1px solid $red;
       color: $orange;
@@ -131,7 +131,7 @@ header {
       text-transform: uppercase;
       letter-spacing: 1.5px;
       text-decoration: none !important;
-      //transition: 0.5s all ease; < -----------------------------------------OR YOU?
+      //transition: 0.5s all ease;
       
       &::after { content: none !important; display: none !important; }
 
@@ -140,7 +140,7 @@ header {
         color: $dark-bg;
         box-shadow: 0 0 15px $red;
         transform: scale(1.05);
-      }*/
+      }
     }
   }
 
