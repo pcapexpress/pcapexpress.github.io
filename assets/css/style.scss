@@ -12,13 +12,13 @@ $medium-bg: #263842;
 $dark-bg: #1A272E;
 
 //FONTS
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Share+Tech+Mono&display=swap');
-/*@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Rajdhani:wght@500;700&family=Share+Tech+Mono&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Rajdhani:wght@500;700&family=Share+Tech+Mono&display=swap');
 
 $font-main: 'JetBrains Mono', monospace;     // Primary Reading
 $font-tech: 'Share Tech Mono', monospace;    // UI / Labels
 $font-code: 'Fira Code', monospace;          // Terminal / Code blocks
-$font-header: 'Rajdhani', sans-serif;        // Large Titles (Classy Tech)*/
+$font-header: 'Rajdhani', sans-serif;        // Large Titles (Classy Tech)
 
 // 2. GLOBAL RESET AND BODY
 * { box-sizing: border-box; }
@@ -48,7 +48,7 @@ body {
   width: 100%;
 }
 
-/*// 2.1 TYPOGRAPHY OVERRIDES < ------------------------------------------HHHHM?
+// 2.1 TYPOGRAPHY OVERRIDES
 h1, h2, h3, .header-title, .nav-menu, .header-bio, footer {
   font-family: 'Share Tech Mono', monospace; 
   letter-spacing: 2px;
