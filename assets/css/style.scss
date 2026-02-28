@@ -343,7 +343,6 @@ img {
     filter: brightness(1.2);
     }
   }
-}
 
 // 5. CODE BLOCKS
 pre {
@@ -373,8 +372,8 @@ pre {
     animation: dataStutter 1s steps(4) infinite; ///staticFlicker
     pointer-events: none;
     z-index: 1; // Keeps the flicker as a background layer
-  }
-
+    }
+  
   // Syntax Highlighting & Glows
   .red    { color: $red; text-shadow: 0 0 5px rgba($red, 0.5); }
   .green  { color: $green; text-shadow: 0 0 5px rgba($green, 0.5); }
@@ -435,10 +434,10 @@ section a/*, .header-bio a*/ {
 
     &::after { 
       width: 100%; // Stretches to full width on hover
-    }
-  }
-}
-
+     }
+   }
+ }
+  
 // 7. HOVER CARDS
 .hover-card {
   ul {
@@ -536,6 +535,7 @@ hr {
     line-height: 1;
     opacity: 1;    
     animation: dataStutter 2s ease-in-out infinite;
+    }
   }
 }
 
