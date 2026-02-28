@@ -56,7 +56,8 @@ h1, h2, h3, .header-title, .nav-menu, .header-bio, footer {
 }
 
 // 3. HEADER ARCHITECTURE
-header {  position: relative;
+header {  
+  position: relative;
   overflow: hidden;
   isolation: isolate;
   width: 100%; 
@@ -120,7 +121,6 @@ header {  position: relative;
     padding: 0;
 
     //LINK PILLS
-
     li a {
       display: inline-block; // Important for the scale transform to work
       background: rgba($dark-bg, 0.8);
@@ -132,11 +132,8 @@ header {  position: relative;
       text-transform: uppercase;
       letter-spacing: 1.5px;
       text-decoration: none !important;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: 0.5s all ease;
     
-    // Prevent the "jiggle" when scaling
-    //backface-visibility: hidden;
-
       &::after { 
         content: none !important; 
         display: none !important; 
@@ -225,14 +222,13 @@ header {  position: relative;
     }
   
     //GREEN LINE ACTIVE
-    &::after {
+    /*&::after {
       background: linear-gradient(
         to top, 
         rgba($green, 0.6) 0%,
         rgba($green, 0.6) 3px,
         rgba($green, 0.2) 15px,
-        transparent 100%
-      );
+        transparent 100%);
       
       mix-blend-mode: color-dodge; 
       backdrop-filter: brightness(2.0) contrast(1.5) saturate(1.2);
@@ -247,7 +243,7 @@ header {  position: relative;
       opacity: 1;
       filter: brightness(1.5) saturate(2) contrast(1.2) drop-shadow(0 0 4px $red); 
       animation: scanLine 2s linear infinite, fastPulse 0.5s ease-in-out infinite;
-    }
+    }*/
   }
 }
 
