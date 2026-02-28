@@ -131,7 +131,7 @@ header {
       text-transform: uppercase;
       letter-spacing: 1.5px;
       text-decoration: none !important;
-      //transition: 0.5s all ease;
+      transition: 0.5s all ease;
       
       &::after { content: none !important; display: none !important; }
 
@@ -439,7 +439,7 @@ section a/*, .header-bio a*/ {
   }
 }
 
-/*// 7. HOVER CARDS
+// 7. HOVER CARDS
 .hover-card li {
   list-style: none;
   background: $medium-bg;
@@ -464,7 +464,7 @@ section a/*, .header-bio a*/ {
       text-shadow: inherit;
     }
   }
-}*/
+}
 
 // 8.1 AMBIENT WIRE DIVIDER ---
 hr {
