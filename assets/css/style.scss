@@ -401,7 +401,44 @@ pre {
   }
 
 // 6. GLOBAL LINK STYLE
-  section a { 
+   
+  // 6. BASIC GLOBAL LINKS
+section a {
+  color: #ff9800 !important; // Your $orange
+  text-decoration: none !important;
+  font-weight: bold;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: #ffeb3b !important; // Your $yellow
+    border-bottom: 1px solid #ff4b2b; // Red underline appears
+    text-shadow: 0 0 5px rgba(255, 152, 0, 0.5);
+  }
+}
+
+  // 7. BASIC HOVER CARDS
+  section ul li {
+    list-style: none !important; 
+    background: #1a272e; // Your $medium-bg
+    color: #ffffff;
+    margin-bottom: 12px;
+    padding: 15px 20px;
+    border-left: 4px solid #ff4b2b; // Your $red
+    border-radius: 4px;
+    display: block;
+    transition: transform 0.2s ease, background 0.2s ease;
+
+    &:hover {
+      background: #25343d; // Slightly lighter on hover
+      transform: translateX(5px);
+      cursor: pointer;
+  }
+}
+
+  
+  
+  /*section a { 
     color: $orange;
     text-decoration: none;
     font-weight: bold;
