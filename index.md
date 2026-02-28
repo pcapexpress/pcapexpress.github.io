@@ -6,7 +6,12 @@ layout: default
 ## All Abord the PCAPEXPRESS
 ### 3 of these things
 #### AM I GREEN? Ow yea you bet!
-* **Tools:** Wireshark, Snort, Suricata, Zeek, Nmap.
+<div class="hover-card">
+
+* First Forensic Card
+* Second Forensic Card
+
+</div>
 
 > **Quick Links:** [Home](index.md) | [PCAP Deep-Dive](pcap-analysis.md) | [Malware Analysis](malware-analysis.md) | [About Me](about.md)
 
