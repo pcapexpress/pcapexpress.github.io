@@ -52,13 +52,30 @@ Creating several scenarios of attack and defence, showcasing and documenting bot
 
 
 ## Skills
-* **Tools:** Wireshark, Snort, Suricata, Zeek, Nmap.
-* **Protocols:** TCP/IP, SMB, NTLM, Kerberos, DNS, HTTP/S.
-* **Analysis:** Traffic Analysis, False Positive Reduction, Log Correlation.
+<section>
+  <ul class="hover-card"> <li>**Tools:** Wireshark, Snort, Suricata, Zeek, Nmap.</li>
+  </ul>
+</section>
+## Skills
+<section>
+  <ul class="hover-card"> <li>**Protocols:** TCP/IP, SMB, NTLM, Kerberos, DNS, HTTP/S.</li>
+  </ul>
+</section>
+<section>
+  <ul class="hover-card"> <li>**Analysis:** Traffic Analysis, False Positive Reduction, Log Correlation.</li>
+  </ul>
+</section>
+
 
 ## Certificates
-* **Google Security**
-* **CompTia Security+**
+<section>
+  <ul class="hover-card"> <li>**Google Security**</li>
+  </ul>
+</section>
+<section>
+  <ul class="hover-card"> <li>**CompTia Security+**</li>
+  </ul>
+</section>
+
 
 [Link to LinkedIn] | [Download Resume (PDF)] | [Heres a good MIX]
- "Force Rebuild"
