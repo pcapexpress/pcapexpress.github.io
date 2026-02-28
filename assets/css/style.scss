@@ -172,7 +172,7 @@ header {
   }
 
   // RED LINE PASSIVE
-  /*&::before {
+  &::before {
     content: "";
     position: absolute;
     top: 0; left: 0;
@@ -181,7 +181,7 @@ header {
     filter: drop-shadow(0 0 2px rgba($red, 0.5));
     animation: scanLine 2s linear infinite; 
     z-index: 2;
-  }*/
+  }
 
   // HEADER HOVER EFFECTS
   // PCAPEXPRESS GLITCH
@@ -197,7 +197,7 @@ header {
     }
   
     //GREEN LINE ACTIVE
-    /*&::after {
+    &::after {
       background: linear-gradient(
         to top, 
         rgba($green, 0.6) 0%,
@@ -211,15 +211,15 @@ header {
       
       box-shadow: 0 0 15px rgba($green, 0.4); 
       animation: scanLine 7s linear infinite, dataStutter 1s ease-in-out infinite;
-    }*/
+    }
   
     //RED LINE ACTIVE
-    /*::before {
+    &::before {
       background: rgba($red, 0.8);
       opacity: 1;
       filter: brightness(1.5) saturate(2) contrast(1.2) drop-shadow(0 0 4px $red); 
       animation: scanLine 2s linear infinite, fastPulse 0.5s ease-in-out infinite;//1
-      }*/
+      }
     }
   }
 
