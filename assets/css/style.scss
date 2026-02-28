@@ -168,10 +168,9 @@ header {
     animation: 
       scanLine 7s linear infinite, 
       greenBreathe 1s ease-in-out infinite; 
-      
-    transition: all 0.4s ease;
-    pointer-events: none;
-    z-index: 2;
+      transition: all 0.4s ease;
+      pointer-events: none;
+      z-index: 2;
   }
 
   // RED LINE PASSIVE
@@ -379,18 +378,16 @@ pre {
   // Syntax Highlighting & Glows
   .red    { color: $red; text-shadow: 0 0 5px rgba($red, 0.5); }
   .green  { color: $green; text-shadow: 0 0 5px rgba($green, 0.5); }
-  .yellow { color: $yellow; text-shadow: 0 0 5px rgba($yellow, 0.5); }
   .orange { color: $orange; text-shadow: 0 0 8px rgba($orange, 0.6); }
-  .slate  { color: $slate; }
-
-  .red, .green, .yellow, .orange, .slate {
+  
+  .red, .green, .orange, {
   position: relative;
   z-index: 2;
   }
   
   &:hover {
     box-shadow: 0 0 25px rgba($orange, 1.0); // Intense glow on hover
-    background-color: #0d0d0d;
+    background-color: #0d0d0d; //< ---------------------------------------------------------CHECK
   }
 }
 
@@ -414,8 +411,10 @@ pre {
     color: $orange;
     text-decoration: none;
     font-weight: bold;
-    position: relative; 
     transition: color 0.3s ease;
+    position: relative;
+    display: inline-block; // Gives the link a physical "hit box"
+    z-index: 5; // Lifts it above any stray background effects
   
   // The Animated Red Underline
   &::after {
@@ -442,7 +441,20 @@ pre {
   
 // 7. HOVER CARDS
 .hover-card {
-  ul {
+    ul li {
+    list-style: none !important;
+    background: $medium-bg;
+    margin-bottom: 15px;
+    padding: 20px;
+    border-left: 5px solid $red;
+    display: block; // Ensures it takes up the full width
+    
+    &:hover {
+      background-color: $red;
+      transform: translateX(8px);
+    }
+  }
+  /*ul {
     padding-left: 0; // Remove default indentation
     list-style: none; // Hide the default bullet dots 
     li {
@@ -471,7 +483,7 @@ pre {
         }
       }
     }
-  }
+  }*/
 
 // 8.1 AMBIENT WIRE DIVIDER ---
 hr {
