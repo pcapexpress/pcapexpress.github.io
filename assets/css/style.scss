@@ -122,7 +122,7 @@ header {
 
     //LINK PILLS
     .nav-menu li a {
-      /*background: rgba($dark-bg, 0.8);
+      background: rgba($dark-bg, 0.8);
       border: 1px solid $red;
       color: $orange;
       padding: 8px 20px;
@@ -131,35 +131,25 @@ header {
       text-transform: uppercase;
       letter-spacing: 1.5px;
       text-decoration: none !important;
-      transition: 0.5s all ease;*/
-
-      background: rgba($dark-bg, 0.8);
-      border: 1px solid $red;
-      color: $orange;
-      padding: 8px 20px;
-      border-radius: 50px;
-      display: inline-block; // Essential for transforms to work smoothly
+      transition: 0.5s all ease;
+      //display: inline-block; // Essential for transforms to work smoothly
   
       // FIX: Only transition specific properties to prevent "jiggles"
-      transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+     // transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
   
       // FIX: Sub-pixel stability
       backface-visibility: hidden;
       transform: translateZ(0);
       
-    //  &::after { content: none !important; display: none !important; }
+    &::after { content: none !important; display: none !important; }
 
       &:hover {
-        /*background: $orange;
-        color: $dark-bg;
-        box-shadow: 0 0 15px $red;
-        transform: scale(1.05);*/
-
         background: $orange;
         color: $dark-bg;
         box-shadow: 0 0 15px $red;
+        transform: scale(1.05);
         // Keep scale if you like it, but the scoped selector prevents it from hitting other text
-        transform: scale(1.05) translateZ(0);
+        transform: scale(1.05) translateZ(0);*/
       }
     }
   }
