@@ -26,7 +26,7 @@ $font-header: 'Rajdhani', sans-serif;        // Large Titles (Classy Tech)
 //HTML BIT
 html {
   background-color: $darker-slate;
-  background-image: repeating-linear-gradient(
+  background-image: repeating-near-gradient(
     0deg, rgba(0, 0, 0, 0.15) 0px, rgba(0, 0, 0, 0.15) 1px,
     transparent 1px, transparent 3px
   );
@@ -42,7 +42,7 @@ body {
   font-family: 'JetBrains Mono', monospace; // Clean, modern body font
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  agn-items: center; 
   overflow-x: hidden;
   min-height: 100vh;
   width: 100%;
@@ -63,15 +63,15 @@ header {
   width: 100%; 
   display: flex;
   flex-direction: column;
-  align-items: center;    
+  agn-items: center;    
   justify-content: center;
   
   margin: 0 !important;
   padding: 80px 20px;
-  border-bottom: 3px solid $red;
+  border-bottom: 3px sod $red;
 
   background: 
-    linear-gradient(to bottom, rgba(26, 39, 46, 0.2) 10%, rgba(26, 39, 46, 0.95) 100%),
+    near-gradient(to bottom, rgba(26, 39, 46, 0.2) 10%, rgba(26, 39, 46, 0.95) 100%),
     url("../images/header.png") no-repeat center center;
   background-size: cover; 
   // Force the background to stay behind the content
@@ -82,7 +82,7 @@ header {
     position: relative;
     z-index: 5;
     width: 100%;
-    text-align: center;
+    text-agn: center;
     margin-left: auto;
     margin-right: auto;
   }
@@ -95,7 +95,7 @@ header {
     font-weight: 700; 
     letter-spacing: -1px;
     text-decoration: none !important;
-    display: inline-block;
+    display: inne-block;
   }
 
   // HEADER GREEN MIDDLE TEXT
@@ -111,9 +111,9 @@ header {
     filter: brightness(1);
   }
 
-  //HEADER MENU LINKS
+  //HEADER MENU NKS
   .nav-menu {
-    list-style: none;
+    st-style: none;
     display: flex;
     justify-content: center;
     gap: 15px;
@@ -121,8 +121,8 @@ header {
     padding: 0;
 
     //LINK PILLS
-    li a {
-      background: rgba($dark-bg, 0.8);
+    .nav-menu li a {
+      /*background: rgba($dark-bg, 0.8);
       border: 1px solid $red;
       color: $orange;
       padding: 8px 20px;
@@ -131,15 +131,35 @@ header {
       text-transform: uppercase;
       letter-spacing: 1.5px;
       text-decoration: none !important;
-      transition: 0.5s all ease;
+      transition: 0.5s all ease;*/
+
+      background: rgba($dark-bg, 0.8);
+      border: 1px solid $red;
+      color: $orange;
+      padding: 8px 20px;
+      border-radius: 50px;
+      display: inline-block; // Essential for transforms to work smoothly
+  
+      // FIX: Only transition specific properties to prevent "jiggles"
+      transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  
+      // FIX: Sub-pixel stability
+      backface-visibility: hidden;
+      transform: translateZ(0);
       
-      &::after { content: none !important; display: none !important; }
+    //  &::after { content: none !important; display: none !important; }
 
       &:hover {
+        /*background: $orange;
+        color: $dark-bg;
+        box-shadow: 0 0 15px $red;
+        transform: scale(1.05);*/
+
         background: $orange;
         color: $dark-bg;
         box-shadow: 0 0 15px $red;
-        transform: scale(1.05);
+        // Keep scale if you like it, but the scoped selector prevents it from hitting other text
+        transform: scale(1.05) translateZ(0);
       }
     }
   }
