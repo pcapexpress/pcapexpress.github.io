@@ -122,43 +122,31 @@ header {
 
     //LINK PILLS
 
-    .nav-menu {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin: 15px 0 0 0;
-  padding: 0;
-
-  li a {
-    display: inline-block; // Important for the scale transform to work
-    background: rgba($dark-bg, 0.8);
-    border: 1px solid $red;
-    color: $orange;
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    text-decoration: none !important;
-    
-    // Smooth transitions for a "high-tech" feel
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    li a {
+      display: inline-block; // Important for the scale transform to work
+      background: rgba($dark-bg, 0.8);
+      border: 1px solid $red;
+      color: $orange;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      text-decoration: none !important;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     
     // Prevent the "jiggle" when scaling
-    backface-visibility: hidden;
-    transform: translateZ(0);
+    //backface-visibility: hidden;
 
-    &::after { 
-      content: none !important; 
-      display: none !important; 
-    }
+      &::after { 
+        content: none !important; 
+        display: none !important; 
+      }
 
-    &:hover {
-      background: $orange;
-      color: $dark-bg;
-      box-shadow: 0 0 15px $red;
-      transform: scale(1.05) translateZ(0);
+      &:hover {
+        background: $orange;
+        color: $dark-bg;
+        box-shadow: 0 0 15px $red;
     }
   }
 }
