@@ -172,7 +172,7 @@ header {
   }
 
   // RED LINE PASSIVE
-  /*&::before {
+  &::before {
     content: "";
     position: absolute;
     top: 0; left: 0;
@@ -181,7 +181,7 @@ header {
     filter: drop-shadow(0 0 2px rgba($red, 0.5));
     animation: scanLine 2s linear infinite; 
     z-index: 2;
-  }*/
+  }
 
   // HEADER HOVER EFFECTS
   // PCAPEXPRESS GLITCH
@@ -213,8 +213,8 @@ header {
       animation: scanLine 7s linear infinite, dataStutter 1s ease-in-out infinite;
     }
   
-    /*//RED LINE ACTIVE
-    &::before {
+    //RED LINE ACTIVE
+    /*::before {
       background: rgba($red, 0.8);
       opacity: 1;
       filter: brightness(1.5) saturate(2) contrast(1.2) drop-shadow(0 0 4px $red); 
@@ -407,7 +407,7 @@ pre[data-label]::after {
   border-radius: 0 0 0 4px;
 }
 
-// 6. GLOBAL LINK STYLE
+/*// 6. GLOBAL LINK STYLE
 section a, .header-bio a { 
   color: $orange;
   text-decoration: none;
@@ -468,7 +468,7 @@ section a, .header-bio a {
         }
       }
     }
-  }
+  }*/
 }
 
 // 8.1 AMBIENT WIRE DIVIDER ---
