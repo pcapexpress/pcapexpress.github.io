@@ -6,6 +6,9 @@ layout: default
 
 ## Phase 01: RECON/BRUTEFORCE/EXFILTRATION
 
+* This should be a card.
+* [This should be a link inside a card](/)
+
 <span class="text-green">**Platform:**</span> https://www.malware-traffic-analysis.net/<br>
 <span class="text-orange">**Pcap File:**</span> 2025-01-22-traffic-analysis-exercise.pcap
 
