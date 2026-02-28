@@ -374,14 +374,14 @@ pre {
   .green  { color: $green; text-shadow: 0 0 5px rgba($green, 0.5); }
   .orange { color: $orange; text-shadow: 0 0 8px rgba($orange, 0.6); }
   
-  .red, .green, .orange, {
+  .red, .green, .orange {
     position: relative;
     z-index: 2;
   }
   
   &:hover {
     box-shadow: 0 0 25px rgba($orange, 1.0); // Intense glow on hover
-    background-color: #0d0d0d; //< ---------------------------------------------------------CHECK
+    //background-color: #0d0d0d; //< ---------------------------------------------------------CHECK
   }
 }
 
@@ -609,24 +609,21 @@ hr {
     rgba(255, 255, 255, 0.05) 0px, 
     rgba(255, 255, 255, 0.05) 1px,
     transparent 1px, 
-    transparent 4px // Increased to 4px for a cleaner look on mid-tones
-  );
+    transparent 4px );
+  
   ///////// THE BLACK STRIPE VERSION  
   /*background-image: repeating-linear-gradient(
     0deg, 
     rgba(0, 0, 0, 0.12) 0px, 
     rgba(0, 0, 0, 0.12) 1px,
     transparent 1px, 
-    transparent 3px
-  );*/
+    transparent 3px );*/
   
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 40px); 
   border-radius: 12px;
   overflow: hidden;
-  
-  // Forces children (header/section/footer) to sit flush
   align-items: stretch;  
 }
 
