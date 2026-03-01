@@ -311,7 +311,8 @@ h1 {
   color: $red !important;
   text-shadow: 
     1px 1px 2px rgba(139, 0, 0, 0.6), // The "Dark Depth" Outline 000 0.9
-    //0 0 5px rgba($red, 0.3) !important; 
+    //0 0 5px rgba($red, 0.3) !important;
+  }
     
 h2 { 
   font-size: clamp(1.2rem, 5vw, 1.5rem);
@@ -417,7 +418,7 @@ a {
     left: 0;
     width: 0; 
     height: 2px;
-    background-color: $yellow;
+    background-color: $red;
     transition: width 0.3s ease-in-out;
     box-shadow: 0 0 8px $yellow; // High-intensity glow
   }
@@ -430,10 +431,9 @@ a {
 
     &::after { 
       width: 100%; // The line "fires" across the bottom
+      }
     }
-  }
-}
-    
+  }   
 }
     
 // 4.6 ATMOSPHERIC IMAGE
