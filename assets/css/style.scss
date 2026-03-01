@@ -99,7 +99,7 @@ header {
     color: $green;
     font-weight: bold;
     font-size: 0.9rem;
-    margin: 5px 0;
+    margin: 10px 0;
     display: block;
     
     transition: all 0.8s ease-in-out;
@@ -113,7 +113,9 @@ header {
   justify-content: center;
   gap: 15px;
   position: relative;
-  padding-bottom: 30px; // Increased space for the box //60
+  margin: 40px 0;
+  padding-bottom: 60px; // Increased space for the box //60
+  
 
   a {
     padding: 8px 20px;
@@ -130,7 +132,7 @@ header {
     .desc {
       position: absolute;
       left: 50%; // Centers it relative to .nav-menu
-      bottom: 15px; // Fixed distance from the bottom of the nav-menu
+      bottom: -15px; // Distance from the  nav-menu
       transform: translateX(-50%) translateY(10px);
       
       width: max-content;
@@ -231,10 +233,9 @@ header {
       mix-blend-mode: normal;
       
       //backdrop-filter: brightness(2.0) contrast(1.5) saturate(1.2); // <-------------------------------------------CHECK
-      //backdrop-filter: grayscale(1) blur(2px) brightness(1.2);
+      backdrop-filter: grayscale(1) blur(2px) brightness(1.2);
       //backdrop-filter: sepia(0.5) contrast(2) saturate(3) hue-rotate(-50deg);
-      backdrop-filter: invert(0.4) hue-rotate(90deg);
-      
+           
       box-shadow: 0 0 15px rgba($green, 0.4); 
       animation: scanLine 7s linear infinite, dataStutter 0.5s ease-in-out infinite;
     }
