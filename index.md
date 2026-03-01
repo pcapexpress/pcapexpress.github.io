@@ -15,6 +15,10 @@ No.3 - Reserved for basic malware analisys and deobfuscation
 <div class="hover-card">
   **Analysis:** Traffic Analysis, False Positive Reduction, Log Correlation.
 </div>
+<ul>
+  <li class="hover-card">**Analysis:** Item One</li>
+  <li class="hover-card">**Analysis:** Item Two</li>
+</ul>
 
 ---
 ## [Andy Anderson] | Aspiring Cybersecurity Analyst
