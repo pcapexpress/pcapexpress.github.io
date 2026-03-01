@@ -142,7 +142,34 @@ header {
       border-color: $orange;
     }
 
-    // THE MAGIC LINE: Moved out of the &:hover block
+    // THE TEXT (Hidden by default)
+    .desc {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 100%;
+      text-align: center;
+      color: #00f2ff; // Cyan
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      display: none; // COMPLETELY HIDDEN
+      pointer-events: none;
+    }
+
+    &:hover {
+      background: $orange;
+      color: $dark-bg;
+      
+      // SHOW THE TEXT ON HOVER
+      .desc {
+        display: block; 
+      }
+    }
+  }
+}
+
+    /*// THE MAGIC LINE: Moved out of the &:hover block
     &:hover ~ .description-box {
     opacity: 1 !important;
     border-color: rgba(0, 242, 255, 0.5) !important;
@@ -179,7 +206,7 @@ header {
     transition: all 0.3s ease;
     pointer-events: none;
     z-index: 9;
-  }
+  }*/
 }
 
   
