@@ -122,7 +122,6 @@ header {
 
     //LINK PILLS
     li a {
-      //display: inline-block; // <-----------------------------------CHECK
       background: rgba($dark-bg, 0.8);
       border: 1px solid $red;
       color: $orange;
@@ -202,9 +201,9 @@ header {
     &::after {
       background: linear-gradient(
         to top, 
-        rgba($green, 0.6) 0%,
+        rgba($green, 0.8) 0%,
         rgba($green, 0.6) 3px,
-        rgba($green, 0.2) 15px,
+        rgba($green, 0.3) 15px,
         transparent 100%);
       
       //mix-blend-mode: color-dodge; 
@@ -251,16 +250,10 @@ section {
   }
 
   // 4.2 TEXT HIGHLIGHTS
-.text-green  { color: $green;  text-shadow: 0 0 8px rgba($green, 0.4); font-family: $font-code; font-weight: bold; }
-.text-orange { color: $orange; text-shadow: 0 0 8px rgba($orange, 0.4); font-family: $font-code; font-weight: bold; }
-.text-red    { color: $red;    text-shadow: 0 0 8px rgba($red, 0.4); font-family: $font-code; font-weight: bold; }
-
-// Use this for a "Data Value" look (Cyan/Blueish)
-.text-data {
-  color: #00f2ff;
-  text-shadow: 0 0 5px rgba(0, 242, 255, 0.5);
-  font-family: $font-code;
-}
+.text-green  { color: $green;  text-shadow: 0 0 8px rgba($green, 0.4); font-weight: bold; }
+.text-orange { color: $orange; text-shadow: 0 0 8px rgba($orange, 0.4); font-weight: bold; }
+.text-red    { color: $red;    text-shadow: 0 0 8px rgba($red, 0.4); font-weight: bold; }
+.text-data { color: #00f2ff; text-shadow: 0 0 5px rgba(0, 242, 255, 0.5); }
 
   // 4.3 HIGHLIGHT BADGES
 [class^="badge-"] {
@@ -269,30 +262,8 @@ section {
   margin: 0 1px; // 2px
   border-radius: 3px;
   font-weight: bold;
-  font-family: $font-header;
   font-size: 1em; // Slightly smaller to fit perfectly in lines 0.9em
   line-height: 1;
-}
-
-.badge-green {
-  color: #a0ff9d; // Lighter green for readability
-  background: rgba(20, 46, 20, 0.8); // Dark Forest Green
-  border: 1px solid rgba($green, 0.3);
-  text-shadow: 0 0 5px rgba($green, 0.5);
-}
-
-.badge-orange {
-  color: #ffcc80; 
-  background: rgba(46, 33, 20, 0.8); // Dark Amber
-  border: 1px solid rgba($orange, 0.3);
-  text-shadow: 0 0 5px rgba($orange, 0.5);
-}
-
-.badge-red {
-  color: #ff9d9d;
-  background: rgba(46, 20, 20, 0.8); // Dark Maroon
-  border: 1px solid rgba($red, 0.3);
-  text-shadow: 0 0 5px rgba($red, 0.5);
 }
 
 // THE "SOLID" NEUTRAL BADGE
@@ -363,7 +334,7 @@ pre {
     content: "";
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba($green, 0.03);
+    background: rgba($green, 0.02);
     animation: dataStutter 1s steps(4) infinite; ///staticFlicker
     pointer-events: none;
     z-index: 1; // Keeps the flicker as a background layer
@@ -381,7 +352,6 @@ pre {
   
   &:hover {
     box-shadow: 0 0 25px rgba($orange, 1.0); // Intense glow on hover
-    //background-color: #0d0d0d; //< ---------------------------------------------------------CHECK
   }
 }
 
@@ -403,14 +373,14 @@ pre {
 // 6. GLOBAL LINK STYLE
    
   // 6. BASIC GLOBAL LINKS
-section a, 
-section a:visited,
-section p a {
-  color: #ff9800 !important; 
-  text-decoration: none !important;
-  font-weight: bold !important;
-  border-bottom: 2px solid rgba(#ff4b2b, 0.3) !important; // Permanent subtle underline
-  transition: all 0.2s ease;
+  section a, 
+  section a:visited,
+  section p a {
+    color: #ff9800 !important; 
+    text-decoration: none !important;
+    font-weight: bold !important;
+    border-bottom: 2px solid rgba(#ff4b2b, 0.3) !important; // Permanent subtle underline
+    transition: all 0.2s ease;
 
   &:hover {
     color: #ffeb3b !important; 
@@ -421,21 +391,22 @@ section p a {
 }
 
   // 7. BASIC HOVER CARDS
-  section ul li {
-    list-style: none !important; 
-    background: #1a272e; // Your $medium-bg
-    color: #ffffff;
-    margin-bottom: 12px;
-    padding: 15px 20px;
-    border-left: 4px solid #ff4b2b; // Your $red
-    border-radius: 4px;
-    display: block;
-    transition: transform 0.2s ease, background 0.2s ease;
+  section ul li, 
+    section li {
+      list-style: none !important; 
+      background: #1a272e !important; // Force the background
+      color: #ffffff !important;
+      margin-bottom: 12px;
+      padding: 15px 20px;
+      border-left: 4px solid #ff4b2b !important;
+      border-radius: 4px;
+      display: block;
+      width: 100%;
+      transition: all 0.2s ease;
 
     &:hover {
-      background: #25343d; // Slightly lighter on hover
+      background: #25343d !important;
       transform: translateX(5px);
-      cursor: pointer;
   }
 }
 
