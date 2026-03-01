@@ -403,17 +403,20 @@ pre {
 // 6. GLOBAL LINK STYLE
    
   // 6. BASIC GLOBAL LINKS
-section a {
-  color: #ff9800 !important; // Your $orange
+section a, 
+section a:visited,
+section p a {
+  color: #ff9800 !important; 
   text-decoration: none !important;
-  font-weight: bold;
-  border-bottom: 1px solid transparent;
+  font-weight: bold !important;
+  border-bottom: 2px solid rgba(#ff4b2b, 0.3) !important; // Permanent subtle underline
   transition: all 0.2s ease;
 
   &:hover {
-    color: #ffeb3b !important; // Your $yellow
-    border-bottom: 1px solid #ff4b2b; // Red underline appears
-    text-shadow: 0 0 5px rgba(255, 152, 0, 0.5);
+    color: #ffeb3b !important; 
+    border-bottom: 2px solid #ff4b2b !important; 
+    text-shadow: 0 0 8px rgba(255, 152, 0, 0.7) !important;
+    background: rgba(#ff4b2b, 0.1); // Subtle highlight behind link
   }
 }
 
