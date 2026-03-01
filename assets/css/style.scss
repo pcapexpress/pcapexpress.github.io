@@ -16,7 +16,9 @@ $dark-bg: #1A272E;
 //@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Rajdhani:wght@500;700&family=Share+Tech+Mono&display=swap');
 
 // 2. GLOBAL RESET AND BODY
-* { box-sizing: border-box; }
+//* { box-sizing: border-box; }
+
+*, *::before, *::after { box-sizing: border-box; }
 
 //HTML BIT
 html {
