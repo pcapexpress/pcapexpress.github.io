@@ -6,26 +6,20 @@ layout: default
 ## All Abord the PCAPEXPRESS
 ### 3 of these things
 #### AM I GREEN? Ow yea you bet!
-<div class="hover-card">
+<section>
+  <ul class="hover-card"> <li>**Analysis:** Traffic Analysis, False Positive Reduction, Log Correlation.</li></ul>
+  <ul class="hover-card"> <li>**Analysis:** Traffic Analysis, False Positive Reduction, Log Correlation.</li></ul>
+</section>
 
-* First Forensic Card
-* Second Forensic Card
-
-</div>
-
-> **Quick Links:** [Home](index.md) | [PCAP Deep-Dive](pcap-analysis.md) | [Malware Analysis](malware-analysis.md) | [About Me](about.md)
-
+**Quick Links:** [Home](index.md) | [PCAP Deep-Dive](pcap-analysis.md) | [Malware Analysis](malware-analysis.md) | [About Me](about.md)
 ---
-
 # [Andy Anderson] | Aspiring Cybersecurity Analyst
-> Learning to specialize in Network Forensics using Wireshark & IDS Alert Corelation
-> Ability to establish a rudimentary SOC environment using virtualization
-> Desire to delve deeper in to Malware Deobfuscation and Detonation in a VM environment
+Learning to specialize in Network Forensics using Wireshark & IDS Alert Corelation
+Ability to establish a rudimentary SOC environment using virtualization
+Desire to delve deeper in to Malware Deobfuscation and Detonation in a VM environment
 
 #### A place to observe and reflect on packets passing by.
-
 ---
-
 ## PCAP EXPRESS SERIES: Wireshark Investigations
 Here is a robust collection of quick forensic investigations using Wireshark and series of pcap files containing real live infections.
 Lets take a look at some common techniques to observe malicious traffic and scripts in action.
