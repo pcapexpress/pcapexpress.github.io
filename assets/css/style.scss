@@ -15,8 +15,6 @@ $dark-bg: #1A272E;
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Share+Tech+Mono&display=swap');
 
 // 2. GLOBAL RESET AND BODY
-//* { box-sizing: border-box; }
-
 *, *::before, *::after { box-sizing: border-box; }
 
 //HTML BIT
@@ -63,7 +61,7 @@ header {
   justify-content: center;
   
   margin: 0 !important;
-  //$header-spacing: 75px;
+  $header-spacing: 50px;
   //padding: 60px 15px; //80px 20px <-----------------------------------------CHECK
   border-bottom: 3px solid $red;
 
@@ -160,7 +158,6 @@ header {
         transparent 100%
       );
     
-    //Applying two animations: One for moving, one for breathing
     animation: 
       scanLine 7s linear infinite, 
       greenBreathe 1s ease-in-out infinite; 
@@ -182,7 +179,7 @@ header {
   }
 
   // HEADER HOVER EFFECTS
-  // PCAPEXPRESS GLITCH
+  // PCAPEXPRESS GLITCH AND BIO BLOOM
  &:hover {
     .header-title span {
       animation: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite !important; 
@@ -231,14 +228,12 @@ section {
   z-index: 1;
 
 // 4.1 MAIN CONTENT AREA - HEADER COLORS
-  
-  // 4.1 MAIN CONTENT AREA - HEADER COLORS
 h1, h2, h3, h4 {
   display: inline-block; 
   margin-bottom: 10px;
   width: 100%; 
   // ADD THIS: Base shadow for all headers to ensure readability
-  -webkit-font-smoothing: antialiased;
+  //-webkit-font-smoothing: antialiased; <--------------------------------------------------CHECK
 }
 
 h1, h2 { 
@@ -308,11 +303,30 @@ h4 {
 }
   
   // 4.4 BODY TEXT
-p, div, li { 
-  color: $yellow; 
-  line-height: 1.7;
-  letter-spacing: 0.2px;
-}
+  p, div, li { 
+    color: $yellow; 
+    line-height: 1.7;
+    letter-spacing: 0.2px;
+  // This ensures links INSIDE paragraphs/lists are handled correctly
+  a {
+    color: #ff9800 !important; // Your $orange
+    text-decoration: none !important;
+    font-weight: bold !important;
+    position: relative;
+    z-index: 5; // Lifts it above the paragraph layer
+    display: inline-block;
+    border-bottom: 2px solid rgba(#ff4b2b, 0.3) !important;
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: #ffeb3b !important; // Your $yellow
+      border-bottom: 2px solid #ff4b2b !important; 
+      text-shadow: 0 0 8px rgba(255, 152, 0, 0.7) !important;
+      background: rgba(#ff4b2b, 0.1); 
+      cursor: pointer;
+      }
+    }
+  }
 
 // 4.5 ATMOSPHERIC IMAGE
 img {
@@ -404,30 +418,7 @@ pre {
   } //<-----------------------------------------------------CODE BLOCK CLOSED
 
 // 6. GLOBAL LINK STYLE
-   
-  // 6. BASIC GLOBAL LINKS
-  section a {
-    position: relative; // Required for z-index to work
-    z-index: 10;        // Lifts the link above background effects
-    pointer-events: auto !important; // Forces the link to be clickable
-  section a:visited,
-  section p a {
-    color: #ff9800 !important; 
-    text-decoration: none !important;
-    font-weight: bold !important;
-    border-bottom: 2px solid rgba(#ff4b2b, 0.3) !important; // Permanent subtle underline
-    transition: all 0.2s ease;
-
-  &:hover {
-    color: #ffeb3b !important; 
-    border-bottom: 2px solid #ff4b2b !important; 
-    text-shadow: 0 0 8px rgba(255, 152, 0, 0.7) !important;
-    background: rgba(#ff4b2b, 0.1); // Subtle highlight behind link
-    }
-  }
-}
-
-  // 7. BASIC HOVER CARDS
+// 7. BASIC HOVER CARDS
   .hover-card {
     display: block;             // Makes it a full-width "strip"
     width: 100%;
