@@ -10,16 +10,15 @@ layout: default
   
 * [This should be a link inside a card](/)
 
-<span class="text-green">**Platform:**</span> https://www.malware-traffic-analysis.net/<br>
+<span class="text-green">**Platform:**</span> https://www.malware-traffic-analysis.net</br>
 <span class="text-orange">**Pcap File:**</span> 2025-01-22-traffic-analysis-exercise.pcap
 
-<span class="text-red">**Platform:**</span> https://www.malware-traffic-analysis.net/<br>
+<span class="text-red">**Platform:**</span> https://www.malware-traffic-analysis.net</br>
 <span class="text-data">**Pcap File:**</span> 2025-01-22-traffic-analysis-exercise.pcap
 
-<span class="badge-data">**Pcap File:**</span> 2025-01-22-traffic-analysis-exercise.pcap/<br>
+<span class="badge-data">**Pcap File:**</span> 2025-01-22-traffic-analysis-exercise.pcap</br>
 <section>
-  <ul class="hover-card"> <li> TEXTONAMINATRIX!!!1 </li>
-  </ul>
+  <ul class="hover-card"> <li> TEXTONAMINATRIX!!!1 </li> </ul>
 </section>
 
 
@@ -45,7 +44,7 @@ Nmap done: 1 IP address (1 host up) scanned in 0.31 seconds
 </code></pre>
 
 Next is to see the port status, we are going for 4 ports in this scenario.</br>
-We are looking for a bruteforce attack here. We confirm port 22 for SSH is up.
+We are looking for a bruteforce attack here. We confirm port 22 for SSH is up.</br>
 ---
 
 ## SSH credential Hydra Attack
@@ -63,7 +62,10 @@ Hydra starting at 2026-02-21 16:12:15
 Hydra finished at 2026-02-21 16:12:21
 </code></pre>
 
-Hydra is used for the SSH brute force, we use the username intern for this scenario and a custom top 10 RockYou passwords file.
+Hydra is used for the SSH brute force, we use the username intern for this scenario and a custom top 10 RockYou passwords file.</br>
+
+
+
 ---
 
 ## SSH IN TO THE SERVER
