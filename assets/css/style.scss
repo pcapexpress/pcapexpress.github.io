@@ -62,7 +62,7 @@ header {
   
   margin: 0 !important;
   //$header-spacing: 90px;
-  padding: 80px 20px;
+  padding: 60px 20px;
   border-bottom: 3px solid $red;
 
   background: 
@@ -99,7 +99,7 @@ header {
     color: $green;
     font-weight: bold;
     font-size: 0.9rem;
-    margin: 10px 0;
+    margin: 5px 0; // <------------------------------------_CHECK
     display: block;
     
     transition: all 0.8s ease-in-out;
@@ -111,10 +111,10 @@ header {
 .nav-menu {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 10px;
   position: relative;
-  margin: 15px 0; // <----------------------------------------------------------CHECK
-  padding-bottom: 60px; // Increased space for the box //60
+  margin: 10px 0; // <----------------------------------------------------------CHECK
+  padding-bottom: 40px; // Increased space for the box //60
   
 
   a {
@@ -126,13 +126,13 @@ header {
     text-decoration: none;
     font-size: 0.8rem;
     text-transform: uppercase;
-    transition: 0.4s all ease;
+    transition: 0.3s all ease;
 
     // THE HUD BOX
     .desc {
       position: absolute;
       left: 50%; // Centers it relative to .nav-menu
-      bottom: -15px; // Distance from the  nav-menu
+      bottom: -10px; // Distance from the  nav-menu
       transform: translateX(-50%) translateY(10px);
       
       width: max-content;
@@ -229,12 +229,9 @@ header {
         rgba($green, 0.3) 15px,
         transparent 100%);
       
-      //mix-blend-mode: color-dodge;
-      mix-blend-mode: normal;
-      
-      //backdrop-filter: brightness(2.0) contrast(1.5) saturate(1.2); // <-------------------------------------------CHECK
-      backdrop-filter: sepia(0.5) contrast(2) saturate(3) hue-rotate(-50deg);
-           
+      mix-blend-mode: color-dodge;
+      backdrop-filter: brightness(2.0) contrast(1.5) saturate(1.2);
+                 
       box-shadow: 0 0 15px rgba($green, 0.4); 
       animation: scanLine 7s linear infinite, dataStutter 0.5s ease-in-out infinite;
     }
