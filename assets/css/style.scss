@@ -113,7 +113,7 @@ header {
   justify-content: center;
   gap: 15px;
   position: relative;
-  margin: 40px 0;
+  margin: 15px 0; // <----------------------------------------------------------CHECK
   padding-bottom: 60px; // Increased space for the box //60
   
 
@@ -233,8 +233,7 @@ header {
       mix-blend-mode: normal;
       
       //backdrop-filter: brightness(2.0) contrast(1.5) saturate(1.2); // <-------------------------------------------CHECK
-      backdrop-filter: grayscale(1) blur(2px) brightness(1.2);
-      //backdrop-filter: sepia(0.5) contrast(2) saturate(3) hue-rotate(-50deg);
+      backdrop-filter: sepia(0.5) contrast(2) saturate(3) hue-rotate(-50deg);
            
       box-shadow: 0 0 15px rgba($green, 0.4); 
       animation: scanLine 7s linear infinite, dataStutter 0.5s ease-in-out infinite;
