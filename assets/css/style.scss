@@ -61,8 +61,8 @@ header {
   justify-content: center;
   
   margin: 0 !important;
-  //$header-spacing: 50px;
-  padding: 100px 100px; //80px 20px <-----------------------------------------CHECK
+  $header-spacing: 90px;
+  //padding: 80px 20px;
   border-bottom: 3px solid $red;
 
   background: 
@@ -199,8 +199,8 @@ header {
         rgba($green, 0.3) 15px,
         transparent 100%);
       
-      //mix-blend-mode: color-dodge; 
-      backdrop-filter: brightness(2.0) contrast(1.5) saturate(1.2);// <---------------------------------???????????
+      mix-blend-mode: color-dodge; 
+      backdrop-filter: /*brightness(2.0) contrast(1.5)*/ saturate(1.2);// <---------------------------------???????????
       
       box-shadow: 0 0 15px rgba($green, 0.4); 
       animation: scanLine 7s linear infinite, dataStutter 0.5s ease-in-out infinite;
@@ -238,13 +238,13 @@ h1, h2, h3, h4 {
 h1, h2 { 
   color: $red !important;
   text-shadow: 
-    1px 1px 2px rgba(0, 0, 0, 0.9), // The "Dark Depth" Outline
+    1px 1px 2px rgba(139, 0, 0, 0.6), // The "Dark Depth" Outline 000 0.9
     //0 0 5px rgba($red, 0.3) !important; 
 }
 
 h3 { 
   color: $orange !important; 
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9) !important; // Added outline for H3
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6) !important; // Added outline for H3
 }  
 
 h4 {
@@ -286,7 +286,7 @@ h4 {
     line-height: 1.7;
     letter-spacing: 0.2px;
   // LINKS
-  a { 
+  /*a { 
     color: $orange;
     text-decoration: none;
     font-weight: bold;
@@ -316,7 +316,48 @@ h4 {
       width: 100%; // Stretches to full width on hover
       }
     }
+  }*/
+
+a { 
+  color: $green; // Base Green
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  padding: 2px 4px; // Small padding so the glowing box doesn't hug the letters too tight
+  z-index: 5;
+  border-radius: 3px;
+
+  // 1. THE PASSIVE SUBTLE UNDERLINE
+  // We use a transparent-ish green border-bottom for the "offline" state
+  border-bottom: 1px solid rgba($green, 0.2);
+
+  // 2. THE ANIMATED CYAN LINE (The "Charge")
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -1px; 
+    left: 0;
+    width: 0; 
+    height: 2px;
+    background-color: #00f2ff; // Cyan color
+    transition: width 0.3s ease-in-out;
+    box-shadow: 0 0 8px #00f2ff; // High-intensity cyan glow
   }
+
+  &:hover { 
+    color: #00f2ff !important; // Shifts to Cyan
+    background: rgba(0, 242, 255, 0.08); // THE GLOWING BOX (Subtle Cyan tint)
+    box-shadow: 0 0 10px rgba(0, 242, 255, 0.2); // Soft outer glow for the box
+    text-shadow: 0 0 8px rgba(0, 242, 255, 0.6);
+
+    &::after { 
+      width: 100%; // The line "fires" across the bottom
+    }
+  }
+}
+    
 }
     
 // 4.5 ATMOSPHERIC IMAGE
