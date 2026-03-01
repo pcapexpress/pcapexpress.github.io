@@ -118,13 +118,14 @@ header {
   a {
     position: relative; // Keeps the desc relative to the whole menu if needed
     padding: 8px 20px;
+    background: rgba($dark-bg, 0.8);
     border: 1px solid $red;
     border-radius: 50px;
     color: $orange;
     text-decoration: none;
     font-size: 0.8rem;
     text-transform: uppercase;
-    transition: 0.3s all ease;
+    transition: 0.5s all ease;
 
     // THE HUD BOX
     .desc {
@@ -271,7 +272,7 @@ header {
         transparent 100%);
       
       mix-blend-mode: color-dodge; 
-      backdrop-filter: /*brightness(2.0)*/ /*contrast(1.5)*/ saturate(1.2);// <---------------------------------???????????
+      backdrop-filter: /*brightness(2.0)*/ /*contrast(1.5)*/ saturate(1.2); // <---------------------------------???????????
       
       box-shadow: 0 0 15px rgba($green, 0.4); 
       animation: scanLine 7s linear infinite, dataStutter 0.5s ease-in-out infinite;
