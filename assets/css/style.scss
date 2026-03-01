@@ -199,7 +199,7 @@ header {
         rgba($green, 0.3) 15px,
         transparent 100%);
       
-      mix-blend-mode: color-dodge; 
+      //mix-blend-mode: color-dodge; 
       backdrop-filter: brightness(2.0) contrast(1.5) saturate(1.2);// <---------------------------------???????????
       
       box-shadow: 0 0 15px rgba($green, 0.4); 
@@ -408,35 +408,6 @@ pre {
   }
 } //<-----------------------------------------------------CODE BLOCK CLOSED
 
-// 7. BASIC HOVER CARDS
-  .hover-card {
-    ul li {
-    list-style: none !important;
-    background: $medium-bg;
-    margin-bottom: 12px;
-    padding: 20px;
-    border-left: 5px solid $red;
-    border-radius: 4px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-    
-    &:hover {
-        background-color: $red; 
-        transform: translateX(8px); // Slightly more dramatic shift
-        color: #ffffff;
-        box-shadow: -5px 0 15px rgba($red, 0.4);
-
-        // Forces all nested text (h3, p, etc.) to white on hover
-        h1, h2, h3, h4, p, span, strong { 
-          color: #ffffff; 
-          text-shadow: inherit;
-        }  
-      }
-    }
-  }
-
-
 /*color: $orange;
   text-decoration: none;
   font-weight: bold;
@@ -560,6 +531,35 @@ hr {
     }
   }
 }
+
+// 0. BASIC HOVER CARDS OUTSIDE THE SECTION
+  .hover-card {
+    ul li {
+    list-style: none !important;
+    background: $medium-bg;
+    margin-bottom: 12px;
+    padding: 20px;
+    border-left: 5px solid $red;
+    border-radius: 4px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    
+    &:hover {
+        background-color: $red; 
+        transform: translateX(8px); // Slightly more dramatic shift
+        color: #ffffff;
+        box-shadow: -5px 0 15px rgba($red, 0.4);
+
+        // Forces all nested text (h3, p, etc.) to white on hover
+        h1, h2, h3, h4, p, span, strong { 
+          color: #ffffff; 
+          text-shadow: inherit;
+        }  
+      }
+    }
+  }
+
 
 // 9. WRAPPER
 .wrapper {
