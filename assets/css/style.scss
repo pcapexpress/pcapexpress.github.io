@@ -62,7 +62,7 @@ header {
   
   margin: 0 !important;
   //$header-spacing: 50px;
-  padding: 100px 20px; //80px 20px <-----------------------------------------CHECK
+  padding: 100px 100px; //80px 20px <-----------------------------------------CHECK
   border-bottom: 3px solid $red;
 
   background: 
@@ -533,33 +533,35 @@ hr {
 }
 
 // 0. BASIC HOVER CARDS OUTSIDE THE SECTION
-  .hover-card {
-    ul li {
-    list-style: none !important;
-    background: $medium-bg;
-    margin-bottom: 12px;
-    padding: 20px;
-    border-left: 5px solid $red;
-    border-radius: 4px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-    
-    &:hover {
-        background-color: $red; 
-        transform: translateX(8px); // Slightly more dramatic shift
-        color: #ffffff;
-        box-shadow: -5px 0 15px rgba($red, 0.4);
+  // 7. THE "FORCED" HOVER CARD
+.hover-card {
+  // 1. THE BOX (Forced)
+  display: block !important;
+  background: #1a272e !important; // Your $medium-bg
+  margin-bottom: 15px !important;
+  padding: 20px !important;
+  border-left: 5px solid #ff4b2b !important; // Your $red
+  border-radius: 4px !important;
+  list-style: none !important; // Kills bullets if used on <li>
+  
+  // 2. THE TEXT (Forced)
+  color: #ffffff !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease-in-out !important;
 
-        // Forces all nested text (h3, p, etc.) to white on hover
-        h1, h2, h3, h4, p, span, strong { 
-          color: #ffffff; 
-          text-shadow: inherit;
-        }  
-      }
+  // 3. THE HOVER (Forced)
+  &:hover {
+    background-color: #ff4b2b !important; // Turns Red
+    transform: translateX(8px) !important;
+    box-shadow: -5px 0 15px rgba(255, 75, 43, 0.4) !important;
+    
+    // Force all inner text to white so it stays readable on the red background
+    * { 
+      color: #ffffff !important; 
+      text-shadow: none !important; 
     }
   }
-
+}
 
 // 9. WRAPPER
 .wrapper {
