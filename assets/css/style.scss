@@ -257,14 +257,25 @@ section {
   width: 100%;
   display: block;
   position: relative;
-  //z-index: //1; <------------------------------------------------------------CHECK
+  z-index: 1;
 
-// 4.1 MAIN CONTENT AREA - HEADER COLORS
+// 4.1 MAIN CONTENT AREA - HEADERS
 h1, h2, h3, h4 {
   display: inline-block; 
   margin-bottom: 10px;
   width: 100%; 
+  //-webkit-font-smoothing: antialiased;
+  
+  backface-visibility: hidden; // <-----------------------------------------------------------CHECK
+  transform: translateZ(0); 
+
+  // 2. Smooth out the font rendering
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  // 3. Prevent layout shifting during transitions
+  will-change: transform, opacity; //
+ 
 }
 
 h1 {
