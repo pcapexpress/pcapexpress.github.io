@@ -128,16 +128,15 @@ header {
       color: #00f2ff;
       box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
 
-      // This is the "Magic" line: 
-      // It finds the .pill-description-box that exists after the links
-      & ~ .description-box {
-        opacity: 1;
-        border-color: rgba(0, 242, 255, 0.5);
-        
-        &::before {
-          content: attr(data-description); // GRABS THE SPECIFIC TEXT
-          color: #00f2ff;
-          text-shadow: 0 0 8px rgba(0, 242, 255, 0.8);
+      // Update the "Magic" section to this:
+        a:hover ~ .description-box {
+          opacity: 1 !important;
+          border-color: rgba(0, 242, 255, 0.5) !important;
+  
+          &::before {
+            content: attr(data-description) !important; // FORCE the attribute text
+            color: #00f2ff !important;
+            text-shadow: 0 0 8px rgba(0, 242, 255, 0.8);
         }
       }
     }
