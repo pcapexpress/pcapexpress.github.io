@@ -62,7 +62,7 @@ header {
   
   margin: 0 !important;
   //$header-spacing: 50px;
-  padding: 20px 20px; //80px 20px <-----------------------------------------CHECK
+  padding: 100px 20px; //80px 20px <-----------------------------------------CHECK
   border-bottom: 3px solid $red;
 
   background: 
@@ -199,8 +199,8 @@ header {
         rgba($green, 0.3) 15px,
         transparent 100%);
       
-      //mix-blend-mode: color-dodge; 
-      //backdrop-filter: brightness(2.0) contrast(1.5) saturate(1.2); <---------------------------------???????????
+      mix-blend-mode: color-dodge; 
+      backdrop-filter: brightness(2.0) contrast(1.5) saturate(1.2);// <---------------------------------???????????
       
       box-shadow: 0 0 15px rgba($green, 0.4); 
       animation: scanLine 7s linear infinite, dataStutter 0.5s ease-in-out infinite;
@@ -435,6 +435,65 @@ pre {
       }
     }
   }
+
+
+/*color: $orange;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative; // Anchors the custom underline
+  transition: color 0.3s ease;
+
+  // The Animated Red Underline
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -2px; 
+    left: 0;
+    width: 0; // Starts hidden
+    height: 2px;
+    background-color: $red;
+    transition: width 0.3s ease-in-out;
+    box-shadow: 0 0 5px $red; // Forensic glow
+  }
+
+  &:hover { 
+    color: $yellow;
+    text-shadow: 0 0 8px rgba($yellow, 0.5);
+
+    &::after { 
+      width: 100%; // Stretches to full width on hover
+    }
+  }
+}
+
+// 7. FORENSIC INFO CARDS (Modules)
+section ul li {
+  list-style: none;
+  background: $medium-bg;
+  margin-bottom: 12px;
+  padding: 20px;
+  border-left: 5px solid $red;
+  border-radius: 4px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+
+  // This handles the text inside when you hover
+  &:hover {
+    background-color: $red; 
+    transform: translateX(8px); // Slightly more dramatic shift
+    color: #ffffff;
+    box-shadow: -5px 0 15px rgba($red, 0.4);
+
+    // Forces all nested text (h3, p, etc.) to white on hover
+    h1, h2, h3, h4, p, span, strong { 
+      color: #ffffff; 
+      text-shadow: inherit;
+    }
+  }
+}*/
+
+  
  
 // 8.1 AMBIENT WIRE DIVIDER ---
 hr {
