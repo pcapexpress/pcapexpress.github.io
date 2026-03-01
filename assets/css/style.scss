@@ -61,13 +61,15 @@ header {
   justify-content: center;
   
   margin: 0 !important;
-  $header-spacing: 90px;
+  $header-spacing: 80px;
   padding: 80px 20px;
   border-bottom: 3px solid $red;
 
   background: 
     linear-gradient(to bottom, rgba(26, 39, 46, 0) 0%, rgba(26, 39, 46, 0.95) 100%),//0.05
     url("../images/header.png") no-repeat center center;
+
+  background-position: center 20%;
   background-size: cover; 
   background-attachment: scroll;
 
@@ -107,107 +109,65 @@ header {
 
 // 3.3 HEADER MENU LINKS
 .nav-menu {
-  list-style: none;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap; // Allows pills to wrap on mobile
   gap: 15px;
-  margin: 15px 0 0 0;
-  padding: 20px 20px 60px 20px; // Extra bottom padding for the box
-  position: relative; // Vital for the absolute box inside
+  position: relative;
+  padding-bottom: 60px; // Increased space for the box
 
-  // Targeting 'a' directly since you removed 'li' from HTML
   a {
-    background: rgba($dark-bg, 0.8);
-    border: 1px solid $red;
-    color: $orange;
+    position: relative; // Keeps the desc relative to the whole menu if needed
     padding: 8px 20px;
+    border: 1px solid $red;
     border-radius: 50px;
+    color: $orange;
+    text-decoration: none;
     font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    text-decoration: none !important;
-    transition: 0.5s all ease;
-    z-index: 10;
+    transition: 0.3s all ease;
 
-    &::after { 
-      content: none !important; 
-      display: none !important; 
-    }
-
-    &:hover {
-      background: $orange;
-      color: $dark-bg;
-      box-shadow: 0 0 15px $red;
-      border-color: $orange;
-    }
-
-    // THE TEXT (Hidden by default)
+    // THE HUD BOX
     .desc {
+      // 1. Position & Layout
       position: absolute;
       left: 50%;
-      bottom: 0;
-      transform: translateX(-50%);
-      width: 100%;
-      text-align: center;
-      color: #00f2ff; // Cyan
+      bottom: -45px; // Positions it below the pill row
+      transform: translateX(-50%) translateY(10px); // Starts slightly lower
+      width: max-content; // Fits the box to the text size
+      min-width: 250px;
+      padding: 6px 15px;
+      
+      // 2. Visuals (Subtle Box)
+      background: rgba(0, 0, 0, 0.7); // Dark semi-transparent
+      border: 1px solid rgba(0, 242, 255, 0.3); // Cyan border
+      border-radius: 4px;
+      color: #00f2ff;
       font-size: 0.7rem;
       letter-spacing: 1px;
-      display: none; // COMPLETELY HIDDEN
+      
+      // 3. Animation State (Hidden)
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       pointer-events: none;
+      white-space: nowrap;
     }
 
     &:hover {
       background: $orange;
       color: $dark-bg;
+      box-shadow: 0 0 15px rgba($red, 0.4);
       
-      // SHOW THE TEXT ON HOVER
+      // 4. Animation State (Visible)
       .desc {
-        display: block; 
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0); // Slides up into place
+        box-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
       }
     }
   }
 }
-
-    /*// THE MAGIC LINE: Moved out of the &:hover block
-    &:hover ~ .description-box {
-    opacity: 1 !important;
-    border-color: rgba(0, 242, 255, 0.5) !important;
-    
-    &::before {
-      // 1. Force the content to clear and then fill with the attribute
-      content: attr(data-description) !important; 
-      
-      // 2. Ensure visibility
-      visibility: visible !important;
-      display: block !important;
-      color: #00f2ff !important;
-      text-shadow: 0 0 8px rgba(0, 242, 255, 0.8);
-    }
-  }
-}
-
-  // THE HUD BOX
-  .description-box {
-    position: absolute;
-    bottom: 10px; // Lifted slightly from the bottom
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%; // More responsive than a fixed width
-    max-width: 500px;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba($yellow, 0.1);
-    border-radius: 4px;
-    opacity: 0.2; 
-    transition: all 0.3s ease;
-    pointer-events: none;
-    z-index: 9;
-  }*/
-
 
   
 /*
