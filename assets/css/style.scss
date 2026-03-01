@@ -61,8 +61,8 @@ header {
   justify-content: center;
   
   margin: 0 !important;
-  $header-spacing: 80px;
-  padding: 80px 20px;
+  $header-spacing: 60px;
+  //padding: 80px 20px;
   border-bottom: 3px solid $red;
 
   background: 
@@ -113,7 +113,7 @@ header {
   justify-content: center;
   gap: 15px;
   position: relative;
-  padding-bottom: 60px; // Increased space for the box
+  padding-bottom: 30px; // Increased space for the box //60
 
   a {
     position: relative; // Keeps the desc relative to the whole menu if needed
@@ -128,21 +128,21 @@ header {
 
     // THE HUD BOX
     .desc {
-      // 1. Position & Layout
       position: absolute;
-      left: 50%;
-      bottom: -45px; // Positions it below the pill row
-      transform: translateX(-50%) translateY(10px); // Starts slightly lower
-      width: max-content; // Fits the box to the text size
-      min-width: 250px;
-      padding: 6px 15px;
+      left: 50%; // Centers it relative to .nav-menu
+      bottom: 10px; // Fixed distance from the bottom of the nav-menu
+      transform: translateX(-50%) translateY(10px);
+      
+      width: max-content;
+      min-width: 300px; // Made it a bit wider for a "Status Bar" feel
+      text-align: center;
       
       // 2. Visuals (Subtle Box)
-      background: rgba(0, 0, 0, 0.7); // Dark semi-transparent
-      border: 1px solid rgba(0, 242, 255, 0.3); // Cyan border
+      background: rgba(0, 0, 0, 0.5); // Dark semi-transparent
+      border: 1px solid rgba($green, 0.3); // Cyan border
       border-radius: 4px;
-      color: #00f2ff;
-      font-size: 0.7rem;
+      color: $green;
+      font-size: 0.9rem;
       letter-spacing: 1px;
       
       // 3. Animation State (Hidden)
@@ -159,11 +159,10 @@ header {
       box-shadow: 0 0 15px rgba($red, 0.4);
       
       // 4. Animation State (Visible)
-      .desc {
-        opacity: 1;
-        visibility: visible;
-        transform: translateX(-50%) translateY(0); // Slides up into place
-        box-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
+    .desc {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
       }
     }
   }
@@ -272,7 +271,7 @@ header {
         transparent 100%);
       
       mix-blend-mode: color-dodge; 
-      backdrop-filter: brightness(2.0) /*contrast(1.5)*/ saturate(1.2);// <---------------------------------???????????
+      backdrop-filter: /*brightness(2.0)*/ /*contrast(1.5)*/ saturate(1.2);// <---------------------------------???????????
       
       box-shadow: 0 0 15px rgba($green, 0.4); 
       animation: scanLine 7s linear infinite, dataStutter 0.5s ease-in-out infinite;
@@ -306,7 +305,15 @@ h1, h2, h3, h4 {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2 { 
+h1 {
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  color: $red !important;
+  text-shadow: 
+    1px 1px 2px rgba(139, 0, 0, 0.6), // The "Dark Depth" Outline 000 0.9
+    //0 0 5px rgba($red, 0.3) !important; 
+    
+h2 { 
+  font-size: clamp(1.2rem, 5vw, 1.5rem);
   color: $red !important;
   text-shadow: 
     1px 1px 2px rgba(139, 0, 0, 0.6), // The "Dark Depth" Outline 000 0.9
