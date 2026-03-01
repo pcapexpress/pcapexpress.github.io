@@ -1,7 +1,7 @@
 ---
 ---
 
-// 1. PALETTE & VARIABLES
+// 1.0 PALETTE & VARIABLES
 $slate: #344E5C; //WRAPPER
 $darker-slate: #1C2A31; //BACKGROUND
 $yellow: #EFC958; //MAIN TEXT
@@ -11,13 +11,13 @@ $orange: #E17A47; //HEADER 3
 $medium-bg: #263842;
 $dark-bg: #1A272E;
 
-//FONTS
+// 1.1 FONTS
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Share+Tech+Mono&display=swap');
 
-// 2. GLOBAL RESET AND BODY
+// 1.2 GLOBAL RESET AND BODY
 *, *::before, *::after { box-sizing: border-box; }
 
-//HTML BIT
+// 1.3 HTML BIT
 html {
   background-color: $darker-slate;
   background-image: repeating-linear-gradient(
@@ -27,7 +27,7 @@ html {
   margin: 0; padding: 0;
 }
 
-//BODY STRUCTURE
+// 2.0 BODY STRUCTURE
 body {
   background-color: transparent; 
   color: $orange;
@@ -49,7 +49,7 @@ h1, h2, h3, .header-title, .nav-menu, .header-bio, footer {
   text-transform: uppercase;
 }
 
-// 3. HEADER ARCHITECTURE
+// 3.0 HEADER ARCHITECTURE
 header {  
   position: relative;
   overflow: hidden;
@@ -62,7 +62,7 @@ header {
   
   margin: 0 !important;
   $header-spacing: 90px;
-  //padding: 80px 20px;
+  padding: 80px 20px;
   border-bottom: 3px solid $red;
 
   background: 
@@ -71,7 +71,7 @@ header {
   background-size: cover; 
   background-attachment: scroll;
 
-  // Global centering for header elements
+  //Global centering for header elements
   .header-title, .header-bio, .nav-menu {
     position: relative;
     z-index: 5;
@@ -81,7 +81,7 @@ header {
     margin-right: auto;
   }
 
-  //HEADER TITLE
+  // 3.1 HEADER TITLE
   .header-title span {
     margin: 0 0 5px 0;
     color: $orange !important;
@@ -92,7 +92,7 @@ header {
     display: inline-block;
   }
 
-  // HEADER GREEN MIDDLE TEXT
+  // 3.2 HEADER GREEN MIDDLE TEXT
   .header-bio {
     color: $green;
     font-weight: bold;
@@ -105,7 +105,7 @@ header {
     filter: brightness(1);
   }
 
-  //HEADER MENU LINKS
+  // 3.3 HEADER MENU LINKS
   .nav-menu {
     list-style: none;
     display: flex;
@@ -114,7 +114,7 @@ header {
     margin: 15px 0 0 0;
     padding: 0;
 
-    //LINK PILLS
+    // 3.4 LINK PILLS
     li a {
       background: rgba($dark-bg, 0.8);
       border: 1px solid $red;
@@ -140,7 +140,7 @@ header {
   }
 }
           
-  //SCAN LINES
+  // 3.5 SCAN LINES
   //GREEN LINE PASIVE
   &::after { 
     content: "";
@@ -177,7 +177,7 @@ header {
     z-index: 2;
   }
 
-  // HEADER HOVER EFFECTS
+  // 3.6 HEADER HOVER EFFECTS
   // PCAPEXPRESS GLITCH AND BIO BLOOM
  &:hover {
     .header-title span {
@@ -200,7 +200,7 @@ header {
         transparent 100%);
       
       mix-blend-mode: color-dodge; 
-      backdrop-filter: /*brightness(2.0) contrast(1.5)*/ saturate(1.2);// <---------------------------------???????????
+      backdrop-filter: brightness(2.0) /*contrast(1.5)*/ saturate(1.2);// <---------------------------------???????????
       
       box-shadow: 0 0 15px rgba($green, 0.4); 
       animation: scanLine 7s linear infinite, dataStutter 0.5s ease-in-out infinite;
@@ -231,7 +231,6 @@ h1, h2, h3, h4 {
   display: inline-block; 
   margin-bottom: 10px;
   width: 100%; 
-  // ADD THIS: Base shadow for all headers to ensure readability
   -webkit-font-smoothing: antialiased; //<--------------------------------------------------CHECK
 }
 
@@ -261,7 +260,7 @@ h4 {
 .text-red    { color: $red;    text-shadow: 0 0 8px rgba($red, 0.4); font-weight: bold; }
 .text-data { color: #00f2ff; text-shadow: 0 0 5px rgba(0, 242, 255, 0.5); }
 
-  // 4.3 HIGHLIGHT BADGES
+  // 4.3 HIGHLIGHT BADGE
 [class^="badge-"] {
   display: inline-block;
   padding: 2px 6px;
@@ -317,9 +316,9 @@ h4 {
       }
     }
   }*/
-
+// 4.5 LINKS
 a { 
-  color: $green; // Base Green
+  color: $orange;
   text-decoration: none;
   font-weight: bold;
   transition: all 0.3s ease;
@@ -328,12 +327,9 @@ a {
   padding: 2px 4px; // Small padding so the glowing box doesn't hug the letters too tight
   z-index: 5;
   border-radius: 3px;
+  border-bottom: 1px solid rgba($orange, 0.3); // Underline
 
-  // 1. THE PASSIVE SUBTLE UNDERLINE
-  // We use a transparent-ish green border-bottom for the "offline" state
-  border-bottom: 1px solid rgba($green, 0.2);
-
-  // 2. THE ANIMATED CYAN LINE (The "Charge")
+  //THE ANIMATED LINE
   &::after {
     content: "";
     position: absolute;
@@ -341,14 +337,14 @@ a {
     left: 0;
     width: 0; 
     height: 2px;
-    background-color: #00f2ff; // Cyan color
+    background-color: $yellow;
     transition: width 0.3s ease-in-out;
-    box-shadow: 0 0 8px #00f2ff; // High-intensity cyan glow
+    box-shadow: 0 0 8px $yellow; // High-intensity glow
   }
 
   &:hover { 
-    color: #00f2ff !important; // Shifts to Cyan
-    background: rgba(0, 242, 255, 0.08); // THE GLOWING BOX (Subtle Cyan tint)
+    color: $yellow !important;
+    background: rgba(0, 242, 255, 0.08); // THE GLOWING BOX
     box-shadow: 0 0 10px rgba(0, 242, 255, 0.2); // Soft outer glow for the box
     text-shadow: 0 0 8px rgba(0, 242, 255, 0.6);
 
@@ -360,7 +356,7 @@ a {
     
 }
     
-// 4.5 ATMOSPHERIC IMAGE
+// 4.6 ATMOSPHERIC IMAGE
 img {
   border: 2px solid rgba($orange, 0.5);
   background-color: rgba($dark-bg, 0.55);
@@ -389,7 +385,7 @@ img {
     }
   } // <-------------------------------------------------------------IMAGE CLOSED
 
-// 5. CODE BLOCKS
+// 4.7 CODE BLOCKS
 pre {
   background-color: #0a0a0a; 
   background-image: repeating-conic-gradient(#1a1a1a 0% 25%, #222 0% 50%);
@@ -507,7 +503,7 @@ section ul li {
 
   
  
-// 8.1 AMBIENT WIRE DIVIDER ---
+// 4.8 AMBIENT WIRE DIVIDER ---
 hr {
   border: none !important;
   height: 2px !important; 
@@ -532,7 +528,7 @@ hr {
     wireEnergize 2s ease-in-out infinite;
   }
 
-// 8.2 WIRE DIVIDER WITH SYMBOL
+// 4.10 WIRE DIVIDER WITH SYMBOL
 .divider-wire {
   display: flex;
   align-items: center;
@@ -573,15 +569,14 @@ hr {
   }
 }
 
-// 0. BASIC HOVER CARDS OUTSIDE THE SECTION
-  // 7. THE "FORCED" HOVER CARD
+// 5.0 BASIC HOVER CARDS OUTSIDE THE SECTION
 .hover-card {
   // 1. THE BOX (Forced)
   display: block !important;
-  background: #1a272e !important; // Your $medium-bg
+  background: $darker-slate !important;
   margin-bottom: 15px !important;
   padding: 20px !important;
-  border-left: 5px solid #ff4b2b !important; // Your $red
+  border-left: 3px solid $red !important;
   border-radius: 4px !important;
   list-style: none !important; // Kills bullets if used on <li>
   
@@ -592,9 +587,9 @@ hr {
 
   // 3. THE HOVER (Forced)
   &:hover {
-    background-color: #ff4b2b !important; // Turns Red
-    transform: translateX(8px) !important;
-    box-shadow: -5px 0 15px rgba(255, 75, 43, 0.4) !important;
+    background-color: $red !important; // Turns Red
+    transform: translateX(5px) !important;
+    box-shadow: -5px 0 15px rgba($red, 0.4) !important;
     
     // Force all inner text to white so it stays readable on the red background
     * { 
@@ -604,7 +599,7 @@ hr {
   }
 }
 
-// 9. WRAPPER
+// 6.0 WRAPPER
 .wrapper {
   max-width: 900px;
   width: 100%;
@@ -612,7 +607,7 @@ hr {
   background-color: $slate; 
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.7); 
 
-  //THE WHITE STRIPE VERSION
+  //THE WHITE STRIPE BACKHROUND
   background-image: repeating-linear-gradient(
     0deg, 
     rgba(255, 255, 255, 0.05) 0px, 
@@ -628,7 +623,7 @@ hr {
   align-items: stretch;  
 }
 
-// 10. SLIM FOOTER
+// 7.0 SLIM FOOTER
 footer {
   display: flex;
   align-items: center;
@@ -636,7 +631,6 @@ footer {
   width: 100%;
   height: 45px;
   margin-top: auto; 
-  //background-color: rgba(26, 39, 46, 0.85); 
   background:
     linear-gradient(rgba(26, 39, 46, 0.8), rgba(26, 39, 46, 0.8)),
     url("../images/footer.png") no-repeat center center;
@@ -653,7 +647,7 @@ footer::after {
   content: "© 2026 PcapExpress | Patience | Perseverance | Upward Mobility";
 }
 
-// 11. ANIMATIONS
+// 8.0 ANIMATIONS
 //TITLE GLITCH
 @keyframes glitchText {
   0% { transform: translate(0); text-shadow: -2px -2px $red, 2px 2px $green; }
@@ -708,19 +702,18 @@ footer::after {
 @keyframes wireEnergize {
   0%, 100% { 
     opacity: 0.6;
-    // No brightness filter here to prevent graying/dulling
     box-shadow: 0 0 5px rgba($orange, 0.2); 
   }
   50% { 
-    opacity: 1;
+    opacity: 0.9;
     box-shadow: 
-      0 0 8px rgba($orange, 0.9),  
-      0 0 20px rgba($orange, 0.4), 
-      0 0 35px rgba($orange, 0.1); 
+      0 0 8px rgba($orange, 0.8),  
+      0 0 20px rgba($orange, 0.3), 
+      0 0 30px rgba($orange, 0.1); 
   }
 }
 
 @keyframes dividerStretch {
-  0%, 100% { transform: scaleX(1); opacity: 0.8; }
+  0%, 100% { transform: scaleX(1); opacity: 0.5; }
   60% { transform: scaleX(0.8); opacity: 1; }
 }
