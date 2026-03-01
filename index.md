@@ -8,17 +8,13 @@ No.2 - Establishing a rudimentary SOC environment using the Wazuh agent and a Vi
 No.3 - Reserved for basic malware analisys and deobfuscation
 
 <div class="hover-card">
-  **Analysis:** Traffic Analysis, False Positive Reduction, Log Correlation.
-  **Analysis:** Traffic Analysis, False Positive Reduction, Log Correlation.
-  **Analysis:** Traffic Analysis, False Positive Reduction, Log Correlation.
+  **ANALYSIS:** Packet capture complete.
 </div>
+Text text text
 <div class="hover-card">
-  **Analysis:** Traffic Analysis, False Positive Reduction, Log Correlation.
+  **ANALYSIS:** Packet capture complete.
+ YES YES
 </div>
-<ul>
-  <li class="hover-card">**Analysis:** Item One</li>
-  <li class="hover-card">**Analysis:** Item Two</li>
-</ul>
 
 ---
 ## [Andy Anderson] | Aspiring Cybersecurity Analyst
