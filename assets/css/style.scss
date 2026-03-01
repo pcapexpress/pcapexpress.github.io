@@ -148,8 +148,7 @@ header {
       // 3. Animation State (Hidden)
       opacity: 0;
       visibility: hidden;
-      //transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); // < ------------------------------------------------ CHECK
-      transition: 0.5s all ease;
+      transition: 0.4s all ease;
       pointer-events: none;
       white-space: nowrap;
     }
@@ -234,7 +233,7 @@ header {
       //backdrop-filter: brightness(2.0) contrast(1.5) saturate(1.2); // <-------------------------------------------CHECK
       //backdrop-filter: grayscale(1) blur(2px) brightness(1.2);
       //backdrop-filter: sepia(0.5) contrast(2) saturate(3) hue-rotate(-50deg);
-      backdrop-filter: invert(0.8) hue-rotate(90deg);
+      backdrop-filter: invert(0.4) hue-rotate(90deg);
       
       box-shadow: 0 0 15px rgba($green, 0.4); 
       animation: scanLine 7s linear infinite, dataStutter 0.5s ease-in-out infinite;
