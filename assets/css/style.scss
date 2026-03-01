@@ -112,7 +112,7 @@ header {
   justify-content: center;
   gap: 15px;
   position: relative;
-  padding-bottom: 50px; // Creates space for the box below
+  padding-bottom: 50px; 
 
   a {
     padding: 10px 25px;
@@ -121,23 +121,25 @@ header {
     color: $green;
     text-decoration: none;
     transition: all 0.2s ease;
+    z-index: 10; // Ensures pills are "on top" and clickable
 
     &:hover {
       background: rgba($green, 0.15);
       border-color: #00f2ff;
       color: #00f2ff;
       box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+    }
 
-      // Update the "Magic" section to this:
-        a:hover ~ .description-box {
-          opacity: 1 !important;
-          border-color: rgba(0, 242, 255, 0.5) !important;
-  
-          &::before {
-            content: attr(data-description) !important; // FORCE the attribute text
-            color: #00f2ff !important;
-            text-shadow: 0 0 8px rgba(0, 242, 255, 0.8);
-        }
+    // THE MAGIC LINE: Moved outside the &hover block but inside a {}
+    // This says: "When this 'a' is hovered, find the box that follows it"
+    &:hover ~ .description-box {
+      opacity: 1 !important;
+      border-color: rgba(0, 242, 255, 0.5) !important;
+      
+      &::before {
+        content: attr(data-description) !important; 
+        color: #00f2ff !important;
+        text-shadow: 0 0 8px rgba(0, 242, 255, 0.8);
       }
     }
   }
@@ -155,17 +157,19 @@ header {
     align-items: center;
     justify-content: center;
     background: rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba($green, 0.1);
+    border: 1px solid rgba($green, 0.2); // Slightly more visible
     border-radius: 4px;
-    opacity: 0; // Hidden until hover
+    opacity: 0.2; // Start semi-visible for that "System On" look
     transition: all 0.3s ease;
     pointer-events: none;
+    z-index: 5; // Keeps it behind the clickable links
 
     &::before {
-      content: "STATUS: IDLE"; // Default text when not hovering
+      content: "STATUS: IDLE"; 
       font-size: 0.75rem;
       letter-spacing: 2px;
       text-transform: uppercase;
+      color: rgba($green, 0.5);
     }
   }
 }
