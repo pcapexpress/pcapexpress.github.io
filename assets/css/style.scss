@@ -83,7 +83,29 @@ header {
     margin-right: auto;
   }
 
-  // 3.1 HEADER TITLE
+  // 3.1 HEADER TITLE AND BACKDROP
+  .header-backdrop {
+  position: relative;
+  z-index: 2; // Ensures it stays above the background but below the scan-line if desired
+  padding: 30px 60px;
+  margin-bottom: 40px;
+  
+  // THE GLASS PLATE
+  background: rgba(0, 0, 0, 0.4); // Semi-transparent black
+  backdrop-filter: blur(8px);     // This makes the background image "soft" behind the text
+  border: 1px solid rgba($red, 0.2); // Very subtle tactical border
+  border-radius: 8px;
+  
+  // Optional: Inner glow to make it feel like a screen
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 800px; // Keeps the box from stretching too wide
+}
+  
   .header-title span {
     margin: 0 0 5px 0;
     color: $orange !important;
