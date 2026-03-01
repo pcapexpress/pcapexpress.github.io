@@ -1,17 +1,17 @@
 ---
 layout: default
 ---
+### All Abord the PCAPEXPRESS
+This is a project portfolio based around developing a useful set of skills in the field of IT security. The Portfolio is focused on 3 main sections.
+No.1 - Using real life Pcap file analisys using Wireshark.
+No.2 - Establishing a rudimentary SOC environment using the Wazuh agent and a Virtual Machine Server.
+No.3 - Reserved for basic malware analisys and deobfuscation
 
-# A Cybersecurity Portfolio Page
-## All Abord the PCAPEXPRESS
-### 3 of these things
-#### AM I GREEN? Ow yea you bet!
 <section>
-  <ul class="hover-card"> <li>**Analysis:** Traffic Analysis, False Positive Reduction, Log Correlation.</li></ul>
-  <ul class="hover-card"> <li>**Analysis:** Traffic Analysis, False Positive Reduction, Log Correlation.</li></ul>
+  <ul class="hover-card"> <li>**Analysis:** Traffic Analysis, False Positive Reduction, Log Correlation.</li> </ul>
+  <ul class="hover-card"> <li>**Analysis:** Traffic Analysis, False Positive Reduction, Log Correlation.</li> </ul>
 </section>
 
-**Quick Links:** [Home](index.md) | [PCAP Deep-Dive](pcap-analysis.md) | [Malware Analysis](malware-analysis.md) | [About Me](about.md)
 ---
 # [Andy Anderson] | Aspiring Cybersecurity Analyst
 Learning to specialize in Network Forensics using Wireshark & IDS Alert Corelation
@@ -25,10 +25,10 @@ Here is a robust collection of quick forensic investigations using Wireshark and
 Lets take a look at some common techniques to observe malicious traffic and scripts in action.
 **All of the samples are kindly provided by malware.....**
 
-### [PCAP EXPRESS SERIES: Exercise 01 Fake Website ](./PCAP-EXPRESS-01.md)
+[PCAP EXPRESS SERIES: Exercise 01 Fake Website ](./PCAP-EXPRESS-01.md)
 *Some interesting malicious activity.*
 
-### [PCAP EXPRESS SERIES: Exercise 02 Nematodes ](./PCAP-EXPRESS-02.md)
+[PCAP EXPRESS SERIES: Exercise 02 Nematodes ](./PCAP-EXPRESS-02.md)
 *Starting to check alerts.*
 
 ### [PCAP EXPRESS SERIES: Exercise 03 Big Fish ](./PCAP-EXPRESS-03.md)
