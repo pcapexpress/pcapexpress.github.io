@@ -132,55 +132,57 @@ header {
     gap: 10px;
     position: relative;
     margin: 0 auto;
-    padding-bottom: 60px;
+    padding-bottom: 10px; // <--------------------60 CHECK
 
-  a {
-    position: static;
-    padding: 8px 20px;
-    background: rgba($dark-bg, 0.8);
-    border: 1px solid $red;
-    border-radius: 50px;
-    color: $orange;
-    text-decoration: none;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    transition: 0.3s all ease;
+    a {
+      position: static;
+      padding: 8px 20px;
+      background: rgba($dark-bg, 0.8);
+      border: 1px solid $red;
+      border-radius: 50px;
+      color: $orange;
+      text-decoration: none;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      transition: 0.3s all ease;
 
-    // THE HUD BOX
-    .desc {
-      position: absolute;
-      left: 50%; // Centers it relative to .nav-menu
-      bottom: -5px; // Distance from the  nav-menu
-      transform: translateX(-50%) translateY(5px); // < ------------------------------10 CHECK
+      // THE HUD BOX
+      .desc {
+        position: absolute;
+        left: 50%; // Centers it relative to .nav-menu
+        //bottom: -5px; // Distance from the  nav-menu
+        top: 100%;
+        margin-top: 20px;
+        transform: translateX(-50%) translateY(10px); // < ------------------------------10 CHECK
       
-      width: max-content;
-      min-width: 100px;
-      text-align: center;      
-      //BOX PARAMETERS
-      background: rgba($dark-bg, 0.5); // Dark semi-transparent
-      border: 1px solid rgba($green, 0.3); // Cyan border
-      border-radius: 4px;
-      color: $green;
-      font-size: 0.9rem;
-      letter-spacing: 1px;
-      // 3. Animation State (Hidden)
-      opacity: 0;
-      visibility: hidden;
-      transition: 0.4s all ease;
-      pointer-events: none;
-      white-space: nowrap;
-    }
+        width: max-content;
+        min-width: 100px;
+        text-align: center;      
+        //BOX PARAMETERS
+        background: rgba($dark-bg, 0.5); // Dark semi-transparent
+        border: 1px solid rgba($green, 0.3); // Cyan border
+        border-radius: 4px;
+        color: $green;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+        // 3. Animation State (Hidden)
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.4s all ease;
+        pointer-events: none;
+        white-space: nowrap;
+      }
 
-    &:hover {
-      background: $orange;
-      color: $dark-bg;
-      box-shadow: 0 0 15px rgba($red, 0.4);
+        &:hover {
+          background: $orange;
+          color: $dark-bg;
+          box-shadow: 0 0 15px rgba($red, 0.4);
       
-      // 4. Animation State (Visible)
-    .desc {
-      opacity: 1;
-      visibility: visible;
-      transform: translateX(-50%) translateY(0);
+          // 4. Animation State (Visible)
+          .desc {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
       }
     }
   }
@@ -478,33 +480,7 @@ pre {
   }
 } //<------------------------------------------------------------------------------CODE BLOCK CLOSED
 
-// 4.9 WIRE DIVIDER BASIC  
-/*hr {
-  border: none !important;
-  height: 2px !important; 
-  background-color: transparent !important;
-  opacity: 1;
-  
-  background-image: linear-gradient(
-    to right, 
-    transparent 0%, 
-    rgba($red, 0.4) 5%,
-    rgba($orange, 0.8) 35%, 
-    rgba($orange, 1) 50%,
-    rgba($orange, 0.8) 65%, 
-    rgba($red, 0.4) 95%, 
-    transparent 100%
-  ) !important;
-
-  width: 100%; // < ---------------------90
-  max-width: 850px; // < -------------------CHECK
-  margin: 60px auto;
-  position: relative;
-  overflow: visible;
-
-  animation: wireEnergize 2s ease-in-out infinite alternate;
-  } //< -------------------------------------------------------------------------WIRE DIVIDER 1 CLOSED*/
-
+  // 4.9 WIRE DIVIDER CLASSIC
   hr {
   border: none !important;
   height: 2px !important; 
@@ -515,7 +491,7 @@ pre {
   // 1. STACKING CONTEXT
   position: relative;
   overflow: visible;
-  z-index: 2; // The Pulse layer
+  z-index: 10; // The Pulse layer
 
   // 2. THE TOP LAYER (The Pulse)
   background-image: linear-gradient(
@@ -544,7 +520,7 @@ pre {
     background: rgba($orange, 0.1) !important; 
     
     // Moves it behind the pulse
-    z-index: -1; 
+    z-index: 5; 
     pointer-events: none;
   }
 } //< -------------------------------------------------------------------------WIRE DIVIDER 1 CLOSED
@@ -566,7 +542,7 @@ pre {
     height: 2px;
     flex: 1;
     position: relative;
-    z-index: 5; // Pulse layer sits above rail
+    z-index: 10; // Pulse layer sits above rail
 
     // THE PULSE (Animated Layer)
     background-image: linear-gradient(
@@ -586,7 +562,7 @@ pre {
       inset: 0; // Fills the line perfectly
       // Matches the pulse's shape/direction but faint and static
       background: rgba($orange, 0.15); 
-      z-index: -1; // Sits behind the pulse
+      z-index: 5; // Sits behind the pulse
       pointer-events: none;
     }
     
