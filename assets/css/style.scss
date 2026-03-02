@@ -97,7 +97,8 @@ header {
     background: rgba($dark-bg, 0.5);
     backdrop-filter: blur(2px); 
     border-radius: 4px; 
-    overflow: hidden; 
+    overflow: hidden;
+    z-index: 90;
     transform: translateZ(0);
 }
 
@@ -107,6 +108,7 @@ header {
     font-weight: 700; 
     letter-spacing: -1px;
     display: block;
+    z-index: 100;
 }
 
   // 3.2 HEADER GREEN MIDDLE TEXT
@@ -484,11 +486,11 @@ hr {
   overflow: visible;
 
   // STATIC UNDERLAYER (The Rail)
-  background: rgba($orange, 0.3) !important;
+  background: rgba($orange, 0.4) !important;
   box-shadow: 
-      0 0 10px rgba($orange, 0.9),   // Inner core
-      0 0 25px rgba($orange, 0.6), // Mid glow
-      0 0 45px rgba($orange, 0.2); // Far-reaching ambient light 
+      0 0 5px rgba($orange, 0.5),   // Inner core
+      0 0 10px rgba($orange, 0.4), // Mid glow
+      0 0 20px rgba($orange, 0.1); // Far-reaching ambient light 
   z-index: 1;
 
   // THE PULSE LAYER (The Animated Pulse)
@@ -518,7 +520,7 @@ hr {
     transform: none;
 
     // ANIMATION ONLY ON THE PULSE
-    animation: wireEnergize 2s ease-in-out infinite alternate;
+    animation: wireEnergize1 2s ease-in-out infinite alternate;
   }
 } //< -------------------------------------------------------------------------WIRE DIVIDER 1 CLOSED
   
@@ -541,11 +543,11 @@ hr {
     position: relative;
     
     // STATIC UNDERLAYER (The Rail)
-    background: rgba($orange, 0.7) !important;
+    background: rgba($orange, 0.4) !important;
     box-shadow: 
-      0 0 5px rgba($orange, 0.6),   // Inner core
-      0 0 10px rgba($orange, 0.5), // Mid glow
-      0 0 20px rgba($orange, 0.3); // Far-reaching ambient light 
+      0 0 5px rgba($orange, 0.5),   // Inner core
+      0 0 10px rgba($orange, 0.4), // Mid glow
+      0 0 20px rgba($orange, 0.1); // Far-reaching ambient light 
     z-index: 1;
 
     // THE PULSE LAYER
@@ -569,7 +571,7 @@ hr {
       ) !important;
 
       // ANIMATION ONLY ON THE PULSE
-      animation: wireEnergize 2s ease-in-out infinite alternate;
+      animation: wireEnergize2 2s ease-in-out infinite alternate;
     }
     
     // Second line (After symbol) pulse logic
@@ -732,9 +734,38 @@ footer::after {
     box-shadow: 0 0 15px $red, 0 0 30px rgba($red, 0.4); 
   }
 }
-    
-// DIVIDER WIRES STRETCH AND GLOW ANIMATIONS
-@keyframes wireEnergize {
+
+@keyframes wireEnergize1 {
+  0% { 
+    opacity: 0.8;
+    // We combine the centering (-50%) with the stretch (0.8)
+    transform: translateX(-50%) scaleX(0.8); 
+    box-shadow: 
+      0 0 10px rgba($orange, 0.7),
+      0 0 20px rgba($orange, 0.3);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: translateX(-50%) scaleX(0.9); 
+    box-shadow: 
+      0 0 5px rgba($orange, 0.4),
+      0 0 15px rgba($orange, 0.1);
+  }
+
+  100% { 
+    opacity: 1;
+    // Full extension while staying perfectly centered
+    transform: translateX(-50%) scaleX(1); 
+    box-shadow: 
+      0 0 15px rgba($orange, 0.9),
+      0 0 30px rgba($orange, 0.5), 
+      0 0 50px rgba($orange, 0.2);
+  }
+}
+
+// DIVIDER WIRE WITH SYMBOL STRETCH AND GLOW ANIMATIONS
+@keyframes wireEnergize2 {
    0% { 
     opacity: 0.9;
     // Keep the shadow tight and close to the line
