@@ -52,7 +52,8 @@ h1, h2, h3, .header-title, .nav-menu, .header-bio, footer {
 // 3.0 HEADER ARCHITECTURE
 header {  
   position: relative;
-  overflow: hidden;
+  //overflow: hidden; // < ----------------------
+  overflow: visible;
   width: 100%; 
   display: flex;
   flex-direction: column;
@@ -60,8 +61,7 @@ header {
   justify-content: center;
   margin: 0 !important;
   //$header-spacing: 90px;
-  //padding: 60px 20px; // <----------------------------------
-  //padding: 0 20px;
+  padding-bottom: 120px; //<---------------------------------------
   border-bottom: 3px solid $red;
 
   background: 
@@ -131,7 +131,7 @@ header {
     gap: 10px;
     position: relative;
     margin: 0 auto;
-    padding-bottom: 60px; // <--------------------60 CHECK
+    padding-bottom: 0px; // <--------------------60 CHECK
 
     a {
       position: static;
@@ -149,9 +149,7 @@ header {
       .desc {
         position: absolute;
         left: 50%; // Centers it relative to .nav-menu
-        //bottom: -5px; // Distance from the  nav-menu
-        top: 100%;
-        margin-top: 20px;
+        top: 30px;
         transform: translateX(-50%) translateY(10px); // < ------------------------------10 CHECK
       
         width: max-content;
@@ -170,6 +168,7 @@ header {
         transition: 0.4s all ease;
         pointer-events: none;
         white-space: nowrap;
+        z-index: 100;
       }
 
         &:hover {
@@ -480,29 +479,29 @@ pre {
 } //<------------------------------------------------------------------------------CODE BLOCK CLOSED
 
   // 4.9 WIRE DIVIDER CLASSIC
-  hr {
-  border: none !important;
-  height: 2px !important; 
-  width: 100%;
-  max-width: 850px;
-  margin: 60px auto;
+ /* hr {
+      border: none !important;
+      height: 2px !important; 
+      width: 100%;
+      max-width: 850px;
+      margin: 60px auto;
   
   // 1. STACKING CONTEXT
-  position: relative;
-  overflow: visible;
-  z-index: 10; // The Pulse layer
+      position: relative;
+      overflow: visible;
+      z-index: 10; // The Pulse layer
 
   // 2. THE TOP LAYER (The Pulse)
-  background-image: linear-gradient(
-    to right, 
-    transparent 0%, 
-    rgba($red, 0.4) 5%,
-    rgba($orange, 0.8) 35%, 
-    rgba($orange, 1) 50%,
-    rgba($orange, 0.8) 65%, 
-    rgba($red, 0.4) 95%, 
-    transparent 100%
-  ) !important;
+      background-image: linear-gradient(
+        to right, 
+        transparent 0%, 
+        rgba($red, 0.4) 5%,
+        rgba($orange, 0.8) 35%, 
+        rgba($orange, 1) 50%,
+        rgba($orange, 0.8) 65%, 
+        rgba($red, 0.4) 95%, 
+        transparent 100%
+      ) !important;
 
   animation: wireEnergize 2s ease-in-out infinite alternate;
 
@@ -522,7 +521,44 @@ pre {
     z-index: 5; 
     pointer-events: none;
   }
-} //< -------------------------------------------------------------------------WIRE DIVIDER 1 CLOSED
+} *///< -------------------------------------------------------------------------WIRE DIVIDER 1 CLOSED
+
+hr {
+  // RESET & DIMENSIONS
+  border: none !important;
+  height: 2px !important; 
+  margin: 60px auto;
+  position: relative;
+  overflow: visible;
+
+  // 1. THE TOP LAYER (Full Opacity - Half Width)
+  // We use width: 50% to make it half as long
+  width: 50%; 
+  max-width: 425px; // Half of your 850px
+  background: $orange !important;
+  opacity: 1;
+  z-index: 10;
+
+  // 2. THE UNDERLAYER (Dull Rail - Full Width)
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    
+    // We center the rail behind the shorter top line
+    left: 50%;
+    transform: translateX(-50%);
+    
+    // The rail takes up the full 850px width
+    width: 200%; // Since parent is 50%, 200% makes this 100% of the original scale
+    max-width: 850px;
+    height: 100%;
+    
+    background: rgba($orange, 0.15) !important; 
+    z-index: -1; 
+    pointer-events: none;
+  }
+}
   
 // 4.10 WIRE DIVIDER WITH SYMBOL
 .divider-wire {
