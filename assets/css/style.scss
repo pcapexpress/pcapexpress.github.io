@@ -52,7 +52,7 @@ h1, h2, h3, .header-title, .nav-menu, .header-bio, footer {
 // 3.0 HEADER ARCHITECTURE
 header {  
   position: relative;
-  //overflow: hidden; // < -------------------
+  overflow: hidden; // < -------------------
   //isolation: isolate; // < ------------------------
   width: 100%; 
   display: flex;
@@ -62,7 +62,7 @@ header {
    margin: 0 !important;
   //$header-spacing: 90px;
   //padding: 60px 20px; // <----------------------------------
-  padding: 0 20px;
+  //padding: 0 20px;
   border-bottom: 3px solid $red;
 
   background: 
@@ -96,7 +96,7 @@ header {
     height: 35px;     // Force a specific height
     padding: 0;
     margin-top: 80px;    // <--- THIS now determines the gap from the top of the screen < ----------------------------------
-    margin-bottom: 20px; 
+    margin-bottom: 80px; 
     // BACKGROUND
     background: rgba($dark-bg, 0.5);
     backdrop-filter: blur(2px); 
@@ -134,7 +134,7 @@ header {
     gap: 10px;
     position: relative;
     margin: 10px 0; // <----------------------------------------------------------CHECK
-    padding-bottom: 80px; // Increased space for the box //60 < ------------------------------------------------
+    //padding-bottom: 80px; // Increased space for the box //60 < ------------------------------------------------
   
 
   a {
@@ -502,8 +502,8 @@ hr {
   overflow: visible;
 
   animation: 
-    dataStutter 2s ease-in-out infinite,
-    wireEnergize 2s ease-in-out infinite;
+    dataStutter 0.5s ease-in-out infinite,
+    //wireEnergize 2s ease-in-out infinite;
   } //< -------------------------------------------------------------------------WIRE DIVIDER 1 CLOSED
   
 // 4.10 WIRE DIVIDER WITH SYMBOL
@@ -524,6 +524,7 @@ hr {
     transform-origin: right center;
     animation: dividerStretch 3s ease-in-out infinite;
     &:nth-child(3) {
+      animation-delay: 0.5s;
       transform-origin: left center;
       background-image: linear-gradient(to left, transparent, $orange);
     }
@@ -542,7 +543,7 @@ hr {
     font-size: 1.4rem;
     line-height: 1;
     opacity: 1;    
-    animation: dataStutter 2s ease-in-out infinite;
+    animation: dataStutter 1s ease-in-out infinite;
     }
   } //<------------------------------------------------------------------------WIRE DIVIDER 2 CLOSED
 }  //<-------------------------------------------------------------------------MAIN CONTENT - CLOSED
@@ -695,6 +696,18 @@ footer::after {
 }
 
 @keyframes dividerStretch {
-  0%, 100% { transform: scaleX(1); opacity: 0.5; }
-  60% { transform: scaleX(0.8); opacity: 1; }
+  0% { 
+    transform: scaleX(0.5); // Starts at 50% width
+    opacity: 1;             // Fully solid orange
+  }
+  
+  70% { 
+    transform: scaleX(1);   // Expands to full 100% width
+    opacity: 0.7;           // Begins to dim slightly
+  }
+
+  100% { 
+    transform: scaleX(1);   // Stays at full width
+    opacity: 0.4;           // Finishes at a dim state
+  }
 }
