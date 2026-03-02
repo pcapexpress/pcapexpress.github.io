@@ -59,10 +59,12 @@ header {
   flex-direction: column;
   align-items: center;    
   justify-content: center;
-   margin: 0 !important;
+  margin: 0 !important;
   //$header-spacing: 90px;
   //padding: 60px 20px; // <----------------------------------
   //padding: 0 20px;
+  padding-top: 0;    // Let the backdrop margin-top handle the top
+  padding-bottom: 0; // REMOVE THIS - it creates the conflict
   border-bottom: 3px solid $red;
 
   background: 
@@ -90,13 +92,12 @@ header {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; // Centers text vertically if you set a height
+    justify-content: center;
     // PRECISE DIMENSIONS
     min-width: 210px;  // Force it to be at least this wide
     height: 35px;     // Force a specific height
     padding: 0;
-    margin-top: 80px;    // <--- THIS now determines the gap from the top of the screen < ----------------------------------
-    margin-bottom: 80px; 
+    margin-top: 80px;    // <--- THIS now determines the gap from the top of the screen
     // BACKGROUND
     background: rgba($dark-bg, 0.5);
     backdrop-filter: blur(2px); 
@@ -135,7 +136,8 @@ header {
     position: relative;
     margin: 10px 0; // <----------------------------------------------------------CHECK
     //padding-bottom: 80px; // Increased space for the box //60 < ------------------------------------------------
-  
+    padding-bottom: 80px; 
+    margin-top: 20px;
 
   a {
     padding: 8px 20px;
@@ -152,7 +154,7 @@ header {
     .desc {
       position: absolute;
       left: 50%; // Centers it relative to .nav-menu
-      bottom: -10px; // Distance from the  nav-menu
+      bottom: -20px; // Distance from the  nav-menu
       transform: translateX(-50%) translateY(10px);
       
       width: max-content;
@@ -165,7 +167,6 @@ header {
       color: $green;
       font-size: 0.9rem;
       letter-spacing: 1px;
-      
       // 3. Animation State (Hidden)
       opacity: 0;
       visibility: hidden;
@@ -491,7 +492,7 @@ hr {
     to right, 
     transparent 0%, 
     rgba($red, 0.4) 10%, 
-    rgba($orange, 0.9) 50%, 
+    rgba($orange, 1) 50%, 
     rgba($red, 0.4) 90%, 
     transparent 100%
   ) !important;
@@ -520,13 +521,24 @@ hr {
     display: block;
     height: 2px;
     flex: 1;
-    background-image: linear-gradient(to right, transparent, $orange);
+    background-image: linear-gradient(
+      to right, 
+      $orange 0%,    // Start solid
+      $orange 95%,   // Stay solid all the way to 90%
+      transparent 100% // Snap to transparent in the final 10%
+    ) !important;
     transform-origin: right center;
-    animation: dividerStretch 3s ease-in-out infinite;
+    animation: dividerStretch 2s ease-in-out infinite;
+    
     &:nth-child(3) {
       animation-delay: 0.5s;
       transform-origin: left center;
-      background-image: linear-gradient(to left, transparent, $orange);
+      background-image: linear-gradient(
+        to left, 
+        $orange 0%,    // Start solid
+        $orange 50%,   // Stay solid all the way to 90%
+        transparent 100% // Snap to transparent in the final 10%
+      ) !important;
     }
   }
 
@@ -543,7 +555,7 @@ hr {
     font-size: 1.4rem;
     line-height: 1;
     opacity: 1;    
-    animation: dataStutter 1s ease-in-out infinite;
+    animation: dataStutter 0.2s ease-in-out infinite;
     }
   } //<------------------------------------------------------------------------WIRE DIVIDER 2 CLOSED
 }  //<-------------------------------------------------------------------------MAIN CONTENT - CLOSED
