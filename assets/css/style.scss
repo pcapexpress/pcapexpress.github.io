@@ -504,12 +504,8 @@ hr {
   animation: 
     dataStutter 2s ease-in-out infinite,
     wireEnergize 2s ease-in-out infinite;
-  }
-
-} //< -------------------------------------------------------------------------WIRE DIVIDER 1 CLOSED
+  } //< -------------------------------------------------------------------------WIRE DIVIDER 1 CLOSED
   
-  /**/
-
 // 4.10 WIRE DIVIDER WITH SYMBOL
 .divider-wire {
   display: flex;
@@ -579,7 +575,7 @@ hr {
       text-shadow: none !important; 
     }
   }
-}
+} //< ------------------------------------------------------------------------------HOVER CARD CLOSE
 
 //5.1 TEXT CENTER
 .text-center { text-align: center; }
