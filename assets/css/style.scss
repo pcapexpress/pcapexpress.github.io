@@ -91,9 +91,9 @@ header {
     align-items: center;
     justify-content: center;
     // PRECISE DIMENSIONS
-    min-width: 210px;  // WIDTH
-    height: 35px;     // HEIGHT
-    padding: 20px; // < ----------------------------------------------------------- CHECK
+    min-width: 200px;  // WIDTH
+    height: 30px;     // HEIGHT
+    padding: 0px; // < ----------------------------------------------------------- CHECK 20
     margin-top: 80px;
     // BACKGROUND
     background: rgba($dark-bg, 0.5);
@@ -104,7 +104,7 @@ header {
 }
 
   .header-title span {
-    margin: 40px 0; // < --------------------------20
+    margin: 30px 0; // < --------------------------20
     color: $orange !important;
     font-size: 2.2rem;
     font-weight: 700; 
@@ -117,7 +117,7 @@ header {
     color: $green;
     font-weight: bold;
     font-size: 0.9rem;
-    margin: 40px 0; // <------------------------------------_CHECK
+    margin: 10px 0; // <------------------------------------_CHECK
     display: block;
     
     transition: all 0.8s ease-in-out;
@@ -131,13 +131,13 @@ header {
     justify-content: center;
     gap: 10px;
     position: relative;
-    margin: 10px 0; // <----------------------------------------------------------CHECK
+    margin: 20px 0; // <----------------------------------------------------------CHECK 10
     //padding-bottom: 80px; // Increased space for the box //60 < ------------------------------------------------
     padding-bottom: 40px; 
     //margin-top: 20px;
 
   a {
-    position: relative;
+    position: static; //< -----------------------------------------relative CHECK
     padding: 8px 20px;
     background: rgba($dark-bg, 0.8);
     border: 1px solid $red;
@@ -152,7 +152,7 @@ header {
     .desc {
       position: absolute;
       left: 50%; // Centers it relative to .nav-menu
-      bottom: -20px; // Distance from the  nav-menu
+      bottom: 20px; // Distance from the  nav-menu
       transform: translateX(-50%) translateY(10px);
       
       width: max-content;
@@ -530,12 +530,12 @@ hr {
     animation: dividerStretch 2s ease-in-out infinite alternate;
     
     &:nth-child(3) {
-      animation-delay: 0.5s;
+      animation-delay: 0.2s;
       transform-origin: left center;
       background-image: linear-gradient(
         to right, 
         $orange 0%,    // Start solid
-        $orange 50%,   // Stay solid all the way to 90%
+        $orange 90%,   // Stay solid all the way to 90%
         transparent 100% // Snap to transparent in the final 10%
       ) !important;
     }
@@ -692,7 +692,7 @@ footer::after {
 }
     
 // DIVIDER STRETCH/PULSE BEHAVIOUR
-@keyframes wireEnergize {
+/*@keyframes wireEnergize {
   0%, 100% { 
     opacity: 0.6;
     box-shadow: 0 0 5px rgba($orange, 0.2); 
@@ -703,6 +703,33 @@ footer::after {
       0 0 8px rgba($orange, 0.9),  
       0 0 20px rgba($orange, 0.4), 
       0 0 30px rgba($orange, 0.1); 
+  }
+}*/
+
+@keyframes wireEnergize {
+  // 0% to 70%: The "Idle" or "Charging" phase
+  0%, 70% { 
+    opacity: 0.6;
+    // Keep the shadow tight and close to the line
+    box-shadow: 0 0 5px rgba($orange, 0.2); 
+    transform: scaleX(0.5); // Assuming you're still using the stretch logic
+  }
+
+  // 85%: The "Mid-Stretch" (Adding the first layer of glow)
+  85% {
+    opacity: 0.8;
+    box-shadow: 0 0 15px rgba($orange, 0.5);
+  }
+
+  // 100%: The "Full Extension" (The shadow hits the edges)
+  100% { 
+    opacity: 1;
+    transform: scaleX(1); 
+    // Layered shadows to create a deep, "stretched" light effect
+    box-shadow: 
+      0 0 10px rgba($orange, 1),   // Inner core
+      0 0 25px rgba($orange, 0.6), // Mid glow
+      0 0 45px rgba($orange, 0.2); // Far-reaching ambient light
   }
 }
 
