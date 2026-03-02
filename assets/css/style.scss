@@ -74,7 +74,7 @@ header {
   background-attachment: scroll;
 
   //Global centering for header elements
-  .header-title, .header-bio, .nav-menu {
+  /*.header-title, .header-bio, .nav-menu {
     position: relative;
     z-index: 5;
     width: 100%;
@@ -94,11 +94,43 @@ header {
   // 3. REMOVE PADDING (OR MINIMIZE)
     padding: 5px 15px; // COULD GO TO 0 0 
     margin-bottom: 20px;     // Controls distance to the pills below < ----- CHECK
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(4px);
     border-radius: 4px;
     width: auto;             
     max-width: none;
+}*/
+
+  .header-title, .header-bio, .nav-menu, .header-backdrop {
+    position: relative;
+    z-index: 5;
+    width: 100%; // Note: inline-flex will override this width, which is good
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .header-backdrop {
+  // 1. POSITIONING & LAYERING
+  position: relative;
+  z-index: 2;            // Behind the text (z-index 5), above the bg image
+  vertical-align: middle; // Helps with centering in an inline context
+
+  // 2. LAYOUT (The "Shrink-Wrap")
+  display: inline-flex;  // Tight to content width
+  flex-direction: column;
+  align-items: center;
+  width: auto;           // Overrides any global 100% width
+  max-width: none;
+  
+  // 3. SPACING
+  padding: 5px 15px;     // Minimal padding to avoid "clashing" with bio/pills
+  margin-bottom: 20px;   // Gap between title plate and the pills below
+  
+  // 4. VISUALS (The "Glass" Effect)
+  background: rgba(0, 0, 0, 0.2); 
+  backdrop-filter: blur(4px);    // Subtle blur for legibility
+  border-radius: 4px;            // Sharp tech corners
 }
   
   .header-title span {
