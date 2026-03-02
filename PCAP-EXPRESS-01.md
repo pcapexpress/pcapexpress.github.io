@@ -15,6 +15,12 @@ We are a SOC analyst, we are contacted due to a coworker downloading a suspiciou
 We confirm that an infection has occurred, we are supplied a pcap file and tasked to writing an incident report focusing on some key questions written below.
 In the mean time the IT department will handle wiping the affected machine. 
 
+<div class="divider-wire">
+  <span class="line"></span>
+  <span class="symbol">‹‹‹⦿›››</span>
+  <span class="line"></span>
+</div>
+
 ## LAN SEGMENT DETAILS FROM THE PCAP
 <pre data-label="Network Environment"><code>
 * <span class="orange"><strong>LAN segment range:</strong></span>  10.1.17[.]0/24   (10.1.17[.]0 through 10.1.17[.]255)
@@ -43,7 +49,7 @@ md5sum – calculating file hashes
 
 <div class="divider-wire">
   <span class="line"></span>
-  <span class="symbol">⦿</span>
+  <span class="symbol">‹‹‹PcapExpress›››</span>
   <span class="line"></span>
 </div>
 
