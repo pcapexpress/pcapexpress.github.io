@@ -59,12 +59,11 @@ header {
   align-items: center;    
   justify-content: center;
   margin: 0 !important;
-  //$header-spacing: 90px;
-  padding-bottom: 100px; //<---------------------------------------
+  padding-bottom: 100px;
   border-bottom: 3px solid $red;
 
   background: 
-    linear-gradient(to bottom, rgba(26, 39, 46, 0.1) 0%, rgba(26, 39, 46, 0.85) 100%),//0.05 
+    linear-gradient(to bottom, rgba(26, 39, 46, 0.1) 0%, rgba(26, 39, 46, 0.85) 100%), 
     url("../images/header.png") no-repeat center center;
 
   background-position: center 45%;
@@ -157,9 +156,10 @@ header {
         //BOX PARAMETERS
         background: rgba($dark-bg, 0.5); // Dark semi-transparent
         //border: 1px solid rgba($green, 0.3); // Cyan border
+        border: none; // Reset any previous full borders
         border-top: 1px solid rgba(#00f2ff, 0.6);    // Slightly brighter for the "bracket" look
         border-bottom: 1px solid rgba(#00f2ff, 0.6);
-        border-radius: 4px;
+        //border-radius: 4px;
         color: rgba(#00f2ff, 1);
         font-size: 0.9rem;
         letter-spacing: 1px;
