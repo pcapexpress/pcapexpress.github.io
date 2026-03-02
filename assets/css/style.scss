@@ -68,7 +68,7 @@ header {
     linear-gradient(to bottom, rgba(26, 39, 46, 0.1) 0%, rgba(26, 39, 46, 0.85) 100%),//0.05 
     url("../images/header.png") no-repeat center center;
 
-  background-position: center 40%;
+  background-position: center 50%;
   background-size: cover; 
   background-attachment: scroll;
 
@@ -91,9 +91,9 @@ header {
     align-items: center;
     justify-content: center;
     // PRECISE DIMENSIONS
-    min-width: 200px;  // WIDTH
-    height: 30px;     // HEIGHT
-    padding: 20px; // < ----------------------------------------------------------- CHECK 20
+    min-width: 180px;  // WIDTH
+    height: 25px;     // HEIGHT
+    //padding: 20px; // < ----------------------------------------------------------- CHECK 20
     margin-top: 80px;
     // BACKGROUND
     background: rgba($dark-bg, 0.5);
@@ -104,7 +104,7 @@ header {
 }
 
   .header-title span {
-    margin: 0, 0; // < --------------------------20
+    //margin: 0, 0; // < --------------------------20
     color: $orange !important;
     font-size: 2.2rem;
     font-weight: 700; 
@@ -134,7 +134,7 @@ header {
     margin: 20px 0; // <----------------------------------------------------------CHECK 10
     //padding-bottom: 80px; // Increased space for the box //60 < ------------------------------------------------
     padding-bottom: 40px; 
-    margin-top: 10px;
+    //margin-top: 10px;
 
   a {
     position: static; //< -----------------------------------------relative CHECK
@@ -152,7 +152,7 @@ header {
     .desc {
       position: absolute;
       left: 50%; // Centers it relative to .nav-menu
-      bottom: -20px; // Distance from the  nav-menu
+      bottom: -10px; // Distance from the  nav-menu
       transform: translateX(-50%) translateY(10px);
       
       width: max-content;
@@ -708,11 +708,11 @@ footer::after {
 
 @keyframes wireEnergize {
   // 0% to 70%: The "Idle" or "Charging" phase
-  0%, 70% { 
+  0%, 30% { 
     opacity: 0.6;
     // Keep the shadow tight and close to the line
     box-shadow: 0 0 5px rgba($orange, 0.2); 
-    transform: scaleX(0.5); // Assuming you're still using the stretch logic
+    transform: scaleX(0.7); // Assuming you're still using the stretch logic
   }
 
   // 85%: The "Mid-Stretch" (Adding the first layer of glow)
@@ -741,11 +741,11 @@ footer::after {
   
   70% { 
     transform: scaleX(1);   // Expands to full 100% width
-    opacity: 0.7;           // Begins to dim slightly
+    opacity: 0.6;           // Begins to dim slightly
   }
 
   100% { 
     transform: scaleX(1);   // Stays at full width
-    opacity: 0.4;           // Finishes at a dim state
+    opacity: 0.8;           // Finishes at a dim state
   }
 }
