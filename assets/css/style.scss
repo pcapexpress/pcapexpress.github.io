@@ -68,7 +68,7 @@ header {
     linear-gradient(to bottom, rgba(26, 39, 46, 0.1) 0%, rgba(26, 39, 46, 0.85) 100%),//0.05 
     url("../images/header.png") no-repeat center center;
 
-  background-position: center 60%;
+  background-position: center 45%;
   background-size: cover; 
   background-attachment: scroll;
 
@@ -91,8 +91,8 @@ header {
     align-items: center;
     justify-content: center;
     // PRECISE DIMENSIONS
-    min-width: 185px;  // WIDTH
-    height: 30px;     // HEIGHT
+    min-width: 210px;  // WIDTH
+    height: 35px;     // HEIGHT
     //padding: 20px; // < ----------------------------------------------------------- CHECK 20
     margin-bottom: 30px !important;
     margin-top: 80px;
@@ -105,7 +105,6 @@ header {
 }
 
   .header-title span {
-    //margin: 0, 0; // < --------------------------20
     color: $orange !important;
     font-size: 2.2rem;
     font-weight: 700; 
@@ -119,7 +118,7 @@ header {
     font-weight: bold;
     font-size: 0.9rem;
     display: block;
-    margin: 0 auto 10px auto; // < ----------- distance
+    margin: 0 auto 10px auto;
     
     transition: all 0.8s ease-in-out;
     text-shadow: 0 0 0 rgba($green, 0);
@@ -133,7 +132,7 @@ header {
     gap: 10px;
     position: relative;
     margin: 0 auto;
-    padding-bottom: 40px;
+    padding-bottom: 60px;
 
   a {
     position: static; //< -----------------------------------------relative CHECK
@@ -151,7 +150,7 @@ header {
     .desc {
       position: absolute;
       left: 50%; // Centers it relative to .nav-menu
-      bottom: -20px; // Distance from the  nav-menu
+      bottom: -10px; // Distance from the  nav-menu
       transform: translateX(-50%) translateY(10px);
       
       width: max-content;
@@ -415,7 +414,7 @@ img {
       0 0 30px rgba($orange, 0.5),
       0 0 60px rgba($orange, 0.1);
     border-color: rgba($orange, 0.9);
-    filter: brightness(1.2);
+    filter: brightness(1.1);
     }
   } // <--------------------------------------------------------------------------------IMAGE CLOSED
 
@@ -480,10 +479,11 @@ pre {
 } //<------------------------------------------------------------------------------CODE BLOCK CLOSED
 
 // 4.9 WIRE DIVIDER BASIC  
-hr {
+/*hr {
   border: none !important;
   height: 2px !important; 
   background-color: transparent !important;
+  opacity: 1;
   
   background-image: linear-gradient(
     to right, 
@@ -502,10 +502,51 @@ hr {
   position: relative;
   overflow: visible;
 
-  animation: 
-    //dataStutter 3s ease-in-out infinite,
-    wireEnergize 2s ease-in-out infinite alternate;
-  } //< -------------------------------------------------------------------------WIRE DIVIDER 1 CLOSED
+  animation: wireEnergize 2s ease-in-out infinite alternate;
+  } //< -------------------------------------------------------------------------WIRE DIVIDER 1 CLOSED*/
+
+  hr {
+  border: none !important;
+  height: 2px !important; 
+  width: 100%;
+  max-width: 850px;
+  margin: 60px auto;
+  position: relative;
+  overflow: visible;
+
+  // THE LAYERED BACKGROUNDS
+  background-image: 
+    // LAYER 1 (TOP): The Animated Pulse (Your original gradient)
+    linear-gradient(
+      to right, 
+      transparent 0%, 
+      rgba($red, 0.4) 5%,
+      rgba($orange, 0.8) 35%, 
+      rgba($orange, 1) 50%,
+      rgba($orange, 0.8) 65%, 
+      rgba($red, 0.4) 95%, 
+      transparent 100%
+    ),
+    // LAYER 2 (BOTTOM): The Solid Static Rail
+    // This fills 100% width and does NOT move with the animation
+    linear-gradient(
+      to right, 
+      rgba($orange, 0.1) 0%, 
+      rgba($orange, 0.1) 100%
+    ) !important;
+
+  // CRITICAL: Set sizes for both layers
+  // Layer 1 is 100% wide (it will animate/pulse)
+  // Layer 2 is 100% wide (it stays solid)
+  background-size: 100% 100%, 100% 100% !important;
+  background-repeat: no-repeat !important;
+
+  // THE ANIMATION
+  // Since your animation likely affects 'opacity' or 'filter', 
+  // it might still dim the bottom layer. 
+  // If you want ONLY the top layer to move, we animate 'background-position' instead.
+  animation: wireEnergize 2s ease-in-out infinite alternate;
+}
   
 // 4.10 WIRE DIVIDER WITH SYMBOL
 .divider-wire {
