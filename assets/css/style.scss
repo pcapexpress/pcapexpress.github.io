@@ -514,7 +514,7 @@ hr {
   animation: 
     dividerStutter 2s ease-in-out infinite,
     wireEnergize 2s ease-in-out infinite;
-}
+} //< ----------------------------------------------------------WIRE DIVIDER 1 CLOSED
   
   /*hr {
   border: none !important;
@@ -587,8 +587,9 @@ hr {
     animation: dataStutter 2s ease-in-out infinite;
     // Optional: Add a subtle glow to the symbol so it looks like the "Bulb"
     text-shadow: 0 0 10px rgba($orange, 0.5);
-  }
-}
+    }
+  } //<---------------------------------------------------------------------------WIRE DIVIDER 2 CLOSED
+}  //<----------------------------------------------------------------------------MAIN CONTENT - CLOSED
   
   /*.divider-wire {
   display: flex;
