@@ -52,8 +52,7 @@ h1, h2, h3, .header-title, .nav-menu, .header-bio, footer {
 // 3.0 HEADER ARCHITECTURE
 header {  
   position: relative;
-  //overflow: hidden; // < ----------------------
-  overflow: visible;
+  overflow: hidden;
   width: 100%; 
   display: flex;
   flex-direction: column;
@@ -61,7 +60,7 @@ header {
   justify-content: center;
   margin: 0 !important;
   //$header-spacing: 90px;
-  padding-bottom: 120px; //<---------------------------------------
+  padding-bottom: 100px; //<---------------------------------------
   border-bottom: 3px solid $red;
 
   background: 
@@ -131,7 +130,7 @@ header {
     gap: 10px;
     position: relative;
     margin: 0 auto;
-    padding-bottom: 0px; // <--------------------60 CHECK
+    padding-bottom: 0px;
 
     a {
       position: static;
@@ -149,8 +148,8 @@ header {
       .desc {
         position: absolute;
         left: 50%; // Centers it relative to .nav-menu
-        top: 30px;
-        transform: translateX(-50%) translateY(10px); // < ------------------------------10 CHECK
+        top: 60px;
+        transform: translateX(-50%) translateY(10px);
       
         width: max-content;
         min-width: 100px;
@@ -523,21 +522,33 @@ pre {
   }
 } *///< -------------------------------------------------------------------------WIRE DIVIDER 1 CLOSED
 
+// 4.9 WIRE DIVIDER CLASSIC (Merged Logic)
 hr {
-  // RESET & DIMENSIONS
   border: none !important;
   height: 2px !important; 
   margin: 60px auto;
   position: relative;
   overflow: visible;
 
-  // 1. THE TOP LAYER (Full Opacity - Half Width)
-  // We use width: 50% to make it half as long
+  // 1. THE TOP LAYER (The Pulse - Half Width)
   width: 50%; 
-  max-width: 425px; // Half of your 850px
-  background: $orange !important;
-  opacity: 1;
+  max-width: 425px; // Half of total 850px
   z-index: 10;
+
+  // Pulse Gradient (Your original logic)
+  background-image: linear-gradient(
+    to right, 
+    transparent 0%, 
+    rgba($red, 0.4) 5%,
+    rgba($orange, 0.8) 35%, 
+    rgba($orange, 1) 50%,
+    rgba($orange, 0.8) 65%, 
+    rgba($red, 0.4) 95%, 
+    transparent 100%
+  ) !important;
+
+  // Pulse Animation
+  animation: wireEnergize 2s ease-in-out infinite alternate;
 
   // 2. THE UNDERLAYER (Dull Rail - Full Width)
   &::before {
@@ -545,15 +556,16 @@ hr {
     position: absolute;
     top: 0;
     
-    // We center the rail behind the shorter top line
+    // Centering the long rail behind the short pulse
     left: 50%;
     transform: translateX(-50%);
     
-    // The rail takes up the full 850px width
-    width: 200%; // Since parent is 50%, 200% makes this 100% of the original scale
+    // Since the parent hr is 50%, width: 200% makes the rail 100% of 850px
+    width: 200%; 
     max-width: 850px;
     height: 100%;
     
+    // Dull Static Color
     background: rgba($orange, 0.15) !important; 
     z-index: -1; 
     pointer-events: none;
@@ -561,7 +573,91 @@ hr {
 }
   
 // 4.10 WIRE DIVIDER WITH SYMBOL
+// 4.10 WIRE DIVIDER WITH SYMBOL (Merged Logic)
 .divider-wire {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 850px;
+  margin: 60px auto;
+  gap: 60px; // Increased gap to clearly separate the short pulses from the symbol
+  position: relative;
+  z-index: 1;
+
+  .line {
+    display: block;
+    height: 2px;
+    // THE SHORT PULSE LOGIC
+    flex: 0 1 150px; // Pulse is fixed to 150px wide instead of filling space
+    position: relative;
+    z-index: 10; 
+
+    background-image: linear-gradient(
+      to left, 
+      $orange 0%,    
+      $orange 80%,    
+      transparent 100% 
+    ) !important;
+    
+    transform-origin: right center;
+    animation: wireEnergize 2s ease-in-out infinite alternate;
+
+    // THE FULL-LENGTH STATIC RAIL
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      height: 100%;
+      
+      // We stretch the rail significantly further than the 150px pulse
+      // 'left: auto' and 'right: 0' for the first line makes it grow outwards
+      left: -150px; 
+      right: 0;
+      
+      background: rgba($orange, 0.15) !important; 
+      z-index: -1; // Sits behind the pulse
+      pointer-events: none;
+    }
+    
+    // Adjusting the second line (after the symbol)
+    &:nth-child(3) {
+      animation-delay: 0.2s;
+      transform-origin: left center;
+      background-image: linear-gradient(
+        to right, 
+        $orange 0%,    
+        $orange 80%,    
+        transparent 100% 
+      ) !important;
+
+      // Reverse the rail direction for the right side
+      &::before {
+        left: 0;
+        right: -150px;
+      }
+    }
+  }
+
+  .symbol {
+    position: relative;
+    z-index: 20; // Highest layer
+    display: inline-block;
+    flex-shrink: 0;
+    
+    color: $orange;
+    font-size: 1.4rem;
+    line-height: 1;
+    animation: dataStutter 2s ease-in-out infinite;
+    
+    // Ensure no background interference
+    background: transparent !important;
+    box-shadow: none !important;
+   }
+  }
+}
+   
+  /*.divider-wire {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -629,7 +725,7 @@ hr {
     animation: dataStutter 2s ease-in-out infinite;
     }
   }//<------------------------------------------------------------------------WIRE DIVIDER 2 CLOSED
-}  //<-------------------------------------------------------------------------MAIN CONTENT - CLOSED
+}*/  //<-------------------------------------------------------------------------MAIN CONTENT - CLOSED
   
 // 5.0 BASIC HOVER CARDS OUTSIDE THE SECTION
 .hover-card {
