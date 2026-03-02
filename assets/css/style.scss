@@ -93,7 +93,6 @@ header {
     // PRECISE DIMENSIONS
     min-width: 210px;  // WIDTH
     height: 35px;     // HEIGHT
-    //padding: 20px; // < ----------------------------------------------------------- CHECK 20
     margin-bottom: 30px !important;
     margin-top: 80px;
     // BACKGROUND
@@ -101,7 +100,7 @@ header {
     backdrop-filter: blur(2px); 
     border-radius: 4px; 
     overflow: hidden; 
-    transform: translateZ(0); // Isolate the layer from the rest of the page < -----------------CHECK
+    transform: translateZ(0);
 }
 
   .header-title span {
@@ -109,7 +108,7 @@ header {
     font-size: 2.2rem;
     font-weight: 700; 
     letter-spacing: -1px;
-    display: block; // Changed to block to fill the backdrop height correctly
+    display: block;
 }
 
   // 3.2 HEADER GREEN MIDDLE TEXT
@@ -132,7 +131,7 @@ header {
     gap: 10px;
     position: relative;
     margin: 0 auto;
-    padding-bottom: 10px; // <--------------------60 CHECK
+    padding-bottom: 60px; // <--------------------60 CHECK
 
     a {
       position: static;
