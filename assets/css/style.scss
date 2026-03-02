@@ -516,7 +516,7 @@ pre {
 
 hr {
   border: none !important;
-  height: 4px !important; // Thickened for testing visibility
+  height: 3px !important; // Thickened for testing visibility
   width: 90%; 
   margin: 60px auto;
   position: relative;
@@ -527,14 +527,14 @@ hr {
     linear-gradient(
       to right, 
       transparent 0%, 
-      rgba(255, 0, 0, 1) 50%, // PURE RED PULSE
+      rgba($orange, 1) 50%, // PURE RED PULSE
       transparent 100%
     ),
     linear-gradient(
       to right,
-      transparent 0%,
-      rgba($orange, 0.4) 20%, // SOLID ORANGE BASE
-      rgba($orange, 0.4) 80%,
+      transparent 10%,
+      rgba($orange, 0.5) 20%, // SOLID ORANGE BASE
+      rgba($orange, 0.6) 80%,
       transparent 100%
     ) !important;
 
@@ -547,7 +547,7 @@ hr {
 
   // SIMPLIFIED TEST ANIMATION
   // This just slides the Red pulse back and forth across the Orange tube
-  animation: testPulse 3s linear infinite !important;
+  animation: testPulse 3s ease-in-out infinite !important;
 
 } //< ----------------------------------------------------------WIRE DIVIDER 1 CLOSED
   
@@ -577,7 +577,7 @@ hr {
 
 // 4.10 WIRE DIVIDER WITH SYMBOL
 
-.divider-wire {
+/*.divider-wire {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -623,7 +623,7 @@ hr {
     // Optional: Add a subtle glow to the symbol so it looks like the "Bulb"
     text-shadow: 0 0 10px rgba($orange, 0.5);
     }
-  } //<---------------------------------------------------------------------------WIRE DIVIDER 2 CLOSED
+  }*/ //<---------------------------------------------------------------------------WIRE DIVIDER 2 CLOSED
 }  //<----------------------------------------------------------------------------MAIN CONTENT - CLOSED
   
   /*.divider-wire {
