@@ -501,20 +501,25 @@ hr {
     left: 50%; // Start at the middle
   
     transform-origin: center center;
-    width: 100%; //<--------------------------------------------------------CHECK 
+    width: 100%; 
     height: 100%;
     z-index: 10;
 
     background-image: linear-gradient(
       to right, 
-      transparent 0%, 
-      rgba($red, 0.4) 5%,
+      rgba($red, 0) 0%, 
+      rgba($red, 0.6) 5%,
       rgba($orange, 0.8) 35%, 
       rgba($orange, 1) 50%,
       rgba($orange, 0.8) 65%, 
-      rgba($red, 0.4) 95%, 
-      transparent 100%
+      rgba($red, 0.6) 95%, 
+      rgba($red, 0) 100%
     ) !important;
+
+    $orange 0%,    
+        $orange 90%,    
+        rgba($orange, 0) 100% 
+      ) !important;
 
     // Remove the center transform
     transform: none;
@@ -555,19 +560,19 @@ hr {
       content: "";
       position: absolute;
       top: 0;
-      width: 100%; // <-----------------------------------------------__CHECK
+      width: 100%;
       height: 100%;
       z-index: 10;
       
      // 1. ANCHOR TO THE SYMBOL SIDE (First Line)
       right: 0; 
-      transform-origin: right center; // <--- The "Anchor" point
+      transform-origin: right center; 
       
       background-image: linear-gradient(
         to left, 
         $orange 0%,    
         $orange 90%,    
-        rgba($orange, 0.3) 100% 
+        rgba($orange, 0) 100% 
       ) !important;
 
       // ANIMATION ONLY ON THE PULSE
@@ -737,16 +742,17 @@ footer::after {
 
 @keyframes wireEnergize1 {
   0% { 
-    opacity: 0.8;
+    opacity: 1;
     // We combine the centering (-50%) with the stretch (0.8)
-    transform: translateX(-50%) scaleX(0.8); 
+    transform: translateX(-50%) scaleX(0.7); 
     box-shadow: 
-      0 0 10px rgba($orange, 0.7),
-      0 0 20px rgba($orange, 0.3);
+      0 0 10px rgba($orange, 0.6),   // Inner core
+      0 0 25px rgba($orange, 0.2), // Mid glow
+      0 0 45px rgba($orange, 0.1); // Far-reaching ambient light
   }
 
   50% {
-    opacity: 0.5;
+    opacity: 0.7;
     transform: translateX(-50%) scaleX(0.9); 
     box-shadow: 
       0 0 5px rgba($orange, 0.4),
@@ -758,21 +764,21 @@ footer::after {
     // Full extension while staying perfectly centered
     transform: translateX(-50%) scaleX(1); 
     box-shadow: 
-      0 0 15px rgba($orange, 0.9),
-      0 0 30px rgba($orange, 0.5), 
-      0 0 50px rgba($orange, 0.2);
+      0 0 10px rgba($orange, 0.6),   // Inner core
+      0 0 25px rgba($orange, 0.2), // Mid glow
+      0 0 45px rgba($orange, 0.1); // Far-reaching ambient light
   }
 }
 
 // DIVIDER WIRE WITH SYMBOL STRETCH AND GLOW ANIMATIONS
 @keyframes wireEnergize2 {
    0% { 
-    opacity: 0.9;
+    opacity: 1;
     // Keep the shadow tight and close to the line
     box-shadow: 
-      0 0 10px rgba($orange, 0.9),   // Inner core
-      0 0 25px rgba($orange, 0.5), // Mid glow
-      0 0 45px rgba($orange, 0.1); // Far-reaching ambient light 
+      0 0 10px rgba($orange, 1),   // Inner core
+      0 0 25px rgba($orange, 0.6), // Mid glow
+      0 0 45px rgba($orange, 0.2); // Far-reaching ambient light 
     transform: scaleX(0.8); // Assuming you're still using the stretch logic
   }
 
