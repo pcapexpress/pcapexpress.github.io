@@ -40,7 +40,7 @@ body {
   overflow-x: hidden;
   min-height: 100vh;
   width: 100%;
-}
+} // <------------------------------------------------------------ CLOSE BODY
 
 // 2.1 TYPOGRAPHY OVERRIDES
 h1, h2, h3, .header-title, .nav-menu, .header-bio, footer {
@@ -268,7 +268,7 @@ header {
       animation: scanLine 2s linear infinite, fastPulse 0.5s ease-in-out infinite;
     }
   }
-}
+} // <----------------------------------------------------------------------HEADER CLOSED
 
 // 4.0 MAIN CONTENT AREA
 section {
@@ -555,7 +555,7 @@ hr {  border: none !important;
   margin: 60px auto;
   gap: 20px;
 
-  .line 
+  .line {
   display: block;
   height: 2px;
   flex: 1;
@@ -587,6 +587,7 @@ hr {  border: none !important;
       linear-gradient(to left, transparent 0%, $orange 50%, transparent 100%), 
       linear-gradient(to left, transparent 0%, rgba($orange, 0.2) 15%, rgba($orange, 0.2) 85%, transparent 100%) !important;
   }
+}
 
   .symbol {
     display: inline-block;
