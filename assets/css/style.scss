@@ -148,7 +148,7 @@ header {
       .desc {
         position: absolute;
         left: 50%; // Centers it relative to .nav-menu
-        top: 60px;
+        top: 50px;
         transform: translateX(-50%) translateY(10px);
       
         width: max-content;
@@ -526,54 +526,47 @@ pre {
 hr {
   border: none !important;
   height: 2px !important; 
+  width: 100%;
+  max-width: 850px; // Full width of the rail
   margin: 60px auto;
   position: relative;
   overflow: visible;
 
-  // 1. THE TOP LAYER (The Pulse - Half Width)
-  width: 50%; 
-  max-width: 425px; // Half of total 850px
-  z-index: 10;
+  // STATIC UNDERLAYER (The Rail)
+  // We apply the dull color here so it never moves
+  background: rgba($orange, 0.15) !important; 
+  z-index: 1;
 
-  // Pulse Gradient (Your original logic)
-  background-image: linear-gradient(
-    to right, 
-    transparent 0%, 
-    rgba($red, 0.4) 5%,
-    rgba($orange, 0.8) 35%, 
-    rgba($orange, 1) 50%,
-    rgba($orange, 0.8) 65%, 
-    rgba($red, 0.4) 95%, 
-    transparent 100%
-  ) !important;
-
-  // Pulse Animation
-  animation: wireEnergize 2s ease-in-out infinite alternate;
-
-  // 2. THE UNDERLAYER (Dull Rail - Full Width)
-  &::before {
+  // THE PULSE LAYER (The Animated Pulse)
+  &::after {
     content: "";
     position: absolute;
     top: 0;
-    
-    // Centering the long rail behind the short pulse
     left: 50%;
     transform: translateX(-50%);
     
-    // Since the parent hr is 50%, width: 200% makes the rail 100% of 850px
-    width: 200%; 
-    max-width: 850px;
+    // Pulse is half length
+    width: 50%; 
     height: 100%;
-    
-    // Dull Static Color
-    background: rgba($orange, 0.15) !important; 
-    z-index: -1; 
-    pointer-events: none;
+    z-index: 10;
+
+    background-image: linear-gradient(
+      to right, 
+      transparent 0%, 
+      rgba($red, 0.4) 5%,
+      rgba($orange, 0.8) 35%, 
+      rgba($orange, 1) 50%,
+      rgba($orange, 0.8) 65%, 
+      rgba($red, 0.4) 95%, 
+      transparent 100%
+    ) !important;
+
+    // ANIMATION ONLY ON THE PULSE
+    animation: wireEnergize 2s ease-in-out infinite alternate;
   }
-}
+} //< -------------------------------------------------------------------------WIRE DIVIDER 1 CLOSED
   
 // 4.10 WIRE DIVIDER WITH SYMBOL
-// 4.10 WIRE DIVIDER WITH SYMBOL (Merged Logic)
 .divider-wire {
   display: flex;
   align-items: center;
@@ -581,79 +574,63 @@ hr {
   width: 100%;
   max-width: 850px;
   margin: 60px auto;
-  gap: 60px; // Increased gap to clearly separate the short pulses from the symbol
+  gap: 60px;
   position: relative;
   z-index: 1;
 
   .line {
     display: block;
     height: 2px;
-    // THE SHORT PULSE LOGIC
-    flex: 0 1 150px; // Pulse is fixed to 150px wide instead of filling space
+    flex: 1; // Rail fills the available flex space
     position: relative;
-    z-index: 10; 
-
-    background-image: linear-gradient(
-      to left, 
-      $orange 0%,    
-      $orange 80%,    
-      transparent 100% 
-    ) !important;
     
-    transform-origin: right center;
-    animation: wireEnergize 2s ease-in-out infinite alternate;
+    // STATIC UNDERLAYER (The Rail)
+    background: rgba($orange, 0.15) !important;
 
-    // THE FULL-LENGTH STATIC RAIL
-    &::before {
+    // THE PULSE LAYER
+    &::after {
       content: "";
       position: absolute;
       top: 0;
+      width: 150px; // Fixed pulse length
       height: 100%;
+      z-index: 10;
       
-      // We stretch the rail significantly further than the 150px pulse
-      // 'left: auto' and 'right: 0' for the first line makes it grow outwards
-      left: -150px; 
-      right: 0;
-      
-      background: rgba($orange, 0.15) !important; 
-      z-index: -1; // Sits behind the pulse
-      pointer-events: none;
-    }
-    
-    // Adjusting the second line (after the symbol)
-    &:nth-child(3) {
-      animation-delay: 0.2s;
-      transform-origin: left center;
+      // First line pulse (Right aligned)
+      right: 0; 
       background-image: linear-gradient(
-        to right, 
+        to left, 
         $orange 0%,    
         $orange 80%,    
         transparent 100% 
       ) !important;
 
-      // Reverse the rail direction for the right side
-      &::before {
-        left: 0;
-        right: -150px;
+      // ANIMATION ONLY ON THE PULSE
+      animation: wireEnergize 2s ease-in-out infinite alternate;
+    }
+    
+    // Second line (After symbol) pulse logic
+    &:nth-child(3) {
+      &::after {
+        left: 0; // Pulse starts from the symbol side
+        right: auto;
+        animation-delay: 0.2s;
+        background-image: linear-gradient(
+          to right, 
+          $orange 0%,    
+          $orange 80%,    
+          transparent 100% 
+        ) !important;
       }
     }
   }
 
   .symbol {
-    position: relative;
-    z-index: 20; // Highest layer
-    display: inline-block;
-    flex-shrink: 0;
-    
+    z-index: 20;
     color: $orange;
     font-size: 1.4rem;
-    line-height: 1;
     animation: dataStutter 2s ease-in-out infinite;
-    
-    // Ensure no background interference
-    background: transparent !important;
-    box-shadow: none !important;
-   }
+    }
   }
 }
    
