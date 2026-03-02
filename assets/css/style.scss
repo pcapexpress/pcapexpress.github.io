@@ -135,7 +135,7 @@ header {
     padding-bottom: 60px;
 
   a {
-    position: static; //< -----------------------------------------relative CHECK
+    position: static;
     padding: 8px 20px;
     background: rgba($dark-bg, 0.8);
     border: 1px solid $red;
@@ -150,8 +150,8 @@ header {
     .desc {
       position: absolute;
       left: 50%; // Centers it relative to .nav-menu
-      bottom: -10px; // Distance from the  nav-menu
-      transform: translateX(-50%) translateY(10px);
+      bottom: -5px; // Distance from the  nav-menu
+      transform: translateX(-50%) translateY(5px); // < ------------------------------10 CHECK
       
       width: max-content;
       min-width: 100px;
@@ -511,42 +511,43 @@ pre {
   width: 100%;
   max-width: 850px;
   margin: 60px auto;
+  
+  // 1. STACKING CONTEXT
   position: relative;
   overflow: visible;
+  z-index: 2; // The Pulse layer
 
-  // THE LAYERED BACKGROUNDS
-  background-image: 
-    // LAYER 1 (TOP): The Animated Pulse (Your original gradient)
-    linear-gradient(
-      to right, 
-      transparent 0%, 
-      rgba($red, 0.4) 5%,
-      rgba($orange, 0.8) 35%, 
-      rgba($orange, 1) 50%,
-      rgba($orange, 0.8) 65%, 
-      rgba($red, 0.4) 95%, 
-      transparent 100%
-    ),
-    // LAYER 2 (BOTTOM): The Solid Static Rail
-    // This fills 100% width and does NOT move with the animation
-    linear-gradient(
-      to right, 
-      rgba($orange, 0.1) 0%, 
-      rgba($orange, 0.1) 100%
-    ) !important;
+  // 2. THE TOP LAYER (The Pulse)
+  background-image: linear-gradient(
+    to right, 
+    transparent 0%, 
+    rgba($red, 0.4) 5%,
+    rgba($orange, 0.8) 35%, 
+    rgba($orange, 1) 50%,
+    rgba($orange, 0.8) 65%, 
+    rgba($red, 0.4) 95%, 
+    transparent 100%
+  ) !important;
 
-  // CRITICAL: Set sizes for both layers
-  // Layer 1 is 100% wide (it will animate/pulse)
-  // Layer 2 is 100% wide (it stays solid)
-  background-size: 100% 100%, 100% 100% !important;
-  background-repeat: no-repeat !important;
-
-  // THE ANIMATION
-  // Since your animation likely affects 'opacity' or 'filter', 
-  // it might still dim the bottom layer. 
-  // If you want ONLY the top layer to move, we animate 'background-position' instead.
   animation: wireEnergize 2s ease-in-out infinite alternate;
-}
+
+  // 3. THE UNDERLAYER (The Static Rail)
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    // Solid static line that doesn't animate
+    background: rgba($orange, 0.1) !important; 
+    
+    // Moves it behind the pulse
+    z-index: -1; 
+    pointer-events: none;
+  }
+} //< -------------------------------------------------------------------------WIRE DIVIDER 1 CLOSED
   
 // 4.10 WIRE DIVIDER WITH SYMBOL
 .divider-wire {
@@ -557,48 +558,66 @@ pre {
   max-width: 850px;
   margin: 60px auto;
   gap: 20px;
+  position: relative;
+  z-index: 1; // Base layer
 
   .line {
     display: block;
     height: 2px;
     flex: 1;
+    position: relative;
+    z-index: 5; // Pulse layer sits above rail
+
+    // THE PULSE (Animated Layer)
     background-image: linear-gradient(
       to left, 
-      $orange 0%,    // Start solid
-      $orange 95%,   // Stay solid all the way to 90%
-      transparent 100% // Snap to transparent in the final 10%
+      $orange 0%,    
+      $orange 95%,    
+      transparent 100% 
     ) !important;
+    
     transform-origin: right center;
     animation: wireEnergize 2s ease-in-out infinite alternate;
+
+    // THE STATIC RAIL (Faint Background Line)
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0; // Fills the line perfectly
+      // Matches the pulse's shape/direction but faint and static
+      background: rgba($orange, 0.15); 
+      z-index: -1; // Sits behind the pulse
+      pointer-events: none;
+    }
     
     &:nth-child(3) {
       animation-delay: 0.2s;
       transform-origin: left center;
       background-image: linear-gradient(
         to right, 
-        $orange 0%,    // Start solid
-        $orange 90%,   // Stay solid all the way to 90%
-        transparent 100% // Snap to transparent in the final 10%
+        $orange 0%,    
+        $orange 90%,    
+        transparent 100% 
       ) !important;
     }
   }
 
   .symbol {
+    position: relative; // Required for z-index
+    z-index: 10;        // Keeps symbol on top of everything
     display: inline-block;
     flex-shrink: 0;
-    // THE "HALO" KILLERS
     background: transparent !important;
     border: none !important;
     box-shadow: none !important; 
     outline: none !important;
-    // THE VISUALS
     color: $orange;
     font-size: 1.4rem;
     line-height: 1;
     opacity: 1;    
     animation: dataStutter 2s ease-in-out infinite;
     }
-  } //<------------------------------------------------------------------------WIRE DIVIDER 2 CLOSED
+  }//<------------------------------------------------------------------------WIRE DIVIDER 2 CLOSED
 }  //<-------------------------------------------------------------------------MAIN CONTENT - CLOSED
   
 // 5.0 BASIC HOVER CARDS OUTSIDE THE SECTION
