@@ -148,7 +148,7 @@ header {
       .desc {
         position: absolute;
         left: 50%; // Centers it relative to .nav-menu
-        top: 50px;
+        top: 45px;
         transform: translateX(-50%) translateY(10px);
       
         width: max-content;
@@ -183,7 +183,7 @@ header {
       }
     }
   }
-}
+} //<-------------------------------------------------------------------------------NAV-MENU CLOSED
           
   // 3.5 SCAN LINES
   //GREEN LINE PASIVE
@@ -208,7 +208,7 @@ header {
       transition: all 0.4s ease;
       pointer-events: none;
       z-index: 2;
-  }
+  } //<-------------------------------------------------------------------------GREEN PASIVE CLOSED
 
   // RED LINE PASSIVE
   &::before {
@@ -220,7 +220,7 @@ header {
     filter: drop-shadow(0 0 2px rgba($red, 0.4));
     animation: scanLine 2s linear infinite; 
     z-index: 3;
-  }
+  } //<---------------------------------------------------------------------------RED PASIVE CLOSED
 
   // 3.6 HEADER HOVER EFFECTS
   // PCAPEXPRESS GLITCH AND BIO BLOOM
@@ -249,7 +249,7 @@ header {
                  
       box-shadow: 0 0 15px rgba($green, 0.3); 
       animation: scanLine 7s linear infinite, dataStutter 0.5s ease-in-out infinite;
-    }
+    } //<------------------------------------------------------------------------GREEN ACTIVE CLOSED
   
     //RED LINE ACTIVE
     &::before {
@@ -258,8 +258,8 @@ header {
       filter: brightness(1.4) saturate(1.5) contrast(1.2) drop-shadow(0 0 4px $red); 
       animation: scanLine 2s linear infinite, fastPulse 0.5s ease-in-out infinite;
     }
-  }
-} // <--------------------------------------------------------------------------------HEADER CLOSED
+  } // <---------------------------------------------------------------------------RED ACTIVE CLOSED
+} // <---------------------------------------------------------------------------------HEADER CLOSED
 
 // 4.0 MAIN CONTENT AREA
 section {
@@ -276,19 +276,13 @@ h1, h2, h3, h4 {
   display: inline-block; 
   margin-bottom: 10px;
   width: 100%; 
-  //-webkit-font-smoothing: antialiased;
   
-  backface-visibility: hidden; // <-----------------------------------------------------------CHECK
+  backface-visibility: hidden;
   transform: translateZ(0); 
-
-  // 2. Smooth out the font rendering
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  // 3. Prevent layout shifting during transitions
-  will-change: transform, opacity; //
- 
-}
+   will-change: transform, opacity;
+ }
 
 h1 {
   font-size: clamp(1.8rem, 5vw, 2.5rem);
@@ -317,7 +311,7 @@ h4 {
      //1px 1px 2px rgba(0, 0, 0, 0.9), // Added outline for H4
      0 0 5px rgba($green, 0.8),
      0 0 10px rgba($green, 0.4) !important; 
-}
+} // <--------------------------------------------------------------------------------HEADERS CLOSED
   
 // 4.2 TEXT HIGHLIGHTS
 .text-green  { color: $green;  text-shadow: 0 0 8px rgba($green, 0.4); font-weight: bold; }
@@ -527,14 +521,17 @@ hr {
   border: none !important;
   height: 2px !important; 
   width: 100%;
-  max-width: 850px; // Full width of the rail
+  max-width: 850px; 
   margin: 60px auto;
   position: relative;
   overflow: visible;
 
   // STATIC UNDERLAYER (The Rail)
-  // We apply the dull color here so it never moves
-  background: rgba($orange, 0.15) !important; 
+  background: rgba($orange, 0.3) !important;
+  box-shadow: 
+      0 0 10px rgba($orange, 0.2),   // Inner core
+      0 0 25px rgba($orange, 0.1), // Mid glow
+      0 0 45px rgba($orange, 0.05); // Far-reaching ambient light 
   z-index: 1;
 
   // THE PULSE LAYER (The Animated Pulse)
@@ -542,11 +539,13 @@ hr {
     content: "";
     position: absolute;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
     
-    // Pulse is half length
-    width: 50%; 
+    // FIX: Anchor to the right instead of centering
+    right: 0; 
+    left: auto; // Ensures it doesn't try to stretch from both sides
+    
+    // Pulse is half length (425px if rail is 850px)
+    width: 90%; //<--------------------------------------------------------CHECK 
     height: 100%;
     z-index: 10;
 
@@ -560,6 +559,9 @@ hr {
       rgba($red, 0.4) 95%, 
       transparent 100%
     ) !important;
+
+    // Remove the center transform
+    transform: none;
 
     // ANIMATION ONLY ON THE PULSE
     animation: wireEnergize 2s ease-in-out infinite alternate;
@@ -585,19 +587,26 @@ hr {
     position: relative;
     
     // STATIC UNDERLAYER (The Rail)
-    background: rgba($orange, 0.15) !important;
+    background: rgba($orange, 0.3) !important;
+    box-shadow: 
+      0 0 10px rgba($orange, 0.2),   // Inner core
+      0 0 25px rgba($orange, 0.1), // Mid glow
+      0 0 45px rgba($orange, 0.05); // Far-reaching ambient light 
+    z-index: 1;
 
     // THE PULSE LAYER
     &::after {
       content: "";
       position: absolute;
       top: 0;
-      width: 150px; // Fixed pulse length
+      width: 90%; // <-----------------------------------------------__CHECK
       height: 100%;
       z-index: 10;
       
-      // First line pulse (Right aligned)
+     // 1. ANCHOR TO THE SYMBOL SIDE (First Line)
       right: 0; 
+      transform-origin: right center; // <--- The "Anchor" point
+      
       background-image: linear-gradient(
         to left, 
         $orange 0%,    
@@ -614,6 +623,10 @@ hr {
       &::after {
         left: 0; // Pulse starts from the symbol side
         right: auto;
+
+        // 2. ANCHOR TO THE SYMBOL SIDE (Second Line)
+        transform-origin: left center; // <--- The "Anchor" point
+        
         animation-delay: 0.2s;
         background-image: linear-gradient(
           to right, 
@@ -631,78 +644,8 @@ hr {
     font-size: 1.4rem;
     animation: dataStutter 2s ease-in-out infinite;
     }
-  }
-}
-   
-  /*.divider-wire {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 850px;
-  margin: 60px auto;
-  gap: 20px;
-  position: relative;
-  z-index: 1; // Base layer
-
-  .line {
-    display: block;
-    height: 2px;
-    flex: 1;
-    position: relative;
-    z-index: 10; // Pulse layer sits above rail
-
-    // THE PULSE (Animated Layer)
-    background-image: linear-gradient(
-      to left, 
-      $orange 0%,    
-      $orange 95%,    
-      transparent 100% 
-    ) !important;
-    
-    transform-origin: right center;
-    animation: wireEnergize 2s ease-in-out infinite alternate;
-
-    // THE STATIC RAIL (Faint Background Line)
-    &::before {
-      content: "";
-      position: absolute;
-      inset: 0; // Fills the line perfectly
-      // Matches the pulse's shape/direction but faint and static
-      background: rgba($orange, 0.15); 
-      z-index: 5; // Sits behind the pulse
-      pointer-events: none;
-    }
-    
-    &:nth-child(3) {
-      animation-delay: 0.2s;
-      transform-origin: left center;
-      background-image: linear-gradient(
-        to right, 
-        $orange 0%,    
-        $orange 90%,    
-        transparent 100% 
-      ) !important;
-    }
-  }
-
-  .symbol {
-    position: relative; // Required for z-index
-    z-index: 10;        // Keeps symbol on top of everything
-    display: inline-block;
-    flex-shrink: 0;
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important; 
-    outline: none !important;
-    color: $orange;
-    font-size: 1.4rem;
-    line-height: 1;
-    opacity: 1;    
-    animation: dataStutter 2s ease-in-out infinite;
-    }
-  }//<------------------------------------------------------------------------WIRE DIVIDER 2 CLOSED
-}*/  //<-------------------------------------------------------------------------MAIN CONTENT - CLOSED
+  } // <------------------------------------------------------------------------WIRE DIVIDER 2 CLOSED
+} // <--------------------------------------------------------------------------MAIN CONTENT - CLOSED
   
 // 5.0 BASIC HOVER CARDS OUTSIDE THE SECTION
 .hover-card {
@@ -836,20 +779,6 @@ footer::after {
   }
 }
     
-// DIVIDER STRETCH/PULSE BEHAVIOUR
-/*@keyframes wireEnergize {
-  0%, 100% { 
-    opacity: 0.6;
-    box-shadow: 0 0 5px rgba($orange, 0.2); 
-  }
-  50% { 
-    opacity: 0.9;
-    box-shadow: 
-      0 0 8px rgba($orange, 0.9),  
-      0 0 20px rgba($orange, 0.4), 
-      0 0 30px rgba($orange, 0.1); 
-  }
-}*/
 
 @keyframes wireEnergize {
   // 0% to 70%: The "Idle" or "Charging" phase
