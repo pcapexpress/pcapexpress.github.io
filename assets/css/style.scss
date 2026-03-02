@@ -93,7 +93,7 @@ header {
     // PRECISE DIMENSIONS
     min-width: 200px;  // WIDTH
     height: 30px;     // HEIGHT
-    padding: 0px; // < ----------------------------------------------------------- CHECK 20
+    padding: 20px; // < ----------------------------------------------------------- CHECK 20
     margin-top: 80px;
     // BACKGROUND
     background: rgba($dark-bg, 0.5);
@@ -104,7 +104,7 @@ header {
 }
 
   .header-title span {
-    margin: 30px 0; // < --------------------------20
+    margin: 0, 0; // < --------------------------20
     color: $orange !important;
     font-size: 2.2rem;
     font-weight: 700; 
@@ -134,7 +134,7 @@ header {
     margin: 20px 0; // <----------------------------------------------------------CHECK 10
     //padding-bottom: 80px; // Increased space for the box //60 < ------------------------------------------------
     padding-bottom: 40px; 
-    //margin-top: 20px;
+    margin-top: 10px;
 
   a {
     position: static; //< -----------------------------------------relative CHECK
@@ -152,7 +152,7 @@ header {
     .desc {
       position: absolute;
       left: 50%; // Centers it relative to .nav-menu
-      bottom: 20px; // Distance from the  nav-menu
+      bottom: -20px; // Distance from the  nav-menu
       transform: translateX(-50%) translateY(10px);
       
       width: max-content;
@@ -502,8 +502,8 @@ hr {
   overflow: visible;
 
   animation: 
-    dataStutter 2s ease-in-out infinite,
-    wireEnergize 2s ease-in-out infinite;
+    //dataStutter 3s ease-in-out infinite,
+    wireEnergize 3s ease-in-out infinite alternate;
   } //< -------------------------------------------------------------------------WIRE DIVIDER 1 CLOSED
   
 // 4.10 WIRE DIVIDER WITH SYMBOL
@@ -527,7 +527,7 @@ hr {
       transparent 100% // Snap to transparent in the final 10%
     ) !important;
     transform-origin: right center;
-    animation: dividerStretch 2s ease-in-out infinite alternate;
+    animation: dividerStretch 3s ease-in-out infinite alternate;
     
     &:nth-child(3) {
       animation-delay: 0.2s;
@@ -554,7 +554,7 @@ hr {
     font-size: 1.4rem;
     line-height: 1;
     opacity: 1;    
-    animation: dataStutter 1s ease-in-out infinite;
+    animation: dataStutter 2s ease-in-out infinite;
     }
   } //<------------------------------------------------------------------------WIRE DIVIDER 2 CLOSED
 }  //<-------------------------------------------------------------------------MAIN CONTENT - CLOSED
