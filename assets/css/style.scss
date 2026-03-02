@@ -121,15 +121,15 @@ header {
   justify-content: center; // Centers text vertically if you set a height
 
   // PRECISE DIMENSIONS
-  min-width: 300px;  // Force it to be at least this wide
-  height: 60px;     // Force a specific height
+  min-width: 200px;  // Force it to be at least this wide
+  height: 40px;     // Force a specific height
   
   padding: 0;        // No padding needed if we use fixed height/width
   margin-bottom: 20px; 
   
   // VISUALS
-  background: rgba(0, 0, 0, 0.4); // Darker to make the orange pop
-  backdrop-filter: blur(4px); 
+  background: rgba(0, 0, 0, 0.1); // Darker to make the orange pop
+  backdrop-filter: blur(2px); 
   border-radius: 4px;
   
   // SECURITY (Prevents the "Psychedelic" bleed)
@@ -532,10 +532,12 @@ hr {
     ),
     linear-gradient(
       to right,
-      transparent 10%,
-      rgba($orange, 0.5) 20%, // SOLID ORANGE BASE
-      rgba($orange, 0.6) 80%,
-      transparent 100%
+      transparent 0%,      // Start invisible
+      transparent 5%,      // Stay invisible for the first 5%
+      rgba($orange, 0.5) 10%, // Reach target color by 10% (a sharp 5% transition)
+      rgba($orange, 0.5) 90%, // Hold color steady until the end
+      transparent 95%,     // Start fading out at 95%
+      transparent 100%     // Fully invisible again
     ) !important;
 
   // Force the background size so the two gradients stack correctly
@@ -547,7 +549,7 @@ hr {
 
   // SIMPLIFIED TEST ANIMATION
   // This just slides the Red pulse back and forth across the Orange tube
-  animation: testPulse 3s ease-in-out infinite !important;
+  animation: dataStutter 1s ease-in-out infinite !important;
 
 } //< ----------------------------------------------------------WIRE DIVIDER 1 CLOSED
   
@@ -577,7 +579,7 @@ hr {
 
 // 4.10 WIRE DIVIDER WITH SYMBOL
 
-/*.divider-wire {
+.divider-wire {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -591,7 +593,7 @@ hr {
     height: 2px;
     flex: 1;
     transform-origin: right center;
-    animation: dividerStretch 3s ease-in-out infinite;
+    animation: testPulse 3s ease-in-out infinite;
 
     // DOUBLE GRADIENT LOGIC
     // Layer 1: The Animated Pulse (Top)
@@ -623,7 +625,7 @@ hr {
     // Optional: Add a subtle glow to the symbol so it looks like the "Bulb"
     text-shadow: 0 0 10px rgba($orange, 0.5);
     }
-  }*/ //<---------------------------------------------------------------------------WIRE DIVIDER 2 CLOSED
+  } //<---------------------------------------------------------------------------WIRE DIVIDER 2 CLOSED
 }  //<----------------------------------------------------------------------------MAIN CONTENT - CLOSED
   
   /*.divider-wire {
