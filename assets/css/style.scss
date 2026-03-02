@@ -471,52 +471,7 @@ pre {
   }
 } //<------------------------------------------------------------------------------CODE BLOCK CLOSED
 
-  // 4.9 WIRE DIVIDER CLASSIC
- /* hr {
-      border: none !important;
-      height: 2px !important; 
-      width: 100%;
-      max-width: 850px;
-      margin: 60px auto;
-  
-  // 1. STACKING CONTEXT
-      position: relative;
-      overflow: visible;
-      z-index: 10; // The Pulse layer
-
-  // 2. THE TOP LAYER (The Pulse)
-      background-image: linear-gradient(
-        to right, 
-        transparent 0%, 
-        rgba($red, 0.4) 5%,
-        rgba($orange, 0.8) 35%, 
-        rgba($orange, 1) 50%,
-        rgba($orange, 0.8) 65%, 
-        rgba($red, 0.4) 95%, 
-        transparent 100%
-      ) !important;
-
-  animation: wireEnergize 2s ease-in-out infinite alternate;
-
-  // 3. THE UNDERLAYER (The Static Rail)
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    
-    // Solid static line that doesn't animate
-    background: rgba($orange, 0.1) !important; 
-    
-    // Moves it behind the pulse
-    z-index: 5; 
-    pointer-events: none;
-  }
-} *///< -------------------------------------------------------------------------WIRE DIVIDER 1 CLOSED
-
-// 4.9 WIRE DIVIDER CLASSIC (Merged Logic)
+// 4.9 WIRE DIVIDER CLASSIC
 hr {
   border: none !important;
   height: 2px !important; 
@@ -529,9 +484,9 @@ hr {
   // STATIC UNDERLAYER (The Rail)
   background: rgba($orange, 0.3) !important;
   box-shadow: 
-      0 0 10px rgba($orange, 0.2),   // Inner core
-      0 0 25px rgba($orange, 0.1), // Mid glow
-      0 0 45px rgba($orange, 0.05); // Far-reaching ambient light 
+      0 0 10px rgba($orange, 0.9),   // Inner core
+      0 0 25px rgba($orange, 0.6), // Mid glow
+      0 0 45px rgba($orange, 0.2); // Far-reaching ambient light 
   z-index: 1;
 
   // THE PULSE LAYER (The Animated Pulse)
@@ -540,11 +495,15 @@ hr {
     position: absolute;
     top: 0;
     
-    // FIX: Anchor to the right instead of centering
-    right: 0; 
-    left: auto; // Ensures it doesn't try to stretch from both sides
-    
-    // Pulse is half length (425px if rail is 850px)
+    // 1. PERFECT CENTERING
+    width: 90%; 
+    left: 50%;
+    // This centers the 90% width relative to the full rail
+    transform: translateX(-50%); 
+  
+    // 2. THE MIDDLE ANCHOR
+    // This ensures the scale growth happens from the center outward
+    transform-origin: center center;
     width: 90%; //<--------------------------------------------------------CHECK 
     height: 100%;
     z-index: 10;
@@ -587,11 +546,11 @@ hr {
     position: relative;
     
     // STATIC UNDERLAYER (The Rail)
-    background: rgba($orange, 0.3) !important;
+    background: rgba($orange, 0.5) !important;
     box-shadow: 
-      0 0 10px rgba($orange, 0.2),   // Inner core
-      0 0 25px rgba($orange, 0.1), // Mid glow
-      0 0 45px rgba($orange, 0.05); // Far-reaching ambient light 
+      0 0 10px rgba($orange, 0.8),   // Inner core
+      0 0 25px rgba($orange, 0.7), // Mid glow
+      0 0 45px rgba($orange, 0.5); // Far-reaching ambient light 
     z-index: 1;
 
     // THE PULSE LAYER
@@ -610,7 +569,7 @@ hr {
       background-image: linear-gradient(
         to left, 
         $orange 0%,    
-        $orange 80%,    
+        $orange 90%,    
         transparent 100% 
       ) !important;
 
@@ -631,7 +590,7 @@ hr {
         background-image: linear-gradient(
           to right, 
           $orange 0%,    
-          $orange 80%,    
+          $orange 90%,    
           transparent 100% 
         ) !important;
       }
@@ -761,9 +720,9 @@ footer::after {
 //GREEN LINE ACTIVE//CODE BLOCK STUTTER//DIVIDER LINE & SYMBOL
 @keyframes dataStutter {
   0%   { opacity: 0.8; }
-  25%  { opacity: 0.3; }
+  25%  { opacity: 0.5; }
   50%  { opacity: 1.0; }
-  75%  { opacity: 0.5; }
+  75%  { opacity: 0.6; }
   100% { opacity: 0.9; }
 }
 
@@ -781,15 +740,14 @@ footer::after {
     
 
 @keyframes wireEnergize {
-  // 0% to 70%: The "Idle" or "Charging" phase
-  0% { 
+   0% { 
     opacity: 0.9;
     // Keep the shadow tight and close to the line
     box-shadow: 
       0 0 10px rgba($orange, 0.9),   // Inner core
       0 0 25px rgba($orange, 0.5), // Mid glow
       0 0 45px rgba($orange, 0.1); // Far-reaching ambient light 
-    transform: scaleX(0.7); // Assuming you're still using the stretch logic
+    transform: scaleX(0.8); // Assuming you're still using the stretch logic
   }
 
   // 85%: The "Mid-Stretch" (Adding the first layer of glow)
@@ -813,19 +771,4 @@ footer::after {
   }
 }
 
-@keyframes dividerStretch {
-  0% { 
-    transform: scaleX(0.5); // Starts at 50% width
-    opacity: 1;             // Fully solid orange
-  }
-  
-  70% { 
-    transform: scaleX(1);   // Expands to full 100% width
-    opacity: 0.6;           // Begins to dim slightly
-  }
-
-  100% { 
-    transform: scaleX(1);   // Stays at full width
-    opacity: 0.8;           // Finishes at a dim state
-  }
-}
+// THATS ALL FOLKS
