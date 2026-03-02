@@ -85,25 +85,20 @@ header {
 
   // 3.1 HEADER TITLE AND BACKDROP
   .header-backdrop {
-  position: relative;
-  z-index: 2; // Ensures it stays above the background but below the scan-line if desired
-  padding: 30px 60px;
-  margin-bottom: 40px;
+    position: relative;
+    z-index: 2;
+    display: inline-flex;    // Only takes up as much space as the content
+    flex-direction: column;
+    align-items: center;
   
-  // THE GLASS PLATE
-  background: rgba(0, 0, 0, 0.4); // Semi-transparent black
-  backdrop-filter: blur(8px);     // This makes the background image "soft" behind the text
-  border: 1px solid rgba($red, 0.2); // Very subtle tactical border
-  border-radius: 8px;
-  
-  // Optional: Inner glow to make it feel like a screen
-  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
-  
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  max-width: 800px; // Keeps the box from stretching too wide
+  // 3. REMOVE PADDING (OR MINIMIZE)
+    padding: 5px 15px; // COULD GO TO 0 0 
+    margin-bottom: 20px;     // Controls distance to the pills below < ----- CHECK
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    border-radius: 4px;
+    width: auto;             
+    max-width: none;
 }
   
   .header-title span {
@@ -484,66 +479,44 @@ pre {
   }
 } //<-----------------------------------------------------CODE BLOCK CLOSED
 
-/*color: $orange;
-  text-decoration: none;
-  font-weight: bold;
-  position: relative; // Anchors the custom underline
-  transition: color 0.3s ease;
-
-  // The Animated Red Underline
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: -2px; 
-    left: 0;
-    width: 0; // Starts hidden
-    height: 2px;
-    background-color: $red;
-    transition: width 0.3s ease-in-out;
-    box-shadow: 0 0 5px $red; // Forensic glow
-  }
-
-  &:hover { 
-    color: $yellow;
-    text-shadow: 0 0 8px rgba($yellow, 0.5);
-
-    &::after { 
-      width: 100%; // Stretches to full width on hover
-    }
-  }
-}
-
-// 7. FORENSIC INFO CARDS (Modules)
-section ul li {
-  list-style: none;
-  background: $medium-bg;
-  margin-bottom: 12px;
-  padding: 20px;
-  border-left: 5px solid $red;
-  border-radius: 4px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-
-  // This handles the text inside when you hover
-  &:hover {
-    background-color: $red; 
-    transform: translateX(8px); // Slightly more dramatic shift
-    color: #ffffff;
-    box-shadow: -5px 0 15px rgba($red, 0.4);
-
-    // Forces all nested text (h3, p, etc.) to white on hover
-    h1, h2, h3, h4, p, span, strong { 
-      color: #ffffff; 
-      text-shadow: inherit;
-    }
-  }
-}*/
-
-  
- 
 // 4.8 AMBIENT WIRE DIVIDER ---
 hr {
+  border: none !important;
+  height: 2px !important; 
+  width: 90%; 
+  margin: 60px auto;
+  position: relative;
+  overflow: visible;
+
+  // LAYERED BACKGROUNDS:
+  // 1. Your animated "Pulse" (Top Layer)
+  // 2. The "Dark Tube" (Base Layer)
+  background-image: 
+    linear-gradient(
+      to right, 
+      transparent 0%, 
+      rgba($red, 0.4) 10%, 
+      rgba($orange, 1) 50%, // Brightest point
+      rgba($red, 0.4) 90%, 
+      transparent 100%
+    ),
+    linear-gradient(
+      to right,
+      transparent 0%,
+      rgba($orange, 0.15) 20%, // Faint, dark base color
+      rgba($orange, 0.15) 80%,
+      transparent 100%
+    ) !important;
+
+  // Add a faint constant glow to the "Tube"
+  box-shadow: 0 0 10px rgba($orange, 0.1);
+
+  animation: 
+    dividerStutter 2s ease-in-out infinite,
+    wireEnergize 2s ease-in-out infinite;
+}
+  
+  /*hr {
   border: none !important;
   height: 2px !important; 
   background-color: transparent !important;
@@ -565,10 +538,59 @@ hr {
   animation: 
     dataStutter 2s ease-in-out infinite,
     wireEnergize 2s ease-in-out infinite;
-  }
+  }*/
 
 // 4.10 WIRE DIVIDER WITH SYMBOL
+
 .divider-wire {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 850px;
+  margin: 60px auto;
+  gap: 20px;
+
+  .line {
+    display: block;
+    height: 2px;
+    flex: 1;
+    transform-origin: right center;
+    animation: dividerStretch 3s ease-in-out infinite;
+
+    // DOUBLE GRADIENT LOGIC
+    // Layer 1: The Animated Pulse (Top)
+    // Layer 2: The Faint Base "Tube" (Bottom)
+    background-image: 
+      linear-gradient(to right, transparent, $orange), 
+      linear-gradient(to right, transparent, rgba($orange, 0.15)) !important;
+
+    &:nth-child(3) {
+      transform-origin: left center;
+      background-image: 
+        linear-gradient(to left, transparent, $orange), 
+        linear-gradient(to left, transparent, rgba($orange, 0.15)) !important;
+    }
+  }
+
+  .symbol {
+    display: inline-block;
+    flex-shrink: 0;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important; 
+    outline: none !important;
+    color: $orange;
+    font-size: 1.4rem;
+    line-height: 1;
+    opacity: 1;    
+    animation: dataStutter 2s ease-in-out infinite;
+    // Optional: Add a subtle glow to the symbol so it looks like the "Bulb"
+    text-shadow: 0 0 10px rgba($orange, 0.5);
+  }
+}
+  
+  /*.divider-wire {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -606,7 +628,7 @@ hr {
     animation: dataStutter 2s ease-in-out infinite;
     }
   }
-}
+}*/
 
 // 5.0 BASIC HOVER CARDS OUTSIDE THE SECTION
 .hover-card {
@@ -755,4 +777,9 @@ footer::after {
 @keyframes dividerStretch {
   0%, 100% { transform: scaleX(1); opacity: 0.5; }
   60% { transform: scaleX(0.8); opacity: 1; }
+}
+
+@keyframes dividerStutter {
+  0%, 100% { opacity: 1; transform: scaleX(1); }
+  50% { opacity: 0.8; transform: scaleX(0.98); } // Slight "power dip"
 }
