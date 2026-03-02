@@ -92,8 +92,8 @@ header {
     align-items: center;
     justify-content: center; // Centers text vertically if you set a height
     // PRECISE DIMENSIONS
-    min-width: 220px;  // Force it to be at least this wide
-    height: 38px;     // Force a specific height
+    min-width: 210px;  // Force it to be at least this wide
+    height: 35px;     // Force a specific height
     padding: 0;
     margin-bottom: 20px; 
     // BACKGROUND
@@ -152,7 +152,7 @@ header {
       position: absolute;
       left: 50%; // Centers it relative to .nav-menu
       bottom: -10px; // Distance from the  nav-menu
-      transform: translateX(-50%) translateY(10px);
+      transform: translateX(-50%) translateY(10px) translateZ(0);
       
       width: max-content;
       min-width: 100px;
@@ -488,40 +488,37 @@ pre {
 
 hr {
   border: none !important;
-  height: 3px !important; // Thickened for testing visibility
+  height: 3px !important; 
   width: 90%; 
   margin: 60px auto;
   position: relative;
   
-  // 1. TOP LAYER: Red Pulse (High Opacity)
-  // 2. BOTTOM LAYER: Orange Tube (Solid enough to see)
   background-image: 
+    // 1. THE PULSE (Symmetrical)
     linear-gradient(
       to right, 
       transparent 0%, 
-      rgba($orange, 1) 50%, // PURE RED PULSE
+      rgba($orange, 1) 50%, 
       transparent 100%
     ),
+    // 2. THE BASE TUBE (Symmetrical Tips)
     linear-gradient(
       to right,
-      transparent 0%,      // Start invisible
-      transparent 5%,      // Stay invisible for the first 5%
-      rgba($orange, 0.5) 10%, // Reach target color by 10% (a sharp 5% transition)
-      rgba($orange, 0.5) 90%, // Hold color steady until the end
-      transparent 95%,     // Start fading out at 95%
-      transparent 100%     // Fully invisible again
+      transparent 0%,      // Start Invisible
+      transparent 5%,      // Gap
+      rgba($orange, 0.4) 15%, // Fade-in complete
+      rgba($orange, 0.4) 85%, // Start Fade-out
+      transparent 95%,     // Gap
+      transparent 100%     // End Invisible
     ) !important;
 
-  // Force the background size so the two gradients stack correctly
+  // This ensures the pulse has room to travel without "clumping" at the ends
   background-size: 200% 100%, 100% 100% !important;
   background-repeat: no-repeat !important;
 
-  // EXAGGERATED GLOW
-  box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
-
-  // SIMPLIFIED TEST ANIMATION
-  // This just slides the Red pulse back and forth across the Orange tube
-  animation: wireEnergize 1s ease-in-out infinite !important;
+  // Simplified Animation call
+  animation: wireTest1 2s ease-in-out infinite !important;
+}
 
 } //< ----------------------------------------------------------WIRE DIVIDER 1 CLOSED
   
@@ -561,26 +558,38 @@ hr {
   gap: 20px;
 
   .line {
-    display: block;
-    height: 2px;
-    flex: 1;
-    transform-origin: right center;
-    animation: testPulse 3s ease-in-out infinite;
+  display: block;
+  height: 2px;
+  flex: 1;
+  position: relative;
+  
+  // 1. THE DOUBLE GRADIENT
+  // Layer 1: The Pulse (Bright, centered)
+  // Layer 2: The Base Tube (Faint, full length with faded tips)
+  background-image: 
+    linear-gradient(to right, transparent 0%, $orange 50%, transparent 100%), 
+    linear-gradient(to right, transparent 0%, rgba($orange, 0.2) 15%, rgba($orange, 0.2) 85%, transparent 100%) !important;
+  
+  // 2. THE SECRET SAUCE: Background sizing
+  // Pulse starts small (30%), Tube is full width (100%)
+  background-size: 30% 100%, 100% 100% !important;
+  background-repeat: no-repeat !important;
+  background-position: center center, center center !important;
 
-    // DOUBLE GRADIENT LOGIC
-    // Layer 1: The Animated Pulse (Top)
-    // Layer 2: The Faint Base "Tube" (Bottom)
+  // 3. THE ANIMATION
+  // We use a new keyframe to "pulse" the size of the top layer only
+  animation: wirePulse 3s ease-in-out infinite;
+
+  transform-origin: right center;
+
+  &:nth-child(3) {
+    transform-origin: left center;
+    // Mirror the direction for the right side
     background-image: 
-      linear-gradient(to right, transparent, $orange), 
-      linear-gradient(to right, transparent, rgba($orange, 0.5)) !important;
-
-    &:nth-child(3) {
-      transform-origin: left center;
-      background-image: 
-        linear-gradient(to left, transparent, $orange), 
-        linear-gradient(to left, transparent, rgba($orange, 0.5)) !important;
-    }
+      linear-gradient(to left, transparent 0%, $orange 50%, transparent 100%), 
+      linear-gradient(to left, transparent 0%, rgba($orange, 0.2) 15%, rgba($orange, 0.2) 85%, transparent 100%) !important;
   }
+}
 
   .symbol {
     display: inline-block;
@@ -668,6 +677,9 @@ hr {
     }
   }
 }
+
+//5.1 TEXT CENTER
+.text-center { text-align: center; }
 
 // 6.0 WRAPPER
 .wrapper {
@@ -786,4 +798,23 @@ footer::after {
 @keyframes dividerStretch {
   0%, 100% { transform: scaleX(1); opacity: 0.5; }
   60% { transform: scaleX(0.8); opacity: 1; }
+}
+
+@keyframes wireTest1 {
+  0% { background-position: -100% 0, 0 0; }
+  100% { background-position: 100% 0, 0 0; }
+}
+
+// 4. THE ENERGY ANIMATION
+// This makes the Top Layer (the pulse) grow and shrink 
+// while the Bottom Layer (the tube) stays still
+@keyframes wireTest2 {
+  0%, 100% { 
+    background-size: 20% 100%, 100% 100%; 
+    opacity: 0.6; 
+  }
+  50% { 
+    background-size: 80% 100%, 100% 100%; 
+    opacity: 1; 
+  }
 }
