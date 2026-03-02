@@ -537,7 +537,7 @@ hr {
   width: 100%;
   max-width: 850px;
   margin: 60px auto;
-  gap: 60px;
+  gap: 30px;
   position: relative;
   z-index: 1;
 
@@ -603,7 +603,7 @@ hr {
     z-index: 20;
     color: $orange;
     font-size: 1.4rem;
-    animation: dataStutter 2s ease-in-out infinite;
+    animation: symbolBreathing 2s ease-in-out infinite;
     }
   } // <------------------------------------------------------------------------WIRE DIVIDER 2 CLOSED
 } // <--------------------------------------------------------------------------MAIN CONTENT - CLOSED
@@ -800,6 +800,27 @@ footer::after {
       0 0 10px rgba($orange, 1),   // Inner core
       0 0 25px rgba($orange, 0.6), // Mid glow
       0 0 45px rgba($orange, 0.2); // Far-reaching ambient light
+  }
+}
+
+// SYMBOL ANIMATION
+@keyframes symbolBreathing {
+  0% {
+    transform: scale(0.95);
+    filter: saturate(1) brightness(1);
+    text-shadow: 0 0 5px rgba($orange, 0.4);
+    opacity: 0.8;
+  }
+  50% {
+    filter: saturate(1.5) brightness(1.2); // Peak intensity
+    text-shadow: 0 0 15px rgba($orange, 0.8), 0 0 25px rgba($orange, 0.4);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.05); // Subtle growth
+    filter: saturate(1.2) brightness(1.1);
+    text-shadow: 0 0 10px rgba($orange, 0.6);
+    opacity: 0.9;
   }
 }
 
