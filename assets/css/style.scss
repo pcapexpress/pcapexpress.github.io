@@ -565,7 +565,7 @@ hr {
         to left, 
         $orange 0%,    
         $orange 90%,    
-        rgba($orange, 0.3) 100%; 
+        rgba($orange, 0.3) 100% 
       ) !important;
 
       // ANIMATION ONLY ON THE PULSE
@@ -586,7 +586,7 @@ hr {
           to right, 
           $orange 0%,    
           $orange 90%,    
-          rgba($orange, 0.5) 100%;
+          rgba($orange, 0.5) 100%
         ) !important;
       }
     }
