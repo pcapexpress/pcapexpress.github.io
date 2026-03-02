@@ -84,7 +84,7 @@ header {
   }
 
   // 3.1 HEADER TITLE AND BACKDROP
-  .header-backdrop {
+  /*.header-backdrop {
     position: relative;
     z-index: 2;
     display: inline-flex;    // Only takes up as much space as the content
@@ -109,7 +109,42 @@ header {
     letter-spacing: -1px;
     text-decoration: none !important;
     display: inline-block;
-  }
+  }*/
+
+  // 3.1 HEADER TITLE AND BACKDROP
+.header-backdrop {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; // Centers text vertically if you set a height
+
+  // PRECISE DIMENSIONS
+  min-width: 300px;  // Force it to be at least this wide
+  height: 60px;     // Force a specific height
+  
+  padding: 0;        // No padding needed if we use fixed height/width
+  margin-bottom: 20px; 
+  
+  // VISUALS
+  background: rgba(0, 0, 0, 0.4); // Darker to make the orange pop
+  backdrop-filter: blur(4px); 
+  border-radius: 4px;
+  
+  // SECURITY (Prevents the "Psychedelic" bleed)
+  overflow: hidden; 
+  transform: translateZ(0); // Isolate the layer from the rest of the page
+}
+
+.header-title span {
+  margin: 0;
+  color: $orange !important;
+  font-size: 2.2rem;
+  font-weight: 700; 
+  letter-spacing: -1px;
+  display: block; // Changed to block to fill the backdrop height correctly
+}
 
   // 3.2 HEADER GREEN MIDDLE TEXT
   .header-bio {
@@ -479,41 +514,41 @@ pre {
   }
 } //<-----------------------------------------------------CODE BLOCK CLOSED
 
-// 4.8 AMBIENT WIRE DIVIDER ---
 hr {
   border: none !important;
-  height: 2px !important; 
+  height: 4px !important; // Thickened for testing visibility
   width: 90%; 
   margin: 60px auto;
   position: relative;
-  overflow: visible;
-
-  // LAYERED BACKGROUNDS:
-  // 1. Your animated "Pulse" (Top Layer)
-  // 2. The "Dark Tube" (Base Layer)
+  
+  // 1. TOP LAYER: Red Pulse (High Opacity)
+  // 2. BOTTOM LAYER: Orange Tube (Solid enough to see)
   background-image: 
     linear-gradient(
       to right, 
       transparent 0%, 
-      rgba($red, 0.4) 10%, 
-      rgba($orange, 1) 50%, // Brightest point
-      rgba($red, 0.4) 90%, 
+      rgba(255, 0, 0, 1) 50%, // PURE RED PULSE
       transparent 100%
     ),
     linear-gradient(
       to right,
       transparent 0%,
-      rgba($orange, 0.15) 20%, // Faint, dark base color
-      rgba($orange, 0.15) 80%,
+      rgba($orange, 0.4) 20%, // SOLID ORANGE BASE
+      rgba($orange, 0.4) 80%,
       transparent 100%
     ) !important;
 
-  // Add a faint constant glow to the "Tube"
-  box-shadow: 0 0 10px rgba($orange, 0.1);
+  // Force the background size so the two gradients stack correctly
+  background-size: 200% 100%, 100% 100% !important;
+  background-repeat: no-repeat !important;
 
-  animation: 
-    dividerStutter 2s ease-in-out infinite,
-    wireEnergize 2s ease-in-out infinite;
+  // EXAGGERATED GLOW
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+
+  // SIMPLIFIED TEST ANIMATION
+  // This just slides the Red pulse back and forth across the Orange tube
+  animation: testPulse 3s linear infinite !important;
+
 } //< ----------------------------------------------------------WIRE DIVIDER 1 CLOSED
   
   /*hr {
@@ -779,8 +814,13 @@ footer::after {
   0%, 100% { transform: scaleX(1); opacity: 0.5; }
   60% { transform: scaleX(0.8); opacity: 1; }
 }
-
+////////////////////////////////////////////TEST/////////////////////////////////////
 @keyframes dividerStutter {
   0%, 100% { opacity: 1; transform: scaleX(1); }
   50% { opacity: 0.8; transform: scaleX(0.98); } // Slight "power dip"
+}
+
+@keyframes testPulse {
+  0% { background-position: -100% 0, 0 0; }
+  100% { background-position: 100% 0, 0 0; }
 }
