@@ -52,17 +52,17 @@ h1, h2, h3, .header-title, .nav-menu, .header-bio, footer {
 // 3.0 HEADER ARCHITECTURE
 header {  
   position: relative;
-  overflow: hidden;
-  isolation: isolate;
+  //overflow: hidden; // < -------------------
+  //isolation: isolate; // < ------------------------
   width: 100%; 
   display: flex;
   flex-direction: column;
   align-items: center;    
   justify-content: center;
-  
-  margin: 0 !important;
+   margin: 0 !important;
   //$header-spacing: 90px;
-  padding: 60px 20px;
+  //padding: 60px 20px; // <----------------------------------
+  padding: 0 20px;
   border-bottom: 3px solid $red;
 
   background: 
@@ -95,9 +95,10 @@ header {
     min-width: 210px;  // Force it to be at least this wide
     height: 35px;     // Force a specific height
     padding: 0;
+    margin-top: 80px;    // <--- THIS now determines the gap from the top of the screen < ----------------------------------
     margin-bottom: 20px; 
     // BACKGROUND
-    background: rgba($dark-bg, 0.2);
+    background: rgba($dark-bg, 0.5);
     backdrop-filter: blur(2px); 
     border-radius: 4px; 
     overflow: hidden; 
@@ -133,7 +134,7 @@ header {
     gap: 10px;
     position: relative;
     margin: 10px 0; // <----------------------------------------------------------CHECK
-    padding-bottom: 30px; // Increased space for the box //60
+    padding-bottom: 80px; // Increased space for the box //60 < ------------------------------------------------
   
 
   a {
@@ -152,20 +153,14 @@ header {
       position: absolute;
       left: 50%; // Centers it relative to .nav-menu
       bottom: -10px; // Distance from the  nav-menu
-      transform: translateX(-50%) translateY(10px) translateZ(0);
+      transform: translateX(-50%) translateY(10px);
       
       width: max-content;
       min-width: 100px;
-      text-align: center;
-
-      // THE STABILIZER
-       transform: translateZ(0); // Forces GPU layer isolation
-       z-index: 10;              // High value to ensure it's above the scan-lines
-       backface-visibility: hidden; // Extra insurance against "jitter"
-      
-      // 2. Visuals (Subtle Box)
-      background: rgba(0, 0, 0, 0.3); // Dark semi-transparent
-      border: 1px solid rgba($green, 0.1); // Cyan border
+      text-align: center;      
+      //BOX PARAMETERS
+      background: rgba($dark-bg, 0.5); // Dark semi-transparent
+      border: 1px solid rgba($green, 0.3); // Cyan border
       border-radius: 4px;
       color: $green;
       font-size: 0.9rem;
@@ -268,7 +263,7 @@ header {
       animation: scanLine 2s linear infinite, fastPulse 0.5s ease-in-out infinite;
     }
   }
-} // <----------------------------------------------------------------------HEADER CLOSED
+} // <--------------------------------------------------------------------------------HEADER CLOSED
 
 // 4.0 MAIN CONTENT AREA
 section {
@@ -395,7 +390,7 @@ p, div, li {
           }
         }
       }   
-    }
+    } // < -------------------------------------------------------------------------BODY TEXT CLOSED
     
 // 4.6 ATMOSPHERIC IMAGE
 img {
@@ -424,7 +419,7 @@ img {
     border-color: rgba($orange, 0.9);
     filter: brightness(1.2);
     }
-  } // <-------------------------------------------------------------IMAGE CLOSED
+  } // <--------------------------------------------------------------------------------IMAGE CLOSED
 
 // 4.7 CODE BLOCKS
 pre {
@@ -484,43 +479,10 @@ pre {
     z-index: 3;
     border-radius: 0 0 0 4px;
   }
-} //<-----------------------------------------------------CODE BLOCK CLOSED
+} //<------------------------------------------------------------------------------CODE BLOCK CLOSED
 
-hr {  border: none !important;
-  height: 3px !important; 
-  width: 90%; 
-  margin: 60px auto;
-  position: relative;
-  
-  background-image: 
-    // 1. THE PULSE (Symmetrical)
-    linear-gradient(
-      to right, 
-      transparent 0%, 
-      rgba($orange, 1) 50%, 
-      transparent 100%
-    ),
-    // 2. THE BASE TUBE (Symmetrical Tips)
-    linear-gradient(
-      to right,
-      transparent 0%,      // Start Invisible
-      transparent 5%,      // Gap
-      rgba($orange, 0.4) 15%, // Fade-in complete
-      rgba($orange, 0.4) 85%, // Start Fade-out
-      transparent 95%,     // Gap
-      transparent 100%     // End Invisible
-    ) !important;
-
-  // This ensures the pulse has room to travel without "clumping" at the ends
-  background-size: 200% 100%, 100% 100% !important;
-  background-repeat: no-repeat !important;
-
-  // Simplified Animation call
-  animation: wireTest1 2s ease-in-out infinite !important;
-
-} //< ----------------------------------------------------------WIRE DIVIDER 1 CLOSED
-  
-  /*hr {
+// 4.9 WIRE DIVIDER BASIC  
+hr {
   border: none !important;
   height: 2px !important; 
   background-color: transparent !important;
@@ -542,71 +504,14 @@ hr {  border: none !important;
   animation: 
     dataStutter 2s ease-in-out infinite,
     wireEnergize 2s ease-in-out infinite;
-  }*/
+  }
+
+} //< -------------------------------------------------------------------------WIRE DIVIDER 1 CLOSED
+  
+  /**/
 
 // 4.10 WIRE DIVIDER WITH SYMBOL
-
 .divider-wire {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 850px;
-  margin: 60px auto;
-  gap: 20px;
-
-  .line {
-  display: block;
-  height: 2px;
-  flex: 1;
-  position: relative;
-  
-  // 1. THE DOUBLE GRADIENT
-  // Layer 1: The Pulse (Bright, centered)
-  // Layer 2: The Base Tube (Faint, full length with faded tips)
-  background-image: 
-    linear-gradient(to right, transparent 0%, $orange 50%, transparent 100%), 
-    linear-gradient(to right, transparent 0%, rgba($orange, 0.2) 15%, rgba($orange, 0.2) 85%, transparent 100%) !important;
-  
-  // 2. THE SECRET SAUCE: Background sizing
-  // Pulse starts small (30%), Tube is full width (100%)
-  background-size: 30% 100%, 100% 100% !important;
-  background-repeat: no-repeat !important;
-  background-position: center center, center center !important;
-
-  // 3. THE ANIMATION
-  // We use a new keyframe to "pulse" the size of the top layer only
-  animation: wireTest2 3s ease-in-out infinite;
-
-  transform-origin: right center;
-
-  &:nth-child(3) {
-    transform-origin: left center;
-    // Mirror the direction for the right side
-    background-image: 
-      linear-gradient(to left, transparent 0%, $orange 50%, transparent 100%), 
-      linear-gradient(to left, transparent 0%, rgba($orange, 0.2) 15%, rgba($orange, 0.2) 85%, transparent 100%) !important;
-  }
-}
-
-  .symbol {
-    display: inline-block;
-    flex-shrink: 0;
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important; 
-    outline: none !important;
-    color: $orange;
-    font-size: 1.4rem;
-    line-height: 1;
-    opacity: 1;    
-    animation: dataStutter 2s ease-in-out infinite;
-    
-    }
-  } //<---------------------------------------------------------------------------WIRE DIVIDER 2 CLOSED
-}  //<----------------------------------------------------------------------------MAIN CONTENT - CLOSED
-  
-  /*.divider-wire {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -643,9 +548,9 @@ hr {  border: none !important;
     opacity: 1;    
     animation: dataStutter 2s ease-in-out infinite;
     }
-  }
-}*/
-
+  } //<------------------------------------------------------------------------WIRE DIVIDER 2 CLOSED
+}  //<-------------------------------------------------------------------------MAIN CONTENT - CLOSED
+  
 // 5.0 BASIC HOVER CARDS OUTSIDE THE SECTION
 .hover-card {
   // 1. THE BOX (Forced)
@@ -796,23 +701,4 @@ footer::after {
 @keyframes dividerStretch {
   0%, 100% { transform: scaleX(1); opacity: 0.5; }
   60% { transform: scaleX(0.8); opacity: 1; }
-}
-
-@keyframes wireTest1 {
-  0% { background-position: -100% 0, 0 0; }
-  100% { background-position: 100% 0, 0 0; }
-}
-
-// 4. THE ENERGY ANIMATION
-// This makes the Top Layer (the pulse) grow and shrink 
-// while the Bottom Layer (the tube) stays still
-@keyframes wireTest2 {
-  0%, 100% { 
-    background-size: 20% 100%, 100% 100%; 
-    opacity: 0.6; 
-  }
-  50% { 
-    background-size: 80% 100%, 100% 100%; 
-    opacity: 1; 
-  }
 }
