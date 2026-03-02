@@ -486,8 +486,7 @@ pre {
   }
 } //<-----------------------------------------------------CODE BLOCK CLOSED
 
-hr {
-  border: none !important;
+hr {  border: none !important;
   height: 3px !important; 
   width: 90%; 
   margin: 60px auto;
@@ -518,7 +517,6 @@ hr {
 
   // Simplified Animation call
   animation: wireTest1 2s ease-in-out infinite !important;
-}
 
 } //< ----------------------------------------------------------WIRE DIVIDER 1 CLOSED
   
@@ -557,7 +555,7 @@ hr {
   margin: 60px auto;
   gap: 20px;
 
-  .line {
+  .line 
   display: block;
   height: 2px;
   flex: 1;
@@ -578,7 +576,7 @@ hr {
 
   // 3. THE ANIMATION
   // We use a new keyframe to "pulse" the size of the top layer only
-  animation: wirePulse 3s ease-in-out infinite;
+  animation: wireTest2 3s ease-in-out infinite;
 
   transform-origin: right center;
 
@@ -589,7 +587,6 @@ hr {
       linear-gradient(to left, transparent 0%, $orange 50%, transparent 100%), 
       linear-gradient(to left, transparent 0%, rgba($orange, 0.2) 15%, rgba($orange, 0.2) 85%, transparent 100%) !important;
   }
-}
 
   .symbol {
     display: inline-block;
