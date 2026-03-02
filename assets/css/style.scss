@@ -52,7 +52,7 @@ h1, h2, h3, .header-title, .nav-menu, .header-bio, footer {
 // 3.0 HEADER ARCHITECTURE
 header {  
   position: relative;
-  overflow: hidden; // < -------------------
+  overflow: hidden;
   //isolation: isolate; // < ------------------------
   width: 100%; 
   display: flex;
@@ -94,20 +94,20 @@ header {
     align-items: center;
     justify-content: center;
     // PRECISE DIMENSIONS
-    min-width: 210px;  // Force it to be at least this wide
-    height: 35px;     // Force a specific height
-    padding: 0;
-    margin-top: 80px;    // <--- THIS now determines the gap from the top of the screen
+    min-width: 210px;  // WIDTH
+    height: 35px;     // HEIGHT
+    padding: 20; // < ----------------------------------------------------------- CHECK
+    margin-top: 80px;
     // BACKGROUND
     background: rgba($dark-bg, 0.5);
     backdrop-filter: blur(2px); 
     border-radius: 4px; 
     overflow: hidden; 
-    transform: translateZ(0); // Isolate the layer from the rest of the page
+    //transform: translateZ(0); // Isolate the layer from the rest of the page < -----------------CHECK
 }
 
   .header-title span {
-    margin: 0;
+    margin: 20;
     color: $orange !important;
     font-size: 2.2rem;
     font-weight: 700; 
@@ -136,8 +136,8 @@ header {
     position: relative;
     margin: 10px 0; // <----------------------------------------------------------CHECK
     //padding-bottom: 80px; // Increased space for the box //60 < ------------------------------------------------
-    padding-bottom: 80px; 
-    margin-top: 20px;
+    padding-bottom: 40px; 
+    //margin-top: 20px;
 
   a {
     padding: 8px 20px;
@@ -491,20 +491,21 @@ hr {
   background-image: linear-gradient(
     to right, 
     transparent 0%, 
-    rgba($red, 0.4) 10%, 
+    rgba($red, 0.4) 5%, 
     rgba($orange, 1) 50%, 
-    rgba($red, 0.4) 90%, 
+    rgba($red, 0.4) 95%, 
     transparent 100%
   ) !important;
 
-  width: 90%; 
+  width: 100%; // < ---------------------90
+  max-width: 850px; // < -------------------CHECK
   margin: 60px auto;
   position: relative;
   overflow: visible;
 
   animation: 
-    dataStutter 0.5s ease-in-out infinite,
-    //wireEnergize 2s ease-in-out infinite;
+    dataStutter 2s ease-in-out infinite,
+    wireEnergize 2s ease-in-out infinite;
   } //< -------------------------------------------------------------------------WIRE DIVIDER 1 CLOSED
   
 // 4.10 WIRE DIVIDER WITH SYMBOL
@@ -522,7 +523,7 @@ hr {
     height: 2px;
     flex: 1;
     background-image: linear-gradient(
-      to right, 
+      to left, 
       $orange 0%,    // Start solid
       $orange 95%,   // Stay solid all the way to 90%
       transparent 100% // Snap to transparent in the final 10%
@@ -534,7 +535,7 @@ hr {
       animation-delay: 0.5s;
       transform-origin: left center;
       background-image: linear-gradient(
-        to left, 
+        to right, 
         $orange 0%,    // Start solid
         $orange 50%,   // Stay solid all the way to 90%
         transparent 100% // Snap to transparent in the final 10%
@@ -555,7 +556,7 @@ hr {
     font-size: 1.4rem;
     line-height: 1;
     opacity: 1;    
-    animation: dataStutter 0.2s ease-in-out infinite;
+    animation: dataStutter 0.5s ease-in-out infinite;
     }
   } //<------------------------------------------------------------------------WIRE DIVIDER 2 CLOSED
 }  //<-------------------------------------------------------------------------MAIN CONTENT - CLOSED
