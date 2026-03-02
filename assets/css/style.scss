@@ -223,6 +223,7 @@ header {
     background: rgba($red, 0.4);
     filter: drop-shadow(0 0 2px rgba($red, 0.4));
     animation: scanLine 2s linear infinite; 
+    animation: redBreathe 0.5s ease-in-out infinite; 
     z-index: 3;
   } //<---------------------------------------------------------------------------RED PASIVE CLOSED
 
@@ -719,6 +720,19 @@ footer::after {
   }
 }
 
+//RED BREATHE
+@keyframes redBreathe {
+  0%, 100% { 
+    opacity: 0.6; 
+    box-shadow: 0 5px 10px rgba($red, 0.1); 
+  }
+  50% { 
+    opacity: 1.0; 
+    box-shadow: 0 5px 20px rgba($red, 0.3); 
+    filter: brightness(1.2);
+  }
+}
+
 //GREEN LINE ACTIVE//CODE BLOCK STUTTER//DIVIDER LINE & SYMBOL
 @keyframes dataStutter {
   0%   { opacity: 0.8; }
@@ -735,7 +749,8 @@ footer::after {
     box-shadow: 0 0 5px $red; 
   }
   50% { 
-    opacity: 1; 
+    opacity: 1;
+    filter: saturate(1.2) brightness(1.1); //EXPERIMENTAL
     box-shadow: 0 0 15px $red, 0 0 30px rgba($red, 0.4); 
   }
 }
@@ -745,6 +760,7 @@ footer::after {
     opacity: 1;
     // We combine the centering (-50%) with the stretch (0.8)
     transform: translateX(-50%) scaleX(0.7); 
+    filter: saturate(1.2) brightness(1.1); // EXPEREMENTAl
     box-shadow: 
       0 0 10px rgba($orange, 0.6),   // Inner core
       0 0 25px rgba($orange, 0.2), // Mid glow
@@ -763,6 +779,7 @@ footer::after {
     opacity: 1;
     // Full extension while staying perfectly centered
     transform: translateX(-50%) scaleX(1); 
+    filter: saturate(1.2) brightness(1.1); // EXPEREMENTAL
     box-shadow: 
       0 0 10px rgba($orange, 0.6),   // Inner core
       0 0 25px rgba($orange, 0.2), // Mid glow
@@ -775,6 +792,7 @@ footer::after {
    0% { 
     opacity: 1;
     // Keep the shadow tight and close to the line
+    filter: saturate(1.2) brightness(1.1); // EXPEREMENTAL
     box-shadow: 
       0 0 10px rgba($orange, 1),   // Inner core
       0 0 25px rgba($orange, 0.6), // Mid glow
@@ -796,6 +814,7 @@ footer::after {
     opacity: 1;
     transform: scaleX(1); 
     // Layered shadows to create a deep, "stretched" light effect
+    filter: saturate(1.2) brightness(1.1); // EXPEREMENTAL
     box-shadow: 
       0 0 10px rgba($orange, 1),   // Inner core
       0 0 25px rgba($orange, 0.6), // Mid glow
