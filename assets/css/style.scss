@@ -149,7 +149,7 @@ header {
       // THE HUD BOX
       .desc {
         position: absolute;
-        left: 50%; // Centers it relative to .nav-menu
+        left: 50%;
         top: 45px;
         transform: translateX(-50%) translateY(10px);
       
@@ -157,12 +157,10 @@ header {
         min-width: 100px;
         text-align: center;      
         //BOX PARAMETERS
-        background: rgba($dark-bg, 0.5); // Dark semi-transparent
-        //border: 1px solid rgba($green, 0.3); // Cyan border
+        background: rgba($dark-bg, 0.5);
         border: none; // Reset any previous full borders
-        border-top: 1px solid rgba(#00f2ff, 0.6);    // Slightly brighter for the "bracket" look
+        border-top: 1px solid rgba(#00f2ff, 0.6);
         border-bottom: 1px solid rgba(#00f2ff, 0.6);
-        //border-radius: 4px;
         color: rgba(#00f2ff, 1);
         font-size: 0.9rem;
         letter-spacing: 1px;
@@ -298,27 +296,24 @@ h1 {
   font-size: clamp(1.8rem, 5vw, 2.5rem);
   color: $red !important;
   text-shadow: 
-    1px 1px 2px rgba(139, 0, 0, 0.6), // The "Dark Depth" Outline 000 0.9
-    //0 0 5px rgba($red, 0.3) !important;
+    1px 1px 2px rgba(139, 0, 0, 0.6) !important;
   }
     
 h2 { 
   font-size: clamp(1.2rem, 5vw, 1.5rem);
   color: $red !important;
   text-shadow: 
-    1px 1px 2px rgba(139, 0, 0, 0.6), // The "Dark Depth" Outline 000 0.9
-    //0 0 5px rgba($red, 0.3) !important; 
+    1px 1px 2px rgba(139, 0, 0, 0.6) !important; 
 }
 
 h3 { 
   color: $orange !important; 
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6) !important; // Added outline for H3
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6) !important;
 }  
 
 h4 {
   color: $green !important;
   text-shadow: 
-     //1px 1px 2px rgba(0, 0, 0, 0.9), // Added outline for H4
      0 0 5px rgba($green, 0.8),
      0 0 10px rgba($green, 0.4) !important; 
 } // <--------------------------------------------------------------------------------HEADERS CLOSED
@@ -336,7 +331,7 @@ h4 {
   margin: 0 1px; // 2px
   border-radius: 3px;
   font-weight: bold;
-  font-size: 1em; // Slightly smaller to fit perfectly in lines 0.9em
+  font-size: 0.9em;
   line-height: 1;
 }
 
@@ -361,7 +356,7 @@ p, div, li {
     transition: all 0.3s ease;
     position: relative;
     display: inline-block;
-    padding: 2px 4px; // Small padding so the glowing box doesn't hug the letters too tight
+    padding: 2px 4px;
     z-index: 5;
     border-radius: 3px;
     border-bottom: 1px solid rgba($orange, 0.3); // Underline
@@ -381,12 +376,12 @@ p, div, li {
 
         &:hover { 
           color: $yellow !important;
-          background: rgba(0, 242, 255, 0.08); // THE GLOWING BOX
-          box-shadow: 0 0 10px rgba(0, 242, 255, 0.2); // Soft outer glow for the box
+          background: rgba(0, 242, 255, 0.08);
+          box-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
           text-shadow: 0 0 8px rgba(0, 242, 255, 0.6);
 
           &::after { 
-            width: 100%; // The line "fires" across the bottom
+            width: 100%;
           }
         }
       }   
@@ -469,7 +464,7 @@ pre {
   pre[data-label]::after {
     content: attr(data-label);
     position: absolute;
-    top: 0; right: 0; // Moved to the right for better terminal look
+    top: 0; right: 0; // POSITIONED RIGHT
     padding: 2px 8px;
     background: $green; 
     color: $dark-bg;
@@ -486,12 +481,12 @@ hr {
   border: none !important;
   height: 2px !important; 
   width: 100%;
-  max-width: 950px; // <------------------------------------------------------------------CHECK 
+  max-width: 850px;
   margin: 60px auto;
   position: relative;
   overflow: visible;
 
-  // STATIC UNDERLAYER (The Rail)
+  // STATIC UNDERLAYER
   background: rgba($orange, 0.4) !important;
   box-shadow: 
       0 0 5px rgba($orange, 0.5),   // Inner core
@@ -499,12 +494,12 @@ hr {
       0 0 20px rgba($orange, 0.1); // Far-reaching ambient light 
   z-index: 1;
 
-  // THE PULSE LAYER (The Animated Pulse)
+  // THE PULSE LAYER
   &::after {
     content: "";
     position: absolute;
     top: 0;
-    left: 50%; // Start at the middle
+    left: 50%;
   
     transform-origin: center center;
     width: 100%; 
@@ -522,10 +517,7 @@ hr {
       rgba($red, 0) 100%
     ) !important;
 
-    // Remove the center transform
     transform: none;
-
-    // ANIMATION ONLY ON THE PULSE
     animation: wireEnergize1 2s ease-in-out infinite alternate;
   }
 } //< -------------------------------------------------------------------------WIRE DIVIDER 1 CLOSED
@@ -536,7 +528,7 @@ hr {
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 1000px; // <---------------------------------------------------------___CHECK
+  max-width: 850px;
   margin: 60px auto;
   gap: 30px;
   position: relative;
@@ -545,10 +537,10 @@ hr {
   .line {
     display: block;
     height: 2px;
-    flex: 1; // Rail fills the available flex space
+    flex: 1;
     position: relative;
     
-    // STATIC UNDERLAYER (The Rail)
+    // STATIC UNDERLAYER
     background: rgba($orange, 0.4) !important;
     box-shadow: 
       0 0 5px rgba($orange, 0.5),   // Inner core
@@ -564,8 +556,6 @@ hr {
       width: 100%;
       height: 100%;
       z-index: 10;
-      
-     // 1. ANCHOR TO THE SYMBOL SIDE (First Line)
       right: 0; 
       transform-origin: right center; 
       
@@ -576,18 +566,14 @@ hr {
         rgba($orange, 0) 100% 
       ) !important;
 
-      // ANIMATION ONLY ON THE PULSE
       animation: wireEnergize2 2s ease-in-out infinite alternate;
     }
     
-    // Second line (After symbol) pulse logic
     &:nth-child(3) {
       &::after {
-        left: 0; // Pulse starts from the symbol side
+        left: 0;
         right: auto;
-
-        // 2. ANCHOR TO THE SYMBOL SIDE (Second Line)
-        transform-origin: left center; // <--- The "Anchor" point
+        transform-origin: left center;
         
         animation-delay: 0.2s;
         background-image: linear-gradient(
@@ -611,27 +597,26 @@ hr {
   
 // 5.0 BASIC HOVER CARDS OUTSIDE THE SECTION
 .hover-card {
-  // 1. THE BOX (Forced)
+  // 1. THE BOX
   display: block !important;
   background: $darker-slate !important;
   margin-bottom: 15px !important;
   padding: 20px !important;
   border-left: 3px solid $red !important;
   border-radius: 4px !important;
-  list-style: none !important; // Kills bullets if used on <li>
+  list-style: none !important;
   
-  // 2. THE TEXT (Forced)
+  // 2. THE TEXT
   color: #ffffff !important;
   text-decoration: none !important;
   transition: all 0.3s ease-in-out !important;
 
   // 3. THE HOVER (Forced)
   &:hover {
-    background-color: $red !important; // Turns Red
+    background-color: $red !important;
     transform: translateX(5px) !important;
     box-shadow: -5px 0 15px rgba($red, 0.4) !important;
     
-    // Force all inner text to white so it stays readable on the red background
     * { 
       color: #ffffff !important; 
       text-shadow: none !important; 
@@ -640,7 +625,7 @@ hr {
 } //< ------------------------------------------------------------------------------HOVER CARD CLOSE
 
 //5.1 TEXT CENTER
-.text-center { text-align: center; }
+.text-center { text-align: center; } // HTTP VARIABLE
 
 // 6.0 WRAPPER
 .wrapper {
@@ -650,7 +635,7 @@ hr {
   background-color: $slate; 
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.7); 
 
-  //THE WHITE STRIPE BACKHROUND
+  //THE WHITE STRIPE BACKGROUND
   background-image: repeating-linear-gradient(
     0deg, 
     rgba(255, 255, 255, 0.05) 0px, 
@@ -664,7 +649,7 @@ hr {
   border-radius: 12px;
   overflow: hidden;
   align-items: stretch;  
-}
+} // <---------------------------------------------------------------------------------WRAPER CLOSED
 
 // 7.0 SLIM FOOTER
 footer {
@@ -684,30 +669,21 @@ footer {
   color: $orange;
   font-size: 0.85rem;
   font-weight: bold;
-}
+} // <---------------------------------------------------------------------------------FOORER CLOSED
   
 footer::after {
   content: "© 2026 PcapExpress | Patience | Perseverance | Upward Mobility";
-}
+} // <--------------------------------------------------------------------------FOOTER BOTTOM CLOSED
 
 // 8.0 ANIMATIONS
-//TITLE GLITCH
-@keyframes glitchText {
-  0% { transform: translate(0); text-shadow: -2px -2px $red, 2px 2px $green; }
-  25% { transform: translate(-1px, 1px); text-shadow: 2px -2px $red, -2px 2px $green; }
-  50% { transform: translate(2px, -2px); text-shadow: -2px 2px $red, 2px -2px $green; }
-  75% { transform: translate(-2px, -1px); text-shadow: 1px 1px $red, -1px -1px $green; }
-  100% { transform: translate(0); }
-}
-
-//PASIVE LINES
+// 8.1 PASIVE LINES
 @keyframes scanLine { 
   0% { top: -50px; opacity: 0; } 
   10%, 90% { opacity: 1; } 
   100% { top: 100%; opacity: 0; }
 }
 
-//GREEN BREATE
+// 8.2 GREEN BREATE
 @keyframes greenBreathe {
   0%, 100% { 
     opacity: 0.6; 
@@ -720,7 +696,7 @@ footer::after {
   }
 }
 
-//RED BREATHE
+// 8.3 RED BREATHE
 @keyframes redBreathe {
   0%, 100% { 
     opacity: 0.6; 
@@ -733,7 +709,7 @@ footer::after {
   }
 }
 
-//GREEN LINE ACTIVE//CODE BLOCK STUTTER//DIVIDER LINE & SYMBOL
+// 8.4 GREEN LINE ACTIVE//CODE BLOCK STUTTER
 @keyframes dataStutter {
   0%   { opacity: 0.8; }
   25%  { opacity: 0.5; }
@@ -742,7 +718,7 @@ footer::after {
   100% { opacity: 0.9; }
 }
 
-// RED LINE ACTIVE PULSE
+// 8.5 RED LINE ACTIVE PULSE
 @keyframes fastPulse {
   0%, 100% { 
     opacity: 0.8; 
@@ -755,16 +731,25 @@ footer::after {
   }
 }
 
+// 8.6 TITLE GLITCH
+@keyframes glitchText {
+  0% { transform: translate(0); text-shadow: -2px -2px $red, 2px 2px $green; }
+  25% { transform: translate(-1px, 1px); text-shadow: 2px -2px $red, -2px 2px $green; }
+  50% { transform: translate(2px, -2px); text-shadow: -2px 2px $red, 2px -2px $green; }
+  75% { transform: translate(-2px, -1px); text-shadow: 1px 1px $red, -1px -1px $green; }
+  100% { transform: translate(0); }
+}
+
+// 8.7 DIVIDER WHIRE CLASSIC
 @keyframes wireEnergize1 {
   0% { 
     opacity: 1;
-    // We combine the centering (-50%) with the stretch (0.8)
     transform: translateX(-50%) scaleX(0.9); 
-    filter: saturate(1.2) brightness(1.1); // EXPEREMENTAl
+    filter: saturate(1.2) brightness(1.1);
     box-shadow: 
-      0 0 10px rgba($orange, 0.6),   // Inner core
-      0 0 25px rgba($orange, 0.2), // Mid glow
-      0 0 45px rgba($orange, 0.1); // Far-reaching ambient light
+      0 0 10px rgba($orange, 0.6),  
+      0 0 25px rgba($orange, 0.2), 
+      0 0 45px rgba($orange, 0.1);
   }
 
   50% {
@@ -777,22 +762,20 @@ footer::after {
 
   100% { 
     opacity: 1;
-    // Full extension while staying perfectly centered
     transform: translateX(-50%) scaleX(1); 
-    filter: saturate(2.2) brightness(2.1); // EXPEREMENTAL
+    filter: saturate(2.2) brightness(2.1);
     box-shadow: 
-      0 0 10px rgba($orange, 0.8),   // Inner core
-      0 0 25px rgba($orange, 0.6), // Mid glow
-      0 0 45px rgba($orange, 0.5); // Far-reaching ambient light
+      0 0 10px rgba($orange, 0.9),
+      0 0 25px rgba($orange, 0.8),
+      0 0 45px rgba($orange, 0.7);
   }
 }
 
-// DIVIDER WIRE WITH SYMBOL STRETCH AND GLOW ANIMATIONS
+// 8.8 DIVIDER WIRE WITH SYMBOL STRETCH AND GLOW ANIMATIONS
 @keyframes wireEnergize2 {
    0% { 
     opacity: 1;
-    // Keep the shadow tight and close to the line
-    filter: saturate(1.4) brightness(1.5); // EXPEREMENTAL
+    filter: saturate(1.4) brightness(1.5);
     box-shadow: 
       0 0 10px rgba($orange, 1),
       0 0 25px rgba($orange, 0.6), 
@@ -800,7 +783,6 @@ footer::after {
     transform: scaleX(0.9);
   }
 
-  // 85%: The "Mid-Stretch" (Adding the first layer of glow)
   50% {
     opacity: 0.6;
     box-shadow: 
@@ -809,33 +791,34 @@ footer::after {
       0 0 45px rgba($orange, 0.1);
     }
 
-  // 100%: The "Full Extension" (The shadow hits the edges)
   100% { 
     opacity: 1;
     transform: scaleX(1); 
-    // Layered shadows to create a deep, "stretched" light effect
-    filter: saturate(2.2) brightness(2.2); // EXPEREMENTAL
+    filter: saturate(2.2) brightness(2.2);
     box-shadow: 
-      0 0 10px rgba($orange, 1.5),   // Inner core
-      0 0 25px rgba($orange, 1.2), // Mid glow
-      0 0 45px rgba($orange, 1); // Far-reaching ambient light
+      0 0 10px rgba($orange, 1),
+      0 0 25px rgba($orange, 0.8),
+      0 0 45px rgba($orange, 0.6);
   }
 }
 
-// SYMBOL ANIMATION
-@keyframes symbolBreathing {
-  0% {
-    filter: saturate(1.2) brightness(1.2); // Peak intensity
-    opacity: 1;
-    
-  }
-  50% {
-    opacity: 0.8;
-  }
-  100% {
-    filter: saturate(2.2) brightness(2.2); // Peak intensity
-    opacity: 1;
-  }
+// 8.9 SYMBOL ANIMATION
+0% { 
+    opacity: 0.9;
+    filter: brightness(1) contrast(1) saturate(1.5);
+    }
+  
+  50% { 
+    opacity: 1.0; 
+    filter: brightness(2.0) contrast(1.5) saturate(1.8);
+    }
+
+  100% { 
+    opacity: 0.8; 
+    filter: brightness(1) contrast(1) saturate(1);
+    }
 }
 
-// THATS ALL FOLKS
+////// ‹‹‹PcapExpress››› //
+////     Thank You    ////
+//      Good Bye   //////
