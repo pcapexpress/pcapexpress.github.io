@@ -8,8 +8,12 @@ layout: default
 ### About the Author
 
 
-<img src="assets/images/about/handsome-man.jpg" class="img-cyber" style="width: 25%;" alt="Endpoints">
+<img src="assets/images/about/handsome-man.jpg" 
+     class="img-cyber" 
+     style="width: 25%; float: left; margin-right: 20px; margin-bottom: 20px;" 
+     alt="Author">
 
+<p>THis handsome lad<br> Has been to an<br> VOLCANUS ISLANDUS
 
 This Project has 3 phases.....
 <section>
