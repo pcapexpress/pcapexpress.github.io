@@ -7,7 +7,8 @@ layout: default
 
 ### About the Author
 
-<img src="assets/images/about/handsome-man.jpg" style="width: 25%;" alt="Endpoints">
+
+<img src="image.jpg" class="img-cyber" style="width: 25%;" alt="Endpoints">
 
 
 This Project has 3 phases.....
