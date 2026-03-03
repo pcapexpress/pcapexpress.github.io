@@ -91,4 +91,6 @@ Highlight/Span	<span>...</span>	Used to color a single word (like making one wor
 <p class="text-center">This text is now perfectly centered.</p>
 
 
-[Link to LinkedIn] | [Download Resume (PDF)] | [Heres a good MIX]
+<p class="text-center">[Link to LinkedIn] | [Download Resume (PDF)] | [Heres a good MIX]</p>
+
+<p class="text-center">[1]</p>
