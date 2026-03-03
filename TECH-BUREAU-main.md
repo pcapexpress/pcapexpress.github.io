@@ -34,14 +34,14 @@ This side of the project is schedualed to begin upon compleation of BUREAU-PHASE
 <p class="text-center">Malicious.</p>
 
 ## Follow these Links
-[MALWARE-BOILER SERIES: Payload 01.W4LLPEPP3R ](./MALWARE-BOILER-01.md)<br>
-*A get request downloads a super cool wallpaper and slaps it on to the "victims" desktop.*
+[**TECH-BUREAU-SERIES: PHASE 01.** ](./TECH-BUREAU-PHASE-01.md)<br>
+*Enumirate, brute force and exfiltrate.*
 
-[MALWARE-BOILER SERIES: Payload 02.CL0CKK33PER ](./MALWARE-BOILER-02.md)<br>
-*This one is a persistance mechanism, sending a beacon to our AT4CK-EXPR3S.*
+[**TECH-BUREAU-SERIES: PHASE 02.** ](./TECH-BUREAU-PHASE-01.md)<br>
+*Exploit CVE, privilige escalation and protocol tunneling.*
 
-[MALWARE-BOILER SERIES: Payload 03.CRYP7L4D ](./MALWARE-BOILER-03.md) <br>
-*Upon encryption a key is generated and sent out to the AT4CK-EXPR3S terminal.*
+[**TECH-BUREAU-SERIES: PHASE 03.** ](./TECH-BUREAU-PHASE-01.md) <br>
+*Phish, infect, persist, escalate, obfuscate and extract.*
 
 
 Style	Tag	Result
