@@ -273,9 +273,8 @@ header {
 section {
   max-width: 900px;
   margin: 0 auto;
-  // Top: 20px | Right: 20px | Bottom: 60px | Left: 20px
-  padding: 20px 20px 20px 20px;
-  padding: 40px 20px;
+  // Top: 20px | Right: 20px | Bottom: 10px | Left: 20px
+  padding: 20px 20px 10px 20px;
   width: 100%;
   display: block;
   position: relative;
@@ -389,7 +388,7 @@ p, div, li {
       }   
     } // < -------------------------------------------------------------------------BODY TEXT CLOSED
     
-// 4.6 ATMOSPHERIC IMAGE (2 styles)
+// 4.6 ATMOSPHERIC IMAGE WARM GLOW
 img {
   border: 2px solid rgba($orange, 0.5);
   background-color: rgba($dark-bg, 0.55);
@@ -418,11 +417,17 @@ img {
     }
   } // <-------------------------------------------------------------------------------IMAGE 1 CLOSED
 
-  // SECONDARY STYLE
+  // 4.7 SECONDARY STYLE CYBER CEPIA
   .img-cyber {
+    display: block;     // Keeps it on its own line
+    margin-left: 0;     // Forces it to the left wall
+    margin-right: auto; // Pushes the empty space to the right
+    margin-top: 35px;
+    margin-bottom: 35px;
     border: 1px solid $green !important;
     border-radius: 2px !important; // Sharp tech corners
     filter: sepia(1) hue-rotate(100deg) brightness(1.1) contrast(1.2);
+    clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%); // Angular "cyber" corners
   
     // Cyber-grid overlay effect using a pseudo-element or multiple backgrounds
     background-image: 
@@ -437,7 +442,7 @@ img {
     }
 } // <---------------------------------------------------------------------------------IMAGE 2 CLOSED
 
-// 4.7 CODE BLOCKS
+// 4.8 CODE BLOCKS
 pre {
   background-color: #0a0a0a; 
   background-image: repeating-conic-gradient(#1a1a1a 0% 25%, #222 0% 50%);
