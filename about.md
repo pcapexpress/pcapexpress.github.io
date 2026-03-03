@@ -13,7 +13,7 @@ layout: default
      style="width: 25%; float: left; margin-right: 20px; margin-bottom: 20px;" 
      alt="Author">
 
-<p>THis handsome lad<br> Has been to an<br> VOLCANUS ISLANDUS
+<p>THis handsome lad<br> Has been to an<br> VOLCANUS ISLANDUS</p>
 
 This Project has 3 phases.....
 <section>
