@@ -6,20 +6,21 @@ layout: default
 
 ## THE ORIGINAL DFIR EXPIRIENCE
 
-I will be using a series of real life malware infection examples captured in a nifty pcap format. All the files are cordialy taken from malware-analisys.net.
+I will be using a series of real life malware infection examples captured in a nifty pcap format.<br>
+All the files are cordialy taken from malware-analisys.net.
 
-**No01.**- Taking a look at real life examples of functional Malware using a airgaped Virtual Machine.
-**No02.**- Brewing up a series of simplified scripts and detonating them in a safe environment.
+**No01.**- Taking a look at real life examples of functional Malware using a airgaped Virtual Machine.<br>
+**No02.**- Brewing up a series of simplified scripts and detonating them in a safe environment.<br>
 
 This side of the project is schedualed to begin upon compleation of <span class="text-data">BUREAU-PHASE-03</span> with cooking up our first malicious script for thatparticular lab.
 
 ### Planned Scripts
 
-<span class="text-green"><strong>01.W4LLPEPP3R</strong></span> - a script that downloads an image from the portfolio website and sets it as the workstation desktop image.
-<span class="text-orange"><strong>02.CL0CKK33PER</strong></span> - a beacon that tries to establish a connection to the C2 server every minute.
-<span class="text-red"><strong>03.CRYP7L4D</strong></span> - A script that seaks out a particular directory on the system and encrypt the contents.
+<span class="text-green"><strong>01.W4LLPEPP3R</strong></span> - a script that downloads an image from the portfolio website and sets it as the workstation desktop image.<br>
+<span class="text-orange"><strong>02.CL0CKK33PER</strong></span> - a beacon that tries to establish a connection to the C2 server every minute.<br>
+<span class="text-red"><strong>03.CRYP7L4D</strong></span> - A script that seaks out a particular directory on the system and encrypt the contents.<br>
 
-<span class="text-data"><strong>BOLD</strong> and NOT:</span>
+<span class="text-data"><strong>BOLD</strong> and NOT:</span><br>
 <span class="badge-data"><strong>BOLD</strong> and NOT:</span>
 
 <p class="text-center">+0+</p>
