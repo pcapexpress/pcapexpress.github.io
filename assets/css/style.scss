@@ -590,7 +590,7 @@ hr {
     z-index: 20;
     color: $orange;
     font-size: 1.4rem;
-    animation: symbolBreathing 2s ease-in-out infinite;
+    animation: symbolBreathing 4s ease-in-out infinite;
     }
   } // <------------------------------------------------------------------------WIRE DIVIDER 2 CLOSED
 } // <--------------------------------------------------------------------------MAIN CONTENT - CLOSED
@@ -806,7 +806,6 @@ footer::after {
 @keyframes symbolBreathing {
 0% { 
     opacity: 0.9;
-    filter: brightness(1) contrast(1) saturate(1.5);
     }
   
   50% { 
@@ -815,8 +814,7 @@ footer::after {
     }
 
   100% { 
-    opacity: 0.8; 
-    filter: brightness(1) contrast(1) saturate(1);
+    opacity: 0.9; 
     }
 }
 
