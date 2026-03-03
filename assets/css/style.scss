@@ -387,7 +387,7 @@ p, div, li {
       }   
     } // < -------------------------------------------------------------------------BODY TEXT CLOSED
     
-// 4.6 ATMOSPHERIC IMAGE
+// 4.6 ATMOSPHERIC IMAGE (2 styles)
 img {
   border: 2px solid rgba($orange, 0.5);
   background-color: rgba($dark-bg, 0.55);
@@ -414,7 +414,26 @@ img {
     border-color: rgba($orange, 0.9);
     filter: brightness(1.1);
     }
-  } // <--------------------------------------------------------------------------------IMAGE CLOSED
+
+  // SECONDARY STYLE
+  .img-cyber {
+    border: 1px solid $green !important;
+    border-radius: 2px !important; // Sharp tech corners
+    filter: sepia(1) hue-rotate(100deg) brightness(1.1) contrast(1.2);
+  
+    // Cyber-grid overlay effect using a pseudo-element or multiple backgrounds
+    background-image: 
+      linear-gradient(rgba($green, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba($green, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  
+    &:hover {
+      filter: sepia(0) hue-rotate(0deg) brightness(1.2); // "Decode" on hover
+      box-shadow: 0 0 20px rgba($green, 0.4);
+      border-color: #fff !important;
+    }
+  }
+} // <--------------------------------------------------------------------------------IMAGE CLOSED
 
 // 4.7 CODE BLOCKS
 pre {
@@ -634,6 +653,10 @@ hr {
   margin: 20px auto;
   background-color: $slate; 
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.7); 
+
+  //PADDING
+  padding-top: 60px;
+  padding-bottom: 60px;
 
   //THE WHITE STRIPE BACKGROUND
   background-image: repeating-linear-gradient(
