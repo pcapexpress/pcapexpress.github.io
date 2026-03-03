@@ -273,6 +273,8 @@ header {
 section {
   max-width: 900px;
   margin: 0 auto;
+  // Top: 20px | Right: 20px | Bottom: 60px | Left: 20px
+  padding: 20px 20px 20px 20px;
   padding: 40px 20px;
   width: 100%;
   display: block;
@@ -653,10 +655,6 @@ hr {
   margin: 20px auto;
   background-color: $slate; 
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.7); 
-
-  //PADDING
-  padding-top: 60px;
-  padding-bottom: 60px;
 
   //THE WHITE STRIPE BACKGROUND
   background-image: repeating-linear-gradient(
