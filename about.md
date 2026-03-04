@@ -7,6 +7,14 @@ layout: default
 
 ### About the Author
 
+<marquee scrollamount="5" direction="right">
+<pre class="text-green">
+  ____   ______  
+ [____]_[      ]
+  o  o  oo    oo 
+~~~~~~~~~~~~~~~~~
+</pre>
+</marquee>
 
 <img src="assets/images/about/handsome-man.jpg" 
      class="img-cyber" 
