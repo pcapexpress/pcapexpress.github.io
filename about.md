@@ -44,38 +44,34 @@ This side of the project is schedualed to begin upon compleation of BUREAU-PHASE
 <p class="text-center">Malicious.</p>
 
 ## Follow these Links
-[**TECH-BUREAU-SERIES: PHASE 01.** ](./TECH-BUREAU-PHASE-01.md)<br>
-*Enumirate, brute force and exfiltrate.*
+[**LINK NAME** ](./TECH-BUREAU-PHASE-01.md) *LINK DESCRIPTION*
 
-[**TECH-BUREAU-SERIES: PHASE 02.** ](./TECH-BUREAU-PHASE-01.md)<br>
-*Exploit CVE, privilige escalation and protocol tunneling.*
+Style	Tag	Result<br>
+Monospace	<code>...</code>	Makes text look like code (e.g., 0x4A 0x21).<br>
+<code>text</code><br>
+Pre-formatted	<pre>...</pre>	Keeps all spaces and line breaks exactly as you typed them.<br>
+<pre>t y  p   e    3</pre><br>
+Bold	<strong>...</strong>	Important data/warnings.<br>
+<strong>TEXT</strong><br>
+Italic	<em>...</em>	Subtle notes or timestamps.<br>
+<em>TEXT</em><br>
+Underline	<u>...</u>	Use sparingly (often looks like a link).<br>
+<u>TEXT</u><br>
 
-[**TECH-BUREAU-SERIES: PHASE 03.** ](./TECH-BUREAU-PHASE-01.md) <br>
-*Phish, infect, persist, escalate, obfuscate and extract.*
+<strong><em><u>TEXT</u></em></strong><br>
 
 
-Style	Tag	Result
-Monospace	<code>...</code>	Makes text look like code (e.g., 0x4A 0x21).
-Pre-formatted	<pre>...</pre>	Keeps all spaces and line breaks exactly as you typed them.
-Bold	<strong>...</strong>	Important data/warnings.
-Italic	<em>...</em>	Subtle notes or timestamps.
-Underline	<u>...</u>	Use sparingly (often looks like a link).
-
-Effect	Tag / Code	Usage
-Line Break	<br>	Forces text to the next line without adding a paragraph gap.
-Paragraph	<p>...</p>	Adds a block of text with a natural gap (margin) below it.
-Non-Breaking Space	&nbsp;	Forces a space between words that cannot be wrapped.
-Horizontal Rule	<hr>	Your "Ambient Wire" divider.
-Highlight/Span	<span>...</span>	Used to color a single word (like making one word $orange).
+Effect	Tag / Code	Usage<br>
+Line Break	<br>	Forces text to the next line without adding a paragraph gap.<br>
+Paragraph	<p>...</p>	Adds a block of text with a natural gap (margin) below it.<br>
+Non-Breaking Space	&nbsp;	Forces a space between words that cannot be wrapped.<br>
+Horizontal Rule	<hr>	Your "Ambient Wire" divider.<br>
+---
+Highlight/Span	<span>...</span>	Used to color a single word (like making one word $orange).<br>
 
 ## LAN SEGMENT DETAILS FROM THE PCAP
-<pre data-label="Network Environment"><code>
-* <span class="orange"><strong>LAN segment range:</strong></span>  10.1.17[.]0/24   (10.1.17[.]0 through 10.1.17[.]255)
-* <span class="orange"><strong>Domain:</strong></span>  bluemoontuesday[.]com
-* <span class="orange"><strong>Active Directory (AD) domain controller:</strong></span>  10.1.17[.]2 - WIN-GSH54QLW48D
-* <span class="orange"><strong>AD environment name:</strong></span>  BLUEMOONTUESDAY
-* <span class="orange"><strong>LAN segment gateway:</strong></span>  10.1.17[.]1
-* <span class="orange"><strong>LAN segment broadcast address:</strong></span>  10.1.17[.]255
+<pre data-label="DATA LABEL"><code>
+* <span class="orange"><strong>DATA:</strong></span>  data is data is data is deffinetly data
 </code></pre>
 
 #### **TO DO:**
@@ -93,13 +89,9 @@ Highlight/Span	<span>...</span>	Used to color a single word (like making one wor
  <ul class="hover-card"> <li><strong>No02.</strong> Brewing up a series of simplified scripts and detonating them in a safe environment.</li>
   </ul>
 </section>
-
 <div class="divider-wire">
   <span class="line"></span>
   <span class="symbol">⦿</span>
   <span class="line"></span>
 </div>
-
 <p class="text-center">[5]</p>
-
-
