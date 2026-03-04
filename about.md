@@ -27,13 +27,7 @@ This Project has 3 phases.....
 This side of the project is schedualed to begin upon compleation of BUREAU-PHASE-03 with cooking up our first malicious script for thatparticular lab.
 
 ### Planned Scripts
-
-<span class=text-green><strong>01.W4LLPEPP3R</strong></span> - a script that downloads an image from the portfolio website and sets it as the workstation desktop image.
-<span class=text-orange><strong>02.CL0CKK33PER</strong></span> - a beacon that tries to establish a connection to the C2 server every minute.
-<span class=text-red><strong>03.CRYP7L4D</strong></span> - A script that seaks out a particular directory on the system and encrypt the contents.
-
-<span class=text-data>**BOLD**and NOT:</span>
-<span class=badge-data><strong>BOLD</strong> and NOT:</span>
+#### PLANED SCRIMPFTS
 
 <p class="text-center">+0+</p>
 <div class="divider-wire">
@@ -45,6 +39,14 @@ This side of the project is schedualed to begin upon compleation of BUREAU-PHASE
 
 ## Follow these Links
 [**LINK NAME** ](./TECH-BUREAU-PHASE-01.md) *LINK DESCRIPTION*
+
+<span class="text-green"><strong>01.W4LLPEPP3R</strong></span> - a script that downloads an image from the portfolio website and sets it as the workstation desktop image.<br>
+<span class="text-orange"><strong>02.CL0CKK33PER</strong></span> - a beacon that tries to establish a connection to the C2 server every minute.<br>
+<span class="text-red"><strong>03.CRYP7L4D</strong></span> - A script that seaks out a particular directory on the system and encrypt the contents.<br>
+
+<span class="text-data"><strong>BOLD</strong> and NOT:</span><br>
+<span class="badge-data"><strong>BOLD</strong> and NOT:</span>
+
 
 Style	Tag	Result<br>
 Monospace	<code>...</code>	Makes text look like code (e.g., 0x4A 0x21).<br>
