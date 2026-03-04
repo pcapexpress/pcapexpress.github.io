@@ -26,9 +26,9 @@ This Project has 3 phases.....
 This side of the project is schedualed to begin upon compleation of BUREAU-PHASE-03 with cooking up our first malicious script for thatparticular lab.
 
 ### CERTIFICATES
-<div style="perspective: 1000px; text-align: center; margin: 50px 0; width: 100%;">
+<div style="perspective: 1000px; display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; margin: 50px 0; width: 100%;">
   
-  <img src="medal-1.png" 
+  <img src="assets/images/comptia.png" 
        alt="Badge 1"
        style="width: 140px; margin: 0 15px;
               transform: rotateY(30deg); 
@@ -37,7 +37,7 @@ This side of the project is schedualed to begin upon compleation of BUREAU-PHASE
        onmouseover="this.style.transform='rotateY(0deg) scale(1.05)'; this.style.filter='drop-shadow(0px 10px 20px rgba(0,0,0,0.5))';"
        onmouseout="this.style.transform='rotateY(30deg)'; this.style.filter='drop-shadow(-15px 15px 10px rgba(0,0,0,0.4))';">
 
-  <img src="medal-2.png" 
+  <img src="assets/images/google-cyber.png" 
        alt="Badge 2"
        style="width: 140px; margin: 0 15px;
               transform: rotateY(30deg); 
