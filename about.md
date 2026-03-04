@@ -1,20 +1,12 @@
 ---
 layout: default
 ---
-<pre>REACTOR: ONLINE | RADAR: ONLINE | ALL SYSTEMS: NOMINAL</pre><br>
+<pre><marquee scrollamount="5" direction="left">REACTOR: ONLINE | RADAR: ONLINE | ALL SYSTEMS: NOMINAL</marquee></pre><br>
 
 # CAR ATTENDENT ANDERSON PRESENTS
 ## A BOLD VOYAGE TOWARDS A TENGIBLE GOAL
 
 ### About the Author
-
-<marquee scrollamount="5" direction="left">
-      _   __________   __________   ___<br>
-     / \ [          ] [          ] [   ]<br>
-    |---| [  DATA   ] [  EXFIL   ] [HUD]<br>
-    \_/---O        O---O        O---O-O<br>
-</marquee>
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 <img src="assets/images/about/handsome-man.jpg" 
      class="img-cyber" 
