@@ -6,21 +6,21 @@ layout: default
 
 ## RECON/BRUTEFORCE/EXFILTRATION
 
-#### Whats Showcased
+### WHATS SHOWCASED
 <section>
   <ul class="hover-card"> 
     <li>
-      <span class="text-red"><strong>OFFENSE:</strong></span> Target enumeration, SSH bruteforce, Data exfiltration 
+      <span class="text-data"><strong>OFFENSE:</strong></span> Target enumeration, SSH bruteforce, Data exfiltration 
     </li>
   </ul>
   <ul class="hover-card"> 
     <li>
-      <span class="text-green"><strong>DEFENSE:</strong></span> Tuning Alerts to reduce noise, Comparing pcap file findings 
+      <span class="text-data"><strong>DEFENSE:</strong></span> Tuning Alerts to reduce noise, Comparing pcap file findings 
     </li> 
   </ul>
 </section>
 
-#### The initial Setup
+### The initial Setup
 The Ubuntu server is configured via auditctl to watch a specific file in directory – **PROJECT.5527**,<br>
 any interaction with the containing schematic file will raise an alert.
 <<AUTDITCTL + LOCAL RULE>>
@@ -170,7 +170,7 @@ Observe the results of our custom rule, we can see clearly the attacker IP addre
 <small>“03.pcap-nmap.png”<small>
   
 We can confirm the nmap scan on exactly 4 ports. I will point out the detail that to a [SYN] request ports 80 and 443 are giving out an immediate [RST, ACK] to a scan attempt proving that the ports are closed. Ports 22 and 3306 however give a sequence of  [SYN] → [SYN,ACK] → [ACK] → [RST,ACK] signifying a handshake and than a immediate drop from the port scanner.
-####Port Scan Confirmed
+<span class="text-data"><strong>PORT SCAN CONFIRMED</strong></span>
 
 ## 04.WAZUH BRUTEFORCE ALERT
 <img src="assets/images/tech-bureau/phase.01/12.wazuh-hydra.png">
@@ -183,7 +183,7 @@ Here we have a useful piece of data, the bruteforce is attempted as username *in
 <small>“05.pcap-hydra.png”<small>
   
 With the hydra bruteforce we can simply observe the time signature and notice that a burst of 10 SSH protocol requests to the Ubuntu Server happening at the same time, followed by a series of key exchanges.
-#### Brute Force Confirmed
+<span class="text-data"><strong>BRUTE FORCE CONFIRMED</strong></span>
 
 ## 06.WAZUH FILE OPENED ALERT
 <img src="assets/images/tech-bureau/phase.01/13.wazuh-cat.png">
@@ -212,7 +212,7 @@ We than see an http code 200 and a connection closing sequence of [FIN,ACK] → 
 
 Since http is in question we can see the data leaving in clear text.
 
-#### DATA EXFILTRATED
+<span class="text-data"><strong>DATA EXFILTRATED</strong></span>
 <div class="divider-wire">
   <span class="line"></span>
   <span class="symbol">⦿</span>
