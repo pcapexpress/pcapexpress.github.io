@@ -8,9 +8,15 @@ layout: default
 
 #### Whats Showcased
 <section>
-  <ul class="hover-card"> <li><span class=text-red><strong>OFFENSE:</strong></span><strong> Target enumeration, SSH bruteforce, Data exfiltration </li>
+  <ul class="hover-card"> 
+    <li>
+      <span class="text-red"><strong>OFFENSE:</strong></span> Target enumeration, SSH bruteforce, Data exfiltration 
+    </li>
   </ul>
-  <ul class="hover-card"> <li><span class=text-green><strong>DEFENSE:</strong></span> Tuning Alerts to reduce noise, Comparing pcap file findings </li> 
+  <ul class="hover-card"> 
+    <li>
+      <span class="text-green"><strong>DEFENSE:</strong></span> Tuning Alerts to reduce noise, Comparing pcap file findings 
+    </li> 
   </ul>
 </section>
 
