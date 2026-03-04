@@ -1,5 +1,6 @@
 ---
 layout: default
+title: BUREAU Ph:01
 ---
 
 # TECH-BUREAU SERIES: PHASE 01
