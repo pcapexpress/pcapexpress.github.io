@@ -25,6 +25,36 @@ This Project has 3 phases.....
 
 This side of the project is schedualed to begin upon compleation of BUREAU-PHASE-03 with cooking up our first malicious script for thatparticular lab.
 
+### CERTIFICATES
+
+
+<div style="perspective: 1000px; text-align: center; margin: 50px 0;">
+  <img src="assets/images/comptia.png" 
+       alt="Certificate Medal"
+       style="width: 150px; 
+              transform: rotateY(-30deg); 
+              filter: drop-shadow(20px 20px 15px rgba(0,0,0,0.6));
+              transition: transform 0.8s ease-in-out, filter 0.8s ease-in-out;"
+       onmouseover="this.style.transform='rotateY(30deg)'; this.style.filter='drop-shadow(-20px 20px 15px rgba(0,0,0,0.6))';"
+       onmouseout="this.style.transform='rotateY(-30deg)'; this.style.filter='drop-shadow(20px 20px 15px rgba(0,0,0,0.6))';">
+</div>
+
+
+<div style="perspective: 1000px; text-align: center; margin: 40px 0; height: 250px;">
+  <marquee behavior="alternate" direction="up" scrollamount="1" height="200" style="width: 100%;">
+    
+    <img src="assets/images/google-cyber.png" 
+         alt="Honorary Badge"
+         style="width: 160px; 
+                transform: rotateY(-30deg) rotateX(5deg); 
+                filter: drop-shadow(15px 25px 10px rgba(0,0,0,0.5));
+                transition: transform 0.6s ease-in-out;"
+         onmouseover="this.style.transform='rotateY(30deg) rotateX(0deg) scale(1.1)';"
+         onmouseout="this.style.transform='rotateY(-30deg) rotateX(5deg) scale(1.0)';"
+    >
+    
+  </marquee>
+</div>
 ### Planned Scripts
 #### PLANED SCRIMPFTS
 
