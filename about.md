@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-<pre><marquee scrollamount="5" direction="left">REACTOR: ONLINE | RADAR: ONLINE | ALL SYSTEMS: NOMINAL</marquee></pre><br>
 
 # CAR ATTENDENT ANDERSON PRESENTS
 ## A BOLD VOYAGE TOWARDS A TENGIBLE GOAL
@@ -29,6 +28,25 @@ This side of the project is schedualed to begin upon compleation of BUREAU-PHASE
 ### Planned Scripts
 #### PLANED SCRIMPFTS
 
+<pre><marquee scrollamount="5" direction="right"> REACTOR: ONLINE | SCANER: ONLINE | CAFEENE: 3 UNITS AND COUNTING | BIOFORM MOOD: DETERMENISTIC | ALL SYSTEMS: NOMINAL | </marquee></pre><br>
+<marquee behavior="alternate" scrollamount="10"> [ SEARCHING FOR ENDPOINTS... ] </marquee>
+<marquee behavior="slide" direction="left"> 01.W4LLPEPP3R LOADED </marquee>
+<marquee direction="up" height="50px" scrollamount="2">
+  SYSTEM_LOAD<br>
+  KERNEL_OK<br>
+  DB_CONNECTED
+</marquee>
+<details>
+  <summary><span class="text-orange"><strong>[+] VIEW EXFILTRATION LOGS</strong></span></summary>
+  <pre class="text-data">
+    Timestamp: 2026-02-21
+    Files: 42
+    Status: SUCCESS
+  </pre>
+</details>
+<bdo dir="rtl">ACCESS DENIED: 0x88234</bdo>
+<marquee scrollamount="50" width="100%">!!! WARNING !!!</marquee>
+<marquee scrolldelay="200" scrollamount="1"> [SYSTEM BOOTING...] </marquee>
 <p class="text-center">+0+</p>
 <div class="divider-wire">
   <span class="line"></span>
