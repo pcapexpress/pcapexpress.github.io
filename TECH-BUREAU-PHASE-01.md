@@ -2,9 +2,9 @@
 layout: default
 ---
 
-# TECH-BUREAU SERIES
+# TECH-BUREAU SERIES: PHASE 01
 
-## PHASE 01: RECON/BRUTEFORCE/EXFILTRATION
+## RECON/BRUTEFORCE/EXFILTRATION
 
 #### Whats Showcased
 <section>
@@ -21,7 +21,8 @@ layout: default
 </section>
 
 #### The initial Setup
-The Ubuntu server is configured via auditctl to watch a specific file in derectory – PROJECT.5527, any interaction with the containing schematic file will raise an alert.
+The Ubuntu server is configured via auditctl to watch a specific file in directory – **PROJECT.5527**,<br>
+any interaction with the containing schematic file will raise an alert.
 <<AUTDITCTL + LOCAL RULE>>
 The server firewall iptables is also watching for any suspicious incoming trafic to the main ports to try and raise the alert in case of an outside port scan.
 <<IPTABLES + LOCAL RULE>>
@@ -131,7 +132,7 @@ Frame_specs.txt        <span class="orange"><strong>100%[=======================
 
 2026-02-21 16:23:12 (12.0 MB/s) - <span class="red"><strong>‘Frame_specs.txt’</strong></span> saved [398/398] 
 </code></pre>
-With the file confirmed safeley on our attack machine we are done with this server and its time to leave.
+With the file secured safely on our attack machine we are done with this server and its time to leave.
 
 ## 08.LEAVE
 <pre data-label="exit"><code>
@@ -147,57 +148,57 @@ Thank You and Good Bye.
   <span class="line"></span>
 </div>
 # DEFENSES MOVE
-We did a little bit of tinkering before starting this scenario, and as a result we have catered alerts just for the occation.<br>
+We did a little bit of tinkering before starting this scenario, and as a result we have catered alerts just for the occasion.<br>
 The firewall is checking for tcp packets to 4 specific ports. The auditctl is monitoring a particularly sensitive file on the server.<br>
 Lets see if we were ready for an attack.
 
-## WAZUH ALERTS
+## 01.WAZUH ALERTS
 <img src="assets/images/tech-bureau/phase.01/10.wazuh-alerts.png">
 <small>“01.wazuh-alerts.png”<small>
 
-We can see the entierty of the attack presented in the alert sequence. From port enumiration to the SSH bruteforce,<br>
-to a succesfull login as user *intern*, followed by sensitive data being accesed and sent out, followed by an SSH session closed.
+We can see the entirety of the attack presented in the alert sequence. From port enumeration to the SSH bruteforce,<br>
+to a successful login as user *intern*, followed by sensitive data being accessed and sent out, followed by an SSH session closed.
 
-## 01.WAZUH PORTSCAN ALERT
+## 02.WAZUH PORTSCAN ALERT
 <img src="assets/images/tech-bureau/phase.01/11.wazuh-nmap.png">
 <small>“02.wazuh-nmap.png”<small>
   
-Observe the results of our custom rule, we can see cleaerly the attacker IP address, the machine being scanned and ofcource the port number, 443 in this case.
+Observe the results of our custom rule, we can see clearly the attacker IP address, the machine being scanned and of course the port number, 443 in this case.
 
-## 02.PCAP PORT-CROSS
+## 03.PCAP PORT-CROSS
 <img src="assets/images/tech-bureau/phase.01/15.pcap-nmap.png">
 <small>“03.pcap-nmap.png”<small>
   
-We can confirm the nmap scan on exactly 4 ports. I will point out the detail that to a [SYN] request ports 80 and 443 are giving out an immediate [RST, ACK] to a scan attempt proving that the ports are closed. Ports 22 and 3306 however give a sequence of  [SYN] → [SYN,ACK] → [ACK] → [RST,ACK] signifying a handshake and than a immediate drop from the portscanner.
+We can confirm the nmap scan on exactly 4 ports. I will point out the detail that to a [SYN] request ports 80 and 443 are giving out an immediate [RST, ACK] to a scan attempt proving that the ports are closed. Ports 22 and 3306 however give a sequence of  [SYN] → [SYN,ACK] → [ACK] → [RST,ACK] signifying a handshake and than a immediate drop from the port scanner.
 ####Port Scan Confirmed
 
-## 03.WAZUH BRUTEFORCE ALERT
+## 04.WAZUH BRUTEFORCE ALERT
 <img src="assets/images/tech-bureau/phase.01/12.wazuh-hydra.png">
 <small>“04.wazuh-hydra.png”<small>
 
 Here we have a useful piece of data, the bruteforce is attempted as username *intern*.
   
-## 04.PCAP BRUTE-CROSS
+## 05.PCAP BRUTE-CROSS
 <img src="assets/images/tech-bureau/phase.01/16.pcap-hydra.png">
 <small>“05.pcap-hydra.png”<small>
   
 With the hydra bruteforce we can simply observe the time signature and notice that a burst of 10 SSH protocol requests to the Ubuntu Server happening at the same time, followed by a series of key exchanges.
 #### Brute Force Confirmed
 
-## 05.WAZUH FILE OPENED ALERT
+## 06.WAZUH FILE OPENED ALERT
 <img src="assets/images/tech-bureau/phase.01/13.wazuh-cat.png">
 <small>“06.wazuh-cat.png”<small>
 
-Here we see Wazuh fiering off a rule based of auditctl monitoring a specific file on the server.
+Here we see Wazuh firing off a rule based of auditctl monitoring a specific file on the server.
   
-## 06.WAZUH EXFILTRATION ALERT
+## 07.WAZUH EXFILTRATION ALERT
 <img src="assets/images/tech-bureau/phase.01/14.wazuh-exfil.png">
 <small>“07.wazuh-exfil.png”<small>
 
 Our IPtables have been adjusted to catch any outgoing tcp traffic from port 8000.<br>
 We will take a look at the Wireshark traffic next.
   
-## 07.PCAP EXFIL-CROSS
+## 08.PCAP EXFIL-CROSS
 <img src="assets/images/tech-bureau/phase.01/17.pcap-get-request.png">
 <small>“08.pcap-get-request.png”<small>
   
@@ -205,7 +206,7 @@ In the stream above we can observe a connection handshake followed by a **GET** 
 followed by a [PHS,ACK] push, that's the moment our data is getting exfiltrated.<br>
 We than see an http code 200 and a connection closing sequence of [FIN,ACK] → [ACK] 2ice (graceful close)</br> 
 
-## 08.PCAP HTTP STREAM
+## 09.PCAP HTTP STREAM
 <img src="assets/images/tech-bureau/phase.01/18.pcap-exfil-clear.png">
 <small>“09.pcap-exfil-clear.png”<small>
 
