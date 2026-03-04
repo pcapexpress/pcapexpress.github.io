@@ -1,5 +1,6 @@
 ---
 layout: default
+title: About
 ---
 
 # CAR ATTENDENT ANDERSON PRESENTS
