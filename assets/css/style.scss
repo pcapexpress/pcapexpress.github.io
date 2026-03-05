@@ -64,9 +64,9 @@ header {
 
   background: 
     linear-gradient(to bottom,
-      rgba(26, 39, 46, 0.1) 0%,
-      rgba(26, 39, 46, 0.85) 50%,
-      rgba(26, 39, 46, 0.1) 100%
+      transparent 0%, //rgba(26, 39, 46, 0.1)
+      rgba(26, 39, 46, 0.75) 50%,
+      transparent 100% // rgba(26, 39, 46, 0.1)
     ), // linear-gradient(to bottom, rgba(26, 39, 46, 0.1) 0%, rgba(26, 39, 46, 0.85) 100%), 
     url("../images/header.png") no-repeat center center;
 
@@ -512,7 +512,7 @@ hr {
   height: 2px !important; 
   width: 100%;
   max-width: 850px;
-  margin: 60px auto;
+  margin: 30px auto; // was 60 < --------------------------------------------------CHECK
   position: relative;
   overflow: visible;
 
