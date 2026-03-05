@@ -512,7 +512,7 @@ hr {
   height: 2px !important; 
   width: 100%;
   max-width: 850px;
-  margin: 30px auto; // was 60 < --------------------------------------------------CHECK
+  margin: 35px auto; // was 60 < --------------------------------------------------CHECK
   position: relative;
   overflow: visible;
 
@@ -559,7 +559,7 @@ hr {
   justify-content: center;
   width: 100%;
   max-width: 850px;
-  margin: 60px auto;
+  margin: 35px auto;
   gap: 30px;
   position: relative;
   z-index: 1;
@@ -775,7 +775,7 @@ footer::after {
   0% { 
     opacity: 1;
     transform: translateX(-50%) scaleX(0.9); 
-    filter: saturate(1.2) brightness(1.1);
+    filter: saturate(1.1) brightness(1.1);
     box-shadow: 
       0 0 10px rgba($orange, 0.6),  
       0 0 25px rgba($orange, 0.2), 
@@ -793,7 +793,7 @@ footer::after {
   100% { 
     opacity: 1;
     transform: translateX(-50%) scaleX(1); 
-    filter: saturate(2.2) brightness(2.1);
+    filter: saturate(2.0) brightness(1.9);
     box-shadow: 
       0 0 10px rgba($orange, 0.9),
       0 0 25px rgba($orange, 0.8),
@@ -805,7 +805,7 @@ footer::after {
 @keyframes wireEnergize2 {
    0% { 
     opacity: 1;
-    filter: saturate(1.4) brightness(1.5);
+    filter: saturate(1.2) brightness(1.2);
     box-shadow: 
       0 0 10px rgba($orange, 1),
       0 0 25px rgba($orange, 0.6), 
@@ -824,7 +824,7 @@ footer::after {
   100% { 
     opacity: 1;
     transform: scaleX(1); 
-    filter: saturate(2.2) brightness(2.2);
+    filter: saturate(2.0) brightness(2.0);
     box-shadow: 
       0 0 10px rgba($orange, 1),
       0 0 25px rgba($orange, 0.8),
@@ -840,7 +840,7 @@ footer::after {
   
   50% { 
     opacity: 1.0; 
-    filter: brightness(2.0) contrast(1.5) saturate(1.8);
+    filter: brightness(1.5) contrast(1.5) saturate(1.5);
     }
 
   100% { 
