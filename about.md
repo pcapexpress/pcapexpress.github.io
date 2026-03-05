@@ -13,7 +13,7 @@ title: About
      style="width: 25%; float: left; margin-right: 20px; margin-bottom: 20px;" 
      alt="Author">
 
-<p><br><br>THis handsome lad<br> Has been to an<br> VOLCANUS ISLANDUS<br> TEXT?<br> YES!</p>
+<p><br><br>THis handsome lad<br> Has been to an<br> VOLCANUS ISLANDUS<br> TEXT?<br> YES!<br>Here wrights to you a gentelman and a scholar. </p>
 <div style="clear: both;"></div>
 
 This Project has 3 phases.....
@@ -27,25 +27,23 @@ This Project has 3 phases.....
 This side of the project is schedualed to begin upon compleation of BUREAU-PHASE-03 with cooking up our first malicious script for thatparticular lab.
 
 ### CERTIFICATES
-<div style="perspective: 1000px; display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; margin: 50px 0; width: 100%;">
+<div style="display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; margin: 50px 0; width: 100%;">
   
-  <img src="assets/images/comptia.png" 
+  <img src="assets/images/about/badge-comptia.png" 
        alt="Badge 1"
-       style="width: 140px; margin: 0 15px;
-              transform: rotateY(30deg); 
-              filter: drop-shadow(-15px 15px 10px rgba(0,0,0,0.4));
-              transition: transform 0.5s ease, filter 0.5s ease;"
-       onmouseover="this.style.transform='rotateY(0deg) scale(1.05)'; this.style.filter='drop-shadow(0px 10px 20px rgba(0,0,0,0.5))';"
-       onmouseout="this.style.transform='rotateY(30deg)'; this.style.filter='drop-shadow(-15px 15px 10px rgba(0,0,0,0.4))';">
+       style="width: 250px; height: 250px; object-fit: contain; margin: 0 15px; transform: rotateY(30deg); filter: drop-shadow(-15px 15px 10px rgba(0,0,0,0.4));">
 
-  <img src="assets/images/google-cyber.png" 
+  <img src="assets/images/about/badge-google-cyber.png" 
        alt="Badge 2"
-       style="width: 140px; margin: 0 15px;
-              transform: rotateY(30deg); 
-              filter: drop-shadow(-15px 15px 10px rgba(0,0,0,0.4));
-              transition: transform 0.5s ease, filter 0.5s ease;"
-       onmouseover="this.style.transform='rotateY(0deg) scale(1.05)'; this.style.filter='drop-shadow(0px 10px 20px rgba(0,0,0,0.5))';"
-       onmouseout="this.style.transform='rotateY(30deg)'; this.style.filter='drop-shadow(-15px 15px 10px rgba(0,0,0,0.4))';">
+       style="width: 250px; height: 250px; object-fit: contain; margin: 0 15px; transform: rotateY(30deg); filter: drop-shadow(-15px 15px 10px rgba(0,0,0,0.4));">
+
+  <img src="assets/images/about/badge-google-ai.png" 
+       alt="Badge 3"
+       style="width: 250px; height: 250px; object-fit: contain; margin: 0 15px; transform: rotateY(30deg); filter: drop-shadow(-15px 15px 10px rgba(0,0,0,0.4));">
+
+  <img src="assets/images/about/badge-aca.png" 
+       alt="Badge 4"
+       style="width: 250px; height: 250px; object-fit: contain; margin: 0 15px; transform: rotateY(30deg); filter: drop-shadow(-15px 15px 10px rgba(0,0,0,0.4));">
 
 </div>
 ### Planned Scripts
