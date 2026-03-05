@@ -46,6 +46,15 @@ This side of the project is schedualed to begin upon compleation of BUREAU-PHASE
        style="width: 150px; height: 150px; object-fit: contain; margin: 0 15px;">
 
 </div>
+
+CompTia Security+ <br>
+Googles Security+ <br>
+Googles AI Essentials <br>
+American Canoeing Assosiation <br>
+
+<img src="assets/images/about/badge-tryhackme.png">
+
+assets/images/about/badge-tryhackme.png
 ### Planned Scripts
 #### PLANED SCRIMPFTS
 
