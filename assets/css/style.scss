@@ -313,31 +313,28 @@ h2 {
 
 h1 {
   font-size: clamp(1.8rem, 5vw, 2.5rem);
-  color: $dark-bg !important; 
-  line-height: 1.6; /* Adds space between the "marked" lines */
+  color: $red !important; 
   
-  /* The "Marker" Effect */
-  background-color: $red; /* Or rgba(139, 0, 0, 1) */
-  padding: 0.2rem 0.5rem;
+  /* The "Tight Wrap" Logic */
+  display: inline;           /* Background only follows text width */
+  background-color: $dark-bg; 
+  padding: 2px 4px;          /* Minimal padding to prevent bleed */
+  line-height: 1.2;          /* Keeps lines close together */
+  
+  /* Essential for multi-line wrapping */
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
-  
-  text-shadow: 
-    1px 1px 0px rgba(255, 255, 255, 0.2), 
-    -1px -1px 0px rgba(0, 0, 0, 0.3) !important;
 }
 
 h2 { 
   font-size: clamp(1.2rem, 5vw, 1.5rem);
-  color: #ffffff !important; /* White text looks better on a dark mark */
+  color: $red !important;
   
-  /* A Darker "Marked" look for H2 */
-  background-color: rgba(26, 39, 46, 0.9); 
-  padding: 0.1rem 0.4rem;
+  display: inline;
+  background-color: $dark-bg; 
+  padding: 1px 3px;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
-  
-  border-left: 3px solid $red;
 }
 
 h3 { 
