@@ -66,7 +66,8 @@ header {
     linear-gradient(to bottom,
       rgba(26, 39, 46, 0.1) 0%,
       rgba(26, 39, 46, 0.85) 50%,
-      rgba(26, 39, 46, 0.1) 100%  // linear-gradient(to bottom, rgba(26, 39, 46, 0.1) 0%, rgba(26, 39, 46, 0.85) 100%), 
+      rgba(26, 39, 46, 0.1) 100%
+    ), // linear-gradient(to bottom, rgba(26, 39, 46, 0.1) 0%, rgba(26, 39, 46, 0.85) 100%), 
     url("../images/header.png") no-repeat center center;
 
   background-position: center 45%;
