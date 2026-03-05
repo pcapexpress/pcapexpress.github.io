@@ -31,19 +31,19 @@ This side of the project is schedualed to begin upon compleation of BUREAU-PHASE
   
   <img src="assets/images/about/badge-comptia.png" 
        alt="Badge 1"
-       style="width: 250px; height: 250px; object-fit: contain; margin: 0 15px; transform: rotateY(30deg); filter: drop-shadow(-15px 15px 10px rgba(0,0,0,0.4));">
+       style="width: 150px; height: 150px; object-fit: contain; margin: 0 15px;">
 
   <img src="assets/images/about/badge-google-cyber.png" 
        alt="Badge 2"
-       style="width: 250px; height: 250px; object-fit: contain; margin: 0 15px; transform: rotateY(30deg); filter: drop-shadow(-15px 15px 10px rgba(0,0,0,0.4));">
+       style="width: 150px; height: 150px; object-fit: contain; margin: 0 15px;">
 
   <img src="assets/images/about/badge-google-ai.png" 
        alt="Badge 3"
-       style="width: 250px; height: 250px; object-fit: contain; margin: 0 15px; transform: rotateY(30deg); filter: drop-shadow(-15px 15px 10px rgba(0,0,0,0.4));">
+       style="width: 150px; height: 150px; object-fit: contain; margin: 0 15px;">
 
   <img src="assets/images/about/badge-aca.png" 
        alt="Badge 4"
-       style="width: 250px; height: 250px; object-fit: contain; margin: 0 15px; transform: rotateY(30deg); filter: drop-shadow(-15px 15px 10px rgba(0,0,0,0.4));">
+       style="width: 150px; height: 150px; object-fit: contain; margin: 0 15px;">
 
 </div>
 ### Planned Scripts
