@@ -1,3 +1,8 @@
+---
+layout: default
+title: PCAP:02
+---
+
 # PCAPEXPRESS Wireshark Series
 ## Exercise 02: Nemotodes
 
