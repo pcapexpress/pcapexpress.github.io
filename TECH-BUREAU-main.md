@@ -13,7 +13,7 @@ This Project is divided in to 3 Phases, the nature and spirit is a capture the f
 *Enumerate, brute force and exfiltrate. The Loud Unapologetic breaking and entering,<br>a plundering most foul.<br>*
 
 [**TECH-BUREAU-SERIES: PHASE 02.** ](./TECH-BUREAU-PHASE-02.md)<br>
-*Exploit CVE, privilege escalation and protocol tunneling. With the defense a bit more sophisticated<br>
+*CVE exploitation, privilege escalation and protocol tunneling. With the defense a bit more sophisticated<br>
 a more subtle approach is needed, a data base vulnerability is exploited. The Sneak.<br>*
 
 [**TECH-BUREAU-SERIES: PHASE 03.** ](./TECH-BUREAU-PHASE-03.md) <br>
