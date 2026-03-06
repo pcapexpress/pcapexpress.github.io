@@ -374,16 +374,16 @@ p, div, li {
         left: 0;
         width: 0; 
         height: 2px;
-        background-color: rgba(#00f2ff, 1);
+        background-color: rgba($red, 1);
         transition: width 0.3s ease-in-out;
-        box-shadow: 0 0 8px rgba(#00f2ff, 0.6); // High-intensity glow
+        box-shadow: 0 0 8px rgba($red, 0.6); // High-intensity glow
       }
 
         &:hover { 
           color: $yellow !important;
-          background: rgba($orange, 0.08);
-          box-shadow: 0 0 10px rgba(#00f2ff, 0.2);
-          text-shadow: 0 0 8px rgba(#00f2ff, 0.4);
+          background: rgba($yellow, 0.1);
+          box-shadow: 0 0 10px rgba($yellow, 0.2);
+          text-shadow: 0 0 8px rgba($yellow, 0.3);
 
           &::after { 
             width: 100%;
