@@ -99,7 +99,7 @@ header {
     margin-bottom: 30px !important;
     margin-top: 80px;
     // BACKGROUND
-    background: rgba($dark-bg, 0.5);
+    background: rgba($medium-bg, 0.5);
     backdrop-filter: blur(2px); 
     border-radius: 4px; 
     overflow: hidden;
@@ -357,9 +357,8 @@ p, div, li {
   line-height: 1.7;
   letter-spacing: 0.2px;
   // 4.5 LINKS
-
-  a { 
-    color: $green;
+  *a { 
+    color: $orange;
     background: rgba($medium-bg, 0.2);
     text-decoration: none;
     font-weight: bold;
@@ -368,12 +367,7 @@ p, div, li {
     display: inline-block;
     padding: 2px 4px;
     z-index: 5;
-    //border-radius: 3px;
-    background: rgba($dark-bg, 0.5);
-    border: none; // Reset any previous full borders
-    border-top: 1px solid rgba($green, 0.6);
-    border-bottom: 1px solid rgba($green, 0.6);
-    color: rgba($green, 1);
+    border-bottom: 2px solid rgba($orange, 0.6); // Underline
 
     //THE ANIMATED LINE
       &::after {
@@ -383,62 +377,22 @@ p, div, li {
         left: 0;
         width: 0; 
         height: 2px;
-        background-color: rgba($cyan, 1);
+        background-color: rgba($yellow, 1);
         transition: width 0.3s ease-in-out;
-        box-shadow: 0 0 8px rgba($cyan, 0.6); // High-intensity glow
+        box-shadow: 0 0 8px rgba($yellow, 0.6); // High-intensity glow
       }
 
         &:hover { 
-          color: $cyan !important;
-          background: rgba($cyan, 0.3);
-          box-shadow: 0 0 10px rgba($cyan, 0.4);
-          text-shadow: 0 0 8px rgba($cyan, 0.3);
+          color: $yellow !important;
+          background: rgba($cyan, 0.2);
+          box-shadow: 0 0 10px rgba($yellow, 0.4);
+          text-shadow: 0 0 8px rgba($yellow, 0.3);
 
           &::after { 
             width: 100%;
           }
         }
-      }
-  
-  
-  
-  /*a { 
-    color: $green;
-    background: rgba($medium-bg, 0.2);
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
-    padding: 2px 4px;
-    z-index: 5;
-    //border-radius: 3px;
-    border-bottom: 2px solid rgba($green, 0.6); // Underline
-
-    //THE ANIMATED LINE
-      &::after {
-        content: "";
-        position: absolute;
-        bottom: -1px; 
-        left: 0;
-        width: 0; 
-        height: 2px;
-        background-color: rgba($cyan, 1);
-        transition: width 0.3s ease-in-out;
-        box-shadow: 0 0 8px rgba($cyan, 0.6); // High-intensity glow
-      }
-
-        &:hover { 
-          color: $cyan !important;
-          background: rgba($cyan, 0.3);
-          box-shadow: 0 0 10px rgba($cyan, 0.4);
-          text-shadow: 0 0 8px rgba($cyan, 0.3);
-
-          &::after { 
-            width: 100%;
-          }
-        }
-      }*/   
+      }   
     } // < -------------------------------------------------------------------------BODY TEXT CLOSED
     
 // 4.6 ATMOSPHERIC IMAGE WARM GLOW
