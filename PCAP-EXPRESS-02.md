@@ -324,3 +324,9 @@ C2 Server 01: 194[.]180[.]191[.]64
 *Not Discovered*
 
 This will conclude the second exercise in the series. Follow me to number three!
+<div class="divider-wire">
+  <span class="line"></span>
+  <span class="symbol">⦿</span>
+  <span class="line"></span>
+</div>
+<p class="text-center">[2.2]</p>
