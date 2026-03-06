@@ -2,16 +2,12 @@
 layout: default
 title: PCAP:01
 ---
-
 # PCAPEXPRESS Wireshark Series
-
 ## Exercise 01: Download from fake software site
-
 <span class="h4-style">**Platform:**</span> https://www.malware-traffic-analysis.net/<br>
 <span class="h4-style">**Pcap File:**</span> 2025-01-22-traffic-analysis-exercise.pcap
 
 ## Briefing:
-
 We are a SOC analyst, we are contacted due to a coworker downloading a suspicious file after searching for Google Authenticator. 
 We confirm that an infection has occurred, we are supplied a pcap file and tasked to writing an incident report focusing on some key questions written below.
 In the mean time the IT department will handle wiping the affected machine. 
@@ -277,4 +273,9 @@ pas.ps1 - <small>10febc686b7035ba0731c85e8e474bcd<small>
 *This is the first exercise for the pcapexpress series. However it was not my first attempt at this particular exercise, it took some time to get my bearings, and the project was abandoned twice at this point. But now I feel quite comfortable navigating WireShark and I must say I’m digging the processes of pcap investigation. Much to learn, much to do.*
 
 This will conclude the first exercise in the series. See you in the next one!/<br>
-
+<div class="divider-wire">
+  <span class="line"></span>
+  <span class="symbol">⦿</span>
+  <span class="line"></span>
+</div>
+<p class="text-center">[2.1]</p>
