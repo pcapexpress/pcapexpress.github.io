@@ -1,5 +1,6 @@
 ---
 layout: default
+title: index
 ---
 # All Abord the PCAPEXPRESS
 
@@ -88,9 +89,6 @@ Paragraph	<p>...</p>	Adds a block of text with a natural gap (margin) below it.
 Non-Breaking Space	&nbsp;	Forces a space between words that cannot be wrapped.
 Horizontal Rule	<hr>	Your "Ambient Wire" divider.
 Highlight/Span	<span>...</span>	Used to color a single word (like making one word $orange).
-
-<p class="text-center">This text is now perfectly centered.</p>
-
 
 <p class="text-center">[Link to LinkedIn] | [Download Resume (PDF)] | [Heres a good MIX]</p>
 
