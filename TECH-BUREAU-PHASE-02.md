@@ -1,5 +1,5 @@
 layout: default
-title: BUREAU PH:02
+title: BUREAU:02
 
 # TECH-BUREAU SERIES: PHASE 02
 ## CVE exploitation, privilege escalation and protocol tunneling.
@@ -19,6 +19,33 @@ title: BUREAU PH:02
 
 ### The initial Setup
 ...
+
+### PERMISSION CHANGE
+
+root@TECH-BUREAU-UBUNTU-24:/home/lead_engineer/PROJECT.5527# sudo chown lead_engineer:lead_engineer /home/lead_engineer/PROJECT.5527
+root@TECH-BUREAU-UBUNTU-24:/home/lead_engineer/PROJECT.5527# sudo chmod 700 /home/lead_engineer/PROJECT.5527
+root@TECH-BUREAU-UBUNTU-24:/home/lead_engineer/PROJECT.5527# ls -l
+total 8
+-rw-r--r-- 1 lead_engineer lead_engineer 398 Feb 14 09:03 Frame_specs.txt
+-rw-r--r-- 1 root          root          396 Mar  6 13:44 Valve_specs.txt
+
+### QUICK CHECK
+
+intern@TECH-BUREAU-UBUNTU-24:/home/lead_engineer$ cd PROJECT.5527/
+-bash: cd: PROJECT.5527/: Permission denied
+
+### PASSWORD CHANGE
+
+root@TECH-BUREAU-UBUNTU-24:/home/lead_engineer/PROJECT.5527# sudo passwd intern
+New password: +p*yckWMu5b2eW*BCP0x+NnpJ3It58Ae
+Retype new password: +p*yckWMu5b2eW*BCP0x+NnpJ3It58Ae
+passwd: password updated successfully
+
+
+
+
+
+
 
 # AT4K-3XPR3S rolling out.
 ...
