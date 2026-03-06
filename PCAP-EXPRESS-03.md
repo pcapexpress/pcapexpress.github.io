@@ -1,8 +1,10 @@
-# PCAPEXPRESS Wireshark Series
-## Exercise 03: Big Fish In a Little Pond
-
+---
+layout: default
+title: PCAP:03
 ---
 
+# PCAPEXPRESS Wireshark Series
+## Exercise 03: Big Fish In a Little Pond
 #### **Setting:**
 Indicators suggest a host within the network environment has been infected with malware. This analysis covers the investigation of the provided packet capture and associated alert logs.
 
@@ -316,4 +318,9 @@ sd4.ps1 - 3e86c8009a224924049a5279b9d21786
 
 This concludes the packet inspection with wireshark for the moment. I am now focusing on the next project witch is establishing a simplified functional SOC lab.
 
----
+<div class="divider-wire">
+  <span class="line"></span>
+  <span class="symbol">⦿</span>
+  <span class="line"></span>
+</div>
+<p class="text-center">[2.3]</p>
