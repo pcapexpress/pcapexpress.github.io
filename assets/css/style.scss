@@ -289,7 +289,7 @@ section {
 h1, h2, h3, h4 {
   display: inline-block; 
   margin-bottom: 10px;
-  width: 100%; 
+  width: auto; //100% --------------------------------------------- CHECK
   
   backface-visibility: hidden;
   transform: translateZ(0); 
@@ -301,19 +301,17 @@ h1, h2, h3, h4 {
 h1 {
   font-size: clamp(1.8rem, 5vw, 2.5rem);
   color: $red !important;
-  background: rgba($medium-bg, 1);
-  display: inline-block;
-  text-shadow: 
-    1px 1px 2px rgba($dark-bg, 1) !important; //rgba(139, 0, 0, 0.6) !important;
+  background: rgba($medium-bg, 1); // <-----------------------------------------------------------CHECK
+ text-shadow: 
+    1px 1px 2px rgba($dark-bg, 1) !important;
   }
     
 h2 { 
   font-size: clamp(1.2rem, 5vw, 1.5rem);
   color: $red !important;
-  background: rgba($medium-bg, 0.5);
-  display: inline-block;
+  background: rgba($medium-bg, 1); //< ------------------------------------------------------------------CHECK
   text-shadow: 
-    1px 1px 2px rgba($dark-bg, 1) !important; //0 0 8px rgba(139, 0, 0, 0.6) !important;
+    1px 1px 2px rgba($dark-bg, 1) !important;
 }
 
 h3 { 
@@ -359,7 +357,52 @@ p, div, li {
   line-height: 1.7;
   letter-spacing: 0.2px;
   // 4.5 LINKS
+
   a { 
+    color: $green;
+    background: rgba($medium-bg, 0.2);
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    padding: 2px 4px;
+    z-index: 5;
+    //border-radius: 3px;
+    background: rgba($dark-bg, 0.5);
+    border: none; // Reset any previous full borders
+    border-top: 1px solid rgba($green, 0.6);
+    border-bottom: 1px solid rgba($green, 0.6);
+    color: rgba($green, 1);
+
+    //THE ANIMATED LINE
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -1px; 
+        left: 0;
+        width: 0; 
+        height: 2px;
+        background-color: rgba($cyan, 1);
+        transition: width 0.3s ease-in-out;
+        box-shadow: 0 0 8px rgba($cyan, 0.6); // High-intensity glow
+      }
+
+        &:hover { 
+          color: $cyan !important;
+          background: rgba($cyan, 0.3);
+          box-shadow: 0 0 10px rgba($cyan, 0.4);
+          text-shadow: 0 0 8px rgba($cyan, 0.3);
+
+          &::after { 
+            width: 100%;
+          }
+        }
+      }
+  
+  
+  
+  /*a { 
     color: $green;
     background: rgba($medium-bg, 0.2);
     text-decoration: none;
@@ -395,7 +438,7 @@ p, div, li {
             width: 100%;
           }
         }
-      }   
+      }*/   
     } // < -------------------------------------------------------------------------BODY TEXT CLOSED
     
 // 4.6 ATMOSPHERIC IMAGE WARM GLOW
