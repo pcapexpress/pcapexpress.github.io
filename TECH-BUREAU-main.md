@@ -12,11 +12,11 @@ This Project is divided in to 3 Phases, the nature and spirit is a capture the f
 [**TECH-BUREAU-SERIES: PHASE 01.** ](./TECH-BUREAU-PHASE-01.md)<br>
 *Enumerate, brute force and exfiltrate. The Loud Unapologetic breaking and entering,<br>a plundering most foul.<br>*
 
-[**TECH-BUREAU-SERIES: PHASE 02.** ](./TECH-BUREAU-PHASE-01.md)<br>
+[**TECH-BUREAU-SERIES: PHASE 02.** ](./TECH-BUREAU-PHASE-02.md)<br>
 *Exploit CVE, privilege escalation and protocol tunneling. With the defense a bit more sophisticated<br>
 a more subtle approach is needed, a data base vulnerability is exploited. The Sneak.<br>*
 
-[**TECH-BUREAU-SERIES: PHASE 03.** ](./TECH-BUREAU-PHASE-01.md) <br>
+[**TECH-BUREAU-SERIES: PHASE 03.** ](./TECH-BUREAU-PHASE-03.md) <br>
 *Phish, infect, persist, escalate, obfuscate and extract. The system has been hardened to the fullest.<br>
 A phishing campaign  is now in the cards, but how can we extract the data this time to dupe the TECH-BUREAU?<br>
 **STAY TUNED TO FIND OUT!***
