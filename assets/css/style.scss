@@ -364,7 +364,7 @@ p, div, li {
     padding: 2px 4px;
     z-index: 5;
     border-radius: 3px;
-    border-bottom: 1px solid rgba($orange, 0.7); // Underline
+    border-bottom: 3px solid rgba($orange, 0.7); // Underline
 
     //THE ANIMATED LINE
       &::after {
@@ -381,9 +381,9 @@ p, div, li {
 
         &:hover { 
           color: $yellow !important;
-          background: rgba($red, 0.08);
-          box-shadow: 0 0 10px rgba($red, 0.2);
-          text-shadow: 0 0 8px rgba($red, 0.6);
+          background: rgba($orange, 0.08);
+          box-shadow: 0 0 10px rgba($orange, 0.2);
+          text-shadow: 0 0 8px rgba($orange, 0.6);
 
           &::after { 
             width: 100%;
