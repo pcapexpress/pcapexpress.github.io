@@ -363,8 +363,8 @@ p, div, li {
     display: inline-block;
     padding: 2px 4px;
     z-index: 5;
-    border-radius: 3px;
-    border-bottom: 3px solid rgba($orange, 0.7); // Underline
+    //border-radius: 3px;
+    border-bottom: 2px solid rgba($orange, 0.6); // Underline
 
     //THE ANIMATED LINE
       &::after {
@@ -374,16 +374,16 @@ p, div, li {
         left: 0;
         width: 0; 
         height: 2px;
-        background-color: $red;
+        background-color: rgba(#00f2ff, 1);
         transition: width 0.3s ease-in-out;
-        box-shadow: 0 0 8px $red; // High-intensity glow
+        box-shadow: 0 0 8px rgba(#00f2ff, 0.6); // High-intensity glow
       }
 
         &:hover { 
           color: $yellow !important;
           background: rgba($orange, 0.08);
-          box-shadow: 0 0 10px rgba($orange, 0.2);
-          text-shadow: 0 0 8px rgba($orange, 0.6);
+          box-shadow: 0 0 10px rgba(#00f2ff, 0.2);
+          text-shadow: 0 0 8px rgba(#00f2ff, 0.4);
 
           &::after { 
             width: 100%;
