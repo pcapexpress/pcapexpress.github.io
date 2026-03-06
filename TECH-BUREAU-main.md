@@ -1,60 +1,40 @@
 ---
 layout: default
+title: TECH-BUREAU SERIES
 ---
 
-# PCAPEXPRESS TECH-BUREAU-SERIES
+# PCAPEXPRESS TECH-BUREAU SERIES
 
-## Setup, Attack, Defend
+## SETUP, INFILTRATE, REFLECT, REFINE, REPEAT.
 
-This Project has 3 phases.....
+This Project is divided in to 3 Phases, the nature and spirit is a capture the flag type arrangement. In order to showcase some concepts a rather vulnerable Server has been spun up. Custom Wazuh alerts have been set in place to make the dashboard look clean. I would like to humbly add that mistakes are very possible, so apply a grain of salt where necessary. Follow the links bellow if you please.<br>
 
-**PHASE.01** The Loud Unappologetic breaking and entering, a plundering most foul.<br>
-**PHASE.02** With teh deffecne more sophisticated a more sublte approach is needed, a data base vulnerability is exploited.<br>
-**PHASE.03** The system has been hardened to the fullest. Only a phishing compaighn can save you now.
- 
-Garble blarble
-
-### Planned Scripts
-
-<span class=text-green><strong>01.W4LLPEPP3R</strong></span> - a script that downloads an image from the portfolio website and sets it as the workstation desktop image.<br>
-<span class=text-orange><strong>02.CL0CKK33PER</strong></span> - a beacon that tries to establish a connection to the C2 server every minute.<br>
-<span class=text-red><strong>03.CRYP7L4D</strong></span> - A script that seaks out a particular directory on the system and encrypt the contents.<br>
-
-<span class=text-data>**BOLD**and NOT:</span><br>
-<span class=badge-data><strong>BOLD</strong> and NOT:</span><br>
-
-<p class="text-center">+0+</p>
-<div class="divider-wire">
-  <span class="line"></span>
-  <span class="symbol">‹‹‹ ⦿ ›››</span>
-  <span class="line"></span>
-</div>
-<p class="text-center">Malicious.</p>
-
-## Follow these Links
 [**TECH-BUREAU-SERIES: PHASE 01.** ](./TECH-BUREAU-PHASE-01.md)<br>
-*Enumirate, brute force and exfiltrate.*
+*Enumerate, brute force and exfiltrate. The Loud Unapologetic breaking and entering,<br>a plundering most foul.<br>*
 
 [**TECH-BUREAU-SERIES: PHASE 02.** ](./TECH-BUREAU-PHASE-01.md)<br>
-*Exploit CVE, privilige escalation and protocol tunneling.*
+*Exploit CVE, privilege escalation and protocol tunneling. With the defense a bit more sophisticated<br>
+a more subtle approach is needed, a data base vulnerability is exploited. The Sneak.<br>*
 
 [**TECH-BUREAU-SERIES: PHASE 03.** ](./TECH-BUREAU-PHASE-01.md) <br>
-*Phish, infect, persist, escalate, obfuscate and extract.*
+*Phish, infect, persist, escalate, obfuscate and extract. The system has been hardened to the fullest.<br>
+A phishing campaign  is now in the cards, but how can we extract the data this time to dupe the TECH-BUREAU?<br>
+**STAY TUNED TO FIND OUT!***
 
-#### **TO DO:**
-* Complete the Malware sections.<br>
-* Establish links.<br>
-* Develop scripts.<br>
-* Detonate in a controlled environment.<br>
-* Record the results.<br>
-* Wrightup the findings.<br>
-* Format and Ship Out.<br>
+#### FRUITS OF LABOR:
+* Competence in setting up a Wazuh agent.<br>
+* Using OracleVM to establish a target box.
+* SSH in to a headless VM for setup and administration.<br>
+* Fine tuning alerts via IPtables and Auditctl.<br>
+* Planning an attack strategy with backup solutions.<br>
+* Attaining more experience with packet capture/inspection.<br>
+* Wright up the findings in an ASKII "human readable" format.<br>
 
 #### Lessons Learned
 <section>
-  <ul class="hover-card"> <li><strong>No01.</strong> Setting up and breaking, reseting, restarting.</li>
+  <ul class="hover-card"> <li><strong>No01.</strong> Setting up and breaking, resting, restarting.</li>
   </ul>
- <ul class="hover-card"> <li><strong>No02.</strong> Thinking like the Great Sneak and porloining the digital jewels.</li>
+ <ul class="hover-card"> <li><strong>No02.</strong> Thinking like the Great Sneak and purloining the digital jewels.</li>
   </ul>
 </section>
 
