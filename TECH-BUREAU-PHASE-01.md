@@ -26,7 +26,7 @@ title: BUREAU:01
 <img src="assets/images/tech-bureau/phase.01/19.active-agent.png">
 <small>“01.active-agent.png”<small>
 
-We have a Wazuh agent installed on a Ubuntu Server thats our TECH-BUREAU workstation.<br>
+We have a Wazuh agent installed on a Ubuntu 24 Server thats our TECH-BUREAU workstation.<br>
 We have some sensitive data we want to protect.<br>
 So we configure a few custom rules to help us out.<br>
 
@@ -34,26 +34,23 @@ So we configure a few custom rules to help us out.<br>
 <span class="orange"><strong>root@TECH-BUREAU-UBUNTU-24:</strong></span>/home/lead_engineer# auditctl -l
 -w /home/lead_engineer/PROJECT.5527/Frame_specs.txt -p rwa -k file_agitated
 </code></pre>
+This one will log an interaction with the file and create a log entry with the string *file_agitated*.
 
 <img src="assets/images/tech-bureau/phase.01/21.custom-cat.png">
 <small>“02.custom-cat.png”<small>
-
-The Ubuntu server is configured via auditctl to watch a specific file in directory – **PROJECT.5527**,<br>
-any interaction with the containing schematic file will raise an alert.<br>
-
-
+This is the custom rule that will fire based on the log entry.
 
 <pre data-label="auditctl"><code>
 <span class="orange"><strong>root@TECH-BUREAU-UBUNTU-24:</strong></span>/home/lead_engineer# sudo iptables -S
--P INPUT ACCEPT
--P FORWARD ACCEPT
--P OUTPUT ACCEPT
--A INPUT -p tcp -m multiport --dports 22,80,443,3306 -m state --state NEW -j LOG --log-prefix <span class="orange"><strong>"BUREAU-SCAN: "</strong></span>
--A INPUT -p tcp -m tcp --dport 8000 -m state --state NEW -j LOG --log-prefix <span class="orange"><strong>"BUREAU-EXFIL-HTTP: "</strong></span>
+-A INPUT -p tcp -m multiport --dports 22,80,443,3306<br> -m state --state NEW -j LOG --log-prefix <span class="orange"><strong>"BUREAU-SCAN: "</strong></span>
+-A INPUT -p tcp -m tcp --dport 8000 -m state --state NEW<br> -j LOG --log-prefix <span class="orange"><strong>"BUREAU-EXFIL-HTTP: "</strong></span>
 </code></pre>
+Here we have 2 exampes of an iptable rule, The server firewall iptables is also watching for any suspicious incoming trafic to the main ports<br>
+raising the alert in case of an outside port scan.
 
 <img src="assets/images/tech-bureau/phase.01/20.custom-nmap.png">
 <small>“03.custom-nmap.png”<small>
+
 
 
 The server firewall iptables is also watching for any suspicious incoming trafic to the main ports<br>
