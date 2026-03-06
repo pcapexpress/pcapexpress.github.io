@@ -1,11 +1,11 @@
 ---
 layout: default
-title: BUREAU Ph:01
+title: BUREAU PH:01
 ---
 
 # TECH-BUREAU SERIES: PHASE 01
 
-## RECON/BRUTEFORCE/EXFILTRATION
+## Enumerate, brute force and exfiltrate.
 
 ### WHATS SHOWCASED
 <section>
@@ -28,7 +28,7 @@ any interaction with the containing schematic file will raise an alert.
 The server firewall iptables is also watching for any suspicious incoming trafic to the main ports to try and raise the alert in case of an outside port scan.
 <<IPTABLES + LOCAL RULE>>
 
-# ADVERSARIES MOVE
+# AT4K-3XPR3S rolling out.
 Without further ado. In this scenario we know the ip address of our target server and we got a username that we belive has a week password. <br>We assemble our handfull of penetraton tools and begin. 
 ## 01.Server Recognisence Using nmap
 
@@ -214,16 +214,27 @@ We than see an http code 200 and a connection closing sequence of [FIN,ACK] → 
 <small>“09.pcap-exfil-clear.png”<small>
 
 Since http is in question we can see the data leaving in clear text.<br>
-
 <span class="text-data"><strong>DATA EXFILTRATED</strong></span>
+
+## LESSONS LEARNED
+As the attacker:<br>
+* We can clearly see that a week password and no lockout policy leads to initial access.<br>
+* With the coveted data not having proper permissions even a low level account is enough for access.<br>
+* Also having the option for an adversary to spinup a server and send data out via http is most problemativ.<br>
+As the defender:<br>
+* We shall start by creating an account locout policy + blocking an IP thats trying to Bruteforce in.<br>
+* Next up is some admistrative tweeks, the *intern* account shall not be permited to access the folder PROJECT.5527.<br>
+* I shall try to restrict the HTTP/HTTPS capabilities of the server, creating a more airgaped machine.<br>
+<br>
+Continue?
+<br>
+[**TECH-BUREAU-SERIES: PHASE 02.** ](./TECH-BUREAU-PHASE-02.md)<br>
+*Exploit CVE, privilege escalation and protocol tunneling. With the defense a bit more sophisticated<br>
+a more subtle approach is needed, a data base vulnerability is exploited. The Sneak.<br>*
+
 <div class="divider-wire">
   <span class="line"></span>
   <span class="symbol">⦿</span>
   <span class="line"></span>
 </div>
-
-## CONCLUDION
-
-
-
 <p class="text-center">[3.1]</p>
