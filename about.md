@@ -84,9 +84,15 @@ I mean look how close i am to the Pentest+.<br>
 **Pre Security**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">100% [===================>]</span><br>
 **Cyber Security 101**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">&nbsp;67% [=============>&#45;&#45;&#45;&#45;&#45;&#45;]</span><br>
 **Web Fundamentals**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">&nbsp;87% [=================>&#45;&#45;]</span><br>
-**SOC Level 1**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">42% [========>&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;]</span><br>
+**SOC Level 1**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">42% [========>&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;]</span><br>
 **Jr Penetration Tester**&nbsp;&nbsp;<span class="badge-data">100% [===================>]</span><br>
 **CompTia Pentest+**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">&nbsp;91% [=================>&#45;&#45;]</span><br>
+<pre>Pre Security     100% [===================>]</pre><br>
+<pre>Cyber Security 101     67% [=============>------]</pre><br>
+<pre>Web Fundamentals     87% [=================>--]</pre><br>
+<pre>SOC Level 1     42% [========>-----------]</pre><br>
+<pre>Jr Penetration Tester    100% [===================>]</pre><br>
+<pre>CompTia Pentest+     91% [=================>--]</pre><br>
 
 ### Planned Scripts
 
