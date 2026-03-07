@@ -1,6 +1,6 @@
 ---
 layout: default
-title: index
+title: Index
 ---
 # All Abord the PCAPEXPRESS
 
@@ -75,21 +75,10 @@ Creating several scenarios of attack and defence, showcasing and documenting bot
   </ul>
 </section>
 
-
-Style	Tag	Result
-Monospace	<code>...</code>	Makes text look like code (e.g., 0x4A 0x21).
-Pre-formatted	<pre>...</pre>	Keeps all spaces and line breaks exactly as you typed them.
-Bold	<strong>...</strong>	Important data/warnings.
-Italic	<em>...</em>	Subtle notes or timestamps.
-Underline	<u>...</u>	Use sparingly (often looks like a link).
-
-Effect	Tag / Code	Usage
-Line Break	<br>	Forces text to the next line without adding a paragraph gap.
-Paragraph	<p>...</p>	Adds a block of text with a natural gap (margin) below it.
-Non-Breaking Space	&nbsp;	Forces a space between words that cannot be wrapped.
-Horizontal Rule	<hr>	Your "Ambient Wire" divider.
-Highlight/Span	<span>...</span>	Used to color a single word (like making one word $orange).
-
 <p class="text-center">[Link to LinkedIn] | [Download Resume (PDF)] | [Heres a good MIX]</p>
-
+<div class="divider-wire">
+  <span class="line"></span>
+  <span class="symbol">⦿</span>
+  <span class="line"></span>
+</div>
 <p class="text-center">[1]</p>
