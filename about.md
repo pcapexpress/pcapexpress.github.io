@@ -47,40 +47,34 @@ This side of the project is schedualed to begin upon compleation of BUREAU-PHASE
 
 </div>
 
-CompTia Security+ <br>
-Googles Security+ <br>
-Googles AI Essentials <br>
-American Canoeing Assosiation <br>
+**01.CompTIA Security+ ce Certification**<br>
+
+Issuing Organization: CompTIA | Issuing Date: 11/30/2024 |Expiration Date: 11/30/2027<br>
+Credential ID: <span class="badge-data"><strong>90500d48-7815-4dc7-aba6-35b66f175898</strong></span><br>
+
+**02.Google Cybersecurity Professional Certificate V2**<br>
+
+Issuing Organization: Coursera | Issuing Date: 10/23/2024 |Expiration Date: This credential does not expire<br>
+Credential ID: <span class="badge-data"><strong>360c51c7-60ce-43c7-814f-498ce9ab6ca8</strong></span><br>
+
+**03.Google AI Essentials V1**<br>
+
+Issuing Organization: Coursera | Issuing Date: 10/23/2024 | Expiration Date: This credential does not expire<br>
+Credential ID: <span class="badge-data"><strong>f27aaa9a-7158-4b08-b329-6f8ebec7555c</strong></span><br>
+
+**04.Level 2: Essentials of Kayak Touring (instructor)**<br>
+
+Issuing Organization: American Canoe Association | Issuing Date: 11/07/2025 | Expiration Date: 12/31/2029<br>
+ACA Number: <span class="badge-data"><strong>80614605</strong></span><br>
+<br>
+Visit the Credly.com page to verify -  [www.credly.com/users/andrejs-petrovs](https://www.credly.com/users/andrejs-petrovs.f33bc783)
 
 <img src="assets/images/about/badge-tryhackme.png">
 
-assets/images/about/badge-tryhackme.png
-### Planned Scripts
-#### PLANED SCRIMPFTS
 
-<pre><marquee scrollamount="5" direction="right"> REACTOR: ONLINE | SCANER: ONLINE | CAFEENE: 3 UNITS AND COUNTING | BIOFORM MOOD: DETERMENISTIC | ALL SYSTEMS: NOMINAL | </marquee></pre><br>
-<marquee behavior="alternate" scrollamount="10"> [ SEARCHING FOR ENDPOINTS... ] </marquee>
-<marquee behavior="slide" direction="left"> 01.W4LLPEPP3R LOADED </marquee>
-<marquee direction="up" height="50px" scrollamount="2">
-  SYSTEM_LOAD<br>
-  KERNEL_OK<br>
-  DB_CONNECTED
-</marquee>
-<details>
-  <summary><span class="text-orange"><strong>[+] VIEW EXFILTRATION LOGS</strong></span></summary>
-  <pre class="text-data">
-    Timestamp: 2026-02-21
-    Files: 42
-    Status: SUCCESS
-  </pre>
-</details>
-<p class="text-center">+0+</p>
-<div class="divider-wire">
-  <span class="line"></span>
-  <span class="symbol">‹‹‹ ⦿ ›››</span>
-  <span class="line"></span>
-</div>
-<p class="text-center">Malicious.</p>
+### Planned Scripts
+
+<pre><marquee scrollamount="5" direction="left"> REACTOR: ONLINE | SCANER: ONLINE | CAFEENE: 3 UNITS AND COUNTING | BIOFORM MOOD: DETERMENISTIC | ALL SYSTEMS: NOMINAL | </marquee></pre><br>
 
 ## Follow these Links
 [**LINK NAME** ](./TECH-BUREAU-PHASE-01.md) *LINK DESCRIPTION*
@@ -89,8 +83,8 @@ assets/images/about/badge-tryhackme.png
 <span class="text-orange"><strong>02.CL0CKK33PER</strong></span> - a beacon that tries to establish a connection to the C2 server every minute.<br>
 <span class="text-red"><strong>03.CRYP7L4D</strong></span> - A script that seaks out a particular directory on the system and encrypt the contents.<br>
 
-<span class="text-data"><strong>BOLD</strong> and NOT:</span><br>
-<span class="badge-data"><strong>BOLD</strong> and NOT:</span>
+<span class="text-data"><strong>BOLD</strong></span><br>
+<span class="badge-data"><strong>BOLD</strong></span>
 
 
 Style	Tag	Result<br>
@@ -104,37 +98,10 @@ Italic	<em>...</em>	Subtle notes or timestamps.<br>
 <em>TEXT</em><br>
 Underline	<u>...</u>	Use sparingly (often looks like a link).<br>
 <u>TEXT</u><br>
-
 <strong><em><u>TEXT</u></em></strong><br>
 
 
-Effect	Tag / Code	Usage<br>
-Line Break	<br>	Forces text to the next line without adding a paragraph gap.<br>
-Paragraph	<p>...</p>	Adds a block of text with a natural gap (margin) below it.<br>
-Non-Breaking Space	&nbsp;	Forces a space between words that cannot be wrapped.<br>
-Horizontal Rule	<hr>	Your "Ambient Wire" divider.<br>
----
-Highlight/Span	<span>...</span>	Used to color a single word (like making one word $orange).<br>
 
-## LAN SEGMENT DETAILS FROM THE PCAP
-<pre data-label="DATA LABEL"><code>
-* <span class="orange"><strong>DATA:</strong></span>  data is data is data is deffinetly data
-</code></pre>
-
-#### **TO DO:**
-* Complete the Malware sections.<br>
-* Establish links.<br>
-* Develop scripts.<br>
-* Detonate in a controlled environment.<br>
-* Record the results.<br>
-* Wrightup the findings.<br>
-* Format and Ship Out.<br>
-
-<section>
-  <ul class="hover-card"> <li><strong>No01.</strong> Taking a look at real life examples of functional Malware using a airgaped Virtual Machine.</li>
-  </ul>
- <ul class="hover-card"> <li><strong>No02.</strong> Brewing up a series of simplified scripts and detonating them in a safe environment.</li>
-  </ul>
 </section>
 <div class="divider-wire">
   <span class="line"></span>
