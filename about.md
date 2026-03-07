@@ -74,14 +74,14 @@ Visit the Credly.com page to verify - <a href="https://www.credly.com/users/andr
 <img src="assets/images/about/badge-tryhackme.png">
 ### 05.TryHackMe
 I have started my cyber journey with TryHackMe and im quite greatful for its existance indeed. Over the last couple of years I have been gravitating towards different paths. At the moment my progress is on hold, I am relying on labs of my own direction for the time being. However looking at my path progress Im just itching to get back and button up some of them, I mean look how close i am to the Pentest+. P.S. dont ask me why I prioritized red teaming of the bat.
-<pre> data-label="Learning Paths"><code>
-<span class="orange"><strong>Pre Security</strong></span>           100% [===================>]<br>
-<span class="orange"><strong>Cyber Security 101</strong></span>      67% [=============>------]<br>
-<span class="orange"><strong>Web Fundamentals</strong></span>        87% [=================>--]<br>
-<span class="orange"><strong>SOC Level 1</strong></span>             42% [========>-----------]<br>
-<span class="orange"><strong>Jr Penetration Tester</strong></span>  100% [===================>]<br>
-<span class="orange"><strong>CompTia Pentest+</strong></span>        91% [=================>--]<br>
-</code>code></pre>
+Learning Paths Completion Tracker
+Pre Security&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">100% [===================>]</span><br>
+Cyber Security 101&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">67% [=============>------]</span><br>
+Web Fundamentals&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">87% [=================>--]</span><br>
+SOC Level 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">42% [========>-----------]</span><br>
+Jr Penetration Tester&nbsp;&nbsp;<span class="badge-data">100% [===================>]</span><br>
+CompTia Pentest+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">91% [=================>--]</span><br>
+
 ### Planned Scripts
 
 <pre><marquee scrollamount="5" direction="left"> REACTOR: ONLINE | SCANER: ONLINE | CAFEENE: 3 UNITS AND COUNTING | BIOFORM MOOD: DETERMENISTIC | ALL SYSTEMS: NOMINAL | </marquee></pre><br>
