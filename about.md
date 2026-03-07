@@ -73,14 +73,20 @@ Visit the Credly.com page to verify - <a href="https://www.credly.com/users/andr
 
 <img src="assets/images/about/badge-tryhackme.png">
 ### 05.TryHackMe
-I have started my cyber journey with TryHackMe and im quite greatful for its existance indeed. Over the last couple of years I have been gravitating towards different paths. At the moment my progress is on hold, I am relying on labs of my own direction for the time being. However looking at my path progress Im just itching to get back and button up some of them, I mean look how close i am to the Pentest+. P.S. dont ask me why I prioritized red teaming of the bat.
-Learning Paths Completion Tracker
+I have started my cyber journey with TryHackMe and im quite greatful for its existance indeed.<br>
+Over the last couple of years I have been gravitating towards different paths. At the moment my progress is on hold,<br>
+I am relying on labs of my own direction for the time being.<br>
+However looking at my path progress Im just itching to get back and button up some of them,<br>
+I mean look how close i am to the Pentest+.<br>
+**P.S.** don't ask me why I prioritized red teaming of the bat.<br>
+
+###Learning Paths Completion Tracker<br>
 Pre Security&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">100% [===================>]</span><br>
-Cyber Security 101&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">67% [=============>------]</span><br>
-Web Fundamentals&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">87% [=================>--]</span><br>
+Cyber Security 101&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">&nbsp;67% [=============>------]</span><br>
+Web Fundamentals&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">&nbsp;87% [=================>--]</span><br>
 SOC Level 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">42% [========>-----------]</span><br>
 Jr Penetration Tester&nbsp;&nbsp;<span class="badge-data">100% [===================>]</span><br>
-CompTia Pentest+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">91% [=================>--]</span><br>
+CompTia Pentest+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">&nbsp;91% [=================>--]</span><br>
 
 ### Planned Scripts
 
