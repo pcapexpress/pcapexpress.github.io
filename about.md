@@ -47,29 +47,34 @@ This side of the project is schedualed to begin upon compleation of BUREAU-PHASE
 
 </div>
 
-**01.CompTIA Security+ ce Certification**<br>
+<span class="text-orange"><strong>01.CompTIA Security+ ce Certification</strong></span><br>
 
 Issuing Organization: CompTIA | Issuing Date: 11/30/2024 |Expiration Date: 11/30/2027<br>
 Credential ID: <span class="badge-data"><strong>90500d48-7815-4dc7-aba6-35b66f175898</strong></span><br>
 
-**02.Google Cybersecurity Professional Certificate V2**<br>
+<span class="text-orange"><strong>02.Google Cybersecurity Professional Certificate V2</strong></span><br>
 
 Issuing Organization: Coursera | Issuing Date: 10/23/2024 |Expiration Date: This credential does not expire<br>
 Credential ID: <span class="badge-data"><strong>360c51c7-60ce-43c7-814f-498ce9ab6ca8</strong></span><br>
 
-**03.Google AI Essentials V1**<br>
+<span class="text-orange"><strong>03.Google AI Essentials V1</strong></span><br>
 
 Issuing Organization: Coursera | Issuing Date: 10/23/2024 | Expiration Date: This credential does not expire<br>
 Credential ID: <span class="badge-data"><strong>f27aaa9a-7158-4b08-b329-6f8ebec7555c</strong></span><br>
 
-**04.Level 2: Essentials of Kayak Touring (instructor)**<br>
+<span class="text-orange"><strong>04.Level 2: Essentials of Kayak Touring (instructor)</strong></span><br>
 
 Issuing Organization: American Canoe Association | Issuing Date: 11/07/2025 | Expiration Date: 12/31/2029<br>
 ACA Number: <span class="badge-data"><strong>80614605</strong></span><br>
 <br>
 Visit the Credly.com page to verify -  [www.credly.com/users/andrejs-petrovs](https://www.credly.com/users/andrejs-petrovs.f33bc783)
 
+<a href="https://www.credly.com/users/andrejs-petrovs.f33bc783" target="_blank" rel="noopener noreferrer">
+  www.credly.com/users/andrejs-petrovs
+</a>
+
 <img src="assets/images/about/badge-tryhackme.png">
+<span class="text-orange"><strong>TryHackMe</strong></span><br>
 
 
 ### Planned Scripts
