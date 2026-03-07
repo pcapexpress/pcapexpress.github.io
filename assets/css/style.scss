@@ -463,7 +463,7 @@ pre {
   // THE ORANGE GLOW
   border-left: 3px solid $orange;
   //box-shadow: 0 0 10px rgba($orange, 0.5); 
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 
   &::before {
     content: "";
@@ -487,7 +487,7 @@ pre {
   
   &:hover {
     //box-shadow: 0 0 15px rgba($orange, 1.0); // Intense glow on hover
-    filter: contrast(1.2) saturate(1.5);
+    filter: contrast(1.2) saturate(1.4);
     
   }
 
