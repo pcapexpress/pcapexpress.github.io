@@ -73,10 +73,14 @@ Visit the Credly.com page to verify - <a href="https://www.credly.com/users/andr
 
 <img src="assets/images/about/badge-tryhackme.png">
 ### 05.TryHackMe
-DATA<br>
-DATA<br>
-data.
+I have started my cyber journey with TryHackMe and im quite greatful for its existance indeed. Over the last couple of years I have been gravitating towards different paths. At the moment my progress is on hold, I am relying on labs of my own direction for the time being. However looking at my path progress Im just itching to get back and button up some of them, I mean look how close i am to the Pentest+. P.S. dont ask me why I prioritized red teaming of the bat.
 
+**Pre Security**           100%<span class="badge-data">[===================>]</span><br>
+**Cyber Security 101**      67%<span class="badge-data">[=============>------]</span>br>
+**Web Fundamentals**        87%<span class="badge-data">[=================>--]</span><br>
+**SOC Level 1**             42%<span class="badge-data">[========>-----------]</span><br>
+**Jr Penetration Tester**  100%<span class="badge-data">[===================>]</span><br>
+**CompTia Pentest+**        91%<span class="badge-data">[=================>--]</span><br>
 
 ### Planned Scripts
 
