@@ -3,7 +3,7 @@ layout: default
 title: BUREAU:01
 ---
 
-# TECH-BUREAU SERIES: PHASE 01
+# TECH-BUREAU SERIES: PHASE.01
 
 ## Enumerate, brute force and exfiltrate.
 
@@ -11,12 +11,12 @@ title: BUREAU:01
 <section>
   <ul class="hover-card"> 
     <li>
-      <span class="text-data"><strong>OFFENSE:</strong></span> Target enumeration, SSH bruteforce, Data exfiltration 
+      <span class="orange"><strong>OFFENSE:</strong></span> Target enumeration, SSH bruteforce, Data exfiltration 
     </li>
   </ul>
   <ul class="hover-card"> 
     <li>
-      <span class="text-data"><strong>DEFENSE:</strong></span> Tuning Alerts to reduce noise, Comparing pcap file findings 
+      <span class="orange"><strong>DEFENSE:</strong></span> Tuning Alerts to reduce noise, Comparing pcap file findings 
     </li> 
   </ul>
 </section>
@@ -245,7 +245,7 @@ Since http is in question we can see the data leaving in clear text.<br>
 As the attacker:<br>
 * We can clearly see that a week password and no lockout policy leads to initial access.<br>
 * With the coveted data not having proper permissions even a low level account is enough for access.<br>
-* Also having the option for an adversary to spinup a server and send data out via http is most problemativ.<br>
+* Also having the option for an adversary to spinup a server and send data out via http is most problematic.<br>
 As the defender:<br>
 * We shall start by creating an account locout policy + blocking an IP thats trying to Bruteforce in.<br>
 * Next up is some admistrative tweeks, the *intern* account shall not be permited to access the folder PROJECT.5527.<br>
