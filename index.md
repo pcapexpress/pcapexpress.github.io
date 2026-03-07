@@ -2,16 +2,17 @@
 layout: default
 title: Index
 ---
-# All Abord the PCAPEXPRESS
-
+# All Abord the PCAPEXPRESS!
+## A slightly difrent project portfolio.
+### How to?
 This is a project portfolio based around developing a useful set of skills in the field of IT security.<br>
 The Portfolio is focused on 3 main sections.
 
-No.1 - Using real life infections in a Pcap file form and condcting analisys using Wireshark.<br>
-No.2 - Establishing a rudimentary SOC environment with Wazuh and Virtual Machines and conducting Purple Team exercises.<br>
-No.3 - {UNDER CONSTRUCTION} Reserved for basic malware analisys and deobfuscation. Exiting Stuff!!!<br>
+WIRESHARK SERIES - Using real life infections in a Pcap file form and condcting analisys using Wireshark.<br>
+TECH-BUREAU SERIES - Establishing a rudimentary SOC environment with Wazuh and Virtual Machines and conducting Purple Team exercises.<br>
+MALWARE BOILER SERIES - {UNDER CONSTRUCTION} Reserved for basic malware analisys and deobfuscation. Exiting Stuff!!!<br>
 
----
+### Brught to You by
 ## [Andy Anderson] | Aspiring Cybersecurity Analyst
 Learning to specialize in Network Forensics using Wireshark & IDS Alert Corelation
 Ability to establish a rudimentary SOC environment using virtualization
