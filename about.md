@@ -80,13 +80,13 @@ However looking at my path progress Im just itching to get back and button up so
 I mean look how close i am to the Pentest+.<br>
 **P.S.** don't ask me why I prioritized red teaming of the bat.<br>
 
-###Learning Paths Completion Tracker<br>
-Pre Security&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">100% [===================>]</span><br>
-Cyber Security 101&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">&nbsp;67% [=============>------]</span><br>
-Web Fundamentals&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">&nbsp;87% [=================>--]</span><br>
-SOC Level 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">42% [========>-----------]</span><br>
-Jr Penetration Tester&nbsp;&nbsp;<span class="badge-data">100% [===================>]</span><br>
-CompTia Pentest+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">&nbsp;91% [=================>--]</span><br>
+### Learning Paths Completion Tracker<br>
+**Pre Security**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">100% [===================>]</span><br>
+**Cyber Security 101**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">&nbsp;67% [=============>&#45;&#45;&#45;&#45;&#45;&#45;]</span><br>
+**Web Fundamentals**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">&nbsp;87% [=================>&#45;&#45;]</span><br>
+**SOC Level 1**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">42% [========>&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;]</span><br>
+**Jr Penetration Tester**&nbsp;&nbsp;<span class="badge-data">100% [===================>]</span><br>
+**CompTia Pentest+**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">&nbsp;91% [=================>&#45;&#45;]</span><br>
 
 ### Planned Scripts
 
