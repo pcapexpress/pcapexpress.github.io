@@ -73,6 +73,8 @@ Visit the Credly.com page to verify - <a href="https://www.credly.com/users/andr
 
 <img src="assets/images/about/badge-tryhackme.png">
 ### 05.TryHackMe
+
+**Rank:** 14/21 0xD [Legend] ≥ 20,000 points<br>
 I have started my cyber journey with TryHackMe and im quite greatful for its existance indeed.<br>
 Over the last couple of years I have been gravitating towards different paths. At the moment my progress is on hold,<br>
 I am relying on labs of my own direction for the time being.<br>
@@ -87,12 +89,12 @@ I mean look how close i am to the Pentest+.<br>
 **SOC Level 1**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">42% [========>&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;]</span><br>
 **Jr Penetration Tester**&nbsp;&nbsp;<span class="badge-data">100% [===================>]</span><br>
 **CompTia Pentest+**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">&nbsp;91% [=================>&#45;&#45;]</span><br>
-<pre>Pre Security     100% [===================>]</pre><br>
-<pre>Cyber Security 101     67% [=============>------]</pre><br>
-<pre>Web Fundamentals     87% [=================>--]</pre><br>
-<pre>SOC Level 1     42% [========>-----------]</pre><br>
-<pre>Jr Penetration Tester    100% [===================>]</pre><br>
-<pre>CompTia Pentest+     91% [=================>--]</pre><br>
+
+<pre data-label="THM PATHS"><code>
+**Pre Security**          100% [===================>]  **Cyber Security 101** 67% [=============>------]
+**Web Fundamentals**       87% [=================>--]  **SOC Level 1**        42% [========>-----------]
+**Jr Penetration Tester** 100% [===================>]  **CompTia Pentest+**   91% [=================>--]
+</code></pre>
 
 ### Planned Scripts
 
