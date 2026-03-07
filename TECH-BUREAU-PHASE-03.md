@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BUREAU PH:03
+title: BUREAU:03
 ---
 # TECH-BUREAU SERIES: PHASE 03
 ## CVE exploitation, privilege escalation and protocol tunneling.
