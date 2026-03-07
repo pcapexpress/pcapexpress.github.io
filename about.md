@@ -13,7 +13,7 @@ title: About
      style="width: 25%; float: left; margin-right: 20px; margin-bottom: 20px;" 
      alt="Author">
 
-<p><br><br>THis handsome lad<br> Has been to an<br> VOLCANUS ISLANDUS<br> TEXT?<br> YES!<br>Here wrights to you a gentelman and a scholar. </p>
+<p><br><br>Here wrights to you a gentelman and a scholar. A former Beer Brewing proffesional of 10ish years that decided to hang up his old brewing cap and switch the phisical labour to something that is more mentaly stimulating. Enter a new drive for the IT security sector. The goal is to become a fully fledged SOC analyst with the ability to specialize when neccesary in network trafic analisys and malware reverse engineering. Curently residing on an island just of the coast of Croatia I have picked up kayaking and have been training hard. As a result I am a certified trip leader and instructor, the achivement im proud of the most is learning the C to C roll. </p>
 <div style="clear: both;"></div>
 
 This Project has 3 phases.....
@@ -26,7 +26,7 @@ This Project has 3 phases.....
 
 This side of the project is schedualed to begin upon compleation of BUREAU-PHASE-03 with cooking up our first malicious script for thatparticular lab.
 
-### CERTIFICATES
+## CERTIFICATES
 <div style="display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; margin: 50px 0; width: 100%;">
   
   <img src="assets/images/about/badge-comptia.png" 
