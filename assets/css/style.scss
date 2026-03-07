@@ -324,8 +324,8 @@ h3 {
 h4 {
   color: $green !important;
   text-shadow: 
-     0 0 5px rgba($cyan, 0.8),
-     0 0 10px rgba($cyan, 0.4) !important; 
+     0 0 5px rgba($green, 0.8),
+     1px 1px 2px rgba($dark-bg, 1) !important; 
 } // <--------------------------------------------------------------------------------HEADERS CLOSED
   
 // 4.2 TEXT HIGHLIGHTS
@@ -487,6 +487,7 @@ pre {
   
   &:hover {
     box-shadow: 0 0 15px rgba($orange, 1.0); // Intense glow on hover
+    animation: dataStutter 1s steps(4) infinite; ///staticFlicker
   }
 
   //DATA LABEL
