@@ -1,5 +1,7 @@
+---
 layout: default
 title: BUREAU:02
+---
 
 # TECH-BUREAU SERIES: PHASE 02
 ## CVE exploitation, privilege escalation and protocol tunneling.
