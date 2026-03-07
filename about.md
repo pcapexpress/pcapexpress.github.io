@@ -91,9 +91,9 @@ I mean look how close i am to the Pentest+.<br>
 **CompTia Pentest+**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">&nbsp;91% [=================>&#45;&#45;]</span><br>
 
 <pre data-label="THM PATHS"><code>
-**Pre Security**          100% [===================>]  **Cyber Security 101** 67% [=============>------]
-**Web Fundamentals**       87% [=================>--]  **SOC Level 1**        42% [========>-----------]
-**Jr Penetration Tester** 100% [===================>]  **CompTia Pentest+**   91% [=================>--]
+<span class="text-orange"><strong>Pre Security</strong></span>          100% [===================>]  <span class="text-orange"><strong>Cyber Security 101</strong></span> 67% [=============>------]<br>
+<span class="text-orange"><strong>Web Fundamentals</strong></span>       87% [=================>--]  <span class="text-orange"><strong>SOC Level 1</strong></span>        42% [========>-----------]<br>
+<span class="text-orange"><strong>Jr Penetration Tester</strong></span> 100% [===================>]  <span class="text-orange"><strong>CompTia Pentest+</strong></span>   91% [=================>--]<br>
 </code></pre>
 
 ### Planned Scripts
