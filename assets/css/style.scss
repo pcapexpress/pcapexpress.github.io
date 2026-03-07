@@ -462,14 +462,14 @@ pre {
 
   // THE ORANGE GLOW
   border-left: 3px solid $orange;
-  box-shadow: 0 0 10px rgba($orange, 0.5); 
+  //box-shadow: 0 0 10px rgba($orange, 0.5); 
   transition: all 0.3s ease;
 
   &::before {
     content: "";
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba($green, 0.02);
+    background: rgba($green, 0.03);
     animation: dataStutter 1s steps(4) infinite; ///staticFlicker
     pointer-events: none;
     z-index: 1; // Keeps the flicker as a background layer
@@ -486,8 +486,9 @@ pre {
   }
   
   &:hover {
-    box-shadow: 0 0 15px rgba($orange, 1.0); // Intense glow on hover
-    animation: dataStutter 1s steps(4) infinite; ///staticFlicker
+    //box-shadow: 0 0 15px rgba($orange, 1.0); // Intense glow on hover
+    filter: brightness(1.1);
+    
   }
 
   //DATA LABEL
