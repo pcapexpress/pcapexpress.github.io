@@ -34,6 +34,9 @@ Lets take a look at some common techniques to observe malicious traffic and scri
 [PCAP EXPRESS SERIES: Exercise 03 Big Fish ](./PCAP-EXPRESS-03.md) <br>
 *Not a full pcap.*
 
+### TOOLS'N'TECHNIQUES
+<pre><marquee scrollamount="5" direction="left"> TOOLS: WIRESHARK, VIRUSTOTAL, CYBERCHEF, MD5SUM | TECHNIQUES: TCP/HTTP STREAM OBSERVATION, OBJECT EXPORTING, HASH CHECKS, CODE DEOBFUSCATION</marquee></pre><br>
+
 ---
 
 ## TECH-BUREAU SERIES: Security Operations Center in a Box
@@ -50,29 +53,11 @@ Creating several scenarios of attack and defence, showcasing and documenting bot
 [TECH-BUREAU SERIES: Phase 03 The Trojan and the Workhorse ](./TECH-BUREAU-PHASE-03.md) <br>
 *In the final phase with the network reinforced and new rulles created it seams that nothing can harm the Bureau from the outside. What if the threat to come from the inside instead? A seamingly legitimate e-mail, a malicious link, a perfectly ordinary piece of software.*
 
-
-## TOOLS
+### TOOLS'N'TECHNIQUES
 <section>
-  <ul class="hover-card"> <li><em>TOOLS:</em> Wireshark, Snort, Suricata, Zeek, Nmap.</li>
+  <ul class="hover-card"> <li><em>TOOLS:</em> WAZUH, ORACLE VM, NMAP, HYDRA, SSH, and more.</li>
   </ul>
-</section>
-## PROTOCOLS
-<section>
-  <ul class="hover-card"> <li><strong>Protocols:</strong> TCP/IP, SMB, NTLM, Kerberos, DNS, HTTP/S.</li>
-  </ul>
-</section>
-## SKILLS
-<section>
-  <ul class="hover-card"> <li><strong>Analysis:</strong> Traffic Analysis, False Positive Reduction, Log Correlation.</li>
-  </ul>
-</section>
-
-
-## Certificates
-<section>
-  <ul class="hover-card"> <li>**Google Security**</li>
-  </ul>
- <ul class="hover-card"> <li>**CompTia Security+**</li>
+  <ul class="hover-card"> <li><em>TECHNIQUES:</em>TARGET ENUMIRATION, BRUTEFORCE, PRIVILEDGE ESCALATION, DATA EXFILTRATION, and more.</li>
   </ul>
 </section>
 
