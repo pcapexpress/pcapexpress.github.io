@@ -16,15 +16,17 @@ title: About
 <p><br><br>Here wrights to you a gentelman and a scholar. A former Beer Brewing proffesional of 10ish years that decided to hang up his old brewing cap and switch the phisical labour to something that is more mentaly stimulating. Enter a new drive for the IT security sector. The goal is to become a fully fledged SOC analyst with the ability to specialize when neccesary in network trafic analisys and malware reverse engineering. Curently residing on an island just of the coast of Croatia I have picked up kayaking and have been training hard. As a result I am a certified trip leader and instructor, the achivement im proud of the most is learning the C to C roll. </p>
 <div style="clear: both;"></div>
 
-This Project has 3 phases.....
+CAREER GOALS
 <section>
-  <ul class="hover-card"> <li><strong>No01.</strong> Taking a look at real life examples of functional Malware using a airgaped Virtual Machine.</li>
+  <ul class="hover-card"> <li><strong>Early Days:</strong> Building competence within a SOC team.</li>
   </ul>
- <ul class="hover-card"> <li><strong>No02.</strong> Brewing up a series of simplified scripts and detonating them in a safe environment.</li>
+  <ul class="hover-card"> <li><strong>Mid Term:</strong> Graduating to SOC level 2. Dable in junior pentest projects.</li>
+  </ul>
+  <ul class="hover-card"> <li><strong>Long Term:</strong> Branching out in to Malware analisys and reverse engineering.</li>
   </ul>
 </section>
 
-This side of the project is schedualed to begin upon compleation of BUREAU-PHASE-03 with cooking up our first malicious script for thatparticular lab.
+Maybe details and why.
 
 ## CERTIFICATES
 <div style="display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; margin: 50px 0; width: 100%;">
