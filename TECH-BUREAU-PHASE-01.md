@@ -26,15 +26,15 @@ title: BUREAU:01
 <img src="assets/images/tech-bureau/phase.01/19.active-agent.png">
 <small>“01.active-agent.png”<small>
 
-We have a Wazuh agent installed on a Ubuntu 24 Server thats our TECH-BUREAU workstation.<br>
-We have some sensitive data we want to protect.<br>
+A Wazuh agent is set up on a Ubuntu 24 Server, that's our <span class="green"><strong>TECH-BUREAU</strong></span> workstation.<br>
+We have some sensitive data we want to protect. Schematics in folder PROJECT.5527<br>
 So we configure a few custom rules to help us out.<br>
 
 <pre data-label="auditctl"><code>
 <span class="orange"><strong>root@TECH-BUREAU-UBUNTU-24:</strong></span>/home/lead_engineer# auditctl -l
 -w /home/lead_engineer/PROJECT.5527/Frame_specs.txt -p rwa -k file_agitated
 </code></pre>
-This one will log an interaction with the file and create a log entry with the string *file_agitated*.
+This one will monitor interactions with the file and create a log entry with the string *file_agitated*.
 
 <img src="assets/images/tech-bureau/phase.01/21.custom-cat.png">
 <small>“02.custom-cat.png”<small>
@@ -45,22 +45,26 @@ This is the custom rule that will fire based on the log entry.
 -A INPUT -p tcp -m multiport --dports 22,80,443,3306<br> -m state --state NEW -j LOG --log-prefix <span class="orange"><strong>"BUREAU-SCAN: "</strong></span>
 -A INPUT -p tcp -m tcp --dport 8000 -m state --state NEW<br> -j LOG --log-prefix <span class="orange"><strong>"BUREAU-EXFIL-HTTP: "</strong></span>
 </code></pre>
-Here we have 2 exampes of an iptable rule, The server firewall iptables is also watching for any suspicious incoming trafic to the main ports<br>
-raising the alert in case of an outside port scan.
+Here we have 2 iptable rules. The servers iptablels is watching for any suspicious incoming traffic to the main ports<br>
+raising the alert in case of an outside port scan. And a specific rule that will alert us if data is leaving via port 8000.
 
 <img src="assets/images/tech-bureau/phase.01/20.custom-nmap.png">
 <small>“03.custom-nmap.png”<small>
 
-
-
-The server firewall iptables is also watching for any suspicious incoming trafic to the main ports<br>
-raising the alert in case of an outside port scan.<br>
+he custom rule reacts to the supplied BUREAU-SCAN string and feeds it to the rule below witch throttles the sensitivity, so we don't see an over saturation of alerts in our dashboard.<br>
 
 
 <img src="assets/images/tech-bureau/phase.01/22.custom-exfil.png">
 <small>“04.custom-exfil.png”<small>
 
----
+Same logic, the string BUREAU-EXFIL-HTTP is trigering our alert.
+
+<div class="divider-wire">
+  <span class="line"></span>
+  <span class="symbol">⦿</span>
+  <span class="line"></span>
+</div>
+
 # AT4K-3XPR3S rolling out.
 Without further ado. In this scenario we know the ip address of our target server and we got a username that we belive has a week password. <br>We assemble our handfull of penetraton tools and begin. 
 ## 01.Server Recognisence Using nmap
@@ -172,7 +176,11 @@ Connection to tech-bureau closed.
 Primary goal achieved, data secured.<br>
 Thank You and Good Bye.
 
----
+<div class="divider-wire">
+  <span class="line"></span>
+  <span class="symbol">⦿</span>
+  <span class="line"></span>
+</div>
 # TECH-BUREAU ROLLING OUT
 We did a little bit of tinkering before starting this scenario, and as a result we have catered alerts just for the occasion.<br>
 The firewall is checking for tcp packets to 4 specific ports. The auditctl is monitoring a particularly sensitive file on the server.<br>
