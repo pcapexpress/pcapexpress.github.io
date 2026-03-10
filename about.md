@@ -75,9 +75,9 @@ Visit the Credly.com page to verify - <a href="https://www.credly.com/users/andr
 ### 05.TryHackMe
 
 **Rank:** <span class="badge-data"><strong>14/21 0xD [Legend] ≥ 20,000 points</strong></span><br>
-I have started my cyber journey with *TryHackMe* and what a ride it has been.<br>
-Over the last couple of years I have been gravitating towards different paths. At the moment my progress is on hold,<br>
-I am relying on labs of my own direction for the time being.<br>
+I have started my cyber journey with ***TryHackMe*** and what a ride it has been.<br>
+Over the last couple of years I have been gravitating towards different paths.<br>
+At the moment my progress is on hold, I am relying on labs of my own direction for the time being.<br>
 However looking at my path progress Im just itching to get back and button up some of them,<br>
 I mean look how close i am to the Pentest+.<br>
 **P.S.** *don't ask me why I prioritized red teaming of the bat*.<br>
