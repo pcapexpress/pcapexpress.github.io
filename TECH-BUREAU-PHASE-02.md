@@ -50,7 +50,30 @@ passwd: password updated successfully
 
 
 # AT4K-3XPR3S rolling out.
-...
+
+### CONFIGURING THE GTFO BIN AS LEAD_ENGINEER
+root@TECH-BUREAU-UBUNTU-24:/home/lead_engineer# cp /usr/bin/find /tmp/engineer_find
+root@TECH-BUREAU-UBUNTU-24:/home/lead_engineer# chown lead_engineer:lead_engineer /tmp/engineer_find
+root@TECH-BUREAU-UBUNTU-24:/home/lead_engineer# chmod 4755 /tmp/engineer_find
+
+### CONFIGURING MARIADB CREDENTIALS AND REMOTE ACCESS
+-- Login locally first
+sudo mysql
+
+-- Change root to use a password and allow remote access
+ALTER USER 'root'@'localhost' IDENTIFIED VIA mysql_native_password USING PASSWORD('password123');
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'password123' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+
+
+-- 1. Create the user 'admin' allowed to connect from any host ('%')
+CREATE USER 'admin'@'%' IDENTIFIED BY 'password';
+
+-- 2. Grant 'admin' full privileges over every database and table
+GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;
+
+-- 3. Reload the privileges to make the changes active
+FLUSH PRIVILEGES;
 ## 01.Recognisence
 
 ## LESSONS LEARNED
