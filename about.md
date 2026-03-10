@@ -49,23 +49,23 @@ This side of the project is schedualed to begin upon compleation of BUREAU-PHASE
 
 ### 01.CompTIA Security+ ce Certification
 
-Issuing Organization: CompTIA | Issuing Date: 11/30/2024 |Expiration Date: 11/30/2027<br>
-Credential ID: <span class="badge-data"><strong>90500d48-7815-4dc7-aba6-35b66f175898</strong></span><br>
+Issuing Organization: *CompTIA* | Credential ID: <span class="badge-data"><strong>90500d48-7815-4dc7-aba6-35b66f175898</strong></span><br>
+Issuing Date: 11/30/2024 |Expiration Date: 11/30/2027<br>
 
 ### 02.Google Cybersecurity Professional Certificate V2
 
-Issuing Organization: Coursera | Issuing Date: 10/23/2024 |Expiration Date: This credential does not expire<br>
-Credential ID: <span class="badge-data"><strong>360c51c7-60ce-43c7-814f-498ce9ab6ca8</strong></span><br>
+Issuing Organization: *Coursera* | Credential ID: <span class="badge-data"><strong>360c51c7-60ce-43c7-814f-498ce9ab6ca8</strong></span><br>
+Issuing Date: 10/23/2024 | Expiration Date: This credential does not expire<br>
 
 ### 03.Google AI Essentials V1
 
-Issuing Organization: Coursera | Issuing Date: 10/23/2024 | Expiration Date: This credential does not expire<br>
-Credential ID: <span class="badge-data"><strong>f27aaa9a-7158-4b08-b329-6f8ebec7555c</strong></span><br>
+Issuing Organization: *Coursera* | Credential ID: <span class="badge-data"><strong>f27aaa9a-7158-4b08-b329-6f8ebec7555c</strong></span><br>
+Issuing Date: 10/23/2024 | Expiration Date: This credential does not expire<br>
 
 ### 04.Level 2: Essentials of Kayak Touring (instructor)
 
-Issuing Organization: American Canoe Association | Issuing Date: 11/07/2025 | Expiration Date: 12/31/2029<br>
-ACA Number: <span class="badge-data"><strong>80614605</strong></span><br>
+Issuing Organization: *American Canoe Association* | ACA Number: <span class="badge-data"><strong>80614605</strong></span><br>Issuing Date: 11/07/2025<br>
+Issuing Date: 11/07/2025 | Expiration Date: 12/31/2029
 <br>
 Visit the Credly.com page to verify - <a href="https://www.credly.com/users/andrejs-petrovs.f33bc783" target="_blank" rel="noopener noreferrer">
   www.credly.com/users/andrejs-petrovs
@@ -74,21 +74,15 @@ Visit the Credly.com page to verify - <a href="https://www.credly.com/users/andr
 <img src="assets/images/about/badge-tryhackme.png">
 ### 05.TryHackMe
 
-**Rank:** 14/21 0xD [Legend] ≥ 20,000 points<br>
-I have started my cyber journey with TryHackMe and im quite greatful for its existance indeed.<br>
+**Rank:** <span class="badge-data"><strong>14/21 0xD [Legend] ≥ 20,000 points</strong></span><br>
+I have started my cyber journey with *TryHackMe* and what a ride it has been.<br>
 Over the last couple of years I have been gravitating towards different paths. At the moment my progress is on hold,<br>
 I am relying on labs of my own direction for the time being.<br>
 However looking at my path progress Im just itching to get back and button up some of them,<br>
 I mean look how close i am to the Pentest+.<br>
-**P.S.** don't ask me why I prioritized red teaming of the bat.<br>
+**P.S.** *don't ask me why I prioritized red teaming of the bat*.<br>
 
 ### Learning Paths Completion Tracker<br>
-**Pre Security**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">100% [===================>]</span><br>
-**Cyber Security 101**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">&nbsp;67% [=============>&#45;&#45;&#45;&#45;&#45;&#45;]</span><br>
-**Web Fundamentals**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">&nbsp;87% [=================>&#45;&#45;]</span><br>
-**SOC Level 1**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">42% [========>&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;]</span><br>
-**Jr Penetration Tester**&nbsp;&nbsp;<span class="badge-data">100% [===================>]</span><br>
-**CompTia Pentest+**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="badge-data">&nbsp;91% [=================>&#45;&#45;]</span><br>
 
 <pre data-label="THM PATHS"><code>
 <span class="text-orange"><strong>Pre Security</strong></span>          100% [===================>]  <span class="text-orange"><strong>Cyber Security 101</strong></span> 67% [=============>------]<br>
@@ -123,8 +117,6 @@ Italic	<em>...</em>	Subtle notes or timestamps.<br>
 Underline	<u>...</u>	Use sparingly (often looks like a link).<br>
 <u>TEXT</u><br>
 <strong><em><u>TEXT</u></em></strong><br>
-
-
 
 </section>
 <div class="divider-wire">
