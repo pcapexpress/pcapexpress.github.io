@@ -38,6 +38,7 @@ This one will monitor interactions with the file and create a log entry with the
 
 <img src="assets/images/tech-bureau/phase.01/21.custom-cat.png">
 <small>“02.custom-cat.png”<small>
+
 This is the custom rule that will fire based on the log entry.
 
 <pre data-label="auditctl"><code>
@@ -45,14 +46,15 @@ This is the custom rule that will fire based on the log entry.
 -A INPUT -p tcp -m multiport --dports 22,80,443,3306<br> -m state --state NEW -j LOG --log-prefix <span class="orange"><strong>"BUREAU-SCAN: "</strong></span>
 -A INPUT -p tcp -m tcp --dport 8000 -m state --state NEW<br> -j LOG --log-prefix <span class="orange"><strong>"BUREAU-EXFIL-HTTP: "</strong></span>
 </code></pre>
-Here we have 2 iptable rules. The servers iptablels is watching for any suspicious incoming traffic to the main ports<br>
-raising the alert in case of an outside port scan. And a specific rule that will alert us if data is leaving via port 8000.
+Here we have 2 iptable rules. The server is watching for any suspicious incoming traffic to the main ports<br>
+raising an alert in the case of an outside port scan.<br>
+And a specific rule that will alert us if data is leaving via port 8000.<br>
 
 <img src="assets/images/tech-bureau/phase.01/20.custom-nmap.png">
 <small>“03.custom-nmap.png”<small>
 
-he custom rule reacts to the supplied BUREAU-SCAN string and feeds it to the rule below witch throttles the sensitivity, so we don't see an over saturation of alerts in our dashboard.<br>
-
+The custom rule reacts to the supplied BUREAU-SCAN string and feeds it to the rule below witch throttles the sensitivity,<br>
+so we don't see an over saturation of in our dashboard.<br>
 
 <img src="assets/images/tech-bureau/phase.01/22.custom-exfil.png">
 <small>“04.custom-exfil.png”<small>
@@ -66,9 +68,11 @@ Same logic, the string BUREAU-EXFIL-HTTP is trigering our alert.
 </div>
 
 # AT4K-3XPR3S rolling out.
-Without further ado. In this scenario we know the ip address of our target server and we got a username that we belive has a week password. <br>We assemble our handfull of penetraton tools and begin. 
-## 01.Server Recognisence Using nmap
+Without further ado. For this scenario we are supplied with the ip address of our target server and the username that we belive has a week password.<br>
+We also know exactly what we are looking for in terms of coveted data - file name: "*Frame_specs.txt*"<br>
+We assemble our modest selection of penetraton tools and begin.<br>
 
+## 01.Server Recognisence Using nmap
 <pre data-label="nmap scan"><code>
 <span class="orange"><strong>square@AT4K-3XPR3S:</strong></span>~/BUREAU.01$ nmap -p 22,80,443,3306 TECH-BUREAU
 
@@ -85,8 +89,9 @@ PORT     STATE  SERVICE
 Nmap done: 1 IP address (1 host up) scanned in 0.31 seconds
 </code></pre>
 
-We are interested in the port status, we are going for 4 ports in this scenario. <br>
-We are looking for a bruteforce attack here. We confirm port 22 for SSH is up. <br>
+We are interested in the status of 4 basic ports in this scenario.<br>
+We are looking for a bruteforce attack here. We confirm port 22 for SSH is up.<br>
+Lovley.<br>
 
 ## 02.SSH credential Hydra Attack
 <pre data-label="hydra bruteforce"><code>
@@ -102,7 +107,8 @@ Hydra starting at 2026-02-21 16:12:15
 1 of 1 target successfully completed, 1 valid password found
 Hydra finished at 2026-02-21 16:12:21
 </code></pre>
-Hydra is used for the SSH brute force, we use the username *intern* and a custom top 10 RockYou passwords file.</br>
+Hydra is used for the SSH brute force, we use the username *intern* and a custom top 10 RockYou passwords file.<br>
+We are succesful at discovering the correct password. We have **SSH** credentials now.
 
 ## 03.SSH IN TO THE SERVER
 <pre data-label="SSH"><code>
@@ -120,7 +126,7 @@ find: ‘./lead_engineer/.local/share’: Permission denied
 find: ‘./lead_engineer/.ssh’: Permission denied
 <span class="orange"><strong>intern@TECH-BUREAU-UBUNTU-24:</strong></span>/home$ 
 </code></pre>
-We are in, using the *find* command we search for the file Frame_specs.txt
+We are in, using the **find** command we search for the file *Frame_specs.txt*<br>
 
 ## 05.CHECK DIRECTORY AND CONCATINATE
 <pre data-label="ls and cat"><code>
@@ -181,6 +187,7 @@ Thank You and Good Bye.
   <span class="symbol">⦿</span>
   <span class="line"></span>
 </div>
+
 # TECH-BUREAU ROLLING OUT
 We did a little bit of tinkering before starting this scenario, and as a result we have catered alerts just for the occasion.<br>
 The firewall is checking for tcp packets to 4 specific ports. The auditctl is monitoring a particularly sensitive file on the server.<br>
@@ -240,7 +247,7 @@ We will take a look at the Wireshark traffic next.
   
 In the stream above we can observe a connection handshake followed by a **GET** request for the *Frame_specs file*,<br>
 followed by a [PHS,ACK] push, that's the moment our data is getting exfiltrated.<br>
-We than see an http code 200 and a connection closing sequence of [FIN,ACK] → [ACK] 2ice (graceful close)</br> 
+We than see an http code 200 and a connection closing sequence of [FIN,ACK] → [ACK] 2ice (graceful close)<br> 
 
 ## 09.PCAP HTTP STREAM
 <img src="assets/images/tech-bureau/phase.01/18.pcap-exfil-clear.png">
@@ -254,6 +261,7 @@ As the attacker:<br>
 * We can clearly see that a week password and no lockout policy leads to initial access.<br>
 * With the coveted data not having proper permissions even a low level account is enough for access.<br>
 * Also having the option for an adversary to spinup a server and send data out via http is most problematic.<br>
+<br>
 As the defender:<br>
 * We shall start by creating an account locout policy + blocking an IP thats trying to Bruteforce in.<br>
 * Next up is some admistrative tweeks, the *intern* account shall not be permited to access the folder PROJECT.5527.<br>
