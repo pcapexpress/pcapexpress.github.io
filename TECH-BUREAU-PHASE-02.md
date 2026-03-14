@@ -282,7 +282,7 @@ We can clearly see the multitude of *server greetings* fllowed by *login request
 and than emediatly turned down with *response error 1045*.<br>
 The whole exchange is happening within a second.<br>
 
-#### BRUTEFORCE CONFIRMED
+#### ‹‹‹ BRUTEFORCE CONFIRMED ›››
 
 ## 04.SUSPICIOUS HTTP GET.
 
@@ -293,6 +293,7 @@ The whole exchange is happening within a second.<br>
 In the entire packet capture we have one objcect.<br>
 A suspicious **sql_updater.so** file that has been delivered via a non standart HTTP port 4040.<br>
 We can investigate furtehr by checking the http stream.<br>
+#### ‹‹‹ GET DETECTED ›››
 
 ## 05.HTTP STREAM
 
@@ -303,7 +304,7 @@ We can investigate furtehr by checking the http stream.<br>
 The contents look quite jumbeled up but in the tail end there we see a /bin/sh string,<br>
 wich would confirm a malicious payload has been sent out to our server.<br>
 
-#### SHELLSCRIPT CONFIRMED
+#### ‹‹‹ SHELLSCRIPT CONFIRMED ›››
 
 ## 06.
 
@@ -311,13 +312,26 @@ wich would confirm a malicious payload has been sent out to our server.<br>
 
 <small>'03.SQL-so-execution.png'</small>
 
-## 04...
+This alert in the full log gives an exelent piece of data,<br>
+CREATE FUNCTION sys_exec RETURNS INT SONAME 'sql_updater.so';<br>
+The user admin has infact executed the shellscrip.
+
+#### ‹‹‹ SHELLSCRIPT EXECUTED ›››
+
+## 07.PRIVILEGE ESCALATION VIA SUID
 
 ![04.SUID.png](assets/images/tech-bureau/phase.02/04.SUID.png)
 
 <small>'04.SUID.png'</small>
 
-## 05...
+Again thanks to our wazuh alert that has been suplied by the auditctl.<br>
+Very conviniently we are provided with the command that has been run on the binary.<br>
+./engineer_find . -exec /bin/bash -p \; -quit<br>
+This is proof that the advesary gained the priviliges of user *lead_engineer*.
+
+#### ‹‹‹ PRIVILEGE ESCALATION CONFIRMED ›››
+
+## 05.
 
 ![05.CAT.png](assets/images/tech-bureau/phase.02/05.CAT.png)
 
@@ -397,7 +411,7 @@ Continue?
 [**TECH-BUREAU-SERIES: PHASE 03.** ](./TECH-BUREAU-PHASE-03.md) <br>
 *Phish, infect, persist, escalate, obfuscate and extract. The system has been hardened to the fullest.<br>
 A phishing campaign  is now in the cards, but how can we extract the data this time to dupe the TECH-BUREAU?<br>
-**STAY TUNED TO FIND OUT!***
+**STAY TUNED TO FIND OUT!**
 
 <div class="divider-wire">
   <span class="line"></span>
