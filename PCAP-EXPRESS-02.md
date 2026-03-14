@@ -56,7 +56,7 @@ First I check the DHCP with the ”dhcp.option.type == 12” filter. There's no 
 
 We get some Registration Data. We can examine the packet details to get some Host details.
 
-![02b.Packet Details.png](assets/images/pcap-express/project.02/03.Packet Details(c).png)
+![02b.Packet Details.png](assets/images/pcap-express/project.02/03.Packet_Details(c).png)
 
 <small>‘02b.Packet Details.png’</small>
 
