@@ -25,7 +25,7 @@ This is the third exercise in the series. The initial triage began with a review
 
 A significant portion of the triage involved distinguishing between false positives and legitimate malicious indicators. I utilized **Gemini** to assist with contextualizing specific alert signatures and **CyberChef** for deobfuscating traffic strings. 
 
-![00 Alerts](https://github.com/user-attachments/assets/19625c7f-269b-41aa-8f71-16db0cce76ba)
+![00.Alerts.png](assets/images/pcap-express/project.03/00.Alerts.png)
 
 <small>'00.Alerts.png'</small>
 
@@ -37,13 +37,13 @@ I'm beginning with the affected hosts detail gathering.
 
 First is checking for the DHCP Request.
 
-<img width="1277" height="104" alt="01a DHCP Request" src="https://github.com/user-attachments/assets/c55720a2-cca7-40b4-b7a9-7e6e8c8b6f0b" />
+![01a.DHCP Request.png](assets/images/pcap-express/project.03/01a.DHCP_Request(c).png)
 
 <small>‘01a.DHCP Request.png’</small>
 
 We have that traffic. We look in to the packet details.
 
-<img width="598" height="259" alt="01b DHCP Request Details" src="https://github.com/user-attachments/assets/77c82c25-09a4-4492-9828-a5ebb2434ff8" />
+![01b.DHCP Request Details.png](assets/images/pcap-express/project.03/01b.DHCP_Request_Details(c).png)
 
 <small>‘01b.DHCP Request Details.png’</small>
 
@@ -55,7 +55,7 @@ We have discovered:
 
 Next we look in to Kerberos to check for a user name.
 
-<img width="1281" height="112" alt="01c Kerberos CName" src="https://github.com/user-attachments/assets/4db2047a-c97e-4a21-9cd0-24ed8f3e7330" />
+![01c.Kerberos Cname.png](assets/images/pcap-express/project.03/01c.Kerberos_CName(c).png)
 
 <small>‘01c.Kerberos Cname.png’</small>
 
@@ -65,7 +65,7 @@ We get CnameString data:
 
 We can further check the LDAP for CN=Users to see if we can expand on the user name a bit. And we are successful.
 
-<img width="1152" height="117" alt="01d LDAP CN=Users" src="https://github.com/user-attachments/assets/4a58ea81-2b67-4ce1-93a7-184beb7d16f4" />
+![01d.LDAP CN=Users.png](assets/images/pcap-express/project.03/01d.LDAP_CN=Users(c).png)
 
 <small>‘01d.LDAP CN=Users.png’</small>
 
@@ -83,7 +83,7 @@ ET POLICY Reserved Internal IP Traffic
 
 Was not sure what to think of this one at first. We see what appears to be a standard LDAP query that goes out to the Domain Controller. The response looks legitimate as well. Used Gemini. An interesting suggestion was to check the request/response machines MAC addresses to make sure they are 2 separate entities and not in fact a Docker or Virtual Machine. That would be one explanation for the IDS to be confused.
 
-<img width="1289" height="107" alt="02a Internal IP" src="https://github.com/user-attachments/assets/a2562661-dfc5-4c7b-ba0c-ddf9d6c5c098" />
+![02a.Internal IP.png](assets/images/pcap-express/project.03/02a.Internal_IP(c).png)
 
 <small>’02a.Internal IP.png’</small>
 
@@ -91,11 +91,11 @@ The image below indicates that we have to separate machines and makers. The aler
 
 False Positive
 
-<img width="693" height="147" alt="02b MAC comparison" src="https://github.com/user-attachments/assets/a93b9514-1ad0-434d-b75b-db7fea9e6cb8" />
+![02b.MAC comparison.png](assets/images/pcap-express/project.03/02b.MAC_comparison(c).png)
 
 <small>‘02b.MAC comparison.png’</small>
 
-<img width="1130" height="200" alt="03a DNS No Name" src="https://github.com/user-attachments/assets/facda62b-ec50-4755-8b19-bf0cfb0d9cdc" />
+![03a.DNS No Name.png](assets/images/pcap-express/project.03/03a.DNS_No_Name(c).png)
 
 <small>‘03a.DNS No Name.png’</small>
 
@@ -106,7 +106,7 @@ This is legitimate traffic.
 
 False Positive.
 
-<img width="1200" height="149" alt="04a Connecttest" src="https://github.com/user-attachments/assets/8d9fcc28-bbc4-4e17-8d92-1541d6fd6d31" />
+![04a.Connecttest.png](assets/images/pcap-express/project.03/04a.Connecttest(c).png)
 
 <small>‘04a.Connecttest.png’</small>
 
@@ -114,7 +114,7 @@ ET INFO Potentially unsafe SMBv1 protocol in use
 
 Here we need to look in to the packet details of the SMB protocol request and response.
 
-<img width="1202" height="169" alt="05a SMB Negotiate Protocol" src="https://github.com/user-attachments/assets/edff4025-a3b0-4c7f-aa1b-013a023af62b" />
+![05a.SMB Negotiate Protocol.png](assets/images/pcap-express/project.03/05a.SMB_Negotiate_Protocol(c).png)
 
 <small>‘05a.SMB Negotiate Protocol.png’</small>
 
@@ -125,11 +125,11 @@ And in the Selected Index Response. This indicates protocol downgrading.
 
 Alert Confirmed
 
-<img width="580" height="271" alt="05b Negotiate Request" src="https://github.com/user-attachments/assets/0e97f58f-5da0-4fe6-8e33-2659e9cfe641" />
+![05b.Negotiate Request.png](assets/images/pcap-express/project.03/05b.Negotiate_Request(c).png)
 
 <small>‘05b.Negotiate Request.png’</small>
 
-<img width="580" height="271" alt="05c Negotiate Response" src="https://github.com/user-attachments/assets/665ab038-07ab-4df0-9a9b-8e7f791e9546" />
+![05c.Negotiate Response.png](assets/images/pcap-express/project.03/05c.Negotiate_Response(c).png)
 
 <small>‘05c.Negotiate Response.png’</small>
 
@@ -140,7 +140,7 @@ Again consulted Gemini on this one. We are looking for a session setup request, 
 
 Here is our request.
 
-<img width="1259" height="131" alt="06a Check for ASN1" src="https://github.com/user-attachments/assets/d0722227-34be-457d-b139-e4191715b5e9" />
+![06a.Check for ASN1.png](assets/images/pcap-express/project.03/06a.Check_for_ASN1(c).png)
 
 <small>‘06a.Check for ASN1.png’</small>
 
@@ -148,7 +148,7 @@ And here are the details. The Nulls indicate that the Domain and User name haven
 
 False Positive
 
-<img width="444" height="195" alt="06b Packet Details" src="https://github.com/user-attachments/assets/ccb1c973-48ee-44a4-a61a-0b9c7c821f47" />
+![06b.Packet Details.png](assets/images/pcap-express/project.03/06b.Packet_Details(c).png)
 
 <small>‘06b.Packet Details.png’</small>
 
@@ -158,7 +158,7 @@ We detect the evidence of the IPC$ share being requested in the Tree Connect And
 
 “The IPC$ share enables remote operations like listing shared resources, enumerating users, accessing the registry, managing services, and running commands on a remote system via protocols such as Remote Procedure Call (RPC), DCOM, and SMB.”
 
-<img width="1199" height="113" alt="07a SMB IPC access" src="https://github.com/user-attachments/assets/6c67c07d-1421-48eb-89fe-bef3ef623231" />
+![07a.SMB IPC access.png](assets/images/pcap-express/project.03/07a.SMB_IPC_access(c).png)
 
 <small>‘07a.SMB IPC access.png’/<small>
 
@@ -166,7 +166,7 @@ To prove the share was accessed we look at the packet that follows the Tree Conn
 
 Alert Confirmed
 
-<img width="594" height="159" alt="07b IPC Success" src="https://github.com/user-attachments/assets/10be6ffb-cdb0-425d-ae19-a35c277d3c83" />
+![07b.IPC Success.png](assets/images/pcap-express/project.03/07b.IPC_Success(c).png)
 
 <small>‘07b.IPC Success.png’</small>
 
@@ -175,7 +175,7 @@ GPL NETBIOS SMB SMB_COM_TRANSACTION Max Data Count of 0 DOS Attempt
 
 Could not find the evidence Used Gemini here. Checking the packet details of the packet that trigered the alert we see the Max Data Count is definitely not 0.
 
-<img width="523" height="141" alt="08a Data Count" src="https://github.com/user-attachments/assets/a6dff1aa-fbfd-42fc-98b6-1d92a8e7bd9f" />
+![08a.Data Count.png](assets/images/pcap-express/project.03/08a.Data_Count(c).png)
 
 <small>‘08a.Data Count.png’</small>
 
@@ -189,7 +189,7 @@ Gemini Quote:
 “The IDS might be looking at the wrong 2 bytes of the packet, seeing 00 00, and sounding the alarm, while Wireshark (which has a much more sophisticated parser) correctly identifies the 4374 at the proper offset.”
 False Positive
 
-<img width="523" height="141" alt="08b Transaction Name" src="https://github.com/user-attachments/assets/c4ee3b09-3fab-4055-959b-7b920eceb7e2" />
+![08b.Transaction Name.png](assets/images/pcap-express/project.03/08b.Transaction_Name(c).png)
 
 <small>‘08b.Transaction Name.png’</small>
 
@@ -197,11 +197,11 @@ GPL RPC kerberos principal name overflow TCP
 
 I couldn’t figure this one out for a while. The alert indicates that we should find a very long string in either the CNameString or SnameString. I found no such thing in the request.
 
-<img width="1069" height="95" alt="09a name overflow" src="https://github.com/user-attachments/assets/9f075273-7685-41c2-aaf7-ccca0930c58b" />
+![09a.name overflow.png](assets/images/pcap-express/project.03/09a.name_overflow(c).png)
 
 <small>‘09a.name overflow.png’</small>
 
-<img width="852" height="230" alt="09b Name and bytes" src="https://github.com/user-attachments/assets/994e927c-b926-473e-8da3-4e2824a3a649" />
+![09b.Name and bytes.png](assets/images/pcap-express/project.03/09b.Name_and_bytes(c).png)
 
 <small>‘09b.Name and bytes.png’</small>
 
@@ -224,7 +224,7 @@ ET INFO GENERIC SUSPICIOUS POST to Dotted Quad with Fake Browser
 
 This one is straight forward, we see a POST request that is directed to an IP address rather than a host.
 
-<img width="1191" height="126" alt="10a Suspicious POST" src="https://github.com/user-attachments/assets/16480b26-bae7-4b02-b9e9-89a7adc26632" />
+![10a.Suspicious POST.png](assets/images/pcap-express/project.03/10a.Suspicious_POST(c).png)
 
 <small>‘10a.Suspicious POST.png’</small>
 
@@ -234,7 +234,7 @@ If we look at the HTTP stream of the packet we find the User-Agent to be Mozilla
 
 Alert confirmed.
 
-<img width="583" height="267" alt="10b Suspicious POST Details" src="https://github.com/user-attachments/assets/51b793c0-7a66-4ad3-8603-f129a9e70280" />
+![10b.Suspicious POST Details.png](assets/images/pcap-express/project.03/10b.Suspicious_POST_Details(c).png)
 
 <small>‘10b.Suspicious POST Details.png’</small>
 
@@ -244,7 +244,7 @@ We can see that the POST requests are quite numerous and they are sent out 1 min
 
 Alert Confirmed
 
-<img width="993" height="314" alt="11a CnC Trafic" src="https://github.com/user-attachments/assets/d8884bd4-1765-43c7-a37c-b4bd9ca86beb" />
+![11a.CnC Trafic.png](assets/images/pcap-express/project.03/11a.CnC_Trafic(c).png)
 
 <small>‘11a.CnC Trafic.png’</small>
 
