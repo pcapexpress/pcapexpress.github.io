@@ -256,7 +256,114 @@ Thank You. Good Bye.
 
 # TECH-BUREAU ROLLING OUT
 
-## 01.Recognisence
+## 01....
+
+![01.Wazuh-alerts.png](assets/images/tech-bureau/phase.02/01.Wazuh-alerts(c).png)
+
+<small>'01.Wazuh-alerts.png'</small>
+
+## 02...
+
+![02.SQL-brute.png](assets/images/tech-bureau/phase.02/02.SQL-brute.png)
+
+<small>'02.SQL-brute.png'</small>
+
+## 03...
+
+![03.SQL-so-execution.png](assets/images/tech-bureau/phase.02/03.SQL-so-execution.png)
+
+<small>'03.SQL-so-execution.png'</small>
+
+## 04...
+
+![04.SUID.png](assets/images/tech-bureau/phase.02/04.SUID.png)
+
+<small>'04.SUID.png'</small>
+
+## 05...
+
+![05.CAT.png](assets/images/tech-bureau/phase.02/05.CAT.png)
+
+<small>'05.CAT.png'</small>
+
+## 06...
+
+![06.SCP.png](assets/images/tech-bureau/phase.02/06.SCP.png)
+
+<small>'06.SCP.png'</small>
+
+## 07...
+
+![07.RULE-SQL-BRUTE.png](assets/images/tech-bureau/phase.02/07.RULE-SQL-BRUTE.png)
+
+<small>'07.RULE-SQL-BRUTE.png'</small>
+
+## 08...
+
+![08.RULE-SQL-SHELL.png](assets/images/tech-bureau/phase.02/08.RULE-SQL-SHELL.png)
+
+<small>'08.RULE-SQL-SHELL.png'</small>
+
+## 09...
+
+![09.RULE-SQL-ESCALATION.png](assets/images/tech-bureau/phase.02/09.RULE-SQL-ESCALATION.png)
+
+<small>'09.RULE-SQL-ESCALATION.png'</small>
+
+## 10...
+
+![10.RULE-CAT.png](assets/images/tech-bureau/phase.02/10.RULE-CAT.png)
+
+<small>'10.RULE-CAT.png'</small>
+
+## 11...
+
+![11.RULE-SCP.png](assets/images/tech-bureau/phase.02/11.RULE-SCP.png)
+
+<small>'11.RULE-SCP.png'</small>
+
+## 12...
+
+![12.Wireshark-SQL-brute.png](assets/images/tech-bureau/phase.02/12.Wireshark-SQL-brute.png)
+
+<small>'12.Wireshark-SQL-brute.png'</small>
+
+## 13...
+
+![13.SQL-GET.png](assets/images/tech-bureau/phase.02/13.SQL-GET.png)
+
+<small>'13.SQL-GET.png'</small>
+
+## 14...
+
+![14.Wireshark-GET-stream.png](assets/images/tech-bureau/phase.02/14.Wireshark-GET-stream.png)
+
+<small>'14.Wireshark-GET-stream.png'</small>
+
+
+## 15...
+
+![15.a.Wireshark-so-exec.png](assets/images/tech-bureau/phase.02/15.a.Wireshark-so-exec.png)
+
+<small>'15.a.Wireshark-so-exec.png'</small>
+
+## 15b...
+
+![15.b.Wireshark-packet-details.png](assets/images/tech-bureau/phase.02/15.b.Wireshark-packet-details.png)
+
+<small>'15.b.Wireshark-packet-details.png'</small>
+
+## 15b...
+
+![15.b.Wireshark-packet-details.png](assets/images/tech-bureau/phase.02/15.b.Wireshark-packet-details.png)
+
+<small>'15.b.Wireshark-packet-details.png'</small>
+
+## 16...
+
+![16.Wireshark-Graph.png](assets/images/tech-bureau/phase.02/16.Wireshark-Graph.png)
+
+<small>'16.Wireshark-Graph.png'</small>
 
 ## LESSONS LEARNED
 #### As the attacker:<br>
