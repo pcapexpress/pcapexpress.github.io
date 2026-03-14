@@ -196,7 +196,7 @@ wich grants the find comand the priviliges of *lead_engineer* upon execution. Th
 ## 09.SUID Privilege Escalation
 
 <pre data-label="SUID breakout"><code>
-mysql@TECH-BUREAU-UBUNTU-24:/home/lead_engineer/TOOLS$ ./engineer_find . -exec /bin/bash -p \; -quit
+mysql@TECH-BUREAU-UBUNTU-24:~/TOOLS$ ./engineer_find . -exec /bin/bash -p \; -quit
 bash-5.2$ whoami
 <span class="orange"><strong>lead_engineer</strong></span>
 bash-5.2$ 
@@ -256,19 +256,56 @@ Thank You. Good Bye.
 
 # TECH-BUREAU ROLLING OUT
 
-## 01....
+## 01.WAZUH ALERTS
 
 ![01.Wazuh-alerts.png](assets/images/tech-bureau/phase.02/01.Wazuh-alerts(c).png)
 
 <small>'01.Wazuh-alerts.png'</small>
 
-## 02...
+Yet again we have cought the entierity of the attack.
+
+## 02.SQL BRUTEFORCE
 
 ![02.SQL-brute.png](assets/images/tech-bureau/phase.02/02.SQL-brute.png)
 
 <small>'02.SQL-brute.png'</small>
 
-## 03...
+In the alert details we see that the bruteforce is atempted under the user name: **admin**.
+
+## 03.PCAP BRUTE-CROSS
+
+![12.Wireshark-SQL-brute.png](assets/images/tech-bureau/phase.02/12.Wireshark-SQL-brute.png)
+
+<small>'12.Wireshark-SQL-brute.png'</small>
+
+We can clearly see the multitude of *server greetings* fllowed by *login requests under the username:* **admin**<br>
+and than emediatly turned down with *response error 1045*.<br>
+The whole exchange is happening within a second.<br>
+
+#### BRUTEFORCE CONFIRMED
+
+## 04.SUSPICIOUS HTTP GET.
+
+![13.SQL-GET.png](assets/images/tech-bureau/phase.02/13.SQL-GET.png)
+
+<small>'13.SQL-GET.png'</small>
+
+In the entire packet capture we have one objcect.<br>
+A suspicious **sql_updater.so** file that has been delivered via a non standart HTTP port 4040.<br>
+We can investigate furtehr by checking the http stream.<br>
+
+## 05.HTTP STREAM
+
+![14.Wireshark-GET-stream.png](assets/images/tech-bureau/phase.02/14.Wireshark-GET-stream.png)
+
+<small>'14.Wireshark-GET-stream.png'</small>
+
+The contents look quite jumbeled up but in the tail end there we see a /bin/sh string,<br>
+wich would confirm a malicious payload has been sent out to our server.<br>
+
+#### SHELLSCRIPT CONFIRMED
+
+## 06.
 
 ![03.SQL-so-execution.png](assets/images/tech-bureau/phase.02/03.SQL-so-execution.png)
 
@@ -322,23 +359,8 @@ Thank You. Good Bye.
 
 <small>'11.RULE-SCP.png'</small>
 
-## 12...
 
-![12.Wireshark-SQL-brute.png](assets/images/tech-bureau/phase.02/12.Wireshark-SQL-brute.png)
 
-<small>'12.Wireshark-SQL-brute.png'</small>
-
-## 13...
-
-![13.SQL-GET.png](assets/images/tech-bureau/phase.02/13.SQL-GET.png)
-
-<small>'13.SQL-GET.png'</small>
-
-## 14...
-
-![14.Wireshark-GET-stream.png](assets/images/tech-bureau/phase.02/14.Wireshark-GET-stream.png)
-
-<small>'14.Wireshark-GET-stream.png'</small>
 
 
 ## 15...
@@ -346,12 +368,6 @@ Thank You. Good Bye.
 ![15.a.Wireshark-so-exec.png](assets/images/tech-bureau/phase.02/15.a.Wireshark-so-exec.png)
 
 <small>'15.a.Wireshark-so-exec.png'</small>
-
-## 15b...
-
-![15.b.Wireshark-packet-details.png](assets/images/tech-bureau/phase.02/15.b.Wireshark-packet-details.png)
-
-<small>'15.b.Wireshark-packet-details.png'</small>
 
 ## 15b...
 
