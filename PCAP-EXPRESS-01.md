@@ -70,7 +70,7 @@ Let the Upward Mobility commence.
 Firstly we attempt to gather more information on the infected host in question.
 We can quickly take a look at the endpoint information in the Statistics tab. We check for IPV4 and organize by packets.
 
-![01.Endpoints.png](assets/images/project_01/01.endpoints.png)
+![01.Endpoints.png](assets/images/pcap-express/project.01/01.endpoints.png)
 
 <small>“01.Endpoints.png”<small>
 
@@ -79,11 +79,11 @@ We have several options to further discover the host details. We can filter for 
 Heres a good way to filter or that: “dhcp.option.type == 12”, we are interested in the DHCP Request packet details.
 
 
-![02.DHCP request.png](assets/images/project_01/02.dhcp-request.png)
+![02.DHCP request.png](assets/images/pcap-express/project.01/02.dhcp-request.png)
 
 <small>“02.DHCP request.png”<small>
 
-![03.DHCP details.png](assets/images/project_01/03.dhcp-details.png)
+![03.DHCP details.png](assets/images/pcap-express/project.01/03.dhcp-details.png)
 
 <small>“03.DHCP details.png”<small>
 
@@ -94,7 +94,7 @@ Heres a good way to filter or that: “dhcp.option.type == 12”, we are interes
 
 This gives us most of the necessary Host details but one more piece of information can be gathered. We can use the Kerberos protocol traffic to check if a user name is available, for this we filter for “kerberos” and search if we get any data in the CNameString field.
 
-![04.Kerberos.png](assets/images/project_01/04.kerberos.png)
+![04.Kerberos.png](assets/images/pcap-express/project.01/04.kerberos.png)
 
 <small>“04.Kerberos.png”<small>
 
@@ -110,7 +110,7 @@ We filter for “(http.request or tls.handshake.type == 1) and !(ssdp)”
 
 We want to see the GET requests first to check for malicious downloads. Which we locate almost immediately. We shall take a look at the downloaded files later. But we see the suspicious fake domains mentioned in the Exercise Briefing.
 
-![05.Fake domain + GET.png](assets/images/project_01/05.fake-domain-get.png)
+![05.Fake domain + GET.png](assets/images/pcap-express/project.01/05.fake-domain-get.png)
 
 <small>“05.Fake domain + GET.png”<small>
 
@@ -126,31 +126,31 @@ When examining the 3d suspect IP we check the Communicating Files section in the
 
 We discover that file name in the TCP stream of the first GET request from our malicious IP.
 
-![06.First GET TCP stream.png](assets/images/project_01/06.first-get-tcp-stream.png)
+![06.First GET TCP stream.png](assets/images/pcap-express/project.01/06.first-get-tcp-stream.png)
 
 <small>“06.First GET TCP stream.png”<small>
 
 The first step appears to be executing a shell script that calls for the malicious file in question to be downloaded. We shall take a look at the TCP stream of the second GET request.
 
-![07.Second GET TCP stream.png](assets/images/project_01/07.second-get-tcp-stream.png)
+![07.Second GET TCP stream.png](assets/images/pcap-express/project.01/07.second-get-tcp-stream.png)
 
 <small>“07.Second GET TCP stream.png”<small>
 
 We see an obfuscated and encrypted payload. The following string is an indicator of just that: ('F#r[o;m;B[a[s#e#6#4[S;t;r[i;n#g['.replace('#','').replace(';','').replace('[','').The encryption is Base64 and there are characters that can be removed in order to decrypt the payload. So we use CyberChef.
 
-![08.CyberChef decrypted.png](assets/images/project_01/08.cyberchef-decrypted.png)
+![08.CyberChef decrypted.png](assets/images/pcap-express/project.01/08.cyberchef-decrypted.png)
 
 <small>“08.CyberChef decrypted.png”<small>
 
 I would like to come back later to the payload results to get a better understanding of how the malware is unraveling here. But from my untrained eye it seams like some form of system enumeration with adding a serial number to the particular machine to then sent the data to the Control and Command server. And the attempts to reach out are programmed with 5 second intervals.
 
-![09.GET sequence.png](assets/images/project_01/09.get-sequence.png)
+![09.GET sequence.png](assets/images/pcap-express/project.01/09.get-sequence.png)
 
 <small>“09.GET sequence.png”<small>
 
 The GET requests are 5 seconds apart. I have checked the TCP stream of the above sequence. The GET requests return a “HTTP/1.1 404 Not Found” until one request gets an “HTTP/1.1 200 OK”. This in turn rolls out a series of commands, to establish our main payload TV.dll and as I would understand to try and hide it among legitimate software, TeamViewer.exe. The VirusTotal information will be provided below.
 
-![10.Main Payload Download.png](assets/images/project_01/10.main-payload-download.png)
+![10.Main Payload Download.png](assets/images/pcap-express/project.01/10.main-payload-download.png)
 
 <small>“10.Main Payload Download.png ”<small>
 
@@ -165,13 +165,13 @@ Perhaps communicating to the C2 server that the payload is deployed successfully
 
 There is one more discovery that I have initially missed and had to go back to after checking for the exercise answers. There are 2 other C2 servers. They are easy to miss. They appear a few times in the pcap capture. If we filter out the 5.252.153.241 IP we can quickly identify the 2 new IP addresses.
 
-![11.Filtering Out IP.png](assets/images/project_01/11.filtering-out-ip.png)
+![11.Filtering Out IP.png](assets/images/pcap-express/project.01/11.filtering-out-ip.png)
 
 <small>“11.Filtering Out IP.png ”<small>
 
 Another way is just scrolling through the GET traffic of our “main” malicious IP address we will see the following.
 
-![12.C2 Ips.png](assets/images/project_01/12.c2-ips.png)
+![12.C2 Ips.png](assets/images/pcap-express/project.01/12.c2-ips.png)
 
 <small>“12.C2 Ips.png”<small>
 
