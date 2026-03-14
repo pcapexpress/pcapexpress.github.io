@@ -42,7 +42,7 @@ This exercise is giving us some useful pointers regarding the infection. As 2 lo
 
 Lets start checking the endpoints statistics.
 
-<img width="288" height="125" alt="01 Endpoints" src="https://github.com/user-attachments/assets/02a27137-1a83-45aa-9109-278174cae351" />
+![01.Endpoints.png](assets/images/pcap-express/project.02/01.Endpoints(c).png)
 
 <small>‘01.Endpoints.png’</small>
 
@@ -50,13 +50,13 @@ We see our victim machine at the top and the second IP address is featured in ou
 
 First I check the DHCP with the ”dhcp.option.type == 12” filter. There's no DHCP traffic. Moving on to NETBIOS. Filtering for “nbns.flags.opcode == 5”.
 
-<img width="972" height="113" alt="02 Netbios" src="https://github.com/user-attachments/assets/86903c75-0495-4dbd-b7de-43fe70b808b1" />
+![02a.Netbios.png](assets/images/pcap-express/project.02/02.Netbios(c).png)
 
 <small>‘02a.Netbios.png’</small>
 
 We get some Registration Data. We can examine the packet details to get some Host details.
 
-<img width="645" height="274" alt="03 Packet Details" src="https://github.com/user-attachments/assets/06ebd80b-6e0a-4fcc-9afa-fcc35eb75ebc" />
+![02b.Packet Details.png](assets/images/pcap-express/project.02/03.Packet Details(c).png)
 
 <small>‘02b.Packet Details.png’</small>
 
@@ -66,7 +66,7 @@ Host Name: DESKTOP-B8TQK49
 
 Than we check Kerberos
 
-<img width="842" height="115" alt="04 Kerberos" src="https://github.com/user-attachments/assets/32ccf12d-74ce-45fb-bdf5-d3dd740c602a" />
+![03.Kerberos.png](assets/images/pcap-express/project.02/04.Kerberos(c).png)
 
 <small>‘03.Kerberos.png’</small>
 
@@ -74,7 +74,7 @@ User name: oboomwald
 
 We continue and check the LDAP filtering for - “ldap contains "CN=Users"”
 
-<img width="776" height="100" alt="05 LDAP" src="https://github.com/user-attachments/assets/cfc696e6-b0a0-4454-9641-36c4a1e24362" />
+![05.LDAP.png](assets/images/pcap-express/project.02/05.LDAP(c).png)
 
 <small>‘05.LDAP.png’</small>
 
@@ -84,7 +84,7 @@ User name: Oliver Q. Boomwald
 
 Finally checking for HTTP header information to get the OS, why not. For that we use our “standard” HTTP requests filter, and checking for a GET requests HTTP stream. Needed to check around a bit but found an acceptable GET request, here is the HTTP stream example.
 
-<img width="843" height="134" alt="06 HTTP stream" src="https://github.com/user-attachments/assets/5fb97f35-feb7-4f5b-b57f-b4252913b28b" />
+![06.HTTP stream.png](assets/images/pcap-express/project.02/06.HTTP_stream(c).png)
 
 <small>‘06.HTTP stream.png’</small>
 
@@ -110,7 +110,7 @@ This would conclude our host enumeration phase moving to piecing together the at
 
 Now we shall go over the alert files and try to correlate the pcap data with the key points.
 
-<img width="1007" height="76" alt="07 Connection Test" src="https://github.com/user-attachments/assets/1d908405-4d95-4435-8602-130100c58d21" />
+![07.Connection Test.png](assets/images/pcap-express/project.02/07.Connection_Test.png)
 
 <small>‘07.Connection Test.png’</small>
 
@@ -120,13 +120,13 @@ These 2 alerts are in the very beginning of our pcap file, as I understand this 
 
 The Connection Test itself is not malicious though. Moving on to the next alert.
 
-<img width="965" height="29" alt="08 DNS name error" src="https://github.com/user-attachments/assets/83a76bdc-5289-435a-a7e9-8ccee9d96cfb" />
+![08.DNS name error.png](assets/images/pcap-express/project.02/08.DNS_name_error.png)
 
 <small>‘08.DNS name error.png’</small>
 
 10.11.26.3 is our AD controller, is returning error to the victim machine. Lets check for that. After some examination we see that there's quite a few errors in fact. 
 
-<img width="724" height="190" alt="09 DNS no name" src="https://github.com/user-attachments/assets/7a8c391d-0d14-4190-a266-b83f16c29b25" />
+![09.DNS no name.png](assets/images/pcap-express/project.02/09.DNS_no_name(c).png)
 
 <small>‘09.DNS no name.png’</small>
 
@@ -138,7 +138,7 @@ This confirms that the attack attempt on the host has indeed started.
 
 The next one is the TLSv1.0 Used in Session.
 
-<img width="556" height="30" alt="10 TLS alert" src="https://github.com/user-attachments/assets/25d6ade4-4aab-4340-bb82-2955a55c5c71" />
+![10.TLS alert.png](assets/images/pcap-express/project.02/09.DNS_no_name(c).png)
 
 <small>‘10.TLS alert.png’</small>
 
@@ -148,11 +148,11 @@ TLS 1.0 has been deprecated due to vulnerabilities, susceptible to certain crypt
 
 I must say that I have not been able to verify the downgrade in the capture file. I see the TLS1.0 only in the context of compatibility during the handshake. Here is the IP and port used during the alert. We need to see what the server has to say regarding the TLS version.
 
-<img width="994" height="94" alt="10a TLS server hello" src="https://github.com/user-attachments/assets/2da5e392-5a1f-4319-897b-1b460571b0dc" />
+![10a.TLS server hello.png](assets/images/pcap-express/project.02/10a.TLS_server_hello(c).png)
 
 <small>‘10a.TLS server hello.png’</small>
 
-<img width="650" height="231" alt="10b TLS packet details" src="https://github.com/user-attachments/assets/d852dade-a5a4-431f-bfe6-f2599aa28617" />
+![10b.TLS packet details.png](assets/images/pcap-express/project.02/10b.TLS_packet_details(c).png)
 
 <small>‘10b.TLS packet details.png’</small>
 
@@ -160,7 +160,7 @@ Perhaps in a professional sense not a satisfying result, but was worth digging i
 
 Moving on. There's a whole sequence of SMB protocol alerts. Lets have a look at that.
 
-<img width="695" height="110" alt="10c SMB alerts" src="https://github.com/user-attachments/assets/82e25b56-5a78-4fb6-bd02-a5720faf7d9d" />
+![10c.SMB alerts.png](assets/images/pcap-express/project.02/10c.SMB_alerts.png)
 
 <small>'10c.SMB alerts.png'</small>
 
@@ -169,22 +169,22 @@ First up unsafe SMBv1 protocol in use. Once again Downgrading in action.
 “The Server Message Block version 1 (SMBv1) protocol is considered obsolete and insecure, posing a significant security risk to systems and networks. Microsoft has deprecated SMBv1 since 2014 and no longer installs it by default. The protocol is particularly vulnerable to exploitation”
 I was successful at confirming the alert by checking the SMB protocol negotiation.
 
-<img width="1027" height="43" alt="10d SMB protocol negotiation" src="https://github.com/user-attachments/assets/4a75cb75-f976-4471-94fc-1b4918ae7ec4" />
+![10d.SMB protocol negotiation.png](assets/images/pcap-express/project.02/10d.SMB_protocol_negotiation(c).png)
 
 <small>‘10d.SMB protocol negotiation.png’</small>
 
 We need to observe the packet details, we are looking for the request to offer the SMBv1 protocol witch will be referred to as “NT LM 0.12”.
 Heres the Request:
 
-<img width="424" height="278" alt="10e Request Detail" src="https://github.com/user-attachments/assets/12fb0c32-2e93-45c1-8a9e-a17670637f0f" />
+![10e.Request Detail.png](assets/images/pcap-express/project.02/10e.Request_Detail(c).png)
 
 <small>‘10e.Request Detail.png’</small>
 
 Heres the Response:
 
-<img width="567" height="278" alt="10f Response Detail" src="https://github.com/user-attachments/assets/26e3f956-2824-4988-868d-5bbfd7fcbc37" />
+![10f.Response Detail.png](assets/images/pcap-express/project.02/10f.Response_Detail(c).png)
 
-<small>‘10f.Response Detail.png.’</small>
+<small>‘10f.Response Detail.png’</small>
 
 This confirms the alert as a true positive.
 
@@ -196,19 +196,19 @@ The SMB IPC$ unicode share access.
 “The SMB IPC$ share is a special, hidden share used to facilitate inter-process communication (IPC) between systems on a network. It does not provide access to files or directories like standard shares but instead exposes named pipes that allow communication with processes running on a remote system.” 
 We see attempts being made to try and access the share in the Tree Connect andX Request Path. Alert justified.
 
-<img width="1123" height="34" alt="10g IPC$ share request" src="https://github.com/user-attachments/assets/074d9047-99d4-4da9-844a-7f7d8bc2ad21" />
+![10g.IPC$ share request.png](assets/images/pcap-express/project.02/10g.IPC$_share_request(c).png)
 
 <small>‘10g.IPC$ share request.png’</small>
 
 Now we’ll focus on the actual HTTP traffic to see if we can spot any unusual HTTP requests. And quite quickly we discover just that. 
 
-<img width="811" height="157" alt="13 POST traffic" src="https://github.com/user-attachments/assets/652b7b4f-bd97-4941-a401-102d74db545f" />
+![13.POST traffic.png](assets/images/pcap-express/project.02/13.POST_traffic(c).png)
 
 <small>‘13.POST traffic.png’</small>
 
 POST request to a nameless host with “fakeurl.htm” in its URL. The 2 GET requests just above the POST don’t instill confidence. The first host in the image is modandcrackedapk[.]com witch is highly suspicious on its own. Before checking the IPs lets scroll up and find if the “modandcrackedapk” host has appeared before. 
 
-<img width="811" height="157" alt="14 Tracing back" src="https://github.com/user-attachments/assets/76494cbf-2970-499b-b9f3-7d379c35c240" />
+![14.Tracing back.png](assets/images/pcap-express/project.02/14.Tracing_back(c).png)
 
 <small>‘14.Tracing back.png’</small>
 
@@ -231,13 +231,13 @@ Domain: modandcrackedapk[.]com
 VirusTotal Result: 13/95 security vendors flagged this domain as malicious
 Comment: This domain has been flagged in an a DNS lookup alert. This is a true positive, the domain is malicious associated with Phishing and Malware. As seen in the image below, the conversations statistics. The most amount of data is exchanged between our infected host and the malicious domain. The data is going over port 443 and is encrypted. 
 
-<img width="396" height="52" alt="15 Conversations" src="https://github.com/user-attachments/assets/d6862055-3f02-4a05-9f3b-78ba61a69d9d" />
+![15.Conversations.png](assets/images/pcap-express/project.02/15.Conversations.png)
 
 <small>‘15.Conversations.png’</small>
 
 We also have a true positive alert for this domain.
 
-<img width="636" height="72" alt="16 DNS lookup" src="https://github.com/user-attachments/assets/5ab63846-03c8-4b49-81bc-5016d73608e8" />
+![16.DNS lookup.png](assets/images/pcap-express/project.02/16.DNS_lookup(c).png)
 
 <small>‘16.DNS lookup.png’</small>
 
@@ -266,7 +266,7 @@ Comment: Second suspicious GET. I ran the strings command on the loca.asp and we
 
 We got an true alert for this one.
 
-<img width="433" height="51" alt="17 Geo lookup" src="https://github.com/user-attachments/assets/fae840b6-3651-43bc-87f2-019d255ec661" />
+![17.Geo lookup.png](assets/images/pcap-express/project.02/17.Geo_lookup(c).png)
 
 <small>‘17.Geo lookup.png’</small>
 
@@ -284,7 +284,7 @@ So the post commands are being encrypted.
 
 This confirms several alerts.
 
-<img width="475" height="160" alt="18 RAT activity" src="https://github.com/user-attachments/assets/ba676aa1-671f-4c70-8db5-dc79d860d5e9" />
+![18.RAT activity.png](assets/images/pcap-express/project.02/18.RAT_activity(c).png)
 
 <small>‘18.RAT activity.png’</small>
 
