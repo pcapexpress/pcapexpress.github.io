@@ -24,24 +24,24 @@ title: BUREAU:02
 
 ### PERMISSION CHANGE
 
-root@TECH-BUREAU-UBUNTU-24:/home/lead_engineer/PROJECT.5527# sudo chown lead_engineer:lead_engineer /home/lead_engineer/PROJECT.5527
-root@TECH-BUREAU-UBUNTU-24:/home/lead_engineer/PROJECT.5527# sudo chmod 700 /home/lead_engineer/PROJECT.5527
-root@TECH-BUREAU-UBUNTU-24:/home/lead_engineer/PROJECT.5527# ls -l
-total 8
--rw-r--r-- 1 lead_engineer lead_engineer 398 Feb 14 09:03 Frame_specs.txt
--rw-r--r-- 1 root          root          396 Mar  6 13:44 Valve_specs.txt
+root@TECH-BUREAU-UBUNTU-24:# sudo chown lead_engineer:lead_engineer /home/lead_engineer/PROJECT.5527<br>
+root@TECH-BUREAU-UBUNTU-24:# sudo chmod 700 /home/lead_engineer/PROJECT.5527<br>
+root@TECH-BUREAU-UBUNTU-24:# ls -l<br>
+total 8<br>
+-rw-r--r-- 1 lead_engineer lead_engineer 398 Feb 14 09:03 Frame_specs.txt<br>
+-rw-r--r-- 1 lead_engineer lead_engineer 396 Mar  6 13:44 Valve_specs.txt<br>
 
 ### QUICK CHECK
 
-intern@TECH-BUREAU-UBUNTU-24:/home/lead_engineer$ cd PROJECT.5527/
--bash: cd: PROJECT.5527/: Permission denied
+intern@TECH-BUREAU-UBUNTU-24:/home/lead_engineer$ cd PROJECT.5527/<br>
+-bash: cd: PROJECT.5527/: Permission denied<br>
 
 ### PASSWORD CHANGE
 
-root@TECH-BUREAU-UBUNTU-24:/home/lead_engineer/PROJECT.5527# sudo passwd intern
-New password: +p*yckWMu5b2eW*BCP0x+NnpJ3It58Ae
-Retype new password: +p*yckWMu5b2eW*BCP0x+NnpJ3It58Ae
-passwd: password updated successfully
+root@TECH-BUREAU-UBUNTU-24:/home/lead_engineer/PROJECT.5527# sudo passwd intern<br>
+New password: +p*yckWMu5b2eW*BCP0x+NnpJ3It58Ae<br>
+Retype new password: +p*yckWMu5b2eW*BCP0x+NnpJ3It58Ae<br>
+passwd: password updated successfully<br>
 
 <div class="divider"></div>
 
