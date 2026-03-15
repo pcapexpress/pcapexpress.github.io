@@ -883,6 +883,58 @@ footer::after {
   72%      { opacity: 1; }
 }
 
+//STEAM TEST
+
+// GLOBAL STEAM OVERLAY (Safe to add anywhere)
+.steam-system {
+  position: fixed;
+  top: 150px;           /* Align this to your Header's height */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;         /* Match your .main-wrapper width */
+  height: 0;            /* Keeps the container from blocking clicks */
+  z-index: -1;          /* Layers it BEHIND the content, but in front of the BG */
+  pointer-events: none; /* Allows clicks to pass through to links below */
+
+  // The Vent Base Style
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    filter: blur(1px);
+  }
+
+  // Left Vent
+  &::before {
+    left: -10px;
+    animation: steamLeft 7s infinite ease-out;
+  }
+
+  // Right Vent
+  &::after {
+    right: -10px;
+    animation: steamRight 11s infinite ease-out;
+  }
+}
+
+// Keyframes (Independant of other code)
+@keyframes steamLeft {
+  0%   { transform: translateX(0) scale(1); opacity: 0; }
+  2%   { opacity: 0.6; }
+  15%  { transform: translateX(-100px) translateY(-20px) scale(15); opacity: 0; filter: blur(12px); }
+  100% { transform: translateX(-100px) translateY(-20px) scale(15); opacity: 0; }
+}
+
+@keyframes steamRight {
+  0%   { transform: translateX(0) scale(1); opacity: 0; }
+  3%   { opacity: 0.6; }
+  20%  { transform: translateX(100px) translateY(-10px) scale(12); opacity: 0; filter: blur(10px); }
+  100% { transform: translateX(100px) translateY(-10px) scale(12); opacity: 0; }
+}
+
 ////// ‹‹‹PcapExpress››› //
 ////     Thank You    ////
 //      Good Bye   //////
