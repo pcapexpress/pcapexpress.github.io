@@ -43,6 +43,7 @@ New password: +p*yckWMu5b2eW*BCP0x+NnpJ3It58Ae
 Retype new password: +p*yckWMu5b2eW*BCP0x+NnpJ3It58Ae
 passwd: password updated successfully
 
+<div class="divider"></div>
 
 # AT4K-3XPR3S rolling out.
 We are back for an other round. In this scenario we no longer rely on SSH or HTTP.<br>
