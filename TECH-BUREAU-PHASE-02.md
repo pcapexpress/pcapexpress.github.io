@@ -239,7 +239,7 @@ square@192.168.1.16's password: <span class="orange"><strong>********</strong></
 <span class="red"><strong>Valve_specs.txt</strong></span>                               <span class="orange"><strong>100%</strong></span>  396    37.5KB/s   00:00   
 </code></pre>
 
-In this scenario we asume that the http/https trafic out is closeley monitored,<br>
+In this scenario we asume that the http/https trafic is closeley monitored,<br>
 and we want to be hidden, so we simply use the Secure Copy protocol over SSH port 22.<br>
 The data is safeley exfiltrated over an encrypted channel. The Sneak Way.<br>
 
@@ -270,7 +270,7 @@ Yet again we have cought the entierity of the attack.
 
 <small>'02.SQL-brute.png'</small>
 
-In the alert details we see that the bruteforce is atempted under the user name: **admin**.
+In the alert details we see that the bruteforce is atempted under the user name: <span class="orange"><strong>admin</strong></span>.
 
 ## 03.PCAP BRUTE-CROSS
 
@@ -291,7 +291,7 @@ The whole exchange is happening within a second.<br>
 <small>'13.SQL-GET.png'</small>
 
 In the entire packet capture we have one objcect.<br>
-A suspicious **sql_updater.so** file that has been delivered via a non standart HTTP port 4040.<br>
+A suspicious <span class="badge-data"><strong>sql_updater.so</strong></span>. file that has been delivered via a non standart HTTP port 4040.<br>
 We can investigate furtehr by checking the http stream.<br>
 #### ‹‹‹ GET DETECTED ›››
 
@@ -301,7 +301,7 @@ We can investigate furtehr by checking the http stream.<br>
 
 <small>'14.Wireshark-GET-stream.png'</small>
 
-The contents look quite jumbeled up but in the tail end there we see a /bin/sh string,<br>
+The contents look quite jumbeled up but in the tail end there we see a <span class="badge-data"><strong>/bin/sh</strong></span> string,<br>
 wich would confirm a malicious payload has been sent out to our server.<br>
 #### ‹‹‹ HIDDEN SHELLSCRIPT CONFIRMED ›››
 
@@ -312,7 +312,7 @@ wich would confirm a malicious payload has been sent out to our server.<br>
 <small>'03.SQL-so-execution.png'</small>
 
 This alert in the full log section gives an exelent piece of data,<br>
-CREATE FUNCTION sys_exec RETURNS INT SONAME 'sql_updater.so';<br>
+<span class="badge-data"><strong>CREATE FUNCTION sys_exec RETURNS INT SONAME 'sql_updater.so';</strong></span><br>
 The user admin has infact executed the shared object (.so) file.<br>
 
 ## 15.PCAP ACE-CROSS
@@ -330,7 +330,7 @@ And if we check the request querys and look in to the packet details...<br>
 
 <small>'15.b.Wireshark-packet-details.png'</small>
 
-We can confirm the exact command that has been envoked.
+We can confirm the exact command that has been envoked.<br>
 
 #### ‹‹‹ HIDDEN SHELLSCRIPT EXECUTED ›››
 
@@ -342,8 +342,8 @@ We can confirm the exact command that has been envoked.
 
 Again thanks to our wazuh alert that has been suplied by the auditctl.<br>
 Very conviniently we are provided with the command that has been run on the binary.<br>
-./engineer_find . -exec /bin/bash -p \; -quit<br>
-This is proof that the advesary gained the priviliges of user *lead_engineer*.
+<span class="badge-data"><strong>./engineer_find . -exec /bin/bash -p \; -quit</strong></span><br>
+This is proof that the advesary gained the priviliges of user <span class="orange"><strong>lead_engineer</strong></span>.
 
 #### ‹‹‹ PRIVILEGE ESCALATION CONFIRMED ›››
 
