@@ -508,7 +508,7 @@ pre {
 } //<------------------------------------------------------------------------------CODE BLOCK CLOSED
 
 // 4.9 WIRE DIVIDER CLASSIC
-hr {
+/*hr {
   border: none !important;
   height: 2px !important; 
   width: 100%;
@@ -551,7 +551,18 @@ hr {
     transform: none;
     animation: wireEnergize1 2s ease-in-out infinite alternate;
   }
-} //< -------------------------------------------------------------------------WIRE DIVIDER 1 CLOSED
+}*/ //< -------------------------------------------------------------------------WIRE DIVIDER 1 CLOSED
+
+.divider {
+  height: 2px;
+  width: 100%;
+  background-color: rgba($orange, 0.7);
+  margin: 40px 0;
+  border: none;
+  
+  // The subtle flicker effect
+  animation: subtleFlicker 3s infinite;
+}
   
 // 4.10 WIRE DIVIDER WITH SYMBOL
 .divider-wire {
@@ -847,6 +858,16 @@ footer::after {
   100% { 
     opacity: 0.9; 
     }
+}
+
+@keyframes subtleFlicker {
+  0%, 100% { opacity: 0.7; }
+  33%      { opacity: 0.5; }
+  34%      { opacity: 0.8; }
+  35%      { opacity: 0.6; }
+  80%      { opacity: 0.7; }
+  82%      { opacity: 0.3; } // Sharp drop for a "low power" look
+  83%      { opacity: 0.7; }
 }
 
 ////// ‹‹‹PcapExpress››› //
