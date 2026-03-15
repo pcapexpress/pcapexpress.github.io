@@ -327,9 +327,8 @@ h4 {
      0 0 5px rgba($cyan, 0.8),
      1px 1px 2px rgba($dark-bg, 1) !important;
   // Link the animation here
-  animation: textFlicker 4s infinite; //<------------------------------------------------------------ CHECK
-  }
-} // <--------------------------------------------------------------------------------HEADERS CLOSED
+  animation: textFlicker 4s infinite; //<--------------------------------------------------------- CHECK
+} // <----------------------------------------------------------------------------LAST HEADER CLOSED
   
 // 4.2 TEXT HIGHLIGHTS
 .text-green  { color: $green;  text-shadow: 0 0 8px rgba($green, 0.4); font-weight: bold; }
