@@ -209,10 +209,10 @@ so a /bin/bash command is what grants us the shell and the -p flag gives the per
 
 ## 10.CONFIRM DATA
 
-<pre data-label="SUID breakout"><code>
+<pre data-label="CAT check"><code>
 <span class="orange"><strong>bash-5.2$</strong></span> cd PROJECT.5527/
 <span class="orange"><strong>bash-5.2$</strong></span> ls
-Frame_specs.txt  <span class="orange"><strong>Valve_specs.txt</strong></span>
+Frame_specs.txt  <span class="red"><strong>Valve_specs.txt</strong></span>
 <span class="orange"><strong>bash-5.2$</strong></span> cat Valve_specs.txt 
 T1s shall use poppet valves!
 (Instead of the normal spool-shaped, sliding valve system.)
