@@ -886,79 +886,90 @@ footer::after {
 //STEAM TEST
 .steam-system {
   position: fixed;
-  top: 150px; 
+  top: 150px;           /* Align this to your Header's height */
   left: 50%;
   transform: translateX(-50%);
-  width: 900px; /* THIS IS YOUR ANCHOR: Match this to your wrapper width */
-  height: 0;
-  z-index: -1;
-  pointer-events: none;
+  width: 900px;         /* Match your .main-wrapper width */
+  height: 0;            /* Keeps the container from blocking clicks */
+  z-index: -1;          /* Layers it BEHIND the content, but in front of the BG */
+  pointer-events: none; /* Allows clicks to pass through to links below */
 
+  // The Vent Base Style
   &::before, &::after {
     content: "";
     position: absolute;
-    width: 2px;  /* Start very thin */
-    height: 2px;
-    background: rgba(255, 255, 255, 0.8); /* Higher visibility */
-    box-shadow: 0 0 5px 1px white;         /* Bright 'vent' core */
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.4);
     border-radius: 50%;
+    filter: blur(1px);
   }
 
+  // Left Vent
   &::before {
-    left: 0; /* Pins exactly to the left border of the 900px width */
-    animation: steamConeLeft 7s infinite ease-out;
+    left: -1px;
+    animation: steamLeft 7s infinite ease-out;
   }
 
+  // Right Vent
   &::after {
-    right: 0; /* Pins exactly to the right border */
-    animation: steamConeRight 11s infinite ease-out;
+    right: -1px;
+    animation: steamRight 11s infinite ease-out;
   }
 }
 
-@keyframes steamConeLeft {
+@keyframes steamLeft {
   0% { 
     transform: translateX(0) scale(1); 
     opacity: 0; 
   }
   2% { 
-    opacity: 1; /* Sudden high-pressure burst */
+    opacity: 0.8; 
+    /* scaleX(3) stretches the steam horizontally at the start */
+    transform: translateX(0) scaleX(3) scaleY(0.5); 
   }
-  /* The Cone Phase: Fast expansion */
+  /* The Mid-Point: Stretching the distance */
   15% { 
-    transform: translateX(-40px) scale(6); 
     opacity: 0.6;
-    filter: blur(2px); 
+    filter: blur(4px);
+    transform: translateX(-120px) scaleX(5) scaleY(2); 
   }
-  /* The Puff Phase: Slows down, gets huge and blurry */
+  /* The End-Point: Wide dissipation */
   30% { 
-    transform: translateX(-110px) scale(18); 
-    opacity: 0;
+    transform: translateX(-250px) translateY(-30px) scale(20); 
+    opacity: 0; 
     filter: blur(15px); 
   }
-  100% { opacity: 0; }
+  100% { 
+    transform: translateX(-250px) translateY(-30px) scale(20); 
+    opacity: 0; 
+  }
 }
 
-@keyframes steamConeRight {
+@keyframes steamRight {
   0% { 
     transform: translateX(0) scale(1); 
     opacity: 0; 
   }
   3% { 
-    opacity: 1; 
+    opacity: 0.9; 
+    transform: translateX(0) scaleX(3) scaleY(0.5);
   }
-  18% { 
-    transform: translateX(40px) scale(5); 
+  20% { 
     opacity: 0.6;
-    filter: blur(2px); 
+    filter: blur(4px);
+    transform: translateX(120px) scaleX(5) scaleY(2);
   }
   35% { 
-    transform: translateX(110px) scale(20); 
-    opacity: 0;
-    filter: blur(18px); 
+    transform: translateX(250px) translateY(-20px) scale(18); 
+    opacity: 0; 
+    filter: blur(12px); 
   }
-  100% { opacity: 0; }
+  100% { 
+    transform: translateX(250px) translateY(-20px) scale(18); 
+    opacity: 0; 
+  }
 }
-
 ////// ‹‹‹PcapExpress››› //
 ////     Thank You    ////
 //      Good Bye   //////
