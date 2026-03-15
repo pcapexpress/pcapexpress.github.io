@@ -1,7 +1,7 @@
 # --- 01.W4LLPEPP3R Proof of Concept ---
 
 # 1. Define the remote URL and local path
-$url = "https://pcapexpress.github.io//assets/boiler/W4LLPEPP3R.png"
+$url = "https://pcapexpress.github.io/assets/boiler/W4LLPEPP3R.png"
 $localPath = "$env:TEMP\bg_update.jpg"
 
 # 2. Download the "Payload" (The Image)
