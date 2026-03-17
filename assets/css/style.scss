@@ -464,10 +464,12 @@ pre {
 
   // THE ORANGE GLOW
   border-left: 3px solid $orange;
+  //EXPERIMENTAL
+  animation: glowPulse 12s infinite;
   //box-shadow: 0 0 10px rgba($orange, 0.5); 
   transition: all 0.5s ease;
 
-  &::before {
+  /*&::before {
     content: "";
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -475,7 +477,18 @@ pre {
     animation: dataStutter 1s steps(4) infinite; ///staticFlicker
     pointer-events: none;
     z-index: 1; // Keeps the flicker as a background layer
-    }
+    }*/
+  // DIMMING
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    // Use a neutral "cool" color at very low opacity
+    background: rgba(100, 110, 140, 0.03); 
+    animation: subtleSubsurface 8s steps(1) infinite; 
+    pointer-events: none;
+    z-index: 1;
+  }
   
   // Syntax Highlighting & Glows
   .red    { color: $red; text-shadow: 0 0 5px rgba($red, 0.5); }
@@ -883,6 +896,22 @@ footer::after {
   72%      { opacity: 1; }
 }
 
+//TEST CODE BLOCK DIMING
+
+@keyframes subtleSubsurface {
+  0%, 95%, 100% { opacity: 0; }
+  96% { opacity: 1; background: rgba(0, 0, 0, 0.2); } // Momentary darkening
+  97% { opacity: 0.5; background: rgba(255, 255, 255, 0.02); } // Tiny flash
+  98% { opacity: 0; }
+}
+
+//TEST CODE BLOCK ORANGE GLOW PULSE
+
+@keyframes glowPulse {
+  0%, 98%, 100% { border-left-color: rgba($orange, 1); }
+  99% { border-left-color: rgba($orange, 0.4); } // The border "dims" slightly
+}
+
 //STEAM TEST
 // GLOBAL STEAM OVERLAY
 .steam-system {
@@ -898,44 +927,67 @@ footer::after {
   &::before, &::after {
     content: "";
     position: absolute;
-    width: 2px;  /* Thinner starting point */
+    width: 2px;
     height: 2px;
-    background: rgba(255, 255, 255, 1); /* Brighter for visibility */
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 50%;
     filter: blur(1px);
+    box-shadow: 0 0 4px 1px white; // Gives the "core" some density
   }
 
   &::before {
-    left: 0;
-    animation: steamVibeLeft 3s infinite ease-out;
+    left: 8px; /* ANCHOR: 8px inside the left border */
+    animation: steamSmoothLeft 4s infinite ease-out;
   }
 
   &::after {
-    right: 0;
-    animation: steamVibeRight 4s infinite ease-out;
+    right: 8px; /* ANCHOR: 8px inside the right border */
+    animation: steamSmoothRight 5.5s infinite ease-out;
   }
 }
 
-// LEFT VIBRATING PLUME
-@keyframes steamVibeLeft {
-  0%   { transform: translateX(0) scale(1); opacity: 0; }
-  2%   { opacity: 1; transform: translateX(-10px) scaleX(4) scaleY(0.5); } 
-  /* Vibration Phase: Rapid movement in Y and stretching in X */
-  25%  { transform: translateX(-350px) translateY(0) scale(50); opacity: 0; filter: blur(20px); }
-  100% { opacity: 0; }
+@keyframes steamSmoothLeft {
+  0% { 
+    transform: translateX(0) translateY(0) scale(1); 
+    opacity: 0; 
+  }
+  5% { 
+    opacity: 1; 
+    transform: translateX(-20px) scaleX(5) scaleY(0.8); 
+  }
+  /* The Mid-drift: Rising slightly as it travels */
+  40% { 
+    opacity: 0.4;
+    transform: translateX(-150px) translateY(-20px) scale(15); 
+    filter: blur(8px);
+  }
+  /* The Fade: Slowing down and expanding into a large cloud */
+  100% { 
+    transform: translateX(-300px) translateY(-40px) scale(40); 
+    opacity: 0; 
+    filter: blur(25px); 
+  }
 }
 
-// RIGHT VIBRATING PLUME
-@keyframes steamVibeRight {
-  0%   { transform: translateX(0) scale(1); opacity: 0; }
-  3%   { opacity: 1; transform: translateX(10px) scaleX(4) scaleY(0.5); }
-  /* Vibration Phase */
-  6%   { transform: translateX(50px) translateY(2px) scaleX(10) scaleY(0.8); }
-  12%  { transform: translateX(100px) translateY(-2px) scaleX(15) scaleY(1); }
-  20%  { transform: translateX(200px) translateY(1px) scaleX(20) scaleY(1.5); opacity: 0.5; filter: blur(4px); }
-  /* End Phase */
-  30%  { transform: translateX(600px) translateY(0) scale(25); opacity: 0; filter: blur(20px); }
-  100% { opacity: 0; }
+@keyframes steamSmoothRight {
+  0% { 
+    transform: translateX(0) translateY(0) scale(1); 
+    opacity: 0; 
+  }
+  5% { 
+    opacity: 1; 
+    transform: translateX(20px) scaleX(5) scaleY(0.8); 
+  }
+  40% { 
+    opacity: 0.4;
+    transform: translateX(150px) translateY(-15px) scale(12); 
+    filter: blur(6px);
+  }
+  100% { 
+    transform: translateX(300px) translateY(-30px) scale(35); 
+    opacity: 0; 
+    filter: blur(22px); 
+  }
 }
 
 ////// ‹‹‹PcapExpress››› //
