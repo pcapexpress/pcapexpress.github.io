@@ -883,6 +883,65 @@ footer::after {
   72%      { opacity: 1; }
 }
 
+//STEAM TEST
+// GLOBAL STEAM OVERLAY
+.steam-system {
+  position: fixed;
+  top: 150px;           
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;         
+  height: 0;            
+  z-index: -1;          
+  pointer-events: none; 
+
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    width: 2px;  /* Thinner starting point */
+    height: 2px;
+    background: rgba(255, 255, 255, 0.8); /* Brighter for visibility */
+    border-radius: 50%;
+    filter: blur(1px);
+  }
+
+  &::before {
+    left: 0;
+    animation: steamVibeLeft 7s infinite ease-out;
+  }
+
+  &::after {
+    right: 0;
+    animation: steamVibeRight 11s infinite ease-out;
+  }
+}
+
+// LEFT VIBRATING PLUME
+@keyframes steamVibeLeft {
+  0%   { transform: translateX(0) scale(1); opacity: 0; }
+  2%   { opacity: 1; transform: translateX(-10px) scaleX(4) scaleY(0.5); } 
+  /* Vibration Phase: Rapid movement in Y and stretching in X */
+  5%   { transform: translateX(-50px) translateY(-2px) scaleX(10) scaleY(0.8); }
+  10%  { transform: translateX(-100px) translateY(2px) scaleX(15) scaleY(1); }
+  15%  { transform: translateX(-200px) translateY(-1px) scaleX(20) scaleY(1.5); opacity: 0.5; filter: blur(4px); }
+  /* End Phase: Deep blur and long reach */
+  25%  { transform: translateX(-350px) translateY(0) scale(25); opacity: 0; filter: blur(20px); }
+  100% { opacity: 0; }
+}
+
+// RIGHT VIBRATING PLUME
+@keyframes steamVibeRight {
+  0%   { transform: translateX(0) scale(1); opacity: 0; }
+  3%   { opacity: 1; transform: translateX(10px) scaleX(4) scaleY(0.5); }
+  /* Vibration Phase */
+  6%   { transform: translateX(50px) translateY(2px) scaleX(10) scaleY(0.8); }
+  12%  { transform: translateX(100px) translateY(-2px) scaleX(15) scaleY(1); }
+  20%  { transform: translateX(200px) translateY(1px) scaleX(20) scaleY(1.5); opacity: 0.5; filter: blur(4px); }
+  /* End Phase */
+  30%  { transform: translateX(350px) translateY(0) scale(25); opacity: 0; filter: blur(20px); }
+  100% { opacity: 0; }
+}
+
 ////// ‹‹‹PcapExpress››› //
 ////     Thank You    ////
 //      Good Bye   //////
