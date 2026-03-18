@@ -692,30 +692,40 @@ hr {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 1;           // In front of BG, behind .main-wrapper (if wrapper is z-index: 10)
+  z-index: -2; // Sits behind the steam and the main body
   pointer-events: none;
   overflow: hidden;
   
-  // Big Letter Logic
+  // The "Wall of Text" logic
   font-family: 'JetBrains Mono', monospace;
-  font-size: 8rem;      /* Massive letters */
-  font-weight: 900;
-  line-height: 0.9;
-  color: rgba($green, 0.08); /* Subtle but visible */
-  text-transform: uppercase;
+  font-size: 10px;
+  line-height: 1;
+  color: rgba($green, 0.05); // Extremely faint by default
   word-break: break-all;
+  white-space: normal;
   
-  // Continuous Scrolling Animation
-  animation: infiniteScroll 40s linear infinite;
+  // The Animation: 60s cycle (Appears for 5s, gone for 55s)
+  animation: ghostManifest 10s infinite;
 }
 
-@keyframes infiniteScroll {
-  0% { 
-    transform: translateY(0); 
+@keyframes ghostManifest {
+  0%, 88%, 100% { 
+    opacity: 0; 
+    transform: translateY(0);
   }
-  100% { 
-    /* This moves the text up. Adjust based on how much text you have */
-    transform: translateY(-50%); 
+  90% { 
+    opacity: 0.15; // The "Flicker-In"
+  }
+  91% { 
+    opacity: 0.05; 
+  }
+  92% { 
+    opacity: 0.3; // Peak visibility
+    transform: translateY(-20px); // Subtle scroll move
+  }
+  95% { 
+    opacity: 0; // Fades out
+    transform: translateY(-40px);
   }
 }
   
@@ -724,6 +734,7 @@ hr {
   max-width: 900px;
   width: 100%;
   margin: 20px auto;
+  position: relative; //< -------------------------------CHECK
   z-index: 10;
   background-color: $slate; 
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.7); 
