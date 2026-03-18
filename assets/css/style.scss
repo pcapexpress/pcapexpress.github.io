@@ -685,7 +685,6 @@ hr {
 //5.1 TEXT CENTER
 .text-center { text-align: center; } // HTTP VARIABLE
 
-//GHOST
 // THE DATA GHOST OVERLAY
 .data-ghost {
   position: fixed;
@@ -693,20 +692,31 @@ hr {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 1; // Sits behind the steam and the main body
+  z-index: 1;           // In front of BG, behind .main-wrapper (if wrapper is z-index: 10)
   pointer-events: none;
   overflow: hidden;
   
-  // The "Wall of Text" logic
+  // Big Letter Logic
   font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  line-height: 1;
-  color: rgba($green, 0.05); // Extremely faint by default
+  font-size: 8rem;      /* Massive letters */
+  font-weight: 900;
+  line-height: 0.9;
+  color: rgba($green, 0.08); /* Subtle but visible */
+  text-transform: uppercase;
   word-break: break-all;
-  white-space: normal;
   
-  // The Animation: 60s cycle (Appears for 5s, gone for 55s)
-  animation: ghostManifest 10s infinite;
+  // Continuous Scrolling Animation
+  animation: infiniteScroll 40s linear infinite;
+}
+
+@keyframes infiniteScroll {
+  0% { 
+    transform: translateY(0); 
+  }
+  100% { 
+    /* This moves the text up. Adjust based on how much text you have */
+    transform: translateY(-50%); 
+  }
 }
   
 // 6.0 WRAPPER
@@ -936,27 +946,7 @@ footer::after {
   72%      { opacity: 1; }
 }
 
-// DATA GHOST ANIMATION
-@keyframes ghostManifest {
-  0%, 88%, 100% { 
-    opacity: 0; 
-    transform: translateY(0);
-  }
-  90% { 
-    opacity: 0.15; // The "Flicker-In"
-  }
-  91% { 
-    opacity: 0.05; 
-  }
-  92% { 
-    opacity: 0.3; // Peak visibility
-    transform: translateY(-20px); // Subtle scroll move
-  }
-  95% { 
-    opacity: 0; // Fades out
-    transform: translateY(-40px);
-  }
-}
+
 
 ////// ‹‹‹PcapExpress››› //
 ////     Thank You    ////
