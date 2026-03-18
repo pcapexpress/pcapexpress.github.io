@@ -692,7 +692,7 @@ hr {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -2; // Sits behind the steam and the main body
+  z-index: 1; // Sits behind the steam and the main body
   pointer-events: none;
   overflow: hidden;
   
@@ -705,7 +705,7 @@ hr {
   white-space: normal;
   
   // The Animation: 60s cycle (Appears for 5s, gone for 55s)
-  animation: ghostManifest 10s infinite;
+  //animation: ghostManifest 10s infinite;
 }
 
 @keyframes ghostManifest {
