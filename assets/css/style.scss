@@ -692,7 +692,7 @@ hr {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 1; // Sits behind the steam and the main body
+  z-index: -1; // Sits behind the steam and the main body
   pointer-events: none;
   overflow: hidden;
   
