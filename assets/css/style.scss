@@ -464,28 +464,29 @@ pre {
 
   // THE ORANGE GLOW
   border-left: 3px solid $orange;
-  //EXPERIMENTAL
   animation: glowPulse 12s infinite;
-  //box-shadow: 0 0 10px rgba($orange, 0.5); 
   transition: all 0.5s ease;
 
-  /*&::before {
+  //FLICKER
+  &::before {
     content: "";
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba($green, 0.015);
+    background: rgba($green, 0.005);
     animation: dataStutter 1s steps(4) infinite; ///staticFlicker
+    animation-delay: var(--delay, 0s);
     pointer-events: none;
     z-index: 1; // Keeps the flicker as a background layer
-    }*/
+    
   // DIMMING
-  &::before {
+  &::after {
     content: "";
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
     // Use a neutral "cool" color at very low opacity
     background: rgba(100, 110, 140, 0.03); 
-    animation: subtleSubsurface 8s steps(1) infinite; 
+    animation: subtleSubsurface 8s steps(1) infinite;
+    animation-delay: calc(var(--delay, 0s) + 0.5s);
     pointer-events: none;
     z-index: 1;
   }
@@ -796,7 +797,21 @@ footer::after {
   100% { transform: translate(0); }
 }
 
-// 8.7 DIVIDER WHIRE CLASSIC
+// 8.7 CODE BLOCK DIMMING
+@keyframes subtleSubsurface {
+  0%, 95%, 100% { opacity: 0; }
+  96% { opacity: 1; background: rgba(0, 0, 0, 0.2); } // Momentary darkening
+  97% { opacity: 0.5; background: rgba(255, 255, 255, 0.02); } // Tiny flash
+  98% { opacity: 0; }
+}
+
+// 8.8 CODE BOCK SIDE PULSE
+@keyframes glowPulse {
+  0%, 98%, 100% { border-left-color: rgba($orange, 1); }
+  99% { border-left-color: rgba($orange, 0.4); } // The border "dims" slightly
+}
+
+// 8.9 DIVIDER WHIRE CLASSIC
 @keyframes wireEnergize1 {
   0% { 
     opacity: 1;
@@ -827,7 +842,7 @@ footer::after {
   }
 }
 
-// 8.8 DIVIDER WIRE WITH SYMBOL STRETCH AND GLOW ANIMATIONS
+// 8.10 DIVIDER WIRE WITH SYMBOL STRETCH AND GLOW ANIMATIONS
 @keyframes wireEnergize2 {
    0% { 
     opacity: 1;
@@ -858,7 +873,7 @@ footer::after {
   }
 }
 
-// 8.9 SYMBOL ANIMATION
+// 8.11 SYMBOL ANIMATION
 @keyframes symbolBreathing {
 0% { 
     opacity: 0.9;
@@ -874,7 +889,7 @@ footer::after {
     }
 }
 
-//8.10 SUBTLE WIRE ANNIMATION
+//8.12 SUBTLE WIRE ANNIMATION
 @keyframes subtleFlicker {
   0%, 100% { opacity: 0.7; }
   33%      { opacity: 0.5; }
@@ -885,7 +900,7 @@ footer::after {
   83%      { opacity: 0.7; }
 }
 
-//8.11 H4 SHADOW FLICKER
+//8.13 H4 SHADOW FLICKER
 @keyframes textFlicker {
   0%, 100% { opacity: 1; }
   32%      { opacity: 1; }
@@ -896,97 +911,47 @@ footer::after {
   72%      { opacity: 1; }
 }
 
-//TEST CODE BLOCK DIMING
-
-@keyframes subtleSubsurface {
-  0%, 95%, 100% { opacity: 0; }
-  96% { opacity: 1; background: rgba(0, 0, 0, 0.2); } // Momentary darkening
-  97% { opacity: 0.5; background: rgba(255, 255, 255, 0.02); } // Tiny flash
-  98% { opacity: 0; }
-}
-
-//TEST CODE BLOCK ORANGE GLOW PULSE
-
-@keyframes glowPulse {
-  0%, 98%, 100% { border-left-color: rgba($orange, 1); }
-  99% { border-left-color: rgba($orange, 0.4); } // The border "dims" slightly
-}
-
-//STEAM TEST
-// GLOBAL STEAM OVERLAY
-.steam-system {
+// THE DATA GHOST OVERLAY
+.data-ghost {
   position: fixed;
-  top: 150px;           
-  left: 50%;
-  transform: translateX(-50%);
-  width: 900px;         
-  height: 0;            
-  z-index: -1;          
-  pointer-events: none; 
-
-  &::before, &::after {
-    content: "";
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 50%;
-    filter: blur(1px);
-    box-shadow: 0 0 4px 1px white; // Gives the "core" some density
-  }
-
-  &::before {
-    left: 8px; /* ANCHOR: 8px inside the left border */
-    animation: steamSmoothLeft 4s infinite ease-out;
-  }
-
-  &::after {
-    right: 8px; /* ANCHOR: 8px inside the right border */
-    animation: steamSmoothRight 5.5s infinite ease-out;
-  }
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2; // Sits behind the steam and the main body
+  pointer-events: none;
+  overflow: hidden;
+  
+  // The "Wall of Text" logic
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  line-height: 1;
+  color: rgba($green, 0.05); // Extremely faint by default
+  word-break: break-all;
+  white-space: normal;
+  
+  // The Animation: 60s cycle (Appears for 5s, gone for 55s)
+  animation: ghostManifest 60s infinite;
 }
 
-@keyframes steamSmoothLeft {
-  0% { 
-    transform: translateX(0) translateY(0) scale(1); 
+@keyframes ghostManifest {
+  0%, 88%, 100% { 
     opacity: 0; 
+    transform: translateY(0);
   }
-  5% { 
-    opacity: 1; 
-    transform: translateX(-20px) scaleX(5) scaleY(0.8); 
+  90% { 
+    opacity: 0.15; // The "Flicker-In"
   }
-  /* The Mid-drift: Rising slightly as it travels */
-  40% { 
-    opacity: 0.4;
-    transform: translateX(-150px) translateY(-20px) scale(15); 
-    filter: blur(8px);
+  91% { 
+    opacity: 0.05; 
   }
-  /* The Fade: Slowing down and expanding into a large cloud */
-  100% { 
-    transform: translateX(-300px) translateY(-40px) scale(40); 
-    opacity: 0; 
-    filter: blur(25px); 
+  92% { 
+    opacity: 0.3; // Peak visibility
+    transform: translateY(-20px); // Subtle scroll move
   }
-}
-
-@keyframes steamSmoothRight {
-  0% { 
-    transform: translateX(0) translateY(0) scale(1); 
-    opacity: 0; 
-  }
-  5% { 
-    opacity: 1; 
-    transform: translateX(20px) scaleX(5) scaleY(0.8); 
-  }
-  40% { 
-    opacity: 0.4;
-    transform: translateX(150px) translateY(-15px) scale(12); 
-    filter: blur(6px);
-  }
-  100% { 
-    transform: translateX(300px) translateY(-30px) scale(35); 
-    opacity: 0; 
-    filter: blur(22px); 
+  95% { 
+    opacity: 0; // Fades out
+    transform: translateY(-40px);
   }
 }
 
