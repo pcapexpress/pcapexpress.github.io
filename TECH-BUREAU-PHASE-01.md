@@ -4,7 +4,7 @@ title: BUREAU:01
 ---
 
 # TECH-BUREAU SERIES: PHASE.01
-## Enumerate, brute force and exfiltrate.
+## ENUMIRATE-BRUTEFORCE-EXFILTRATE
 
 ### WHATS SHOWCASED
 <section>
