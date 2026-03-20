@@ -2,9 +2,9 @@
 layout: default
 title: BUREAU:02
 ---
-<div class="steam-system"></div>
+
 # TECH-BUREAU SERIES: PHASE 02
-## CVE exploitation, privilege escalation and protocol tunneling.
+## SQL_MISCONFIG-PRIV_ESCALATION-SECURE_COPY
 ### WHATS SHOWCASED
 <section>
   <ul class="hover-card"> 
@@ -164,9 +164,6 @@ mysql
 Stabilising teh shell is crutial to have proper cli capabilities of a working terminal.<br>
 Without the stabilisation some commands wouldnt run and the shell is very fragile.<br>
 So we spawn a python shell "enterpreter" and then run a few more commands to bring in the full functionality.<br>
-Here is an example of a messed up shell stabilization, I did not use the Ctrl-Z comand in the right order<br>
-and I have failed to run the "*stty raw -echo; fg*" command on my netcat listener.<br>
-HOWEVER it still worked for my future endevours. 
 
 ## 07.CD IN TO PROJECT.5527
 
