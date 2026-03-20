@@ -223,7 +223,9 @@ Here we have a useful piece of data, the bruteforce is attempted as username *in
 <img src="assets/images/tech-bureau/phase.01/16.pcap-hydra.png">
 <small>“05.pcap-hydra.png”<small>
   
-With the hydra bruteforce we can simply observe the time signature and notice that a burst of 10 SSH protocol requests to the Ubuntu Server happening at the same time, followed by a series of key exchanges.<br>
+With the hydra bruteforce we can simply observe the time signature and<br>
+notice that a burst of 10 SSH protocol requests to the Ubuntu Server happening at the same time,<br>
+followed by a series of key exchanges.<br>
 
 #### ‹‹‹BRUTE FORCE CONFIRMED››› 
 
