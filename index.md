@@ -19,19 +19,24 @@ Ability to establish a rudimentary SOC environment using virtualization
 Desire to delve deeper in to Malware Deobfuscation and Detonation in a VM environment
 
 #### A place to observe and reflect on packets passing by.
----
+<div class="divider"></div>
 ## PCAP EXPRESS SERIES: Wireshark Investigations
-Here is a robust collection of quick forensic investigations using Wireshark and series of pcap files containing real live infections.
-Lets take a look at some common techniques to observe malicious traffic and scripts in action.
+Here is a small collection of quick forensic investigations using Wireshark and a series of pcap files containing real live infections.
+Lets use some common techniques to observe malicious traffic and scripts in action.
 **All of the samples are kindly provided by malware.....**
 
-[PCAP EXPRESS SERIES: Exercise 01 Fake Website ](./PCAP-EXPRESS-01.md)<br>
+[PCAP EXPRESS SERIES: main hub ](./PCAP-EXPRESS-main.md)<br>
 *Some interesting malicious activity.*
+<div class="divider"></div>
+## TECH BUREAU SERIES: Purple Team Shenanigans
+Description here
 
-[PCAP EXPRESS SERIES: Exercise 02 Nematodes ](./PCAP-EXPRESS-02.md)<br>
+[TECH BUREAU SERIES: main hub ](./TECH-BUREAU-main.md)<br>
 *Starting to check alerts.*
+<div class="divider"></div>
+## MALWARE-BOILER Series: Create, Deploy/Deobfuscate, Analize
 
-[PCAP EXPRESS SERIES: Exercise 03 Big Fish ](./PCAP-EXPRESS-03.md) <br>
+[MALWARE-BOILER Series: main hub ](./MALWARE-BOILER-main.md) <br>
 *Not a full pcap.*
 
 ### TOOLS'N'TECHNIQUES
