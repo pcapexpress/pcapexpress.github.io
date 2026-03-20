@@ -211,7 +211,7 @@ Observe the results of our custom rule, we can see clearly the attacker IP addre
   
 We can confirm the nmap scan on exactly 4 ports. I will point out the detail that to a [SYN] request ports 80 and 443 are giving out an immediate [RST, ACK] to a scan attempt proving that the ports are closed. Ports 22 and 3306 however give a sequence of  [SYN] → [SYN,ACK] → [ACK] → [RST,ACK] signifying a handshake and than a immediate drop from the port scanner.<br>
 
-<span class="text-data"><strong>PORT SCAN CONFIRMED</strong></span>
+#### ‹‹‹PORT SCAN CONFIRMED››› 
 
 ## 04.WAZUH BRUTEFORCE ALERT
 <img src="assets/images/tech-bureau/phase.01/12.wazuh-hydra.png">
@@ -225,7 +225,7 @@ Here we have a useful piece of data, the bruteforce is attempted as username *in
   
 With the hydra bruteforce we can simply observe the time signature and notice that a burst of 10 SSH protocol requests to the Ubuntu Server happening at the same time, followed by a series of key exchanges.<br>
 
-<span class="text-data"><strong>BRUTE FORCE CONFIRMED</strong></span>
+#### ‹‹‹BRUTE FORCE CONFIRMED››› 
 
 ## 06.WAZUH FILE OPENED ALERT
 <img src="assets/images/tech-bureau/phase.01/13.wazuh-cat.png">
@@ -253,7 +253,7 @@ We than see an http code 200 and a connection closing sequence of [FIN,ACK] → 
 <small>“09.pcap-exfil-clear.png”<small>
 
 Since http is in question we can see the data leaving in clear text.<br>
-<span class="text-data"><strong>DATA EXFILTRATED</strong></span>
+#### ‹‹‹DATA EXFILTRATED››› 
 
 ## LESSONS LEARNED
 As the attacker:<br>
