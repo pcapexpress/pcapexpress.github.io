@@ -12,6 +12,18 @@ $orange: #E17A47; //HEADER 3
 $medium-bg: #263842;
 $dark-bg: #1A272E;
 
+// THE STEALTH OVERRIDE
+[data-theme="stealth"] {
+  // 1. Drains all color (Grayscale) and dims it
+  filter: grayscale(100%) brightness(0.7) contrast(1.2);
+
+  // 2. Kills ALL animations on the entire page
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
 // 1.1 FONTS
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Share+Tech+Mono&display=swap');
 
