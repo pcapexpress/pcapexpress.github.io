@@ -13,7 +13,7 @@ title: BUREAU:03
   </ul>
   <ul class="hover-card"> 
     <li>
-      <span class="text-data"><strong>DEFENSE:</strong></span> Observing shell traffic, fine tuning alerts, reconstructing an image from wireshark traffic. 
+      <span class="text-data"><strong>DEFENSE:</strong></span> Observing SHELL traffic, fine tuning alerts, reconstructing an image from a pcap file. 
     </li> 
   </ul>
 </section>
@@ -205,43 +205,15 @@ Thank You and Good Bye.
 
 <small>“01.wazuh-alerts.png”<small>
 
+Again we can observe the entire attack chain. So neat and organised. And this time arround we have a couple of Wazuh defalt alerts that snuck in, very helpful. Let dive in to teh analisys.
+
 ## 02.WAZUH OUTBOUND TRAFFIC
 
 ![02.wazuh-4433-out.png](assets/images/tech-bureau/phase.03/02.wazuh-4433-out.png)
 
 <small>“02.wazuh-4433-out.png”<small>
 
-## 03.WAZUH OUTBOUND TRAFFIC 4433
-
-![03.wazuh-cat.png](assets/images/tech-bureau/phase.03/03.wazuh-cat.png)
-
-<small>“03.wazuh-cat.png”<small>
-
-## 04.WAZUH PACKAGE INSTALLED
-
-![04.wazuh-package-installed.png](assets/images/tech-bureau/phase.03/04.wazuh-package-installed.png)
-
-<small>“04.wazuh-package-installed.png”<small>
-
-## 05.WAZUH PACKAGE INSTALLED
-
-![05.wazuh-steghide-used.png](assets/images/tech-bureau/phase.03/05.wazuh-steghide-used.png)
-
-<small>“05.wazuh-steghide-used.png”<small>
-
-## 06.WAZUH OUTBOUND TRAFFIC 4040
-
-![06.wazuh-4040-out.png](assets/images/tech-bureau/phase.03/06.wazuh-4040-out.png)
-
-<small>“06.wazuh-4040-out.png”<small>
-
-## 07.WAZUH CURL
-
-![07.wazuh-CURL.png](assets/images/tech-bureau/phase.03/07.wazuh-CURL.png)
-
-<small>“07.wazuh-CURL.png”<small>
-
-
+We have setup the rule so that any trafic going out thats not port 22, 80, 443, 3306 will triger an alert, and print the precise port used. How handy.
 
 ## 09.WIRESHARK SHELL TRAFFIC
 
@@ -249,27 +221,72 @@ Thank You and Good Bye.
 
 <small>“09.wireshark-shell-traffic.png”<small>
 
+We see loads of trafic going to port 4433, we want to see the stream imediatly.
+
 ## 10.WIRESHARK SHELL STREAM
 
 ![10.wireshark-shell-stream.png](assets/images/tech-bureau/phase.03/10.wireshark-shell-stream.png)
 
 <small>“10.wireshark-shell-stream.png”<small>
 
+Here is but a snippet, all in broad daylight, unencrypted and loud, we can see every single comman on display from start to finish.
+
 #### ‹‹‹REVERSE SHELL CONFIRMED›››
 
-## 11.WIRESHARK POST TRAFFIC
+## 03.WAZUH CAT
+
+![03.wazuh-cat.png](assets/images/tech-bureau/phase.03/03.wazuh-cat.png)
+
+<small>“03.wazuh-cat.png”<small>
+
+We know the drill by now, guarded file accessed.
+
+## 04.WAZUH PACKAGE INSTALLED
+
+![04.wazuh-package-installed.png](assets/images/tech-bureau/phase.03/04.wazuh-package-installed.png)
+
+<small>“04.wazuh-package-installed.png”<small>
+
+Here we are alerted that a new package is installed by the user root, the program in question is STEGHIDE.
+
+## 05.WAZUH STEGHISE USED
+![05.wazuh-steghide-used.png](assets/images/tech-bureau/phase.03/05.wazuh-steghide-used.png)
+
+<small>“05.wazuh-steghide-used.png”<small>
+
+STEGHIDE is on the watched programs list. It has been run.
+
+## 07.WAZUH CURL
+
+![07.wazuh-CURL.png](assets/images/tech-bureau/phase.03/07.wazuh-CURL.png)
+
+<small>“07.wazuh-CURL.png”<small>
+
+Here we see that CURL has been used, and it is on the watch list.
+
+## 06.WAZUH OUTBOUND TRAFFIC 4040
+
+![06.wazuh-4040-out.png](assets/images/tech-bureau/phase.03/06.wazuh-4040-out.png)
+
+<small>“06.wazuh-4040-out.png”<small>
+
+To add to the evidence we can see that a non standart port 4040 is in use.
+
+## 11.WIRESHARK CURL-CROSS
 
 ![11.wireshark-post-traffic.png](assets/images/tech-bureau/phase.03/11.wireshark-post-traffic.png)
 
 <small>“11.wireshark-post-traffic.png”<small>
 
-## 12.WIRESHARK POST STREAM
+Suspicious POST request to a website, over a nonstandart port 4040. I would run the website ip through VirusTotal in a real scenario. Lets see what teh stream has to show us.
+
+## 12.WIRESHARK CURL-STREAM
 
 ![12.wireshark-post-stream.png](assets/images/tech-bureau/phase.03/12.wireshark-post-stream.png)
 
 <small>“12.wireshark-post-stream.png”<small>
 
-Here we can see the details of a suspicious file leaving the server over a standart http POST request to a "suspicious" website and over a non standart port.
+Here we can see the details of a file named Seabass_Rtophy.jpeg a POST /upload folder destination an authentication token, and an important detail, curl is used as an agent, in a normal scenario our user wold use the internet browser to upload his image, in which case the agnet would be something like Mozilla/5.0. 
 
 #### ‹‹‹EXFILTRATION CONFIRMED›››
 
@@ -287,8 +304,6 @@ Here we can see the details of a suspicious file leaving the server over a stand
 ![13.rule-outbound-traffic.png](assets/images/tech-bureau/phase.03/13.rule-outbound-traffic.png)
 
 <small>“13.rule-outbound-traffic.png”<small>
-
-
 
 ## 14.RULE FILE OPENED
 
@@ -314,15 +329,21 @@ Here we can see the details of a suspicious file leaving the server over a stand
 
 <small>“17.ghex-carving.png”<small>
 
+Using a simple hex tool like GHEX allows us to cleanup the rax data and make sure that we only have the jpeg without any pcap traffic headers. Jpeg files start with a FF D8 FF and finish with a FF D9. So we delete everything before and after our markers, and save the file.
+
 ## 18.RECONSTRUCTED IMAGE
 ![T1:Casing.jpg](assets/images/tech-bureau/phase.03/T1:Casing.jpg)
 
 <small>“T1:Casing.jpg”<small>
 
+Here is the jpeg file that we reconstructed, and what about teh hidden data?
+
 ## 19.REVERSE STEGONOGRAPHY?
 ![18.pcap-image-steghide.png](assets/images/tech-bureau/phase.03/18.pcap-image-steghide.png)
 
 <small>“18.pcap-image-steghide.png”<small>
+
+Steghide info shows that there is something inside, lets asume we have cracked teh password and entered it correctly. That provides the exact content taht has been stolen.
 
 
 
@@ -355,4 +376,4 @@ A phishing campaign  is now in the cards, but how can we extract the data this t
   <span class="symbol">⦿</span>
   <span class="line"></span>
 </div>
-<p class="text-center">[3.2]</p>
+<p class="text-center">[3.3]</p>
