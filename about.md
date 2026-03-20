@@ -46,26 +46,21 @@ Maybe details and why.
   <img src="assets/images/about/badge-aca.png" 
        alt="Badge 4"
        style="width: 150px; height: 150px; object-fit: contain; margin: 0 15px;">
-
-</div>
+     </div>
 
 ### 01.CompTIA Security+ ce Certification
-
 Issuing Organization: *CompTIA* | Credential ID: <span class="badge-data"><strong>90500d48-7815-4dc7-aba6-35b66f175898</strong></span><br>
 Issuing Date: 11/30/2024 |Expiration Date: 11/30/2027<br>
 
 ### 02.Google Cybersecurity Professional Certificate V2
-
 Issuing Organization: *Coursera* | Credential ID: <span class="badge-data"><strong>360c51c7-60ce-43c7-814f-498ce9ab6ca8</strong></span><br>
 Issuing Date: 10/23/2024 | Expiration Date: This credential does not expire<br>
 
 ### 03.Google AI Essentials V1
-
 Issuing Organization: *Coursera* | Credential ID: <span class="badge-data"><strong>f27aaa9a-7158-4b08-b329-6f8ebec7555c</strong></span><br>
 Issuing Date: 10/23/2024 | Expiration Date: This credential does not expire<br>
 
 ### 04.Level 2: Essentials of Kayak Touring (instructor)
-
 Issuing Organization: *American Canoe Association* | ACA Number: <span class="badge-data"><strong>80614605</strong></span><br>Issuing Date: 11/07/2025<br>
 Issuing Date: 11/07/2025 | Expiration Date: 12/31/2029
 <br>
