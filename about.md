@@ -94,7 +94,7 @@ I mean look how close i am to the Pentest+.<br>
 
 ### Planned Scripts
 
-<pre><marquee scrollamount="5" direction="left"> REACTOR: ONLINE | SCANER: ONLINE | CAFEENE: 3 UNITS AND COUNTING | BIOFORM MOOD: DETERMENISTIC | ALL SYSTEMS: NOMINAL | </marquee></pre><br>
+<pre><marquee scrollamount="5" direction="left" style="--delay: 0s;"> REACTOR: ONLINE | SCANER: ONLINE | CAFEENE: 3 UNITS AND COUNTING | BIOFORM MOOD: DETERMENISTIC | ALL SYSTEMS: NOMINAL | </marquee></pre><br>
 
 ## Follow these Links
 [**LINK NAME** ](./TECH-BUREAU-PHASE-01.md) *LINK DESCRIPTION*
