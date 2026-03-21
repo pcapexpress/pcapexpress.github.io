@@ -13,9 +13,10 @@ title: About
      style="width: 25%; float: left; margin-right: 20px; margin-bottom: 20px;" 
      alt="Author">
 
-<p><br><br>Stay a while and Listen!<br>Here wrights to you a gentelman and a scholar.<br>
-A former Beer Brewing proffesional of 10ish years of expieriece. That proffsiosn gave me teh oportunity to travel around, I had contracts in 4 different countries over the years, and I am very fortunate and grateful for that.<br>
-But the moment comes for changes, I decided to hang up my Ol' Brewi'n Cap and dawn some sort of ... Thinking Bonnet and do something a touch more mentaly stimulating work wise. Enter a era of self aducation and gravitation towards the IT security sector. The goal is to become a fully fledged SOC analyst with the ability to specialize in network trafic analisys and digital forensics. I have developed a taste for entry level Pen Testing, did a bunch of capture the flag boxes with TryHackMe, and mostly failed but learned a whole bunch in teh process.<br>
+<p><br>Here wrights to you a gentelman and a scholar.<br>
+A former Beer Brewing proffesional of 10ish years, that has been granted the oportunity to travel around, I had contracts in 4 different countries, and I am very grateful for that.<br>
+But changes waits for no man, I have decided to hang up my Ol' Brewi'n Cap and dawn some sort of ... Thinking Bonnet and do something a touch more mentaly stimulating career wise. Enter an era of self aducation and gravitation towards the IT security sector, CompTia Sec+ has been secured!<br>
+     The goal is to become a fully fledged SOC analyst with the ability to specialize in network trafic analisys and digital forensics. I have developed a taste for entry level Pen Testing, did a bunch of capture the flag boxes with TryHackMe, and mostly failed but learned a whole bunch in teh process.<br>
 Curently residing on an island just of the coast of Croatia I have picked up kayaking. Regular sessions on teh sea and participating in acredeted courses have yielded 3 certificates and a set of practical skills I never knew I would chase afetr. As a result I am a certified trip leader and instructor, the maneuver im proud of the most is certantly the the C to C roll. </p>
 <div style="clear: both;"></div>
 
