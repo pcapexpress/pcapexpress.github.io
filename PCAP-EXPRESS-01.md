@@ -61,11 +61,11 @@ for this we filter for *“kerberos”* and search if we get any data in the **C
 
 Here are the results of our host enumiration:
 
-**IP Address:** <span class="badge-data"><strong>10.1.17.215</span></span>
-**MAC address:** <span class="badge-data"><strong>Intel_26:4a:74 (00:d0:b7:26:4a:74)</span></span>
-**Host Name:** <span class="badge-data"><strong>DESKTOP-L8C5GSJ</span></span>
-**Client name:** <span class="badge-data"><strong>DESKTOP-L8C5GSJ.bluemoontuesday.com</span></span>
-**User Name:** <span class="badge-data"><strong>shutchenson</span></span>
+**IP Address:** <span class="badge-data"><strong>10.1.17.215</span>
+**MAC address:** <span class="badge-data"><strong>Intel_26:4a:74 (00:d0:b7:26:4a:74)</span>
+**Host Name:** <span class="badge-data"><strong>DESKTOP-L8C5GSJ</span>
+**Client name:** <span class="badge-data"><strong>DESKTOP-L8C5GSJ.bluemoontuesday.com</span>
+**User Name:** <span class="badge-data"><strong>shutchenson</span>
 
 <div class="divider"></div>
 
@@ -157,18 +157,19 @@ We have determined the files of interest. Using the Object Export function I hav
 <span class="orange"><strong>...</strong></span>
 <span class="red"><strong>...</strong></span>
 
-**01.File Name: 29842.ps1**
+**01.File Name: 29842.ps1**                      **02.File Name: pas.ps1**
 
-MD5 Hash: ce075aee9430f3a8f2809356f4deca8e
-VirusTotal Result: Malicious
-Poplar threat label: trojan.powershell/obfuse
-BitDefender: Trojan.Generic.38977079
+MD5 Hash: ce075aee9430f3a8f2809356f4deca8e       MD5 Hash: 10febc686b7035ba0731c85e8e474bcd
+VirusTotal Result: Malicious                     VirusTotal Result: Malicious
+Poplar threat label: trojan.powershell/obfuse    Poplar threat label: trojan.powershell/malgent
+BitDefender: Trojan.Generic.38977079             BitDefender: rojan.Generic.38018337
+File extension: (.ps1)                           File extension: (.ps1)
+  
+**03.File Name: TeamViewer**                     **04.File Name: Teamviewer_Resource_fr**
 
-**03.File Name: TeamViewer**
-
-MD5 Hash: 9dfa2bd6bddc746acea981da411d59d3
-VirusTotal Result: No Threat Detected
-File extension: (.exe)
+MD5 Hash: 9dfa2bd6bddc746acea981da411d59d3       MD5 Hash: 35fa2ce449deb8b93b8ba73bf35e5e7b
+VirusTotal Result: No Threat Detected            VirusTotal Result: No Threat Detected
+File extension: (.exe)                           File extension: (.dll)
 
 **05.File Name: TV**
 
@@ -178,29 +179,6 @@ Poplar threat label: trojan.doina/malgent
 BitDefender: Gen:Variant.Doina.88562
 File extension: (.dll)
 </code></pre>
-
-
-
-
-#### **02.File Name: pas.ps1**
-
-MD5 Hash: 10febc686b7035ba0731c85e8e474bcd
-VirusTotal Result: Malicious
-Poplar threat label: trojan.powershell/malgent
-BitDefender: rojan.Generic.38018337
-
-
-
-
-
-#### **04.File Name: Teamviewer_Resource_fr**
-
-MD5 Hash: 35fa2ce449deb8b93b8ba73bf35e5e7b
-VirusTotal Result: No Threat Detected
-File extension: (.dll)
-
-
-
 
 ## 05. Short Report and Conclusion
 
