@@ -9,24 +9,22 @@ We are a SOC analyst, we are contacted due to a coworker downloading a suspiciou
 We confirm that an infection has occurred, supplied with a pcap file and tasked with writing an incident report focusing on some key questions written below.
 In the mean time the IT department will handle wiping the affected machine.<br>
 
-<span class="text-green"><strong>Platform:</strong></span> <span class="badge-data"><strong>malware-traffic-analysis[.]net/</strong></span><br>
-<span class="text-green"><strong>Pcap File:</strong></span> <span class="badge-data"><strong>2025-01-22-traffic-analysis-exercise.pcap</strong></span><br>
+<span class="text-orange"><strong>Platform:</strong></span> <span class="badge-data"><strong>malware-traffic-analysis[.]net</strong></span><br>
+<span class="text-orange"><strong>Pcap File:</strong></span> <span class="badge-data"><strong>2025-01-22-traffic-analysis-exercise.pcap</strong></span><br>
 
 
 
 ### TASK:
 <pre data-label="TASK" style="--delay: 0s;"><code>
-* Find the affected host details - <span class="orange"><strong>[x]</strong></span>
+* Find the affected host details    - <span class="orange"><strong>[x]</strong></span>
 * Discover details about the breach - <span class="orange"><strong>[x]</strong></span>
-* Write a consise concludion - <span class="orange"><strong>[x]</strong></span>
+* Write a consise concludion        - <span class="orange"><strong>[x]</strong></span>
 </code></pre>
 ### Tools:
-<pre data-label="TOOLS" style="--delay: 0.7s;"><code>
-<span class="orange"><strong>* Wireshark</strong></span> – pcap inspection
-<span class="orange"><strong>* VirusTotal</strong></span> – checking for malicious IPs and Files
-<span class="orange"><strong>* CyberChef</strong></span> – decoding malicious traffic
-<span class="orange"><strong>* md5sum</strong></span> – calculating file hashes -
-</code></pre>
+<span class="text-orange"><strong>* Wireshark</strong></span> – <span class="badge-data"><strong>pcap inspection<br>
+<span class="text-orange"><strong>* VirusTotal</strong></span> – <span class="badge-data"><strong>checking for malicious IPs and Files</strong></span><br>
+<span class="text-orange"><strong>* CyberChef</strong></span> – <span class="badge-data"><strong>decoding malicious traffic</strong></span><br>
+<span class="text-orange"><strong>* md5sum</strong></span> – <span class="badge-data"><strong>calculating file hashes</strong></span><br>
 
 ## 00: Prologue
 
