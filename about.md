@@ -64,16 +64,28 @@ Issuing Date: 10/23/2024 | Expiration Date: This credential does not expire<br>
 Issuing Organization: *Coursera* | Credential ID: <span class="badge-data"><strong>f27aaa9a-7158-4b08-b329-6f8ebec7555c</strong></span><br>
 Issuing Date: 10/23/2024 | Expiration Date: This credential does not expire<br>
 
-### 04.Level 2: Essentials of Kayak Touring (instructor)
-Issuing Organization: *American Canoe Association* | ACA Number: <span class="badge-data"><strong>80614605</strong></span><br>Issuing Date: 11/07/2025<br>
-Issuing Date: 11/07/2025 | Expiration Date: 12/31/2029
-<br>
 Visit the Credly.com page to verify - <a href="https://www.credly.com/users/andrejs-petrovs.f33bc783" target="_blank" rel="noopener noreferrer">
   www.credly.com/users/andrejs-petrovs
 </a>
 
-<img src="assets/images/about/badge-tryhackme.png">
+### 04.a.Level 2: Essentials of Kayak Touring (instructor)
+Issuing Organization: *American Canoe Association* | ACA Number: <span class="badge-data"><strong>80614605</strong></span><br>
+Issuing Date: 07/11/2025 | Expiration Date: 31/12/2029
+<br>
+
+### 04.b.Level 3: Coastal Kayaking Skills Award 11/02/2025
+Issuing Organization: *American Canoe Association* | ACA Number: <span class="badge-data"><strong>80614605</strong></span><br>
+Issuing Date: 11/02/2025 | Expiration Date: This credential does not expire<br>
+
+#### Technique Ticker
+<pre class="ticker-container">
+  <code class="ticker-content">
+    <span><span class="text-orange"><strong>CLASS 3 CONDITIONS:</strong></span> Winds 10 - 15 knots | Waves/Surf 1 - 2 feet | Tidal Current 1 - 2 knots | <span class="text-orange"><strong>STROKES & MANEUVERS:</strong></span> Forward/Reverse Paddling & Turning | Forward & Reverse Sweep | Rotate in Place 360° | Draw Sideways & On the Move | Ruddering (Bow & Stern) | Linked Maneuvers | EDGING & SUPPORT: Low/High Brace Recovery | Low Brace Turn | Edge Control | Rolling | <span class="text-orange"><strong>RESCUE & TOWING:</strong></span> Capsize and Wet Exit | Assisted Rescue with an Able Swimmer | Impaired Swimmer Rescue | Self-Rescue | Towing Using a Tow Line |||&nbsp;</span>
+    <span><span class="text-orange"><strong>CLASS 3 CONDITIONS:</strong></span> Winds 10 - 15 knots | Waves/Surf 1 - 2 feet | Tidal Current 1 - 2 knots | <span class="text-orange"><strong>STROKES & MANEUVERS:</strong></span> Forward/Reverse Paddling & Turning | Forward & Reverse Sweep | Rotate in Place 360° | Draw Sideways & On the Move | Ruddering (Bow & Stern) | Linked Maneuvers | EDGING & SUPPORT: Low/High Brace Recovery | Low Brace Turn | Edge Control | Rolling | <span class="text-orange"><strong>RESCUE & TOWING:</strong></span> Capsize and Wet Exit | Assisted Rescue with an Able Swimmer | Impaired Swimmer Rescue | Self-Rescue | Towing Using a Tow Line |||&nbsp;</span>
+  </code>
+</pre>
 ### 05.TryHackMe
+<img src="assets/images/about/badge-tryhackme.png">
 
 **Rank:** <span class="badge-data"><strong>14/21 0xD [Legend] ≥ 20,000 points</strong></span><br>
 I have started my cyber journey with <span class="text-green"><strong>TryHackMe</strong></span> and what a ride it has been.<br>
@@ -90,18 +102,6 @@ I mean look how close i am to the <span class="text-orange"><strong>Pentest+</st
 <span class="text-orange"><strong>Web Fundamentals</strong></span>       87% [=================>--]  <span class="text-orange"><strong>SOC Level 1</strong></span>        42% [========>-----------]<br>
 <span class="text-orange"><strong>Jr Penetration Tester</strong></span> 100% [===================>]  <span class="text-orange"><strong>CompTia Pentest+</strong></span>   91% [=================>--]<br>
 </code></pre>
-
-### Coastal Kayaking
-
-With 3 certification behind the belt I have plans to further my Kayaking expertiese.<br>
-It is a splendid recriational activitie that i can't recomend enough. Below is a ticker of some of the level 3 highlights.<br>
-Future plans is to do a workshop on teaching Rolling. I do love Rolling!<br>
-<pre class="ticker-container">
-  <code class="ticker-content">
-    <span><span class="text-orange"><strong>CLASS 3 CONDITIONS:</strong></span> Winds 10 - 15 knots | Waves/Surf 1 - 2 feet | Tidal Current 1 - 2 knots | <span class="text-orange"><strong>STROKES & MANEUVERS:</strong></span> Forward/Reverse Paddling & Turning | Forward & Reverse Sweep | Rotate in Place 360° | Draw Sideways & On the Move | Ruddering (Bow & Stern) | Linked Maneuvers | EDGING & SUPPORT: Low/High Brace Recovery | Low Brace Turn | Edge Control | Rolling | <span class="text-orange"><strong>RESCUE & TOWING:</strong></span> Capsize and Wet Exit | Assisted Rescue with an Able Swimmer | Impaired Swimmer Rescue | Self-Rescue | Towing Using a Tow Line |||&nbsp;</span>
-    <span><span class="text-orange"><strong>CLASS 3 CONDITIONS:</strong></span> Winds 10 - 15 knots | Waves/Surf 1 - 2 feet | Tidal Current 1 - 2 knots | <span class="text-orange"><strong>STROKES & MANEUVERS:</strong></span> Forward/Reverse Paddling & Turning | Forward & Reverse Sweep | Rotate in Place 360° | Draw Sideways & On the Move | Ruddering (Bow & Stern) | Linked Maneuvers | EDGING & SUPPORT: Low/High Brace Recovery | Low Brace Turn | Edge Control | Rolling | <span class="text-orange"><strong>RESCUE & TOWING:</strong></span> Capsize and Wet Exit | Assisted Rescue with an Able Swimmer | Impaired Swimmer Rescue | Self-Rescue | Towing Using a Tow Line |||&nbsp;</span>
-  </code>
-</pre>
 
 *Thank you for your time. And see you in the next one*.<br>
 *Andy Brandy Sighning off! Have a good one!*
