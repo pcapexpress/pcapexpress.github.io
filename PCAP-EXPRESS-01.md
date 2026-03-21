@@ -21,7 +21,7 @@ In the mean time the IT department will handle wiping the affected machine.<br>
 * Write a consise concludion        - <span class="orange"><strong>[x]</strong></span>
 </code></pre>
 ### Tools:
-<span class="text-orange"><strong>* Wireshark</strong></span> – <span class="badge-data"><strong>pcap inspection<br>
+<span class="text-orange"><strong>* Wireshark</strong></span> – <span class="badge-data"><strong>pcap inspection</strong></span><br>
 <span class="text-orange"><strong>* VirusTotal</strong></span> – <span class="badge-data"><strong>checking for malicious IPs and Files</strong></span><br>
 <span class="text-orange"><strong>* CyberChef</strong></span> – <span class="badge-data"><strong>decoding malicious traffic</strong></span><br>
 <span class="text-orange"><strong>* md5sum</strong></span> – <span class="badge-data"><strong>calculating file hashes</strong></span><br>
