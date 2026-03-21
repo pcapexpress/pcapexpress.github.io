@@ -13,11 +13,16 @@ In the mean time the IT department will handle wiping the affected machine.<br>
 **Platform:** <span class="badge-data"><strong>malware-traffic-analysis[.]net</strong></span><br>
 **Pcap File:** <span class="badge-data"><strong>2025-01-22-traffic-analysis-exercise.pcap</strong></span><br>
 
-### TASK:
+### TASK & TOOLS:
 <pre data-label="TASK" style="--delay: 0s;"><code>
-* Find the affected host details    - <span class="orange"><strong>[x]</strong></span>
-* Discover details about the breach - <span class="orange"><strong>[x]</strong></span>
-* Write a consise concludion        - <span class="orange"><strong>[x]</strong></span>
+* Discover host details - <span class="orange">[x]</span> * Investigate breach - <span class="orange">[x]</span> * Write consise report - <span class="orange">[x]</span>
+</code></pre>
+### Tools:
+<pre data-label="TASK" style="--delay: 0s;"><code>
+<span class="orange">**Wireshark**</span> – pcap inspection
+<span class="orange">**VirusTotal**</span> – checking for malicious IPs and Files
+<span class="orange">**CyberChef**</span> – decoding malicious traffic
+<span class="orange">**md5sum**</span> – calculating file hashes
 </code></pre>
 
 ### Tools:
