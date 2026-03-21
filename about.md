@@ -87,16 +87,15 @@ I mean look how close i am to the Pentest+.<br>
 <span class="text-orange"><strong>Jr Penetration Tester</strong></span> 100% [===================>]  <span class="text-orange"><strong>CompTia Pentest+</strong></span>   91% [=================>--]<br>
 </code></pre>
 
-### Planned Scripts
+### TICKER TIME
 
 <pre class="ticker-container" data-label="SYS_STATUS">
   <code class="ticker-content">
-    <span>REACTOR: ONLINE | SCANNER: ONLINE | CAFFEINE: 3 UNITS | ... |&nbsp;</span>
-    <span>REACTOR: ONLINE | SCANNER: ONLINE | CAFFEINE: 3 UNITS | ... |&nbsp;</span>
+    <span>REACTOR: ONLINE | SCANNER: ONLINE | CAFFEINE: 1 UNITS |REACTOR: ONLINE | SCANNER: ONLINE | CAFFEINE: 2 UNITS |REACTOR: ONLINE | SCANNER: ONLINE | CAFFEINE: 3 UNITS | ... |&nbsp;</span>
+    <span>REACTOR: ONLINE | SCANNER: ONLINE | CAFFEINE: 1 UNITS |REACTOR: ONLINE | SCANNER: ONLINE | CAFFEINE: 2 UNITS |REACTOR: ONLINE | SCANNER: ONLINE | CAFFEINE: 3 UNITS | ... |&nbsp;</span>
   </code>
 </pre>
 
-</section>
 <div class="divider-wire">
   <span class="line"></span>
   <span class="symbol">⦿</span>
