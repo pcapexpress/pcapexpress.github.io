@@ -10,13 +10,13 @@ The Portfolio is focused on 3 main sections.
 
 WIRESHARK SERIES - Using real life infections in a Pcap file form and condcting analisys using Wireshark.<br>
 TECH-BUREAU SERIES - Establishing a rudimentary SOC environment with Wazuh and Virtual Machines and conducting Purple Team exercises.<br>
-MALWARE BOILER SERIES - {UNDER CONSTRUCTION} Reserved for basic malware analisys and deobfuscation. Exiting Stuff!!!<br>
+MALWARE-BOILER SERIES - {UNDER CONSTRUCTION} Reserved for basic malware analisys and deobfuscation. Exiting Stuff!!!<br>
 
 ### Brught to You by
-## [Andy Anderson] | Aspiring Cybersecurity Analyst
-Learning to specialize in Network Forensics using Wireshark & IDS Alert Corelation
-Ability to establish a rudimentary SOC environment using virtualization
-Desire to delve deeper in to Malware Deobfuscation and Detonation in a VM environment
+## [Andy Anderson] | Aspiring IT Security Proffesional
+Learning to specialize in Network Forensics using Wireshark & IDS Alert Corelation.
+Ability to establish a rudimentary SOC environment using virtualization.
+Desire to delve deeper in to Malware Analisys and Detonation in a VM environment.
 
 #### A place to observe and reflect on packets passing by.
 <div class="divider"></div>
