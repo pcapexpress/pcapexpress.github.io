@@ -4,25 +4,29 @@ title: PCAP:01
 ---
 # PCAPEXPRESS Wireshark Series
 ## Exercise 01: Download from fake software site
-<span class="badge-data"><strong>Platform:</strong></span></span> <span class="text-green"><strong>malware-traffic-analysis[.]net/</strong></span><br>
-<span class="text-green"><strong>Pcap File:</strong></span></span> <span class="badge-data"><strong>2025-01-22-traffic-analysis-exercise.pcap</strong></span><br>
-
 ### Briefing:
 We are a SOC analyst, we are contacted due to a coworker downloading a suspicious file after searching for Google Authenticator. 
-We confirm that an infection has occurred, we are supplied a pcap file and tasked to writing an incident report focusing on some key questions written below.
-In the mean time the IT department will handle wiping the affected machine. 
+We confirm that an infection has occurred, supplied with a pcap file and tasked with writing an incident report focusing on some key questions written below.
+In the mean time the IT department will handle wiping the affected machine.<br>
+
+<span class="text-green"><strong>Platform:</strong></span> <span class="badge-data"><strong>malware-traffic-analysis[.]net/</strong></span><br>
+<span class="text-green"><strong>Pcap File:</strong></span> <span class="badge-data"><strong>2025-01-22-traffic-analysis-exercise.pcap</strong></span><br>
+
+
 
 ### TASK:
-* Find the affected host details
-* Discover details about the breach
-* Write a consise concludion
-
+<pre data-label="TASK" style="--delay: 0s;"><code>
+* Find the affected host details - <span class="orange"><strong>[x]</strong></span>
+* Discover details about the breach - <span class="orange"><strong>[x]</strong></span>
+* Write a consise concludion - <span class="orange"><strong>[x]</strong></span>
+</code></pre>
 ### Tools:
-
-Wireshark – pcap inspection
-VirusTotal – checking for malicious IPs and Files
-CyberChef – decoding malicious traffic
-md5sum – calculating file hashes
+<pre data-label="TOOLS" style="--delay: 0.7s;"><code>
+<span class="orange"><strong>* Wireshark</strong></span> – pcap inspection
+<span class="orange"><strong>* VirusTotal</strong></span> – checking for malicious IPs and Files
+<span class="orange"><strong>* CyberChef</strong></span> – decoding malicious traffic
+<span class="orange"><strong>* md5sum</strong></span> – calculating file hashes -
+</code></pre>
 
 ## 00: Prologue
 
