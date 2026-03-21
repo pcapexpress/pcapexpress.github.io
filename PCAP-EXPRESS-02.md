@@ -40,15 +40,9 @@ This exercise is giving us some useful pointers regarding the infection. As 2 lo
 
 ## 01: Host Discovery
 
-Lets start checking the endpoints statistics.
-
-![01.Endpoints.png](assets/images/pcap-express/project.02/01.Endpoints(c).png)
-
-<small>‘01.Endpoints.png’</small>
-
-We see our victim machine at the top and the second IP address is featured in our supplied alerts, we will keep an eye out for that one. Moving on to our standard discovery techniques.
-
-First I check the DHCP with the ”dhcp.option.type == 12” filter. There's no DHCP traffic. Moving on to NETBIOS. Filtering for “nbns.flags.opcode == 5”.
+Starting of with our standard discovery techniques.<br>
+First I check the DHCP with the <span class="badge-data">”dhcp.option.type == 12”</span> filter. There's no DHCP traffic.<br>
+Moving on to NETBIOS. Filtering for <span class="badge-data">“nbns.flags.opcode == 5”</span>.
 
 ![02a.Netbios.png](assets/images/pcap-express/project.02/02.Netbios(c).png)
 
@@ -60,9 +54,9 @@ We get some Registration Data. We can examine the packet details to get some Hos
 
 <small>‘02b.Packet Details.png’</small>
 
-IP Address: 10.11.26.183
-MAC Address: Intel_ce:fc:8b (d0:57:7b:ce:fc:8b)
-Host Name: DESKTOP-B8TQK49
+**IP Address**: <span class="badge-data">10.11.26.183</span>
+**MAC Address**: <span class="badge-data">Intel_ce:fc:8b (d0:57:7b:ce:fc:8b)</span>
+**Host Name**: <span class="badge-data">DESKTOP-B8TQK49</span>
 
 Than we check Kerberos
 
@@ -70,7 +64,7 @@ Than we check Kerberos
 
 <small>‘03.Kerberos.png’</small>
 
-User name: oboomwald
+**User name**: <span class="badge-data">oboomwald</span>
 
 We continue and check the LDAP filtering for - “ldap contains "CN=Users"”
 
@@ -80,7 +74,7 @@ We continue and check the LDAP filtering for - “ldap contains "CN=Users"”
 
 This gives us a user name detail.
 
-User name: Oliver Q. Boomwald
+**User name**: <span class="badge-data">Oliver Q. Boomwald</span>
 
 Finally checking for HTTP header information to get the OS, why not. For that we use our “standard” HTTP requests filter, and checking for a GET requests HTTP stream. Needed to check around a bit but found an acceptable GET request, here is the HTTP stream example.
 
@@ -106,99 +100,9 @@ This would conclude our host enumeration phase moving to piecing together the at
 
 ---
 
-02: Examining Traffic
+## 02: Examining Traffic
 
-Now we shall go over the alert files and try to correlate the pcap data with the key points.
 
-![07.Connection Test.png](assets/images/pcap-express/project.02/07.Connection_Test.png)
-
-<small>‘07.Connection Test.png’</small>
-
-These 2 alerts are in the very beginning of our pcap file, as I understand this is the starting point of the upcoming exploit. Below is a short explanation what the requests could mean.
-
-“Likely Hostile" indicates that a request for a .txt file is being flagged as potentially indicative of a threat, such as a reconnaissance attempt to identify vulnerable servers or services. These requests are considered "terse" because they are short and lack additional context, which may suggest automated scanning or probing behavior rather than legitimate user activity.”
-
-The Connection Test itself is not malicious though. Moving on to the next alert.
-
-![08.DNS name error.png](assets/images/pcap-express/project.02/08.DNS_name_error.png)
-
-<small>‘08.DNS name error.png’</small>
-
-10.11.26.3 is our AD controller, is returning error to the victim machine. Lets check for that. After some examination we see that there's quite a few errors in fact. 
-
-![09.DNS no name.png](assets/images/pcap-express/project.02/09.DNS_no_name(c).png)
-
-<small>‘09.DNS no name.png’</small>
-
-Far too many “no such name” responses to be a simple user error. I am not certain of the mechanism behind this but it very much could indicate some enumeration script running.
-
-“These patterns can also reveal reconnaissance activities by advanced persistent threats exploring the network for vulnerabilities.”
-
-This confirms that the attack attempt on the host has indeed started.
-
-The next one is the TLSv1.0 Used in Session.
-
-![10.TLS alert.png](assets/images/pcap-express/project.02/09.DNS_no_name(c).png)
-
-<small>‘10.TLS alert.png’</small>
-
-This is an outdated version of the protocol, that is vulnerable to decrypting. This would be a downgrading attack, allowing the adversary access to the data, that otherwise would be impossible to decrypt.
-
-TLS 1.0 has been deprecated due to vulnerabilities, susceptible to certain cryptographic attacks. As a result, TLS 1.0 was officially deprecated in 2021, along with TLS 1.1, and is no longer considered secure for modern applications.
-
-I must say that I have not been able to verify the downgrade in the capture file. I see the TLS1.0 only in the context of compatibility during the handshake. Here is the IP and port used during the alert. We need to see what the server has to say regarding the TLS version.
-
-![10a.TLS server hello.png](assets/images/pcap-express/project.02/10a.TLS_server_hello(c).png)
-
-<small>‘10a.TLS server hello.png’</small>
-
-![10b.TLS packet details.png](assets/images/pcap-express/project.02/10b.TLS_packet_details(c).png)
-
-<small>‘10b.TLS packet details.png’</small>
-
-Perhaps in a professional sense not a satisfying result, but was worth digging in to non the less.
-
-Moving on. There's a whole sequence of SMB protocol alerts. Lets have a look at that.
-
-![10c.SMB alerts.png](assets/images/pcap-express/project.02/10c.SMB_alerts.png)
-
-<small>'10c.SMB alerts.png'</small>
-
-First up unsafe SMBv1 protocol in use. Once again Downgrading in action.
-
-“The Server Message Block version 1 (SMBv1) protocol is considered obsolete and insecure, posing a significant security risk to systems and networks. Microsoft has deprecated SMBv1 since 2014 and no longer installs it by default. The protocol is particularly vulnerable to exploitation”
-I was successful at confirming the alert by checking the SMB protocol negotiation.
-
-![10d.SMB protocol negotiation.png](assets/images/pcap-express/project.02/10d.SMB_protocol_negotiation(c).png)
-
-<small>‘10d.SMB protocol negotiation.png’</small>
-
-We need to observe the packet details, we are looking for the request to offer the SMBv1 protocol witch will be referred to as “NT LM 0.12”.
-Heres the Request:
-
-![10e.Request Detail.png](assets/images/pcap-express/project.02/10e.Request_Detail(c).png)
-
-<small>‘10e.Request Detail.png’</small>
-
-Heres the Response:
-
-![10f.Response Detail.png](assets/images/pcap-express/project.02/10f.Response_Detail(c).png)
-
-<small>‘10f.Response Detail.png’</small>
-
-This confirms the alert as a true positive.
-
-Next alert is GPL NETBIOS SMB Session Setup NTMLSSP unicode asn1 overflow attempt.
-“Detecting potential exploitation attempts targeting a vulnerability in Microsoft's ASN.1 library. This vulnerability arises from unchecked buffers in the ASN.1 library, which can be exploited by sending a malformed NETBIOS message to TCP ports 139 or 445, commonly used by SMB (Server Message Block) services. The attack can lead to a Denial of Service (DoS) or, in some cases, allow arbitrary code execution, potentially resulting in system compromise.”
-It is recommended to check for “Expert Info” function and look for Malformed Errors regarding the NETBIOS, however I did not find such errors. Regarding the alert description I have found I’m inclined to think that we are looking at arbitrary code execution and not a DoS attack.
-
-The SMB IPC$ unicode share access.
-“The SMB IPC$ share is a special, hidden share used to facilitate inter-process communication (IPC) between systems on a network. It does not provide access to files or directories like standard shares but instead exposes named pipes that allow communication with processes running on a remote system.” 
-We see attempts being made to try and access the share in the Tree Connect andX Request Path. Alert justified.
-
-![10g.IPC$ share request.png](assets/images/pcap-express/project.02/10g.IPC$_share_request(c).png)
-
-<small>‘10g.IPC$ share request.png’</small>
 
 Now we’ll focus on the actual HTTP traffic to see if we can spot any unusual HTTP requests. And quite quickly we discover just that. 
 
