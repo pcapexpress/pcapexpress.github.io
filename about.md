@@ -72,11 +72,11 @@ Visit the Credly.com page to verify - <a href="https://www.credly.com/users/andr
 ### 05.TryHackMe
 
 **Rank:** <span class="badge-data"><strong>14/21 0xD [Legend] ≥ 20,000 points</strong></span><br>
-I have started my cyber journey with ***TryHackMe*** and what a ride it has been.<br>
+I have started my cyber journey with <span class="green"><strong>TryHackMe</strong></span> and what a ride it has been.<br>
 Over the last couple of years I have been gravitating towards different paths.<br>
-At the moment my progress is on hold, I am relying on labs of my own direction for the time being.<br>
+At the moment my progress is on hold, I am relying on labs of my own direction.<br>
 However looking at my path progress Im just itching to get back and button up some of them,<br>
-I mean look how close i am to the Pentest+.<br>
+I mean look how close i am to the <span class="orange"><strong>Pentest+</strong></span>.<br>
 **P.S.** *don't ask me why I prioritized red teaming of the bat*.<br>
 
 ### Learning Paths Completion Tracker<br>
@@ -87,14 +87,20 @@ I mean look how close i am to the Pentest+.<br>
 <span class="text-orange"><strong>Jr Penetration Tester</strong></span> 100% [===================>]  <span class="text-orange"><strong>CompTia Pentest+</strong></span>   91% [=================>--]<br>
 </code></pre>
 
-### TICKER TIME
+### Coastal Kayaking
 
-<pre class="ticker-container" data-label="SYS_STATUS">
+With 3 certification behind the belt I have plans to further my Kayaking expertiese.<br>
+It is a splendid recriational activitie that i can't recomend enough. Below is a ticker of some of the level 3 highlights.<br>
+Future plans is to do a workshop on teaching Rolling. I do love Rolling!
+<pre class="ticker-container">
   <code class="ticker-content">
-    <span>REACTOR: ONLINE | SCANNER: ONLINE | CAFFEINE: 1 UNITS |REACTOR: ONLINE | SCANNER: ONLINE | CAFFEINE: 2 UNITS |REACTOR: ONLINE | SCANNER: ONLINE | CAFFEINE: 3 UNITS | ... |&nbsp;</span>
-    <span>REACTOR: ONLINE | SCANNER: ONLINE | CAFFEINE: 1 UNITS |REACTOR: ONLINE | SCANNER: ONLINE | CAFFEINE: 2 UNITS |REACTOR: ONLINE | SCANNER: ONLINE | CAFFEINE: 3 UNITS | ... |&nbsp;</span>
+    <span>CLASS 3 CONDITIONS: Winds 10 - 15 knots | Waves/Surf 1 - 2 feet | Tidal Current 1 - 2 knots | STROKES & MANEUVERS: Forward/Reverse Paddling & Turning | Forward & Reverse Sweep | Rotate in Place 360° | Draw Sideways & On the Move | Ruddering (Bow & Stern) | Linked Maneuvers | EDGING & SUPPORT: Low/High Brace Recovery | Low Brace Turn | Edge Control | Rolling | RESCUE & TOWING: Capsize and Wet Exit | Assisted Rescue with an Able Swimmer | Impaired Swimmer Rescue | Self-Rescue | Towing Using a Tow Line&nbsp;</span>
+    <span>CLASS 3 CONDITIONS: Winds 10 - 15 knots | Waves/Surf 1 - 2 feet | Tidal Current 1 - 2 knots | STROKES & MANEUVERS: Forward/Reverse Paddling & Turning | Forward & Reverse Sweep | Rotate in Place 360° | Draw Sideways & On the Move | Ruddering (Bow & Stern) | Linked Maneuvers | EDGING & SUPPORT: Low/High Brace Recovery | Low Brace Turn | Edge Control | Rolling | RESCUE & TOWING: Capsize and Wet Exit | Assisted Rescue with an Able Swimmer | Impaired Swimmer Rescue | Self-Rescue | Towing Using a Tow Line&nbsp;</span>
   </code>
 </pre>
+
+*Thank you for your time. And see you in the next one*.<br>
+*Andy Brandy Sighning off! Have a good one!*
 
 <div class="divider-wire">
   <span class="line"></span>
