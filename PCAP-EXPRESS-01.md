@@ -59,11 +59,11 @@ for this we filter for *“kerberos”* and search if we get any data in the **C
 
 Here are the results of our host enumiration:
 
-**IP Address:** <span class="badge-data"><strong>10.1.17.215</span>
-**MAC address:** <span class="badge-data"><strong>Intel_26:4a:74 (00:d0:b7:26:4a:74)</span>
-**Host Name:** <span class="badge-data"><strong>DESKTOP-L8C5GSJ</span>
-**Client name:** <span class="badge-data"><strong>DESKTOP-L8C5GSJ.bluemoontuesday.com</span>
-**User Name:** <span class="badge-data"><strong>shutchenson</span>
+**IP Address:** <span class="badge-data"><strong>10.1.17.215</strong></span>
+**MAC address:** <span class="badge-data"><strong>Intel_26:4a:74 (00:d0:b7:26:4a:74)</strong></span>
+**Host Name:** <span class="badge-data"><strong>DESKTOP-L8C5GSJ</strong></span>
+**Client name:** <span class="badge-data">DESKTOP-L8C5GSJ.bluemoontuesday.com</span>
+**User Name:** <span class="badge-data">shutchenson</span>
 
 <div class="divider"></div>
 
@@ -81,9 +81,9 @@ We want to see the GET requests first to check for malicious downloads. Which we
 
 The suspects are:
 
-01. google-authenticator[.]burleson-appliance[.]net
-02. authenticatoor[.]org
-03. 5[.]252[.]153[.]241
+01. google-authenticator[.]burleson-appliance[.]net<br>
+02. authenticatoor[.]org<br>
+03. 5[.]252[.]153[.]241<br>
 
 All three are marked as malicious by VirusTotal. The first 2 are posing as a legitimate authentication website/app.<br>
 When examining the 3d suspect IP we check the Communicating Files section in the Relations tab of VirusTotal<br>
@@ -152,30 +152,27 @@ The verdict here would be that the Command and Control servers are the mentioned
 We have determined the files of interest. Using the Object Export function I have gathered the files and ran a md5sum to generate each files hash and than checked each one using VirusTotal. Here are the results:
 
 <pre data-label="OBJECTS"><code>
-<span class="orange"><strong>...</strong></span>
-<span class="red"><strong>...</strong></span>
-
-**01.File Name: 29842.ps1**                      **02.File Name: pas.ps1**
+01.File Name: <span class="red"><strong>29842.ps1</strong></span>                          02.File Name: <span class="red"><strong>pas.ps1</strong></span>
 
 MD5 Hash: ce075aee9430f3a8f2809356f4deca8e       MD5 Hash: 10febc686b7035ba0731c85e8e474bcd
-VirusTotal Result: Malicious                     VirusTotal Result: Malicious
+VirusTotal Result: <span class="red"><strong>Malicious</strong></span>                     VirusTotal Result: <span class="red"><strong>Malicious</strong></span>
 Poplar threat label: trojan.powershell/obfuse    Poplar threat label: trojan.powershell/malgent
 BitDefender: Trojan.Generic.38977079             BitDefender: rojan.Generic.38018337
-File extension: (.ps1)                           File extension: (.ps1)
+File extension: <span class="orange"><strong>(.ps1)</strong></span>                           File extension: <span class="orange"><strong>(.ps1)</strong></span>
   
-**03.File Name: TeamViewer**                     **04.File Name: Teamviewer_Resource_fr**
+03.File Name: <span class="orange"><strong>TeamViewer</strong></span>                         04.File Name: <span class="orange"><strong>Teamviewer_Resource_fr</strong></span>
 
 MD5 Hash: 9dfa2bd6bddc746acea981da411d59d3       MD5 Hash: 35fa2ce449deb8b93b8ba73bf35e5e7b
-VirusTotal Result: No Threat Detected            VirusTotal Result: No Threat Detected
-File extension: (.exe)                           File extension: (.dll)
+VirusTotal Result: <span class="orange"><strong>No Threat Detected</strong></span>            VirusTotal Result: <span class="orange"><strong>No Threat Detected</strong></span>
+File extension: <span class="orange"><strong>(.exe)</strong></span>                           File extension: <span class="orange"><strong>(.dll)</strong></span>
 
-**05.File Name: TV**
+05.File Name: <span class="red"><strong>TV</strong></span>
 
 MD5 Hash: 66af1c986968e3bf2a35791e8b55581f
-VirusTotal Result: Malicious
+VirusTotal Result: <span class="red"><strong>Malicious</strong></span>
 Poplar threat label: trojan.doina/malgent
 BitDefender: Gen:Variant.Doina.88562
-File extension: (.dll)
+File extension: <span class="orange"><strong>(.dll)</strong></span>
 </code></pre>
 
 ## 05. Short Report and Conclusion
