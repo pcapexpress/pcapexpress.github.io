@@ -13,7 +13,10 @@ title: About
      style="width: 25%; float: left; margin-right: 20px; margin-bottom: 20px;" 
      alt="Author">
 
-<p><br><br>Here wrights to you a gentelman and a scholar. A former Beer Brewing proffesional of 10ish years that decided to hang up his old brewing cap and switch the phisical labour to something that is more mentaly stimulating. Enter a new drive for the IT security sector. The goal is to become a fully fledged SOC analyst with the ability to specialize when neccesary in network trafic analisys and malware reverse engineering. Curently residing on an island just of the coast of Croatia I have picked up kayaking and have been training hard. As a result I am a certified trip leader and instructor, the achivement im proud of the most is learning the C to C roll. </p>
+<p><br><br>Stay a while and Listen!<br>Here wrights to you a gentelman and a scholar.<br>
+A former Beer Brewing proffesional of 10ish years of expieriece. That proffsiosn gave me teh oportunity to travel around, I had contracts in 4 different countries over the years, and I am very fortunate and grateful for that.<br>
+But the moment comes for changes, I decided to hang up my Ol' Brewi'n Cap and dawn some sort of ... Thinking Bonnet and do something a touch more mentaly stimulating work wise. Enter a era of self aducation and gravitation towards the IT security sector. The goal is to become a fully fledged SOC analyst with the ability to specialize in network trafic analisys and digital forensics. I have developed a taste for entry level Pen Testing, did a bunch of capture the flag boxes with TryHackMe, and mostly failed but learned a whole bunch in teh process.<br>
+Curently residing on an island just of the coast of Croatia I have picked up kayaking. Regular sessions on teh sea and participating in acredeted courses have yielded 3 certificates and a set of practical skills I never knew I would chase afetr. As a result I am a certified trip leader and instructor, the maneuver im proud of the most is certantly the the C to C roll. </p>
 <div style="clear: both;"></div>
 
 CAREER GOALS
@@ -91,11 +94,11 @@ I mean look how close i am to the <span class="orange"><strong>Pentest+</strong>
 
 With 3 certification behind the belt I have plans to further my Kayaking expertiese.<br>
 It is a splendid recriational activitie that i can't recomend enough. Below is a ticker of some of the level 3 highlights.<br>
-Future plans is to do a workshop on teaching Rolling. I do love Rolling!
+Future plans is to do a workshop on teaching Rolling. I do love Rolling!<br>
 <pre class="ticker-container">
   <code class="ticker-content">
-    <span>CLASS 3 CONDITIONS: Winds 10 - 15 knots | Waves/Surf 1 - 2 feet | Tidal Current 1 - 2 knots | STROKES & MANEUVERS: Forward/Reverse Paddling & Turning | Forward & Reverse Sweep | Rotate in Place 360° | Draw Sideways & On the Move | Ruddering (Bow & Stern) | Linked Maneuvers | EDGING & SUPPORT: Low/High Brace Recovery | Low Brace Turn | Edge Control | Rolling | RESCUE & TOWING: Capsize and Wet Exit | Assisted Rescue with an Able Swimmer | Impaired Swimmer Rescue | Self-Rescue | Towing Using a Tow Line&nbsp;</span>
-    <span>CLASS 3 CONDITIONS: Winds 10 - 15 knots | Waves/Surf 1 - 2 feet | Tidal Current 1 - 2 knots | STROKES & MANEUVERS: Forward/Reverse Paddling & Turning | Forward & Reverse Sweep | Rotate in Place 360° | Draw Sideways & On the Move | Ruddering (Bow & Stern) | Linked Maneuvers | EDGING & SUPPORT: Low/High Brace Recovery | Low Brace Turn | Edge Control | Rolling | RESCUE & TOWING: Capsize and Wet Exit | Assisted Rescue with an Able Swimmer | Impaired Swimmer Rescue | Self-Rescue | Towing Using a Tow Line&nbsp;</span>
+    <span>CLASS 3 CONDITIONS: Winds 10 - 15 knots | Waves/Surf 1 - 2 feet | Tidal Current 1 - 2 knots | STROKES & MANEUVERS: Forward/Reverse Paddling & Turning | Forward & Reverse Sweep | Rotate in Place 360° | Draw Sideways & On the Move | Ruddering (Bow & Stern) | Linked Maneuvers | EDGING & SUPPORT: Low/High Brace Recovery | Low Brace Turn | Edge Control | Rolling | RESCUE & TOWING: Capsize and Wet Exit | Assisted Rescue with an Able Swimmer | Impaired Swimmer Rescue | Self-Rescue | Towing Using a Tow Line |||&nbsp;</span>
+    <span>CLASS 3 CONDITIONS: Winds 10 - 15 knots | Waves/Surf 1 - 2 feet | Tidal Current 1 - 2 knots | STROKES & MANEUVERS: Forward/Reverse Paddling & Turning | Forward & Reverse Sweep | Rotate in Place 360° | Draw Sideways & On the Move | Ruddering (Bow & Stern) | Linked Maneuvers | EDGING & SUPPORT: Low/High Brace Recovery | Low Brace Turn | Edge Control | Rolling | RESCUE & TOWING: Capsize and Wet Exit | Assisted Rescue with an Able Swimmer | Impaired Swimmer Rescue | Self-Rescue | Towing Using a Tow Line |||&nbsp;</span>
   </code>
 </pre>
 
