@@ -4,80 +4,40 @@ title: PCAP:01
 ---
 # PCAPEXPRESS Wireshark Series
 ## Exercise 01: Download from fake software site
-<span class="h4-style">**Platform:**</span> https://www.malware-traffic-analysis.net/<br>
-<span class="h4-style">**Pcap File:**</span> 2025-01-22-traffic-analysis-exercise.pcap
+<span class="badge-data"><strong>Platform:</strong></span></span> <span class="text-green"><strong>malware-traffic-analysis[.]net/</strong></span><br>
+<span class="text-green"><strong>Pcap File:</strong></span></span> <span class="badge-data"><strong>2025-01-22-traffic-analysis-exercise.pcap</strong></span><br>
 
-## Briefing:
+### Briefing:
 We are a SOC analyst, we are contacted due to a coworker downloading a suspicious file after searching for Google Authenticator. 
 We confirm that an infection has occurred, we are supplied a pcap file and tasked to writing an incident report focusing on some key questions written below.
 In the mean time the IT department will handle wiping the affected machine. 
 
-<div class="divider-wire">
-  <span class="line"></span>
-  <span class="symbol">‹‹‹⦿›››</span>
-  <span class="line"></span>
-</div>
+### TASK:
+* Find the affected host details
+* Discover details about the breach
+* Write a consise concludion
 
-## LAN SEGMENT DETAILS FROM THE PCAP
-<pre data-label="Network Environment"><code>
-* <span class="orange"><strong>LAN segment range:</strong></span>  10.1.17[.]0/24   (10.1.17[.]0 through 10.1.17[.]255)
-* <span class="orange"><strong>Domain:</strong></span>  bluemoontuesday[.]com
-* <span class="orange"><strong>Active Directory (AD) domain controller:</strong></span>  10.1.17[.]2 - WIN-GSH54QLW48D
-* <span class="orange"><strong>AD environment name:</strong></span>  BLUEMOONTUESDAY
-* <span class="orange"><strong>LAN segment gateway:</strong></span>  10.1.17[.]1
-* <span class="orange"><strong>LAN segment broadcast address:</strong></span>  10.1.17[.]255
-</code></pre>
-
-#### **TASK:**
-For this exercise, answer the following questions for your incident report:
-    * What is the IP address of the infected Windows client?
-    * What is the mac address of the infected Windows client?
-    * What is the host name of the infected Windows client?
-    * What is the user account name from the infected Windows client?
-    * What is the likely domain name for the fake Google Authenticator page?
-    * What are the IP addresses used for C2 servers for this infection?
-
-#### **Tools:**
+### Tools:
 
 Wireshark – pcap inspection
 VirusTotal – checking for malicious IPs and Files
 CyberChef – decoding malicious traffic
 md5sum – calculating file hashes
 
-<div class="divider-wire">
-  <span class="line"></span>
-  <span class="symbol">‹‹‹PcapExpress›››</span>
-  <span class="line"></span>
-</div>
-
 ## 00: Prologue
 
 This is my first exercise in a series of working with actual real world malicious network traffic.
-The pcap file is taken from malware-traffic-analysis.net.
 The goal is to showcase my thinking in a simple to follow investigation complemented by images.
-The outcome of the investigation will be checked with the answers provided. There will be mistakes and flaws.
+The outcome of the investigation will be checked with the answers provided.
 I’m trying to show what I can do at the time of writing. A long way to go and no better time than now.
 Let the Upward Mobility commence. 
 
-<div class="divider-wire">
-  <span class="line"></span>
-  <span class="symbol">⦿</span>
-  <span class="line"></span>
-</div>
+<div class="divider"></div>
 
-## 01: Host Discovery
+## 01: HOST DISCOVERY
 
-Firstly we attempt to gather more information on the infected host in question.
-We can quickly take a look at the endpoint information in the Statistics tab. We check for IPV4 and organize by packets.
-
-![01.Endpoints.png](assets/images/pcap-express/project.01/01.endpoints.png)
-
-<small>“01.Endpoints.png”<small>
-
-The leading IP is 10.1.17.215 and the second most interacted with is 5.252.153.241 as will be pointed out soon, this will be malicious.
-We have several options to further discover the host details. We can filter for DHCP traffic.
+Our first job is to gather details on the victim machine. We can filter for DHCP traffic.
 Heres a good way to filter or that: “dhcp.option.type == 12”, we are interested in the DHCP Request packet details.
-
 
 ![02.DHCP request.png](assets/images/pcap-express/project.01/02.dhcp-request.png)
 
@@ -87,28 +47,31 @@ Heres a good way to filter or that: “dhcp.option.type == 12”, we are interes
 
 <small>“03.DHCP details.png”<small>
 
-<span class="h4-style">**IP Address:**</span> 10.1.17.215
-<span class="h4-style">**MAC address:**</span> Intel_26:4a:74 (00:d0:b7:26:4a:74)
-<span class="h4-style">**Host Name:**</span> DESKTOP-L8C5GSJ
-<span class="h4-style">**Client name:**</span> DESKTOP-L8C5GSJ.bluemoontuesday.com
-
-This gives us most of the necessary Host details but one more piece of information can be gathered. We can use the Kerberos protocol traffic to check if a user name is available, for this we filter for “kerberos” and search if we get any data in the CNameString field.
+This gives us most of the necessary Host details but one more piece of information can be gathered.<br>
+We can use the **Kerberos** protocol traffic to check if a user name is available,<br>
+for this we filter for *“kerberos”* and search if we get any data in the **CNameString** field.
 
 ![04.Kerberos.png](assets/images/pcap-express/project.01/04.kerberos.png)
 
 <small>“04.Kerberos.png”<small>
 
-<span class="h4-style">**User:**</span> shutchenson
+Here are the results of our host enumiration:
 
----
+**IP Address:** <span class="badge-data"><strong>10.1.17.215</span></span>
+**MAC address:** <span class="badge-data"><strong>Intel_26:4a:74 (00:d0:b7:26:4a:74)</span></span>
+**Host Name:** <span class="badge-data"><strong>DESKTOP-L8C5GSJ</span></span>
+**Client name:** <span class="badge-data"><strong>DESKTOP-L8C5GSJ.bluemoontuesday.com</span></span>
+**User Name:** <span class="badge-data"><strong>shutchenson</span></span>
 
-## 02: Examining Traffic
+<div class="divider"></div>
 
-A great way to start would be to check the HTTP and HTTPS traffic minusing the SSDP (Simple Service Discovery Protocol) for unnecessary noise reduction. 
+## 02: EXAMINING TRAFFIC
+
+A great way to start would be to check the HTTP and HTTPS traffic minusing the SSDP (Simple Service Discovery Protocol) for noise reduction. 
 
 We filter for “(http.request or tls.handshake.type == 1) and !(ssdp)”
 
-We want to see the GET requests first to check for malicious downloads. Which we locate almost immediately. We shall take a look at the downloaded files later. But we see the suspicious fake domains mentioned in the Exercise Briefing.
+We want to see the GET requests first to check for malicious downloads. Which we locate almost immediately. We shall take a look at the downloaded files later. But we see the suspicious domains.
 
 ![05.Fake domain + GET.png](assets/images/pcap-express/project.01/05.fake-domain-get.png)
 
@@ -120,9 +83,9 @@ The suspects are:
 02. authenticatoor[.]org
 03. 5[.]252[.]153[.]241
 
-All three are marked as malicious by VirusTotal. The first 2 are posing as a legitimate authentication website/app. This will go in to our answer section.
-
-When examining the 3d suspect IP we check the Communicating Files section in the Relations tab of VirusTotal and we find that it is known for the 29842.ps1 file.
+All three are marked as malicious by VirusTotal. The first 2 are posing as a legitimate authentication website/app.<br>
+When examining the 3d suspect IP we check the Communicating Files section in the Relations tab of VirusTotal<br>
+and we find that it is known for the 29842.ps1 file.
 
 We discover that file name in the TCP stream of the first GET request from our malicious IP.
 
