@@ -539,7 +539,7 @@ pre.ticker-container {
     background: none;
     
     // The 'linear' timing is vital for a smooth, non-jerky movement
-    animation: tickerMove 20s linear infinite; 
+    animation: tickerMove 60s linear infinite; 
     
     span {
       display: inline-block;
