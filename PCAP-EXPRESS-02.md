@@ -58,7 +58,6 @@ Here are the results of our host enumiration:
 **IP Address:** <span class="badge-data">10.11.26.183</span><br>
 **MAC address:** <span class="badge-data">Intel_ce:fc:8b (d0:57:7b:ce:fc:8b)</span><br>
 **Host Name:** <span class="badge-data">DESKTOP-B8TQK49</span><br>
-**Client name:** <span class="badge-data">---</span><br>
 **User Name:** <span class="badge-data">oboomwald</span><br>
 
 <div class="divider"></div>
