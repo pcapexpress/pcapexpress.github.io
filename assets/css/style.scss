@@ -530,25 +530,26 @@ pre.ticker-container {
   padding: 10px 0; 
   white-space: nowrap;
   overflow: hidden;
+  display: block; // Ensures the pre behaves as a layout box
 
-  // We target the 'code' tag inside this specific 'pre'
-  code.ticker-content {
-    display: flex;
-    width: max-content;
+  .ticker-content {
+    display: flex;       // Lays the two spans side-by-side
+    width: max-content;  // Tells the container to be as wide as both spans combined
     border: none;
     background: none;
-    animation: tickerMove 30s linear infinite;
     
-    // We override the 'dimming' block to ensure it covers the scrolling width
-    &::before {
-       width: 200%; // Make the dimming layer extra wide for the scrolling text
-    }
-
+    // The 'linear' timing is vital for a smooth, non-jerky movement
+    animation: tickerMove 20s linear infinite; 
+    
     span {
-      padding-right: 50px; 
+      display: inline-block;
+      padding-right: 0; // Use the &nbsp; in HTML for the gap instead of padding
+      }
+    &::before {
+      display: none; 
+      }
     }
-  }
-} //<--------------------------------------------------------------------------SCROLLING LOGIC CLOSED
+  } //<--------------------------------------------------------------------------SCROLLING LOGIC CLOSED
 
 // 4.9 WIRE DIVIDER CLASSIC
 hr {
