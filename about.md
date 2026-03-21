@@ -89,31 +89,12 @@ I mean look how close i am to the Pentest+.<br>
 
 ### Planned Scripts
 
-<pre><marquee scrollamount="5" direction="left" style="--delay: 0s;"> REACTOR: ONLINE | SCANER: ONLINE | CAFEENE: 3 UNITS AND COUNTING | BIOFORM MOOD: DETERMENISTIC | ALL SYSTEMS: NOMINAL | </marquee></pre><br>
-
-## Follow these Links
-[**LINK NAME** ](./TECH-BUREAU-PHASE-01.md) *LINK DESCRIPTION*
-
-<span class="text-green"><strong>01.W4LLPEPP3R</strong></span> - a script that downloads an image from the portfolio website and sets it as the workstation desktop image.<br>
-<span class="text-orange"><strong>02.CL0CKK33PER</strong></span> - a beacon that tries to establish a connection to the C2 server every minute.<br>
-<span class="text-red"><strong>03.CRYP7L4D</strong></span> - A script that seaks out a particular directory on the system and encrypt the contents.<br>
-
-<span class="text-data"><strong>BOLD</strong></span><br>
-<span class="badge-data"><strong>BOLD</strong></span>
-
-
-Style	Tag	Result<br>
-Monospace	<code>...</code>	Makes text look like code (e.g., 0x4A 0x21).<br>
-<code>text</code><br>
-Pre-formatted	<pre>...</pre>	Keeps all spaces and line breaks exactly as you typed them.<br>
-<pre>t y  p   e    3</pre><br>
-Bold	<strong>...</strong>	Important data/warnings.<br>
-<strong>TEXT</strong><br>
-Italic	<em>...</em>	Subtle notes or timestamps.<br>
-<em>TEXT</em><br>
-Underline	<u>...</u>	Use sparingly (often looks like a link).<br>
-<u>TEXT</u><br>
-<strong><em><u>TEXT</u></em></strong><br>
+<pre class="ticker-container" data-label="SYS_STATUS">
+  <code class="ticker-content">
+    <span>REACTOR: ONLINE | SCANNER: ONLINE | CAFFEINE: 3 UNITS | ... |&nbsp;</span>
+    <span>REACTOR: ONLINE | SCANNER: ONLINE | CAFFEINE: 3 UNITS | ... |&nbsp;</span>
+  </code>
+</pre>
 
 </section>
 <div class="divider-wire">
