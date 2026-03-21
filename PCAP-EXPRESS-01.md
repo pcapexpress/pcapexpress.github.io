@@ -10,8 +10,8 @@ A staff member most likeley downloaded a file from a malicious page after search
 We must investigate and write the key findings in a short report.<br>
 In the mean time the IT department will handle wiping the affected machine.<br>
 
-<span class="badge-data"><strong>Platform:</strong></span> <span class="text-green"><strong>malware-traffic-analysis[.]net</strong></span><br>
-<span class="badge-data"><strong>Pcap File:</strong></span> <span class="text-green"><strong>2025-01-22-traffic-analysis-exercise.pcap</strong></span><br>
+**Platform:** <span class="badge-data"><strong>malware-traffic-analysis[.]net</strong></span><br>
+**Pcap File:** <span class="badge-data"><strong>2025-01-22-traffic-analysis-exercise.pcap</strong></span><br>
 
 ### TASK:
 <pre data-label="TASK" style="--delay: 0s;"><code>
@@ -21,10 +21,10 @@ In the mean time the IT department will handle wiping the affected machine.<br>
 </code></pre>
 
 ### Tools:
-<span class="badge-data"><strong>* Wireshark</strong></span> – <span class="text-green"><strong>pcap inspection</strong></span><br>
-<span class="badge-data"><strong>* VirusTotal</strong></span> – <span class="text-green"><strong>checking for malicious IPs and Files</strong></span><br>
-<span class="badge-data"><strong>* CyberChef</strong></span> – <span class="text-green"><strong>decoding malicious traffic</strong></span><br>
-<span class="badge-data"><strong>* md5sum</strong></span> – <span class="text-green"><strong>calculating file hashes</strong></span><br>
+**Wireshark** – <span class="badge-data"><strong>pcap inspection</strong></span><br>
+**VirusTotal** – <span class="badge-data"><strong>checking for malicious IPs and Files</strong></span><br>
+**CyberChef** – <span class="badge-data"><strong>decoding malicious traffic</strong></span><br>
+**md5sum** – <span class="badge-data"><strong>calculating file hashes</strong></span><br>
 
 ## 00: Prologue
 
@@ -59,11 +59,11 @@ for this we filter for *“kerberos”* and search if we get any data in the **C
 
 Here are the results of our host enumiration:
 
-**IP Address:** <span class="badge-data"><strong>10.1.17.215</strong></span>
-**MAC address:** <span class="badge-data"><strong>Intel_26:4a:74 (00:d0:b7:26:4a:74)</strong></span>
-**Host Name:** <span class="badge-data"><strong>DESKTOP-L8C5GSJ</strong></span>
-**Client name:** <span class="badge-data">DESKTOP-L8C5GSJ.bluemoontuesday.com</span>
-**User Name:** <span class="badge-data">shutchenson</span>
+**IP Address:** <span class="badge-data">10.1.17.215</span><br>
+**MAC address:** <span class="badge-data">Intel_26:4a:74 (00:d0:b7:26:4a:74)</span><br>
+**Host Name:** <span class="badge-data">DESKTOP-L8C5GSJ</span><br>
+**Client name:** <span class="badge-data">DESKTOP-L8C5GSJ.bluemoontuesday.com</span><br>
+**User Name:** <span class="badge-data">shutchenson</span><br>
 
 <div class="divider"></div>
 
@@ -119,14 +119,13 @@ The GET requests are 5 seconds apart. I have checked the TCP stream of the above
 
 <small>“10.Main Payload Download.png ”<small>
 
-I have checked the pas.ps1 file as well and it is identical to the 29842.ps1 we have looked in to before, same obfuscation and base64 string.
-
-We also see that after the file download sequence we see a URL message which will decode in to:
-
-GET /1517096937?k=message = startup shortcut created;  status = success
-
-Perhaps communicating to the C2 server that the payload is deployed successfully.
-
+I have checked the pas.ps1 file as well and it is identical to the 29842.ps1 we have looked in to before, same obfuscation and base64 string.<br>
+We also see that after the file download sequence we see a URL message which will decode in to:<br>
+<br>
+GET /1517096937?k=message = startup shortcut created;  status = success<br>
+<br>
+Perhaps communicating to the C2 server that the payload is deployed successfully.<br>
+<br>
 
 There is one more discovery that I have initially missed and had to go back to after checking for the exercise answers. There are 2 other C2 servers. They are easy to miss. They appear a few times in the pcap capture. If we filter out the 5.252.153.241 IP we can quickly identify the 2 new IP addresses.
 
@@ -149,30 +148,26 @@ The verdict here would be that the Command and Control servers are the mentioned
 
 ## 03: Examining Objects
 
-We have determined the files of interest. Using the Object Export function I have gathered the files and ran a md5sum to generate each files hash and than checked each one using VirusTotal. Here are the results:
+We have determined the files of interest.<br>
+Using the Object Export function I have gathered the files and ran a md5sum<br>
+to generate each files hash and than checked each one using VirusTotal.<br>
+Here are the results:<br>
 
 <pre data-label="OBJECTS"><code>
-01.File Name: <span class="red"><strong>29842.ps1</strong></span>                          02.File Name: <span class="red"><strong>pas.ps1</strong></span>
-
-MD5 Hash: ce075aee9430f3a8f2809356f4deca8e       MD5 Hash: 10febc686b7035ba0731c85e8e474bcd
-VirusTotal Result: <span class="red"><strong>Malicious</strong></span>                     VirusTotal Result: <span class="red"><strong>Malicious</strong></span>
+01.File Name: <span class="red">29842.ps1</span>                          02.File Name: <span class="red">pas.ps1</span>
+MD5 Hash: ce075aee9430f3a8f2809356f4deca8e       MD5 Hash: 10febc686b7035ba0731c85e8e474bcdVirusTotal Result: <span class="red">Malicious</span>                     VirusTotal Result: <span class="red">Malicious</span>
 Poplar threat label: trojan.powershell/obfuse    Poplar threat label: trojan.powershell/malgent
 BitDefender: Trojan.Generic.38977079             BitDefender: rojan.Generic.38018337
-File extension: <span class="orange"><strong>(.ps1)</strong></span>                           File extension: <span class="orange"><strong>(.ps1)</strong></span>
   
-03.File Name: <span class="orange"><strong>TeamViewer</strong></span>                         04.File Name: <span class="orange"><strong>Teamviewer_Resource_fr</strong></span>
-
+03.File Name: <span class="orange">TeamViewer.exe</span>                         04.File Name: <span class="orange">Teamviewer_Resource_fr.dll</span>
 MD5 Hash: 9dfa2bd6bddc746acea981da411d59d3       MD5 Hash: 35fa2ce449deb8b93b8ba73bf35e5e7b
-VirusTotal Result: <span class="orange"><strong>No Threat Detected</strong></span>            VirusTotal Result: <span class="orange"><strong>No Threat Detected</strong></span>
-File extension: <span class="orange"><strong>(.exe)</strong></span>                           File extension: <span class="orange"><strong>(.dll)</strong></span>
+VirusTotal Result: <span class="orange">No Threat Detected</span>            VirusTotal Result: <span class="orange">No Threat Detected</span>
 
-05.File Name: <span class="red"><strong>TV</strong></span>
-
+05.File Name: <span class="red">TV.dll</span>
 MD5 Hash: 66af1c986968e3bf2a35791e8b55581f
-VirusTotal Result: <span class="red"><strong>Malicious</strong></span>
+VirusTotal Result: <span class="red">Malicious</span>
 Poplar threat label: trojan.doina/malgent
 BitDefender: Gen:Variant.Doina.88562
-File extension: <span class="orange"><strong>(.dll)</strong></span>
 </code></pre>
 
 ## 05. Short Report and Conclusion
