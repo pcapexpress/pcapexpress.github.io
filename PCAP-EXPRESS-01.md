@@ -10,19 +10,17 @@ A staff member most likeley downloaded a file from a malicious page after search
 We must investigate and write the key findings in a short report.<br>
 In the mean time the IT department will handle wiping the affected machine.<br>
 
-**Platform:** <span class="badge-data"><strong>malware-traffic-analysis[.]net</strong></span><br>
-**Pcap File:** <span class="badge-data"><strong>2025-01-22-traffic-analysis-exercise.pcap</strong></span><br>
+**Platform:** <span class="badge-data">malware-traffic-analysis[.]net</span><br>
+**Pcap File:** <span class="badge-data">2025-01-22-traffic-analysis-exercise.pcap</span><br>
 
 ### TASK & TOOLS:
 <pre data-label="TASK" style="--delay: 0s;"><code>
-* Discover host details - <span class="orange">[x]</span> * Investigate breach - <span class="orange">[x]</span> * Write consise report - <span class="orange">[x]</span>
+01.Discover host details - <span class="orange">[x]</span> 02.Investigate breach - <span class="orange">[x]</span> 03.Write consise report - <span class="orange">[x]</span>
 </code></pre>
 ### Tools:
 <pre data-label="TASK" style="--delay: 0s;"><code>
-<span class="orange">**Wireshark**</span> – pcap inspection
-<span class="orange">**VirusTotal**</span> – checking for malicious IPs and Files
-<span class="orange">**CyberChef**</span> – decoding malicious traffic
-<span class="orange">**md5sum**</span> – calculating file hashes
+<span class="orange"><strong>* Wireshark</strong></span> – pcap inspection               <span class="orange"><strong>* VirusTotal</strong></span> – checking for malicious IPs and Files
+<span class="orange"><strong>* CyberChef</strong></span> – decoding malicious traffic    <span class="orange"><strong>* md5sum</strong></span> – calculating file hashes
 </code></pre>
 
 ### Tools:
