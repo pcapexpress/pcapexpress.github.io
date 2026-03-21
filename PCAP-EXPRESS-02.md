@@ -10,13 +10,6 @@ title: PCAP:02
 We are a SOC analyst for a medical research facility. Alerts on traffic in your network indicate someone has been infected.
 Two alert log files have been provided to help correlate the events. Analyze and report.
 
-LAN SEGMENT DETAILS FROM THE PCAP
-    • LAN segment range:  10.11.26[.]0/24 (10.11.26[.]0 through 10.11.26[.]255)
-    • Domain:  nemotodes[.]health
-    • Active Directory (AD) domain controller:  10.11.26[.]3 - NEMOTODES-DC
-    • AD environment name:  NEMOTODES
-    • LAN segment gateway:  10.11.26[.]1
-    • LAN segment broadcast address:  10.11.26[.]255
 
 TASK:
     • Write an incident report based on malicious network activity from the pcap and from the alerts.
@@ -54,51 +47,21 @@ We get some Registration Data. We can examine the packet details to get some Hos
 
 <small>‘02b.Packet Details.png’</small>
 
-**IP Address**: <span class="badge-data">10.11.26.183</span>
-**MAC Address**: <span class="badge-data">Intel_ce:fc:8b (d0:57:7b:ce:fc:8b)</span>
-**Host Name**: <span class="badge-data">DESKTOP-B8TQK49</span>
-
 Than we check Kerberos
 
 ![03.Kerberos.png](assets/images/pcap-express/project.02/04.Kerberos(c).png)
 
 <small>‘03.Kerberos.png’</small>
 
-**User name**: <span class="badge-data">oboomwald</span>
+Here are the results of our host enumiration:
 
-We continue and check the LDAP filtering for - “ldap contains "CN=Users"”
+**IP Address:** <span class="badge-data">10.11.26.183</span><br>
+**MAC address:** <span class="badge-data">Intel_ce:fc:8b (d0:57:7b:ce:fc:8b)</span><br>
+**Host Name:** <span class="badge-data">DESKTOP-B8TQK49</span><br>
+**Client name:** <span class="badge-data">---</span><br>
+**User Name:** <span class="badge-data">oboomwald</span><br>
 
-![05.LDAP.png](assets/images/pcap-express/project.02/05.LDAP(c).png)
-
-<small>‘05.LDAP.png’</small>
-
-This gives us a user name detail.
-
-**User name**: <span class="badge-data">Oliver Q. Boomwald</span>
-
-Finally checking for HTTP header information to get the OS, why not. For that we use our “standard” HTTP requests filter, and checking for a GET requests HTTP stream. Needed to check around a bit but found an acceptable GET request, here is the HTTP stream example.
-
-![06.HTTP stream.png](assets/images/pcap-express/project.02/06.HTTP_stream(c).png)
-
-<small>‘06.HTTP stream.png’</small>
-
-Points of interest.
-
-The browser is an older version of Internet Explorer
-
-“The HTTP header User-Agent: Mozilla/4.0 is commonly used to identify a client application, often mimicking older versions of Internet Explorer or other browsers for compatibility purposes.”
-
-The Operating System is Windows 8
-
-“The NT 6.2  identifier is used in the User-Agent header to indicate that the operating system is Windows 8”
-
-Tablet Compatible, found that interesting.
-
-“The "Tablet PC 2.0" token in an HTTP User-Agent header typically indicates that the system is running a version of Windows that supports tablet functionality”
-
-This would conclude our host enumeration phase moving to piecing together the attack.
-
----
+<div class="divider"></div>
 
 ## 02: Examining Traffic
 
