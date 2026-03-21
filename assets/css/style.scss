@@ -426,7 +426,7 @@ img {
     border-color: rgba($orange, 1);
     filter: brightness(1.1);
     }
-  } // <-------------------------------------------------------------------------------IMAGE 1 CLOSED
+  } // <------------------------------------------------------------------------------IMAGE 1 CLOSED
 
   // 4.7 SECONDARY STYLE CYBER CEPIA
   .img-cyber {
@@ -448,83 +448,6 @@ img {
 } // <---------------------------------------------------------------------------------IMAGE 2 CLOSED
 
 // 4.8 CODE BLOCKS
-/*pre {
-  background-color: #0a0a0a; 
-  background-image: repeating-conic-gradient(#1a1a1a 0% 25%, #222 0% 50%);
-  background-size: 4px 4px;
-  color: $green; 
-  padding: 15px; 
-  display: block;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.9rem;
-  font-weight: 400;
-  position: relative;
-  overflow: hidden;
-  border-radius: 4px;
-
-  // THE ORANGE GLOW
-  border-left: 3px solid $orange;
-  animation: glowPulse 12s infinite;
-  transition: all 0.5s ease;
-
-  //FLICKER
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba($green, 0.005);
-    animation: dataStutter 1s steps(4) infinite; ///staticFlicker
-    animation-delay: var(--delay, 0s);
-    pointer-events: none;
-    z-index: 1; // Keeps the flicker as a background layer
-  }
-    
-  // DIMMING
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    // Use a neutral "cool" color at very low opacity
-    background: rgba(100, 110, 140, 0.03); 
-    animation: subtleSubsurface 8s steps(1) infinite;
-    animation-delay: calc(var(--delay, 0s) + 0.5s);
-    pointer-events: none;
-    z-index: 1;
-  }
-  
-  // Syntax Highlighting & Glows
-  .red    { color: $red; text-shadow: 0 0 5px rgba($red, 0.5); }
-  .green  { color: $green; text-shadow: 0 0 5px rgba($green, 0.5); }
-  .orange { color: $orange; text-shadow: 0 0 8px rgba($orange, 0.6); }
-  
-  .red, .green, .orange {
-    position: relative;
-    z-index: 2;
-  }
-  
-  &:hover {
-    //box-shadow: 0 0 15px rgba($orange, 1.0); // Intense glow on hover
-    filter: contrast(1.15) saturate(1.2);
-    
-  }
-
-  //DATA LABEL
-  &[data-label]::after {
-    content: attr(data-label);
-    position: absolute;
-    top: 0; right: 0; // POSITIONED RIGHT
-    padding: 2px 8px;
-    background: $green; 
-    color: $dark-bg;
-    font-size: 0.6rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    z-index: 3;
-    border-radius: 0 0 0 4px;
-  }
-} //<------------------------------------------------------------------------------CODE BLOCK CLOSED*/
-
-// 4.8 CODE BLOCKS
 pre {
   background-color: #0a0a0a; 
   background-image: repeating-conic-gradient(#1a1a1a 0% 25%, #222 0% 50%);
@@ -544,7 +467,7 @@ pre {
   animation: glowPulse 12s infinite;
   transition: all 0.5s ease;
 
-  // 1. FLICKER (Uses PRE ::before)
+  // FLICKER
   &::before {
     content: "";
     position: absolute;
@@ -556,7 +479,7 @@ pre {
     z-index: 1; 
   }
 
-  // 2. DATA LABEL (Uses PRE ::after)
+  // DATA LABEL
   &[data-label]::after {
     content: attr(data-label);
     position: absolute;
@@ -572,7 +495,7 @@ pre {
     pointer-events: none;
   }
 
-  // 3. DIMMING (Moved to CODE ::before)
+  // DIMMING
   code {
     display: block;
     position: relative;
@@ -600,7 +523,32 @@ pre {
   &:hover {
     filter: contrast(1.15) saturate(1.2);
   }
-}
+} //<-------------------------------------------------------------------------------CODE BLOCK CLOSED
+
+// SCROLLING TEXT
+pre.ticker-container {
+  padding: 10px 0; 
+  white-space: nowrap;
+  overflow: hidden;
+
+  // We target the 'code' tag inside this specific 'pre'
+  code.ticker-content {
+    display: flex;
+    width: max-content;
+    border: none;
+    background: none;
+    animation: tickerMove 30s linear infinite;
+    
+    // We override the 'dimming' block to ensure it covers the scrolling width
+    &::before {
+       width: 200%; // Make the dimming layer extra wide for the scrolling text
+    }
+
+    span {
+      padding-right: 50px; 
+    }
+  }
+} //<--------------------------------------------------------------------------SCROLLING LOGIC CLOSED
 
 // 4.9 WIRE DIVIDER CLASSIC
 hr {
@@ -890,7 +838,13 @@ footer::after {
   99% { border-left-color: rgba($orange, 0.4); } // The border "dims" slightly
 }
 
-// 8.9 DIVIDER WHIRE CLASSIC
+// 8.9 SCROLLING TEXT
+@keyframes tickerMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+// 8.10 DIVIDER WHIRE CLASSIC
 @keyframes wireEnergize1 {
   0% { 
     opacity: 1;
@@ -921,7 +875,7 @@ footer::after {
   }
 }
 
-// 8.10 DIVIDER WIRE WITH SYMBOL STRETCH AND GLOW ANIMATIONS
+// 8.11 DIVIDER WIRE WITH SYMBOL STRETCH AND GLOW ANIMATIONS
 @keyframes wireEnergize2 {
    0% { 
     opacity: 1;
@@ -952,7 +906,7 @@ footer::after {
   }
 }
 
-// 8.11 SYMBOL ANIMATION
+// 8.12 SYMBOL ANIMATION
 @keyframes symbolBreathing {
 0% { 
     opacity: 0.9;
@@ -968,7 +922,7 @@ footer::after {
     }
 }
 
-//8.12 SUBTLE WIRE ANNIMATION
+//8.13 SUBTLE WIRE ANNIMATION
 @keyframes subtleFlicker {
   0%, 100% { opacity: 0.7; }
   33%      { opacity: 0.5; }
@@ -979,7 +933,7 @@ footer::after {
   83%      { opacity: 0.7; }
 }
 
-//8.13 H4 SHADOW FLICKER
+//8.14 H4 SHADOW FLICKER
 @keyframes textFlicker {
   0%, 100% { opacity: 1; }
   32%      { opacity: 1; }
