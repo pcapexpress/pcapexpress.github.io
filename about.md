@@ -76,11 +76,11 @@ Visit the Credly.com page to verify - <a href="https://www.credly.com/users/andr
 ### 05.TryHackMe
 
 **Rank:** <span class="badge-data"><strong>14/21 0xD [Legend] ≥ 20,000 points</strong></span><br>
-I have started my cyber journey with <span class="green"><strong>TryHackMe</strong></span> and what a ride it has been.<br>
+I have started my cyber journey with <span class="text-green"><strong>TryHackMe</strong></span> and what a ride it has been.<br>
 Over the last couple of years I have been gravitating towards different paths.<br>
 At the moment my progress is on hold, I am relying on labs of my own direction.<br>
 However looking at my path progress Im just itching to get back and button up some of them,<br>
-I mean look how close i am to the <span class="orange"><strong>Pentest+</strong></span>.<br>
+I mean look how close i am to the <span class="text-orange"><strong>Pentest+</strong></span>.<br>
 **P.S.** *don't ask me why I prioritized red teaming of the bat*.<br>
 
 ### Learning Paths Completion Tracker<br>
@@ -98,8 +98,8 @@ It is a splendid recriational activitie that i can't recomend enough. Below is a
 Future plans is to do a workshop on teaching Rolling. I do love Rolling!<br>
 <pre class="ticker-container">
   <code class="ticker-content">
-    <span>CLASS 3 CONDITIONS: Winds 10 - 15 knots | Waves/Surf 1 - 2 feet | Tidal Current 1 - 2 knots | STROKES & MANEUVERS: Forward/Reverse Paddling & Turning | Forward & Reverse Sweep | Rotate in Place 360° | Draw Sideways & On the Move | Ruddering (Bow & Stern) | Linked Maneuvers | EDGING & SUPPORT: Low/High Brace Recovery | Low Brace Turn | Edge Control | Rolling | RESCUE & TOWING: Capsize and Wet Exit | Assisted Rescue with an Able Swimmer | Impaired Swimmer Rescue | Self-Rescue | Towing Using a Tow Line |||&nbsp;</span>
-    <span>CLASS 3 CONDITIONS: Winds 10 - 15 knots | Waves/Surf 1 - 2 feet | Tidal Current 1 - 2 knots | STROKES & MANEUVERS: Forward/Reverse Paddling & Turning | Forward & Reverse Sweep | Rotate in Place 360° | Draw Sideways & On the Move | Ruddering (Bow & Stern) | Linked Maneuvers | EDGING & SUPPORT: Low/High Brace Recovery | Low Brace Turn | Edge Control | Rolling | RESCUE & TOWING: Capsize and Wet Exit | Assisted Rescue with an Able Swimmer | Impaired Swimmer Rescue | Self-Rescue | Towing Using a Tow Line |||&nbsp;</span>
+    <span><span class="text-orange"><strong>CLASS 3 CONDITIONS:</strong></span> Winds 10 - 15 knots | Waves/Surf 1 - 2 feet | Tidal Current 1 - 2 knots | <span class="text-orange"><strong>STROKES & MANEUVERS:</strong></span> Forward/Reverse Paddling & Turning | Forward & Reverse Sweep | Rotate in Place 360° | Draw Sideways & On the Move | Ruddering (Bow & Stern) | Linked Maneuvers | EDGING & SUPPORT: Low/High Brace Recovery | Low Brace Turn | Edge Control | Rolling | <span class="text-orange"><strong>RESCUE & TOWING:</strong></span> Capsize and Wet Exit | Assisted Rescue with an Able Swimmer | Impaired Swimmer Rescue | Self-Rescue | Towing Using a Tow Line |||&nbsp;</span>
+    <span><span class="text-orange"><strong>CLASS 3 CONDITIONS:</strong></span> Winds 10 - 15 knots | Waves/Surf 1 - 2 feet | Tidal Current 1 - 2 knots | <span class="text-orange"><strong>STROKES & MANEUVERS:</strong></span> Forward/Reverse Paddling & Turning | Forward & Reverse Sweep | Rotate in Place 360° | Draw Sideways & On the Move | Ruddering (Bow & Stern) | Linked Maneuvers | EDGING & SUPPORT: Low/High Brace Recovery | Low Brace Turn | Edge Control | Rolling | <span class="text-orange"><strong>RESCUE & TOWING:</strong></span> Capsize and Wet Exit | Assisted Rescue with an Able Swimmer | Impaired Swimmer Rescue | Self-Rescue | Towing Using a Tow Line |||&nbsp;</span>
   </code>
 </pre>
 
