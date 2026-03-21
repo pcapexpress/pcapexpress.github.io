@@ -149,12 +149,33 @@ The verdict here would be that the Command and Control servers are the mentioned
 
 We have determined the files of interest. Using the Object Export function I have gathered the files and ran a md5sum to generate each files hash and than checked each one using VirusTotal. Here are the results:
 
-### **01.File Name: 29842.ps1**
+<pre data-label="OBJECTS"><code>
+<span class="orange"><strong>...</strong></span>
+<span class="red"><strong>...</strong></span>
+
+**01.File Name: 29842.ps1**
 
 MD5 Hash: ce075aee9430f3a8f2809356f4deca8e
 VirusTotal Result: Malicious
 Poplar threat label: trojan.powershell/obfuse
 BitDefender: Trojan.Generic.38977079
+
+**03.File Name: TeamViewer**
+
+MD5 Hash: 9dfa2bd6bddc746acea981da411d59d3
+VirusTotal Result: No Threat Detected
+File extension: (.exe)
+
+**05.File Name: TV**
+
+MD5 Hash: 66af1c986968e3bf2a35791e8b55581f
+VirusTotal Result: Malicious
+Poplar threat label: trojan.doina/malgent
+BitDefender: Gen:Variant.Doina.88562
+File extension: (.dll)
+</code></pre>
+
+
 
 
 #### **02.File Name: pas.ps1**
@@ -165,11 +186,7 @@ Poplar threat label: trojan.powershell/malgent
 BitDefender: rojan.Generic.38018337
 
 
-#### **03.File Name: TeamViewer**
 
-MD5 Hash: 9dfa2bd6bddc746acea981da411d59d3
-VirusTotal Result: No Threat Detected
-File extension: (.exe)
 
 
 #### **04.File Name: Teamviewer_Resource_fr**
@@ -179,18 +196,7 @@ VirusTotal Result: No Threat Detected
 File extension: (.dll)
 
 
-#### **05.File Name: TV**
 
-MD5 Hash: 66af1c986968e3bf2a35791e8b55581f
-VirusTotal Result: Malicious
-Poplar threat label: trojan.doina/malgent
-BitDefender: Gen:Variant.Doina.88562
-File extension: (.dll)
-
-
-## 04. Malware Inspection
-
-This space is reserved for later on in my project. My goal is to get a bit of malware analysis going. Using a VM environment. Stay Tuned.
 
 ## 05. Short Report and Conclusion
 
