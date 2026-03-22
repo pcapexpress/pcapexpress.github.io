@@ -143,6 +143,8 @@ The verdict here would be that the Command and Control servers are the mentioned
 
 **C2 servers:** <span class="badge-data">45[.]125[.]66[.]32 and 45[.]125[.]66[.]252</span>
 
+<div class="divider"></div>
+
 ## 03: Examining Objects
 
   We have determined the files of interest.<br>
@@ -168,25 +170,15 @@ Poplar threat label: trojan.doina/malgent
 BitDefender: Gen:Variant.Doina.88562
 </code></pre>
 
-## 05. Short Report and Conclusion
-
-We have established that a company employee (host:DESKTOP-L8C5GSJ) has clicked on a link taking them to a fake domain (google-authenticator[.]burleson-appliance[.]net) posing to be a legitimate authentication service provider. 
-
-The employee proceeded downloading and executing a file that started a chain reaction of downloading a sequence of files and deploying malware on their machine.
-
-The malware in question is (TV.dll) and it is disguised to trick users to believe it is a piece of legitimate TeamViewer software. The network traffic indicates that some form of persistence has been established and that the infected host is communicating with the adversary using 2 IPs (45.125.66.32 and 45.125.66.252).
-
-The briefing states that the IT department has wiped the affected machine and there is no immediate threat to the organization.
-
-The next procedure would be to update the banned IP addresses and add the Malware hashes to the EDR/Antivirus solution data bank.
-
 <div class="divider"></div>
 
-  *This is the first pcap investigation sorted for the pcapexpress series.<br>
-However it was not my first attempt at this particular exercise, it took some time to get my bearings,<br>
-the project was abandoned twice at this point. But sometimes stubbornness is a virtue.<br>
-I feel quite comfortable navigating WireShark and I must say I’m digging the processes of pcap investigation.<br>
-Much to learn, much to do. Jolly good, moving on!*
+## 05. Short Report and Conclusion
+
+We have established that a company employee (**host:DESKTOP-L8C5GSJ**) has clicked on a link taking them to a fake domain (**google-authenticator[.]burleson-appliance[.]net**) posing to be a legitimate authentication service provider. 
+The employee proceeded downloading and executing a file that started a chain reaction of downloading a sequence of files and deploying malware on their machine.
+The malware in question is (**TV.dll**) and it is disguised to trick users to believe it is a piece of legitimate TeamViewer software. The network traffic indicates that some form of persistence has been established and that the infected host is communicating with the adversary using 2 IPs (**45.125.66.32 and 45.125.66.252**).
+The briefing states that the IT department has wiped the affected machine and there is no immediate threat to the organization.
+The next procedure would be to update the banned IP addresses and add the Malware hashes to the EDR/Antivirus solution data bank.
 
 #### NEXT STOP?
 
