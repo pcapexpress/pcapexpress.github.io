@@ -15,9 +15,9 @@ title: About
 
 <p><br>Here wrights to you a gentelman and a scholar.<br>
 A former Beer Brewing proffesional of 10ish years, that has been granted the oportunity to travel around, I had contracts in 4 different countries, and I am very grateful for that.<br>
-But changes waits for no man, I have decided to hang up my Ol' Brewi'n Cap and dawn some sort of ... Thinking Bonnet and do something a touch more mentaly stimulating career wise. Enter an era of self aducation and gravitation towards the IT security sector, CompTia Sec+ has been secured!<br>
-     The goal is to become a fully fledged SOC analyst with the ability to specialize in network trafic analisys and digital forensics. I have developed a taste for entry level Pen Testing, did a bunch of capture the flag boxes with TryHackMe, and mostly failed but learned a whole bunch in teh process.<br>
-Curently residing on an island just of the coast of Croatia I have picked up kayaking. Regular sessions on teh sea and participating in acredeted courses have yielded 3 certificates and a set of practical skills I never knew I would chase afetr. As a result I am a certified trip leader and instructor, the maneuver im proud of the most is certantly the the C to C roll. </p>
+But changes waits for no man, I have decided to hang up my <strong><em>Ol' Brewi'n Cap</em></strong> and dawn some sort of ... <strong><em>Thinking Bonnet</em></strong> and do something a touch more mentaly stimulating career wise. Enter an era of self aducation and gravitation towards the IT security sector, <strong><em>CompTia Sec+</em></strong> has been secured!<br>
+The goal is to become a fully fledged SOC analyst with the ability to specialize in network trafic analisys and digital forensics. I have developed a taste for entry level Pen Testing, did a bunch of capture the flag boxes with TryHackMe, and mostly failed but learned a whole bunch in teh process.<br>
+Curently residing on an island just of the coast of Croatia I have picked up kayaking. Regular sessions on teh sea and participating in acredeted courses have yielded 3 certificates and a set of practical skills I never knew I would chase afetr. As a result I am a certified trip leader and instructor, the maneuver im proud of the most is certantly the the <strong><em>C to C roll.</em></strong> </p>
 <div style="clear: both;"></div>
 
 CAREER GOALS
@@ -81,7 +81,8 @@ I have started my cyber journey with <span class="text-green"><strong>TryHackMe<
 Over the last couple of years I have been gravitating towards different paths.<br>
 At the moment my progress is on hold, I am relying on labs of my own direction.<br>
 However looking at my path progress Im just itching to get back and button up some of them,<br>
-I mean look how close i am to the <span class="text-orange"><strong>Pentest+</strong></span>.<br>
+I mean look how close i am to the <span class="text-red"><strong>CompTia Pentest+</strong></span>.<br>
+<br>
 **P.S.** *don't ask me why I prioritized red teaming of the bat*.<br>
 
 ### Learning Paths Completion Tracker<br>
@@ -95,13 +96,13 @@ I mean look how close i am to the <span class="text-orange"><strong>Pentest+</st
 #### Bonus Kayaking Technique Ticker
 <pre class="ticker-container">
   <code class="ticker-content">
-    <span><span class="text-orange"><strong>CLASS 3 CONDITIONS:</strong></span> Winds 10 - 15 knots | Waves/Surf 1 - 2 feet | Tidal Current 1 - 2 knots | <span class="text-orange"><strong>STROKES & MANEUVERS:</strong></span> Forward/Reverse Paddling & Turning | Forward & Reverse Sweep | Rotate in Place 360° | Draw Sideways & On the Move | Ruddering (Bow & Stern) | Linked Maneuvers | EDGING & SUPPORT: Low/High Brace Recovery | Low Brace Turn | Edge Control | Rolling | <span class="text-orange"><strong>RESCUE & TOWING:</strong></span> Capsize and Wet Exit | Assisted Rescue with an Able Swimmer | Impaired Swimmer Rescue | Self-Rescue | Towing Using a Tow Line |||&nbsp;</span>
-    <span><span class="text-orange"><strong>CLASS 3 CONDITIONS:</strong></span> Winds 10 - 15 knots | Waves/Surf 1 - 2 feet | Tidal Current 1 - 2 knots | <span class="text-orange"><strong>STROKES & MANEUVERS:</strong></span> Forward/Reverse Paddling & Turning | Forward & Reverse Sweep | Rotate in Place 360° | Draw Sideways & On the Move | Ruddering (Bow & Stern) | Linked Maneuvers | EDGING & SUPPORT: Low/High Brace Recovery | Low Brace Turn | Edge Control | Rolling | <span class="text-orange"><strong>RESCUE & TOWING:</strong></span> Capsize and Wet Exit | Assisted Rescue with an Able Swimmer | Impaired Swimmer Rescue | Self-Rescue | Towing Using a Tow Line |||&nbsp;</span>
+    <span><span class="text-orange"><strong>CLASS 3 CONDITIONS:</strong></span> Winds 10 - 15 knots | Waves/Surf 1 - 2 feet | Tidal Current 1 - 2 knots | <span class="text-orange"><strong>STROKES & MANEUVERS:</strong></span> Forward/Reverse Paddling & Turning | Forward & Reverse Sweep | Rotate in Place 360° | Draw Sideways & On the Move | Ruddering (Bow & Stern) | Linked Maneuvers | <span class="text-orange"><strong>EDGING & SUPPORT:</strong></span> Low/High Brace Recovery | Low Brace Turn | Edge Control | Rolling | <span class="text-orange"><strong>RESCUE & TOWING:</strong></span> Capsize and Wet Exit | Assisted Rescue with an Able Swimmer | Impaired Swimmer Rescue | Self-Rescue | Towing Using a Tow Line |||&nbsp;</span>
+    <span><span class="text-orange"><strong>CLASS 3 CONDITIONS:</strong></span> Winds 10 - 15 knots | Waves/Surf 1 - 2 feet | Tidal Current 1 - 2 knots | <span class="text-orange"><strong>STROKES & MANEUVERS:</strong></span> Forward/Reverse Paddling & Turning | Forward & Reverse Sweep | Rotate in Place 360° | Draw Sideways & On the Move | Ruddering (Bow & Stern) | Linked Maneuvers | <span class="text-orange"><strong>EDGING & SUPPORT:</strong></span> Low/High Brace Recovery | Low Brace Turn | Edge Control | Rolling | <span class="text-orange"><strong>RESCUE & TOWING:</strong></span> Capsize and Wet Exit | Assisted Rescue with an Able Swimmer | Impaired Swimmer Rescue | Self-Rescue | Towing Using a Tow Line |||&nbsp;</span>
   </code>
 </pre>
 
 *Thank you for your time. And see you in the next one*.<br>
-*Andy Brandy Sighning off! Have a good one!*
+*Car Attendent Anderson Sighning off! Have a good one!*
 
 <div class="divider-wire">
   <span class="line"></span>
