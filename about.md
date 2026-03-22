@@ -3,8 +3,8 @@ layout: default
 title: About
 ---
 
-# CAR ATTENDENT ANDERSON PRESENTS
-## A BOLD VOYAGE TOWARDS A TENGIBLE GOAL
+# CAR ATTENDANT ANDERSON PRESENTS
+## A BOLD VOYAGE TOWARDS A TANGIBLE GOAL
 
 ### About the Author
 
@@ -13,24 +13,25 @@ title: About
      style="width: 25%; float: left; margin-right: 20px; margin-bottom: 20px;" 
      alt="Author">
 
-<p><br>Here wrights to you a gentelman and a scholar.<br>
-A former Beer Brewing proffesional of 10ish years, that has been granted the oportunity to travel around, I had contracts in 4 different countries, and I am very grateful for that.<br>
-But changes waits for no man, I have decided to hang up my <strong><em>Ol' Brewi'n Cap</em></strong> and dawn some sort of ... <strong><em>Thinking Bonnet</em></strong> and do something a touch more mentaly stimulating career wise. Enter an era of self aducation and gravitation towards the IT security sector, <strong><em>CompTia Sec+</em></strong> has been secured!<br>
-The goal is to become a fully fledged SOC analyst with the ability to specialize in network trafic analisys and digital forensics. I have developed a taste for entry level Pen Testing, did a bunch of capture the flag boxes with TryHackMe, and mostly failed but learned a whole bunch in teh process.<br>
-Curently residing on an island just of the coast of Croatia I have picked up kayaking. Regular sessions on teh sea and participating in acredeted courses have yielded 3 certificates and a set of practical skills I never knew I would chase afetr. As a result I am a certified trip leader and instructor, the maneuver im proud of the most is certantly the the <strong><em>C to C roll.</em></strong> </p>
+<p><br>Here wrights to you a gentleman and a scholar.<br>
+A former Beer Brewing professional of 10ish years, that has been granted the opportunity to travel around, I had contracts in 4 different countries, and I am very grateful for that.<br>
+But changes waits for no man, I have decided to hang up my <strong><em>Ol' Brewi'n Cap</em></strong> and dawn some sort of ... <strong><em>Thinking Bonnet</em></strong> and do something a touch more mentally stimulating career wise. Enter an era of self education and gravitation towards the IT security sector, <strong><em>CompTia Sec+</em></strong> has been secured!<br>
+The goal is to become a fully fledged SOC analyst with the ability to specialize in network traffic analysis and digital forensics. I have developed a taste for entry level Pen Testing, did a bunch of capture the flag boxes with TryHackMe, and mostly failed but learned a whole bunch in the process.<br>
+Currently residing on an island just of the coast of Croatia I have picked up kayaking. Regular sessions on the sea and participating in accredited courses have yielded 3 certificates and a set of practical skills I never knew I would chase after. As a result I am a certified trip leader and instructor, the maneuver I’m proud of the most is certainly the the <strong><em>C to C roll.</em></strong></p>
 <div style="clear: both;"></div>
 
-CAREER GOALS
+### CAREER GOALS
 <section>
-  <ul class="hover-card"> <li><strong>Early Days:</strong> Building competence within a SOC team.</li>
+  <ul class="hover-card"> <li><strong>Early Days:</strong> Tier 01 - building competence within a SOC team, learn the ropes.</li>
   </ul>
-  <ul class="hover-card"> <li><strong>Mid Term:</strong> Graduating to SOC level 2. Dable in junior pentest projects.</li>
+  <ul class="hover-card"> <li><strong>Mid Term:</strong> Tier 02 - deepen triage knowledge and participate in Pentest projects.</li>
   </ul>
-  <ul class="hover-card"> <li><strong>Long Term:</strong> Branching out in to Malware analisys and reverse engineering.</li>
+  <ul class="hover-card"> <li><strong>Long Term:</strong> Tier 3 - focus on Malware analysis and reverse engineering, provide mentorship.</li>
   </ul>
 </section>
-
-Maybe details and why.
+---
+oooor???
+<div class="divider"></div>
 
 ## CERTIFICATES
 <div style="display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; margin: 50px 0; width: 100%;">
@@ -77,11 +78,11 @@ Visit the Credly.com page to verify - <a href="https://www.credly.com/users/andr
 ### 05.TryHackMe
 
 **Rank:** <span class="badge-data"><strong>14/21 0xD [Legend] ≥ 20,000 points</strong></span><br>
-I have started my cyber journey with <span class="text-green"><strong>TryHackMe</strong></span> and what a ride it has been.<br>
+I have started my Cyber journey with <span class="text-green"><strong>TryHackMe</strong></span> and what a ride it has been.<br>
 Over the last couple of years I have been gravitating towards different paths.<br>
 At the moment my progress is on hold, I am relying on labs of my own direction.<br>
-However looking at my path progress Im just itching to get back and button up some of them,<br>
-I mean look how close i am to the <span class="text-red"><strong>CompTia Pentest+</strong></span>.<br>
+However looking at my path progress I'm just itching to get back and button up some of them,<br>
+I mean look how close I am to the <span class="text-red"><strong>CompTia Pentest+</strong></span>.<br>
 <br>
 **P.S.** *don't ask me why I prioritized red teaming of the bat*.<br>
 
@@ -102,7 +103,7 @@ I mean look how close i am to the <span class="text-red"><strong>CompTia Pentest
 </pre>
 
 *Thank you for your time. And see you in the next one*.<br>
-*Car Attendent Anderson Sighning off! Have a good one!*
+*Car Attendant Anderson Sighing off! Have a good one!*
 
 <div class="divider-wire">
   <span class="line"></span>
