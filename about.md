@@ -24,13 +24,12 @@ Currently residing on an island just of the coast of Croatia I have picked up ka
 <section>
   <ul class="hover-card"> <li><strong>Early Days:</strong> Tier 01 - building competence within a SOC team, learn the ropes.</li>
   </ul>
-  <ul class="hover-card"> <li><strong>Mid Term:</strong> Tier 02 - deepen triage knowledge and participate in Pentest projects.</li>
+  <ul class="hover-card"> <li><strong>Mid Term:</strong> Tier 02 - deepen triage knowledge and participate in Pentesting.</li>
   </ul>
-  <ul class="hover-card"> <li><strong>Long Term:</strong> Tier 3 - focus on Malware analysis and reverse engineering, provide mentorship.</li>
+  <ul class="hover-card"> <li><strong>Long Term:</strong> Tier 3 - focus on Malware analysis and reverse engineering.</li>
   </ul>
 </section>
----
-oooor???
+
 <div class="divider"></div>
 
 ## CERTIFICATES
