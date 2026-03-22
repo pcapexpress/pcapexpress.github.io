@@ -19,23 +19,23 @@ curiosity to what is actualy happening under the hood of a buisy network.<br>
   <span class="line"></span>
 </div>
 ## Follow these Links
-[PCAP-EXPRESS-01 CodeName --- ](./PCAP-EXPRESS-01.md)<br>
+[PCAP-EXPRESS:01 "Download from fake software site" ](./PCAP-EXPRESS-01.md)<br>
 *Virus over a fake downloader.*
 
-[PCAP-EXPRESS-02 CodeName --- ](./PCAP-EXPRESS-02.md)<br>
+[PCAP-EXPRESS:02 "Nemotodes" ](./PCAP-EXPRESS-02.md)<br>
 *Virus over fake software update.*
 
-[PCAP-EXPRESS-03 CodeName --- ](./PCAP-EXPRESS-03.md) <br>
+[PCAP-EXPRESS:03 "Big Fish In a Little Pond" ](./PCAP-EXPRESS-03.md) <br>
 *Yep thats a virus alright.*
 
-#### **TO DO:**
-* Complete the Malware sections.<br>
-* Establish links.<br>
-* Develop scripts.<br>
-* Detonate in a controlled environment.<br>
-* Record the results.<br>
-* Wrightup the findings.<br>
-* Format and Ship Out.<br>
+#### LABORIOUS FRUITS:
+* Have Wireshark setup for effective malware detection.<br>
+* Have saved filters at the ready.<br>
+* Understanding of packet details.<br>
+* Understanding of TCP streams.<br>
+* Use of object exporting.<br>
+* Use of statistics when beneficial.<br>
+* Wright up the findings in an ASKII "human readable" format.<br>
 
 <section>
   <ul class="hover-card"> <li><strong>No01.</strong> Taking a look at real life examples of functional Malware using a airgaped Virtual Machine.</li>
