@@ -185,9 +185,18 @@ Below is a comprehensive collection of data for future use and investigations.
 
 <div class="divider"></div>
 
-*This is the first exercise for the pcapexpress series. However it was not my first attempt at this particular exercise, it took some time to get my bearings, and the project was abandoned twice at this point. But now I feel quite comfortable navigating WireShark and I must say I’m digging the processes of pcap investigation. Much to learn, much to do.*
+*This is the first pcap investigation sorted for the pcapexpress series.<br>
+However it was not my first attempt at this particular exercise, it took some time to get my bearings,<br>
+the project was abandoned twice at this point. But sometimes stubborness is a virue.<br>
+I feel quite comfortable navigating WireShark and I must say I’m digging the processes of pcap investigation.<br>
+Much to learn, much to do. Jolly good, moving on!*
 
-This will conclude the first exercise in the series. See you in the next one!/<br>
+#### NEXT STOP?
+
+This will conclude the first exercise in the series. See you in the next one!<br>
+[PCAP-EXPRESS:02 "Nemotodes" ](./PCAP-EXPRESS-02.md)<br>
+*Virus over fake software update.*<br>
+
 <div class="divider-wire">
   <span class="line"></span>
   <span class="symbol">⦿</span>
