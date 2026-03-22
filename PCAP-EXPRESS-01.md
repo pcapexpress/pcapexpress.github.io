@@ -18,8 +18,8 @@ In the mean time the IT department will handle wiping the affected machine.<br>
 </code></pre>
 ### Tools:
 <pre data-label="TASK" style="--delay: 0.7s;"><code>
-<span class="orange"><strong>* Wireshark</strong></span> – pcap inspection               <span class="orange"><strong>* CyberChef</strong></span> – decoding malicious traffic
-<span class="orange"><strong>* VirusTotal</strong></span> – checking for malicious IPs and Files    <span class="orange"><strong>* md5sum</strong></span> – calculating file hashes
+<span class="orange"><strong>* Wireshark</strong></span> – pcap inspection         <span class="orange"><strong>* VirusTotal</strong></span> – malicious IPs and File inspection
+<span class="orange"><strong>* CyberChef</strong></span> – decoding packet data    <span class="orange"><strong>* md5sum</strong></span> – calculating file hashes
 </code></pre>
 
 ## 00: Prologue
