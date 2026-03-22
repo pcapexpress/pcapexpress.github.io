@@ -21,22 +21,21 @@ In the mean time the IT department will handle wiping the affected machine.<br>
 <span class="orange"><strong>* Wireshark</strong></span> – pcap inspection               <span class="orange"><strong>* CyberChef</strong></span> – decoding malicious traffic
 <span class="orange"><strong>* VirusTotal</strong></span> – checking for malicious IPs and Files    <span class="orange"><strong>* md5sum</strong></span> – calculating file hashes
 </code></pre>
-<span class="orange"><strong>* VirusTotal</strong></span> – checking for malicious IPs and Files
 
 ## 00: Prologue
 
-This is my first exercise in the series. The goal is to showcase my thinking<br>
+  This is my first exercise in the series. The goal is to showcase my thinking<br>
 in a (hopefuly) simple to follow investigation complemented by images.<br>
 The outcome of the investigation will be checked with the answers provided.<br>
-I’m trying to showcase my skills at the time of writing.<br> Still much to learn,<br>
-however, no better time to start than now.<br>
+I’m trying to showcase my skills at the time of writing.<br>
+Still much to learn, however, no better time to start than now.<br>
 ***Let the Upward Mobility commence***!<be>
 
 <div class="divider"></div>
 
 ## 01: HOST DISCOVERY
 
-Our first job is to gather details on the victim machine. We can filter for DHCP traffic.
+  Our first job is to gather details on the victim machine. We can filter for DHCP traffic.
 Heres a good way to filter or that: “dhcp.option.type == 12”, we are interested in the DHCP Request packet details.
 
 ![02.DHCP request.png](assets/images/pcap-express/project.01/02.dhcp-request.png)
@@ -47,7 +46,7 @@ Heres a good way to filter or that: “dhcp.option.type == 12”, we are interes
 
 <small>“03.DHCP details.png”<small>
 
-This gives us most of the necessary Host details but one more piece of information can be gathered.<br>
+  This gives us most of the necessary Host details but one more piece of information can be gathered.<br>
 We can use the **Kerberos** protocol traffic to check if a user name is available,<br>
 for this we filter for *“kerberos”* and search if we get any data in the **CNameString** field.
 
@@ -67,11 +66,10 @@ Here are the results of our host enumiration:
 
 ## 02: EXAMINING TRAFFIC
 
-A great way to start would be to check the HTTP and HTTPS traffic minusing the SSDP (Simple Service Discovery Protocol) for noise reduction. 
-
-We filter for “(http.request or tls.handshake.type == 1) and !(ssdp)”
-
-We want to see the GET requests first to check for malicious downloads. Which we locate almost immediately. We shall take a look at the downloaded files later. But we see the suspicious domains.
+A great way to start would be to check the HTTP and HTTPS traffic minusing the SSDP (Simple Service Discovery Protocol) for noise reduction.<br>
+We filter for <span class="badge-data">(http.request or tls.handshake.type == 1) and !(ssdp)</span><br>
+We want to see the GET requests first to check for malicious downloads. Which we locate almost immediately.<br>
+We shall take a look at the downloaded files later. But we see the suspicious domains.<br>
 
 ![05.Fake domain + GET.png](assets/images/pcap-express/project.01/05.fake-domain-get.png)
 
@@ -83,23 +81,25 @@ The suspects are:
 **No.02:** <span class="badge-data">authenticatoor[.]org</span><br>
 **No.03:** <span class="badge-data">5[.]252[.]153[.]241</span><br>
 
-All three are marked as malicious by VirusTotal. The first 2 are posing as a legitimate authentication website/app.<br>
+  All three are marked as malicious by VirusTotal. The first 2 are posing as a legitimate authentication website/app.<br>
 When examining the 3d suspect IP we check the Communicating Files section in the Relations tab of VirusTotal<br>
 and we find that it is known for the <span class="badge-data">29842.ps1</span> file.<br>
-
 We discover that file name in the TCP stream of the first GET request from our malicious IP.<br>
 
 ![06.First GET TCP stream.png](assets/images/pcap-express/project.01/06.first-get-tcp-stream.png)
 
 <small>“06.First GET TCP stream.png”<small>
 
-The first step appears to be executing a shell script that calls for the malicious file in question to be downloaded. We shall take a look at the TCP stream of the second GET request.
+  The first step appears to be executing a shell script that calls for the malicious file in question to be downloaded.<br>
+  We shall take a look at the TCP stream of the second GET request.
 
 ![07.Second GET TCP stream.png](assets/images/pcap-express/project.01/07.second-get-tcp-stream.png)
 
 <small>“07.Second GET TCP stream.png”<small>
 
-We see an obfuscated and encrypted payload. The following string is an indicator of just that: ('F#r[o;m;B[a[s#e#6#4[S;t;r[i;n#g['.replace('#','').replace(';','').replace('[','').The encryption is Base64 and there are characters that can be removed in order to decrypt the payload. So we use CyberChef.
+We see an obfuscated and encrypted payload. The following string is an indicator of just that:<br>
+<span class="badge-data">('F#r[o;m;B[a[s#e#6#4[S;t;r[i;n#g['.replace('#','').replace(';','').replace('[','')</span><br>
+The encryption is Base64 and there are characters that can be removed in order to decrypt the payload. So we use CyberChef.<br>
 
 ![08.CyberChef decrypted.png](assets/images/pcap-express/project.01/08.cyberchef-decrypted.png)
 
