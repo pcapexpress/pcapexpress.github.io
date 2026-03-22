@@ -5,37 +5,32 @@ title: PCAP:01
 # PCAPEXPRESS Wireshark Series
 ## Exercise 01: Download from fake software site
 ### Briefing:
+**Platform:** <span class="badge-data">malware-traffic-analysis[.]net</span><br>
+**Pcap File:** <span class="badge-data">2025-01-22-traffic-analysis-exercise.pcap</span><br>
 As a SOC analyst, we are contacted to investigate a pcap file of a confirmed infection.<br>
 A staff member most likeley downloaded a file from a malicious page after searching for Google's Authenticator.<br>
 We must investigate and write the key findings in a short report.<br>
 In the mean time the IT department will handle wiping the affected machine.<br>
 
-**Platform:** <span class="badge-data">malware-traffic-analysis[.]net</span><br>
-**Pcap File:** <span class="badge-data">2025-01-22-traffic-analysis-exercise.pcap</span><br>
-
-### TASK & TOOLS:
+### TASK:
 <pre data-label="TASK" style="--delay: 0s;"><code>
 01.Discover host details - <span class="orange">[x]</span> 02.Investigate breach - <span class="orange">[x]</span> 03.Write consise report - <span class="orange">[x]</span>
 </code></pre>
 ### Tools:
-<pre data-label="TASK" style="--delay: 0s;"><code>
-<span class="orange"><strong>* Wireshark</strong></span> – pcap inspection               <span class="orange"><strong>* VirusTotal</strong></span> – checking for malicious IPs and Files
-<span class="orange"><strong>* CyberChef</strong></span> – decoding malicious traffic    <span class="orange"><strong>* md5sum</strong></span> – calculating file hashes
+<pre data-label="TASK" style="--delay: 0.7s;"><code>
+<span class="orange"><strong>* Wireshark</strong></span> – pcap inspection               <span class="orange"><strong>* CyberChef</strong></span> – decoding malicious traffic
+<span class="orange"><strong>* VirusTotal</strong></span> – checking for malicious IPs and Files    <span class="orange"><strong>* md5sum</strong></span> – calculating file hashes
 </code></pre>
-
-### Tools:
-**Wireshark** – <span class="badge-data"><strong>pcap inspection</strong></span><br>
-**VirusTotal** – <span class="badge-data"><strong>checking for malicious IPs and Files</strong></span><br>
-**CyberChef** – <span class="badge-data"><strong>decoding malicious traffic</strong></span><br>
-**md5sum** – <span class="badge-data"><strong>calculating file hashes</strong></span><br>
+<span class="orange"><strong>* VirusTotal</strong></span> – checking for malicious IPs and Files
 
 ## 00: Prologue
 
-This is my first exercise in a series of working with actual real world malicious network traffic.
-The goal is to showcase my thinking in a simple to follow investigation complemented by images.
-The outcome of the investigation will be checked with the answers provided.
-I’m trying to show what I can do at the time of writing. A long way to go and no better time than now.
-Let the Upward Mobility commence. 
+This is my first exercise in the series. The goal is to showcase my thinking<br>
+in a (hopefuly) simple to follow investigation complemented by images.<br>
+The outcome of the investigation will be checked with the answers provided.<br>
+I’m trying to showcase my skills at the time of writing.<br> Still much to learn,<br>
+however, no better time to start than now.<br>
+***Let the Upward Mobility commence***!<be>
 
 <div class="divider"></div>
 
@@ -84,15 +79,15 @@ We want to see the GET requests first to check for malicious downloads. Which we
 
 The suspects are:
 
-01. google-authenticator[.]burleson-appliance[.]net<br>
-02. authenticatoor[.]org<br>
-03. 5[.]252[.]153[.]241<br>
+**No.01:** <span class="badge-data">google-authenticator[.]burleson-appliance[.]net</span><br>
+**No.02:** <span class="badge-data">authenticatoor[.]org</span><br>
+**No.03:** <span class="badge-data">5[.]252[.]153[.]241</span><br>
 
 All three are marked as malicious by VirusTotal. The first 2 are posing as a legitimate authentication website/app.<br>
 When examining the 3d suspect IP we check the Communicating Files section in the Relations tab of VirusTotal<br>
-and we find that it is known for the 29842.ps1 file.
+and we find that it is known for the <span class="badge-data">29842.ps1</span> file.<br>
 
-We discover that file name in the TCP stream of the first GET request from our malicious IP.
+We discover that file name in the TCP stream of the first GET request from our malicious IP.<br>
 
 ![06.First GET TCP stream.png](assets/images/pcap-express/project.01/06.first-get-tcp-stream.png)
 
@@ -158,7 +153,8 @@ Here are the results:<br>
 
 <pre data-label="OBJECTS"><code>
 01.File Name: <span class="red">29842.ps1</span>                          02.File Name: <span class="red">pas.ps1</span>
-MD5 Hash: ce075aee9430f3a8f2809356f4deca8e       MD5 Hash: 10febc686b7035ba0731c85e8e474bcdVirusTotal Result: <span class="red">Malicious</span>                     VirusTotal Result: <span class="red">Malicious</span>
+MD5 Hash: ce075aee9430f3a8f2809356f4deca8e       MD5 Hash: 10febc686b7035ba0731c85e8e474bcd
+VirusTotal Result: <span class="red">Malicious</span>                     VirusTotal Result: <span class="red">Malicious</span>
 Poplar threat label: trojan.powershell/obfuse    Poplar threat label: trojan.powershell/malgent
 BitDefender: Trojan.Generic.38977079             BitDefender: rojan.Generic.38018337
   
@@ -187,32 +183,7 @@ The next procedure would be to update the banned IP addresses and add the Malwar
 
 Below is a comprehensive collection of data for future use and investigations.
 
----
-
-### **Compromised Host**
-
-> IP Address: 10.1.17.215
-> MAC address: Intel_26:4a:74 (00:d0:b7:26:4a:74)
-> Host Name: DESKTOP-L8C5GSJ
-> Client name: DESKTOP-L8C5GSJ.bluemoontuesday.com
-> User Name: shutchenson
-
-### **Attackers**
-
-* Fake domain 01: google-authenticator[.]burleson-appliance[.]net
-* Fake domain 02: authenticatoor[.]org
-
-C2 Server 01: 5[.]252[.]153[.]241
-C2 Server 02: 45[.]125[.]66[.]32
-C2 Server 03: 45[.]125[.]66[.]252
-
-### **Malware MD5 Hashes**
-
-TV.dll - <small>66af1c986968e3bf2a35791e8b55581f<small>
-29842.ps1 - <small>ce075aee9430f3a8f2809356f4deca8e<small>
-pas.ps1 - <small>10febc686b7035ba0731c85e8e474bcd<small>
-
----
+<div class="divider"></div>
 
 *This is the first exercise for the pcapexpress series. However it was not my first attempt at this particular exercise, it took some time to get my bearings, and the project was abandoned twice at this point. But now I feel quite comfortable navigating WireShark and I must say I’m digging the processes of pcap investigation. Much to learn, much to do.*
 
