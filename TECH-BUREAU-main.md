@@ -21,12 +21,12 @@ a more subtle approach is needed, a data base vulnerability is exploited. The Sn
 A phishing campaign  is now in the cards, but how can we extract the data this time to dupe the TECH-BUREAU?<br>
 **STAY TUNED TO FIND OUT!***
 
-#### FRUITS OF LABOR:
+#### LABORIOUS FRUITS:
 * Competence in setting up a Wazuh agent.<br>
-* Using OracleVM to establish a target box.
+* Using OracleVM to establish a target machines.<br>
 * SSH in to a headless VM for setup and administration.<br>
-* Fine tuning alerts via IPtables and Auditctl.<br>
-* Planning an attack strategy with backup solutions.<br>
+* Fine tuning Wazuh alerts with IPtables and Auditctl.<br>
+* Planning an attack strategy with backup options.<br>
 * Attaining more experience with packet capture/inspection.<br>
 * Wright up the findings in an ASKII "human readable" format.<br>
 
