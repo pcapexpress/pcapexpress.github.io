@@ -925,13 +925,13 @@ footer::after {
 
 //8.13 SUBTLE WIRE ANNIMATION
 @keyframes subtleFlicker {
-  0%, 100% { opacity: 0.7; }
-  33%      { opacity: 0.5; }
-  34%      { opacity: 0.8; }
-  35%      { opacity: 0.6; }
-  80%      { opacity: 0.7; }
-  82%      { opacity: 0.3; }
-  83%      { opacity: 0.7; }
+  0%, 100% { opacity: 0.8; }
+  33%      { opacity: 0.6; }
+  34%      { opacity: 0.9; }
+  35%      { opacity: 0.7; }
+  80%      { opacity: 0.8; }
+  82%      { opacity: 0.4; }
+  83%      { opacity: 0.8; }
 }
 
 //8.14 H4 SHADOW FLICKER
