@@ -6,9 +6,9 @@ title: WIRESHARK SERIES
 # PCAPEXPRESS WIRESHARK Series
 ## THE ORIGINAL DFIR EXPIRIENCE
 ### IT STARTS:
-&emsp;This is where the project casted off. Diving in to the pcap goodness and trying to make sense of it one session at a time.<br>
-At this point I have looked at a good amount of traffic and protocols and gained a certain feeling of confidence and aditional<br>
-curiosity to what is actualy happening under the hood of a buisy network.<br>
+&emsp;&emsp;This is where the project casted off. Diving in to the pcap goodness<br>
+and trying to make sense of it one session at a time. At this point I have looked at a good amount of traffic and protocols and gained<br>
+a certain feeling of confidence and aditional curiosity regarding what is actualy happening under the hood of a buisy network.<br>
 Below You will find 3 exercises of pcap analisys, the samples are taken from <span class="badge-data">malware-traffic-analysis[.]net</span><br>
 Malicious linked have been defanged.<br>
 
