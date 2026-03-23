@@ -6,7 +6,7 @@ title: About
 # CAR ATTENDANT ANDERSON PRESENTS
 ## A BOLD VOYAGE TOWARDS A TANGIBLE GOAL
 
-### About the Author
+### About the Author:
 
 <img src="assets/images/about/handsome-man.jpg" 
      class="img-cyber" 
