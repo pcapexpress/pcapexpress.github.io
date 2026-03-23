@@ -35,14 +35,6 @@ A phishing campaign  is now in the cards, but how can we extract the data this t
 * Attaining more experience with packet capture/inspection.<br>
 * Wright up the findings in an ASKII "human readable" format.<br>
 
-#### Lessons Learned
-<section>
-  <ul class="hover-card"> <li><strong>No01.</strong> Setting up and breaking, resting, restarting.</li>
-  </ul>
- <ul class="hover-card"> <li><strong>No02.</strong> Thinking like the Great Sneak and purloining the digital jewels.</li>
-  </ul>
-</section>
-
 <div class="divider-wire">
   <span class="line"></span>
   <span class="symbol">⦿</span>
