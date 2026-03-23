@@ -10,9 +10,10 @@ title: WIRESHARK SERIES
 This is where the project casted off. Diving in to the pcap goodness and trying to<br>
 make sense of it all, one session at a time. At this point I have looked at a<br>
 good amount of traffic and protocols and gained a certain feeling of confidence<br>
-and aditional curiosity regarding what is actualy happening under the hood of a buisy network.<br>
-Below You will find 3 exercises of pcap analisys, the samples are taken from <span class="badge-data">malware-traffic-analysis[.]net</span><br>
-Malicious linked have been defanged.<br>
+and aditional curiosity regarding the actualy happenings of a buisy network.<br>
+Below You will find 3 exercises of pcap analisys,<br>
+the **pcaps** are taken from <span class="badge-data">malware-traffic-analysis[.]net</span><br>
+Malicious links have been defanged.<br>
 
 #### EXPLORE THE LINKS BELOW:
 
