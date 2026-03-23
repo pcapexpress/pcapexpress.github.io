@@ -6,7 +6,8 @@ title: TECH-BUREAU SERIES
 # PCAPEXPRESS TECH-BUREAU SERIES
 ## SETUP, INFILTRATE, REFLECT, REFINE, REPEAT.
 ### SOC IN A BOX
-&emsp;This **Purple Team Project** is divided in to 3 Phases, the nature and spirit is a **capture the flag** type arrangement.<br>
+
+This **Purple Team Project** is divided in to 3 Phases, the nature and spirit is a **capture the flag** type arrangement.<br>
 In order to showcase some concepts a rather vulnerable Ubuntu Server has been spun up.<br>
 Custom Wazuh alerts have been set in place to make the dashboard look clean.<br>
 I would like to humbly add that mistakes are very possible, so apply a grain of salt where necessary.<br>
@@ -25,7 +26,7 @@ a more subtle approach is needed, a data base vulnerability is exploited. The Sn
 A phishing campaign  is now in the cards, but how can we extract the data this time to dupe the TECH-BUREAU?<br>
 **STAY TUNED TO FIND OUT!***
 
-#### LABORIOUS FRUITS:
+#### FRUITFULNESS OF LABOUR:
 * Competence in setting up a Wazuh agent.<br>
 * Using OracleVM to establish a target machines.<br>
 * SSH in to a headless VM for setup and administration.<br>
