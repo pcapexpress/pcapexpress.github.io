@@ -172,7 +172,7 @@ BitDefender: Gen:Variant.Doina.88562
 
 <div class="divider"></div>
 
-## 05. Short Report and Conclusion
+## 04. Short Report and Conclusion
 
 We have established that a company employee (**host:DESKTOP-L8C5GSJ**) has clicked on a link taking them to a fake domain (**google-authenticator[.]burleson-appliance[.]net**) posing to be a legitimate authentication service provider. 
 The employee proceeded downloading and executing a file that started a chain reaction of downloading a sequence of files and deploying malware on their machine.
@@ -184,7 +184,7 @@ The next procedure would be to update the banned IP addresses and add the Malwar
 
 This will conclude the first exercise in the series. See you in the next one!<br>
 [PCAP-EXPRESS:02 "Nemotodes" ](./PCAP-EXPRESS-02.md)<br>
-*Virus over fake software update.*<br>
+*Virus from a fake software updater.*<br>
 
 <div class="divider-wire">
   <span class="line"></span>
