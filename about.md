@@ -76,7 +76,7 @@ Visit the Credly.com page to verify - <a href="https://www.credly.com/users/andr
 
 ### 05.TryHackMe
 
-**Rank:** <span class="badge-data">14/21 0xD [Legend] ≥ 20,000 points</span><br> **Country:** <span class="badge-data">ICELAND</span> <span class="text-data"><strong>TOP 1%</strong></span>
+**Rank:** <span class="badge-data">14/21 0xD [Legend] ≥ 20,000 points</span> **Country:** <span class="badge-data">ICELAND</span> <span class="text-data"><strong>TOP 1%</strong></span>
 <br>
 I have started my Cyber journey with <span class="text-data"><strong>TryHackMe</strong></span> and what a ride it has been.<br>
 Over the last couple of years I have been gravitating towards different paths.<br>
