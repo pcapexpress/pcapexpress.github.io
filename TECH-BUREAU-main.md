@@ -4,10 +4,14 @@ title: TECH-BUREAU SERIES
 ---
 
 # PCAPEXPRESS TECH-BUREAU SERIES
-
 ## SETUP, INFILTRATE, REFLECT, REFINE, REPEAT.
+### SOC IN A BOX
+&emsp;This **Purple Team Project** is divided in to 3 Phases, the nature and spirit is a **capture the flag** type arrangement.<br>
+In order to showcase some concepts a rather vulnerable Ubuntu Server has been spun up.<br>
+Custom Wazuh alerts have been set in place to make the dashboard look clean.<br>
+I would like to humbly add that mistakes are very possible, so apply a grain of salt where necessary.<br>
 
-This Project is divided in to 3 Phases, the nature and spirit is a capture the flag type arrangement. In order to showcase some concepts a rather vulnerable Server has been spun up. Custom Wazuh alerts have been set in place to make the dashboard look clean. I would like to humbly add that mistakes are very possible, so apply a grain of salt where necessary. Follow the links bellow if you please.<br>
+### Follow these Links if you please:
 
 [**TECH-BUREAU-SERIES: PHASE 01.** ](./TECH-BUREAU-PHASE-01.md)<br>
 *Enumerate, brute force and exfiltrate. The Loud Unapologetic breaking and entering,<br>a plundering most foul.<br>*
