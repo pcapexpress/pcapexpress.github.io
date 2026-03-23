@@ -15,7 +15,7 @@ Below You will find 3 exercises of pcap analisys,<br>
 the **pcaps** are taken from <span class="badge-data">malware-traffic-analysis[.]net</span><br>
 Malicious links have been defanged.<br>
 
-#### EXPLORE THE LINKS BELOW:
+### EXPLORE THE LINKS BELOW:
 
 [PCAP-EXPRESS:01 "Download from fake software site" ](./PCAP-EXPRESS-01.md)<br>
 *Virus from a fake downloader.*
@@ -26,7 +26,7 @@ Malicious links have been defanged.<br>
 [PCAP-EXPRESS:03 "Big Fish In a Little Pond" ](./PCAP-EXPRESS-03.md) <br>
 *Virus with a beacon.*
 
-#### LABORIOUS FRUITS:
+### LABORIOUS FRUITS:
 * Have Wireshark setup for effective malware detection.<br>
 * Have saved filters at the ready.<br>
 * Understanding of packet details.<br>
