@@ -20,7 +20,7 @@ The goal is to become a fully fledged SOC analyst with the ability to specialize
      Currently residing on an island just of the coast of Croatia I have picked up kayaking. Regular sessions on the sea and participating in accredited courses have yielded 3 certificates and a set of practical skills I never knew I would chase after. As a result I am a ACA trip leader and instructor, the maneuver I’m proud of the most is certainly the <strong><em>C-to-C Eskimo roll.</em></strong></p>
 <div style="clear: both;"></div>
 
-### CAREER GOALS
+### CAREER GOALS:
 <section>
   <ul class="hover-card"> <li><strong>Early Days:</strong> Tier 01 - building competence within a SOC team, learn the ropes.</li>
   </ul>
@@ -32,7 +32,7 @@ The goal is to become a fully fledged SOC analyst with the ability to specialize
 
 <div class="divider"></div>
 
-## CERTIFICATES
+## CERTIFICATES:
 <div style="display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; margin: 50px 0; width: 100%;">
   
   <img src="assets/images/about/badge-comptia.png" 
@@ -77,11 +77,12 @@ Visit the Credly.com page to verify - <a href="https://www.credly.com/users/andr
 ### 05.TryHackMe
 
 **Rank:** <span class="badge-data"><strong>14/21 0xD [Legend] ≥ 20,000 points</strong></span><br>
-I have started my Cyber journey with <span class="text-green"><strong>TryHackMe</strong></span> and what a ride it has been.<br>
+<br>
+I have started my Cyber journey with <span class="text-data"><strong>TryHackMe</strong></span> and what a ride it has been.<br>
 Over the last couple of years I have been gravitating towards different paths.<br>
 At the moment my progress is on hold, I am relying on labs of my own direction.<br>
-However looking at my path progress I'm just itching to get back and button up some of them,<br>
-I mean look how close I am to the <span class="text-red"><strong>CompTia Pentest+</strong></span>.<br>
+Reflecting upon my path progress I'm just itching to get back and button up some of them.<br>
+I mean look how close I am to the <span class="text-orange"><strong>CompTia Pentest+</strong></span>.<br>
 <br>
 **P.S.** *don't ask me why I prioritized red teaming of the bat*.<br>
 
