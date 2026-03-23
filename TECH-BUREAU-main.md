@@ -5,12 +5,14 @@ title: TECH-BUREAU SERIES
 
 # PCAPEXPRESS TECH-BUREAU SERIES
 ## SETUP, INFILTRATE, REFLECT, REFINE, REPEAT.
-### SOC IN A BOX
+### A SOC IN A BOX:
 
-This **Purple Team Project** is divided in to 3 Phases, the nature and spirit is a **capture the flag** type arrangement.<br>
+This **Purple Team Project** is divided in to 3 Phases,<br>
+the nature and spirit is a **capture the flag** type arrangement.<br>
 In order to showcase some concepts a rather vulnerable Ubuntu Server has been spun up.<br>
 Custom Wazuh alerts have been set in place to make the dashboard look clean.<br>
-I would like to humbly add that mistakes are very possible, so apply a grain of salt where necessary.<br>
+I would like to humbly add that mistakes are very possible,<br>
+so apply a grain of salt where necessary.<br>
 
 ### Follow these Links if you please:
 
