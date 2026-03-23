@@ -362,7 +362,7 @@ p, div, li {
   letter-spacing: 0.2px;
   // 4.5 LINKS
   a { 
-    color: $orange;
+    color: $green;
     background: rgba($medium-bg, 0.2);
     text-decoration: none;
     font-weight: bold;
@@ -371,7 +371,7 @@ p, div, li {
     display: inline-block;
     padding: 2px 4px;
     z-index: 5;
-    border-bottom: 2px solid rgba($orange, 0.6); // Underline
+    border-bottom: 2px solid rgba($green, 0.6); // Underline
 
     //THE ANIMATED LINE
       &::after {
