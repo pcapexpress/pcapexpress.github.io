@@ -28,7 +28,7 @@ a more subtle approach is needed, a data base vulnerability is exploited. The Sn
 A phishing campaign  is now in the cards, but how can we extract the data this time to dupe the TECH-BUREAU?<br>
 **STAY TUNED TO FIND OUT!***
 
-#### FRUITFULNESS OF LABOUR:
+### FRUITFULNESS OF LABOUR:
 * Competence in setting up a Wazuh agent.<br>
 * Using OracleVM to establish a target machines.<br>
 * SSH in to a headless VM for setup and administration.<br>
