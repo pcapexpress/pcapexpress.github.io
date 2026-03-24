@@ -13,7 +13,7 @@ Alerts on traffic th network indicate someone has been infected.<br>
 Two alert log files have been provided to help correlate the events.<br>
 Analyze and report.<br>
 
-### TASK:
+### TASK 
 <pre data-label="TASK" style="--delay: 0s;"><code>
 01.Discover host details - <span class="orange">[x]</span> 02.Investigate breach - <span class="orange">[x]</span> 03.Write consise report - <span class="orange">[x]</span>
 </code></pre>
@@ -27,6 +27,10 @@ Analyze and report.<br>
 
 This exercise is giving us some useful pointers regarding the infection.<br>
 As 2 log files are given we can quicker get to the infection source.
+
+![00.alerts.png](assets/images/pcap-express/project.02/00.alerts.png)
+
+<small>‘00.alerts.png’</small>
 
 <div class="divider"></div>
 
@@ -125,7 +129,7 @@ It returned benign on VirusTotal. However I would asume it is some type of scrip
 **Comment:** Second suspicious GET. I ran the strings command on the loca.asp<br>
 and we got coordinates: 33.7488,-84.3877. Evidence of recognizance.<br>
 “The geographic coordinates 33.7488° N, 84.3877° W<br>
-correspond to a location in Downtown Atlanta, Georgia”<br>
+correspond to a location in Downtown Atlanta, Georgia<br>
 
 We got an true alert for this one.
 
@@ -137,13 +141,15 @@ We got an true alert for this one.
 **Domain:** <span class="badge-data">194[.]180[.]191[.]64</span><br>
 **VirusTotal Result:** 5/95 security vendors flagged this IP address as malicious<br>
 **Object:** http://194.180.191.64/fakeurl.htm HTTP/1.1<br>
-**Comment:** Malicious. Since this address is getting POST request every second I am assuming it is the Command and Control server. Curiously the data is sent over HTTP on port 443. We can follow the HTTP stream and gather that there are several commands being requested and or executed.
+**Comment:** Malicious. Since this address is getting POST request every minute<br>
+I am assuming it is the Command and Control server.<br>
+Curiously the data is sent over HTTP on port 443.<br>
 
-First is CMD=POLL; INFO=1; ACK=1.
-Followed by CMD=ENCD; ES=1; DATA=.g+$.{.. \....W..D.6..=M..w}..o.......…
-So the post commands are being encrypted.
+![01.POST.png](assets/images/pcap-express/project.02/01.POST.png)
 
-This confirms several alerts.
+<small>‘01.POST.png’</small>
+
+And teh coresponding alerts.
 
 ![18.RAT activity.png](assets/images/pcap-express/project.02/18.RAT_activity(c).png)
 
@@ -153,10 +159,10 @@ This confirms several alerts.
 
 ## 03. Short Report and Conclusion
 
-We have confirmed that a user **(DESKTOP-B8TQK49)** has interacted with a malicious domain witch<br>
-has started an infection sequence that has been cross referenced with the alerts provided.<br>
-Investigating the traffic revealed a successful malware execution<br>
-most likely via interaction with the malicious domain **(confirmsubscription[.]com)**.<br>
+We have confirmed that a user **(DESKTOP-B8TQK49)** has interacted with a malicious domain<br>
+witch has started an infection sequence, cross referenced with the alerts provided.<br>
+Investigating the traffic revealed a successful malware execution most likely<br>
+via interaction with the malicious domain **(confirmsubscription[.]com)**.<br>
 This has led to an infection by a **Remote Access Trojan** or (RAT) on the victims system,<br>
 the virus has began communicating with the Command and Control server of the adversary<br>
 using encrypted **HTTP POST** requests over port **443** (not 80).<br>
@@ -165,7 +171,8 @@ The malicious URLs are to be added to the IDS/Firewall block list.<br>
 
 ### HOP ON FOR THE NEXT ONE!
 
-We got to explore and focus on domains in an infection chain rather than malicious objects.<br>
+This was a little different, we got to explore and focus on series of domains<br>
+in an infection chain rather than malicious objects themselves.<br>
 Lets move on to number 3 shall we?<br>
 [PCAP-EXPRESS:03 "Big Fish In a Little Pond" ](./PCAP-EXPRESS-03.md)<br>
 *Virus with a beacon.*
