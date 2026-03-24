@@ -187,9 +187,11 @@ using 2 IPs (**45.125.66.32 and 45.125.66.252**).
 The briefing states that the IT department has wiped the affected machine and there is no immediate threat to the organization.
 The next procedure would be to update the banned IP addresses and add the Malware hashes to the EDR/Antivirus solution data bank.
 
-### NEXT STOP?
+### NEXT STOP, MORE PCAP!
 
-This will conclude the first exercise in the series. See you in the next one!<br>
+This will conclude the first exercise in the series.<br>
+Was most satisfying unraveling the malware part!<br>
+Next one is slightly different.<br>
 [PCAP-EXPRESS:02 "Nemotodes" ](./PCAP-EXPRESS-02.md)<br>
 *Virus from a fake software updater.*<br>
 
