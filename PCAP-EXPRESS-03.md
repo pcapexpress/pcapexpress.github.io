@@ -34,9 +34,8 @@ A significant portion of the triage involved distinguishing between false positi
 
 ## 01: Host Discovery
 
-I'm beginning with the affected hosts detail gathering.
-
-First is checking for the DHCP Request.
+I'm beginning with the affected hosts detail gathering.<br>
+First is checking for the **DHCP** Request.<br>
 
 ![01a.DHCP Request.png](assets/images/pcap-express/project.03/01a.DHCP_Request(c).png)
 
@@ -48,33 +47,20 @@ We have that traffic. We look in to the packet details.
 
 <small>‘01b.DHCP Request Details.png’</small>
 
-We have discovered:
-
-> MAC address: Intel_b6:8d:c4 (18:3d:a2:b6:8d:c4)
-> IP address: 172.17.0.99
-> Host Name: DESKTOP-RNV09AT
-
-Next we look in to Kerberos to check for a user name.
+Moving on to <span class="badge-data">Kerberos</span> to check for a **user name**.
 
 ![01c.Kerberos Cname.png](assets/images/pcap-express/project.03/01c.Kerberos_CName(c).png)
 
 <small>‘01c.Kerberos Cname.png’</small>
 
-We get CnameString data:
-
-> User Name: afletcher
-
-We can further check the LDAP for CN=Users to see if we can expand on the user name a bit. And we are successful.
+We can further check the **LDAP** for **CN=Users** to see if we can expand on the user name a bit. And we are successful.
 
 ![01d.LDAP CN=Users.png](assets/images/pcap-express/project.03/01d.LDAP_CN=Users(c).png)
 
 <small>‘01d.LDAP CN=Users.png’</small>
 
-The info column gives us the first name.
-
-User Name: Andrew Fletcher
-
-With the Host Discovery out of the way I would like to go through the alert list now and try to find evidence(or lack there off) of each one.
+The gathered results are below. With the Host Discovery out of the way<br>
+Next we turn to the network traffic keeping the provided alert list in mind.<br>
 
 **IP Address:** <span class="badge-data">172.17.0.99</span><br>
 **MAC address:** <span class="badge-data">Intel_b6:8d:c4 (18:3d:a2:b6:8d:c4)</span><br>
@@ -88,7 +74,7 @@ With the Host Discovery out of the way I would like to go through the alert list
 
 **Alert:** <span class="badge-data">ET INFO GENERIC SUSPICIOUS POST to Dotted Quad with Fake Browser</span>
 
-This one is straight forward, we see a POST request that is directed to an IP address rather than a host.
+This one is straight forward, we see a POST request that is directed to an IP address rather than a host.<br>
 
 ![10a.Suspicious POST.png](assets/images/pcap-express/project.03/10a.Suspicious_POST(c).png)
 
@@ -100,8 +86,6 @@ We can see that the **POST** requests are quite numerous and they are sent out 1
 This is an indicator of **C2** traffic, sending out beacons.<br>
 However all of the <span class="badge-data">/foots.php</span> are sent out with 0 bytes witch would mean no exfiltration has yet occurred.<br>
 
-Alert Confirmed
-
 ![11a.CnC Trafic.png](assets/images/pcap-express/project.03/11a.CnC_Trafic(c).png)
 
 <small>‘11a.CnC Trafic.png’</small>
@@ -110,7 +94,8 @@ Alert Confirmed
 
 ## 03: Examining Objects/Domains
 
-One object of interest has been discovered along witha  couple of suspicious domains, lets check for some details.
+One object of interest has been discovered along with a couple of suspicious domains,<br>
+lets check VirusTOtal for some details.<br>
 
 <pre data-label="OBJECTS"><code>
 01.File Name: <span class="red">sd4.ps1</span>
