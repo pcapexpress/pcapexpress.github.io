@@ -84,9 +84,9 @@ With the Host Discovery out of the way I would like to go through the alert list
 
 <div class="divider"></div>
 
-## 02: Examining Alerts
+## 02: Examining Traffic
 
-ET INFO GENERIC SUSPICIOUS POST to Dotted Quad with Fake Browser
+**Alert:** <span class="badge-data">ET INFO GENERIC SUSPICIOUS POST to Dotted Quad with Fake Browser</span>
 
 This one is straight forward, we see a POST request that is directed to an IP address rather than a host.
 
@@ -94,19 +94,11 @@ This one is straight forward, we see a POST request that is directed to an IP ad
 
 <small>‘10a.Suspicious POST.png’</small>
 
-If we look at the HTTP stream of the packet we find the User-Agent to be Mozilla/4.0 which translates to an old version of Internet Explorer.
+**Alert:** <span class="badge-data">ETPRO TROJAN Win32/Koi Stealer CnC Checkin (POST) M2</span>
 
-“A legacy identifier used by early versions of Internet Explorer (up to IE 8) to indicate compatibility with the Mozilla rendering engine”
-
-Alert confirmed.
-
-![10b.Suspicious POST Details.png](assets/images/pcap-express/project.03/10b.Suspicious_POST_Details(c).png)
-
-<small>‘10b.Suspicious POST Details.png’</small>
-
-ETPRO TROJAN Win32/Koi Stealer CnC Checkin (POST) M2
-
-We can see that the POST requests are quite numerous and they are sent out 1 minute apart. This is an indicator of C2 traffic, sending out beacons. However all of the /foots.php are sent out with 0 bytes witch would mean no exfiltration has yet occurred.
+We can see that the **POST** requests are quite numerous and they are sent out 1 minute apart.<br>
+This is an indicator of **C2** traffic, sending out beacons.<br>
+However all of the <span class="badge-data">/foots.php</span> are sent out with 0 bytes witch would mean no exfiltration has yet occurred.<br>
 
 Alert Confirmed
 
