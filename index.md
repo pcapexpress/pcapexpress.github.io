@@ -43,7 +43,14 @@ Desire to delve deeper in to Malware Analysis and Development.
 
 #### A place to observe and reflect on packets passing by.
 
-<p class="text-center">[not a link] | [not a pdf] | [not drum'n'bass</p>
+<section>
+  <ul class="hover-card"> <li><strong>Early Days:</strong> Tier 01 - building competence within a SOC team, learn the ropes.</li>
+  </ul>
+  <ul class="hover-card"> <li><strong>Mid Term:</strong> Tier 02 - deepen triage knowledge and participate in Pentesting.</li>
+  </ul>
+</section>
+
+<p class="text-center">[not a link] | [not a pdf] | [not drum'n'bass]</p>
 <div class="divider-wire">
   <span class="line"></span>
   <span class="symbol">⦿</span>
