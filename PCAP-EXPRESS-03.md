@@ -53,7 +53,7 @@ Moving on to <span class="badge-data">Kerberos</span> to check for a **user name
 
 <small>‘01c.Kerberos Cname.png’</small>
 
-We can further check the **LDAP** for **CN=Users** to see if we can expand on the user name a bit.<br>
+We can further check the **LDAP** for **CN=Users** to get a full user name.<br>
 
 ![01d.LDAP CN=Users.png](assets/images/pcap-express/project.03/01d.LDAP_CN=Users(c).png)
 
@@ -82,9 +82,10 @@ This one is straight forward, we see a POST request that is directed to an IP ad
 
 **Alert:** <span class="badge-data">ETPRO TROJAN Win32/Koi Stealer CnC Checkin (POST) M2</span>
 
-We can see that the **POST** requests are quite numerous and they are sent out 1 minute apart.<br>
-This is an indicator of **C2** traffic, sending out beacons.<br>
-However all of the <span class="badge-data">/foots.php</span> are sent out with 0 bytes witch would mean no exfiltration has yet occurred.<br>
+We can see the numerous **POST** requests being sent out 1 minute apart.<br>
+This is an indicator of **C2** beacon traffic.<br>
+However all of the <span class="badge-data">/foots.php</span> are sent out with 0 bytes<br>
+witch would mean no data has been sent out, **command** or **exfiltration** wise.<br>
 
 ![11a.CnC Trafic.png](assets/images/pcap-express/project.03/11a.CnC_Trafic(c).png)
 
@@ -104,7 +105,6 @@ VirusTotal Result: <span class="red">Malicious</span>
 Poplar threat label: trojan.koistealer/psinj
 BitDefender: Trojan.Generic.37535674
 </code></pre>
-<div class="divider"></div>
 
 **02.IP:** <span class="badge-data">79[.]124[.]78[.]197</span><br>
 **Domain:** <span class="badge-data">n/a</span><br>
@@ -122,12 +122,14 @@ it is encrypted but we know that a total of 228kb of data has been exchanged<br>
 with 221kb coming from the malicious domain.<br>
 <br>
 
+<div class="divider"></div>
+
 ## 04. Short Report and Conclusion
 
-In this scenario we received a pcap file that did not alow to see the full picture of the infection,<br>
+In this particular exercise the pcap file did not feature the initial infection process.<br>
 we have observed the post infection but not the full payload deployment/developement.<br>
-We have detected traffic indicating our compromised host **(DESKTOP-RNV09AT)** communicating with a<br>
-suspicious domain **(www[.]bellantonicioccolato[.]it)**.<br>
+We have detected traffic indicating our compromised host<br>
+**(DESKTOP-RNV09AT)** communicating with a suspicious domain **(www[.]bellantonicioccolato[.]it)**.<br>
 After a short moment we have observed the host sending **POST** requests to a malicious IP address<br>
 indicating system compromise and the malware sending a beacon<br>
 to the adversarial command and control server 79[.]124[.]78[.]197.
