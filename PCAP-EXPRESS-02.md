@@ -26,7 +26,7 @@ Analyze and report.<br>
 ## 00: Prologue
 
 This exercise is giving us some useful pointers regarding the infection.<br>
-As 2 log files are given we can quicker get to the infection source.
+As 2 log files are given we can quicker get to the infection source.<br>
 
 ![00.alerts.png](assets/images/pcap-express/project.02/00.alerts.png)
 
@@ -45,7 +45,7 @@ Moving on to **NETBIOS**. Filtering for <span class="badge-data">“nbns.flags.o
 
 <small>‘02a.Netbios.png’</small>
 
-We get some **Registration Data**. We can examine the packet details to get some **Host** details.
+We get some **Registration Data**. Examining the packet details to get some **Host** details.<br>
 
 ![02b.Packet Details.png](assets/images/pcap-express/project.02/03.Packet_Details(c).png)
 
@@ -75,9 +75,10 @@ And quite quickly we discover just that.<br>
 
 <small>‘13.POST traffic.png’</small>
 
-POST request to a nameless host with <span class="badge-data">fakeurl.htm</span> in its **URL**.<br>
-The 2 **GET** requests just above the POST don’t instill confidence.<br>
-The first host in the image is <span class="badge-data">modandcrackedapk[.]com</span> witch is highly suspicious on its own. Before checking the IPs lets scroll up and find if the “**modandcrackedapk**” host has appeared before.<br>
+**POST** request to a nameless host with <span class="badge-data">fakeurl.htm</span> in its **URL**.<br>
+The 2 **GET** requests just above the **POST** don’t instill confidence. The first host<br>
+in the image is <span class="badge-data">modandcrackedapk[.]com</span> witch is highly suspicious on its own.<br>
+Before checking the IPs lets scroll up and find if the “**modandcrackedapk**” host has appeared before.<br>
 
 ![14.Tracing back.png](assets/images/pcap-express/project.02/14.Tracing_back(c).png)
 
