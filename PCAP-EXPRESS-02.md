@@ -112,7 +112,7 @@ We also have a true positive alert for this domain.
 04.IP: <span class="badge-data">104[.]117[.]247[.]99</span><br>		
 Domain: <span class="badge-data">r10.o.lencr.org</span><br>
 VirusTotal Result: At least 9 detected files communicating with this domain<br>
-Object ...
+Object:MFMwUTBPME(cut for bravity)69GH4A%3D%3D HTTP/1.1 
 Comment: This is the first suspicious GET request. I checked the file object. Took the MD5 hash.<br>
 It returned benign on VirusTotal. However I would asume it is some type of script or command that I don’t know how to decrypt. 
 
