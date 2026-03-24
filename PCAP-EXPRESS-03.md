@@ -11,8 +11,6 @@ title: PCAP:03
 Indicators suggest a host within the network environment has been infected with malware. This analysis covers the investigation of the provided packet capture and associated alert logs.
 
 
----
-
 ## 00: Prologue
 This is the third exercise in the series. The initial triage began with a review of the alert logs. Observations included SMB alerts similar to previous tasks, providing a baseline for comparison. 
 
@@ -22,7 +20,7 @@ A significant portion of the triage involved distinguishing between false positi
 
 <small>'00.Alerts.png'</small>
 
----
+<div class="divider"></div>
 
 ## 01: Host Discovery
 
@@ -68,11 +66,15 @@ User Name: Andrew Fletcher
 
 With the Host Discovery out of the way I would like to go through the alert list now and try to find evidence(or lack there off) of each one.
 
----
+**IP Address:** <span class="badge-data">172.17.0.99</span><br>
+**MAC address:** <span class="badge-data">Intel_b6:8d:c4 (18:3d:a2:b6:8d:c4)</span><br>
+**Host Name:** <span class="badge-data">DESKTOP-RNV09AT</span><br>
+**Client name:** <span class="badge-data">andrewfletcher</span><br>
+**User Name:** <span class="badge-data">Andrew Fletcher</span><br>
+
+<div class="divider"></div>
 
 ## 02: Examining Alerts
-
-
 
 ET INFO GENERIC SUSPICIOUS POST to Dotted Quad with Fake Browser
 
@@ -102,36 +104,58 @@ Alert Confirmed
 
 <small>‘11a.CnC Trafic.png’</small>
 
----
+<div class="divider"></div>
 
 ## 03: Examining Objects/Domains
 
 Nothing of interest in the object department however we have some interesting findings regarding the domains.
 
-**01.IP:** 79[.]124[.]78[.]197
-**Domain:** n/a
-**VirusTotal Result:** 2 detected files communicating with this IP address
-**Comment:** I have checked the suspicious files associated with this particular address and the first one mentioned is a power shell file called “sd4.ps1”, checking the details of the file we see it is indeed a malicious file that is labeled as koistealer trojan.
+**01.IP:** <span class="badge-data">79[.]124[.]78[.]197</span><br>
+**Domain:** <span class="badge-data">n/a</span><br>
+**VirusTotal Result:** 2 detected files communicating with this IP address<br>
+**Comment:** I have checked the suspicious files associated with this particular address and<br>
+the first one mentioned is a power shell file called “sd4.ps1”, checking the details of the<br>
+file we see it is indeed a malicious file that is labeled as koistealer trojan.<br>
+<br>
+**02.I.P:** <span class="badge-data">46[.]254[.]34[.]201</span><br>
+**Domain:** <span class="badge-data">www[.]bellantonicioccolato[.]it</span><br>
+**VirusTotal Result:** At least 10 detected files communicating with this domain<br>
+**Comment:** This domain is a accessed close to our malicious POST traffic. The ViruTotal comment<br>
+section has a mention of a KOI distribution domain. I have also checked the TCP stream, it is encrypted<br>
+but we know that a total of 228kb of data has been exchanged with 221kb coming from the malicious domain.<br>
+<br>
+**File Name:** sd4.ps1<br>
+**MD5 hash:** 3e86c8009a224924049a5279b9d21786<br>
+**Popular threat label:** trojan.koistealer/psinj<br>
+**BitDefender:** Trojan.Generic.37535674<br>
+<br>
+<pre data-label="OBJECTS"><code>
 
-**File Name:** sd4.ps1
-**MD5 hash:** 3e86c8009a224924049a5279b9d21786
-**Popular threat label:** trojan.koistealer/psinj
-**BitDefender:** Trojan.Generic.37535674
+01.IP: <span class="red">79[.]124[.]78[.]197</span>
+Domain: n/a
+VirusTotal Result: 2 detected files communicating with this IP address
+Comment: I have checked the suspicious files associated with this particular address
+and the first one mentioned is a power shell file called “sd4.ps1”, checking the details
+of the file we see it is indeed a malicious file that is labeled as koistealer trojan.
 
-**02.I.P:** 46[.]254[.]34[.]201
-**Domain:** www[.]bellantonicioccolato[.]it
-**VirusTotal Result:** At least 10 detected files communicating with this domain
-**Comment:** This domain is a accessed close to our malicious POST traffic. The ViruTotal comment section has a mention of a KOI distribution domain. I have also checked the TCP stream, it is encrypted but we know that a total of 228kb of data has been exchanged with 221kb coming from the malicious domain.
+02.I.P: <span class="red">46[.]254[.]34[.]201</span>
+Domain: <span class="red">www[.]bellantonicioccolato[.]it</span>
+VirusTotal Result: At least 10 detected files communicating with this domain
+Comment: This domain is a accessed close to our malicious POST traffic.
+The ViruTotal comment section has a mention of a KOI distribution domain.
+I have also checked the TCP stream, it is encrypted but we know that a total of
+228kb of data has been exchanged with 221kb coming from the malicious domain.
+ 
+03.File Name: <span class="red">sd4.ps1</span>
+MD5 Hash: 3e86c8009a224924049a5279b9d21786
+VirusTotal Result: <span class="red">Malicious</span>
+Poplar threat label: trojan.koistealer/psinj
+BitDefender: Trojan.Generic.37535674
+</code></pre>
 
----
+<div class="divider"></div>
 
-## 04. Malware Inspection
-
-Nothing of interest found.
-
----
-
-## 05. Short Report and Conclusion
+## 04. Short Report and Conclusion
 
 Reflections:
 For this exercise I decided to delve in to the alert section and spent a large chunk of time investigating weather or not we got false or true positives. We also received a pcap file that did not alow to see the full picture of the infection, we have observed the post infection but not the full payload deployment/developement.
@@ -149,16 +173,6 @@ Acording to the length of the supplied pcap file we did not see any evidence of 
 The affected machine is to be reimaged/reinstalled and the malicious IPs and file hash to be added to the company's IDS system.
 
 
-## Our Findings
-
-#### Compromised Host
-
-IP Address: 172.17.0.99
-MAC address: Intel_b6:8d:c4 (18:3d:a2:b6:8d:c4)
-Host Name: DESKTOP-RNV09AT
-Client name: andrewfletcher
-User Name: Andrew Fletcher
-
 #### Attackers
 
 Fake domain 01: www[.]bellantonicioccolato[.]it
@@ -168,9 +182,14 @@ C2 Server 01: 79[.]124[.]78[.]197
 #### Malware MD5 Hashes
 
 sd4.ps1 - 3e86c8009a224924049a5279b9d21786
- 
 
-This concludes the packet inspection with wireshark for the moment. I am now focusing on the next project witch is establishing a simplified functional SOC lab.
+### TIME TO SWITCH GEARS
+
+This concludes the **PCAP** series, however we are not done with **Wireshark**,<br>
+I shall be using in througght the entire portfolio.<br>
+I now invite you to check out the Purple Team exercises!<br>
+[TECH BUREAU SERIES: main hub ](./TECH-BUREAU-main.md)<br>
+*Spinning up a Wazuh agent and guarding a server, hope no one tries to steal the corporate secretes.*
 
 <div class="divider-wire">
   <span class="line"></span>
