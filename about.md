@@ -81,8 +81,8 @@ Visit the Credly.com page to verify - <a href="https://www.credly.com/users/andr
 I have started my Cyber journey with <span class="text-data"><strong>TryHackMe</strong></span> and what a ride it has been.<br>
 Over the last couple of years I have been gravitating towards different paths.<br>
 At the moment my progress is on hold, I am relying on labs of my own direction.<br>
-Reflecting upon my path progress I'm just itching to get back and button up some of them.<br>
-I mean look how close I am to the <span class="text-orange"><strong>CompTia Pentest+</strong></span>.<br>
+Reflecting upon my path progress I'm just itching to get back and button up<br> some of them.
+I mean look how close I am to the <span class="text-data"><strong>CompTia Pentest+</strong></span>.<br>
 <br>
 **P.S.** *don't ask me why I prioritized red teaming of the bat*.<br>
 
