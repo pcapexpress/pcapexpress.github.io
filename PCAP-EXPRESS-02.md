@@ -154,27 +154,18 @@ This confirms several alerts.
 We have confirmed that a user **(DESKTOP-B8TQK49)** has interacted with a malicious domain witch<br>
 has started an infection sequence that has been cross referenced with the alerts provided.<br>
 Investigating the traffic revealed a successful malware execution<br>
-most likely via interaction with the malicious domain **(confirmsubscription[.]com)**.
-
+most likely via interaction with the malicious domain **(confirmsubscription[.]com)**.<br>
 This has led to an infection by a **Remote Access Trojan** or (RAT) on the victims system,<br>
 the virus has began communicating with the Command and Control server of the adversary<br>
-using encrypted **HTTP POST** requests over port **443** (not 80).
-
+using encrypted **HTTP POST** requests over port **443** (not 80).<br>
 The immediate steps would be to have the affected hosts machine re imaged/reinstalled.<br>
-The malicious URLs are to be added to the IDS/Firewall block list.
+The malicious URLs are to be added to the IDS/Firewall block list.<br>
 
-#### Attackers
+### HOP ON FOR THE NEXT ONE!
 
-Malicious domain 01: confirmsubscription[.]com
-Malicious domain 02: modandcrackedapk[.]com
-Malicious domain 03: r10.o.lencr.org
-Malicious domain 04: geo[.]netsupportsoftware[.]com 
-
-C2 Server 01: 194[.]180[.]191[.]64
-
-### NEXT PCAP PLEASE!
-
-[PCAP-EXPRESS:03 "Big Fish In a Little Pond" ](./PCAP-EXPRESS-03.md) <br>
+We got to explore and focus on domains in an infection chain rather than malicious objects.<br>
+Lets move on to number 3 shall we?<br>
+[PCAP-EXPRESS:03 "Big Fish In a Little Pond" ](./PCAP-EXPRESS-03.md)<br>
 *Virus with a beacon.*
 
 <div class="divider-wire">
