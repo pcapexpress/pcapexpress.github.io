@@ -13,7 +13,7 @@ title: About
      style="width: 25%; float: left; margin-right: 20px; margin-bottom: 20px;" 
      alt="Author">
 
-<p><br>     Here wrights to you a gentleman and a scholar.<br>
+<p><br>Here wrights to you a gentleman and a scholar.<br>
 A former Beer Brewing professional of 10ish years, that has been granted the opportunity to travel around, I had contracts in 4 different countries, and I am very grateful for that.<br>
      But change waits for no man, I have decided to hang up my <strong><em>Ol' Brewi'n Cap</em></strong> and dawn some sort of ... <strong><em>Thinking Bonnet</em></strong> and do something a touch more mentally stimulating career wise. Enter an era of self education and gravitation towards the IT security sector, <strong><em>CompTia Sec+</em></strong> has been secured!<br>
 The goal is to become a fully fledged SOC analyst with the ability to specialize in network traffic analysis and digital forensics. I have developed a taste for entry level Pen Testing, did a bunch of capture the flag boxes with TryHackMe, and mostly failed but learned a whole bunch in the process.<br>
