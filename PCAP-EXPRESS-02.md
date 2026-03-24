@@ -28,6 +28,8 @@ Analyze and report.<br>
 This exercise is giving us some useful pointers regarding the infection.<br>
 As 2 log files are given we can quicker get to the infection source.
 
+<div class="divider"></div>
+
 ## 01: Host Discovery
 
 Starting of with our standard discovery techniques.<br>
@@ -148,6 +150,8 @@ This confirms several alerts.
 ![18.RAT activity.png](assets/images/pcap-express/project.02/18.RAT_activity(c).png)
 
 <small>‘18.RAT activity.png’</small>
+
+<div class="divider"></div>
 
 ## 03. Short Report and Conclusion
 
