@@ -101,15 +101,7 @@ We shall start checking the IPs with VirusTotal in order of their apearence.<br>
 **Domain:** <span class="badge-data">modandcrackedapk[.]com</span><br>
 **VirusTotal Result:** 13/95 security vendors flagged this domain as malicious<br>
 **Comment:** This domain has been flagged in an a DNS lookup alert. This is a true positive,<br>
-the domain is malicious associated with Phishing and Malware. As seen in the image below,<br>
-the conversations statistics. The most amount of data is exchanged between our infected host<br>
-and the malicious domain. The data is going over port 443 and is encrypted.<br>
-
-![15.Conversations.png](assets/images/pcap-express/project.02/15.Conversations.png)
-
-<small>‘15.Conversations.png’</small>
-
-We also have a true positive alert for this domain.
+the domain is  associated with Phishing and Malware.<br>
 
 ![16.DNS lookup.png](assets/images/pcap-express/project.02/16.DNS_lookup(c).png)
 
@@ -118,20 +110,19 @@ We also have a true positive alert for this domain.
 **04.IP:** <span class="badge-data">104[.]117[.]247[.]99</span><br>		
 **Domain:** <span class="badge-data">r10.o.lencr.org</span><br>
 **VirusTotal Result:** At least 9 detected files communicating with this domain<br>
-**Object:** MFMwUTBPME(cut for bravity)69GH4A%3D%3D HTTP/1.1 
-**Comment:** This is the first suspicious GET request. I checked the file object. Took the MD5 hash.<br>
-It returned benign on VirusTotal. However I would asume it is some type of script or command that I don’t know how to decrypt. 
+**Object:** <span class="badge-data">MFMwUTBPME(cut for bravity)69GH4A%3D%3D HTTP/1.1</span> 
+**Comment:** This is the first suspicious GET request. I checked the file object.<br>
+Took the MD5 hash. It returned benign on VirusTotal.<br>
+However I would asume it is some type of script that I don’t know how to decrypt yet<br> 
 
 **05.IP:** <span class="badge-data">104[.]26[.]1[.]231</span><br>		
 **Domain:** <span class="badge-data">geo[.]netsupportsoftware[.]com</span><br>
 **VirusTotal Result:** 8/95 security vendors flagged this domain as malicious<br>
-**Object:** loca.asp<br>
-**Comment:** Second suspicious GET. I ran the strings command on the loca.asp<br>
-and we got coordinates: 33.7488,-84.3877. Evidence of recognizance.<br>
-“The geographic coordinates 33.7488° N, 84.3877° W<br>
-correspond to a location in Downtown Atlanta, Georgia<br>
-
-We got an true alert for this one.
+**Object:** <span class="badge-data">loca.asp</span><br>
+**Comment:** Second suspicious GET. Comes with a **Geo Lookup** alert.<br>
+I ran the strings command on the **loca.asp**<br>
+and got coordinates: ***33.7488,-84.3877***. Evidence of recognizance.<br>
+The coordinates correspond to a location in Downtown Atlanta, Georgia<br>
 
 ![17.Geo lookup.png](assets/images/pcap-express/project.02/17.Geo_lookup(c).png)
 
