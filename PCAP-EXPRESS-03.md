@@ -22,9 +22,9 @@ Indicators suggest a host within the network environment has been infected with 
 </code></pre>
 
 ## 00: Prologue
-This is the third exercise in the series. The initial triage began with a review of the alert logs. Observations included SMB alerts similar to previous tasks, providing a baseline for comparison. 
-
-A significant portion of the triage involved distinguishing between false positives and legitimate malicious indicators. I utilized **Gemini** to assist with contextualizing specific alert signatures and **CyberChef** for deobfuscating traffic strings. 
+This is the third exercise in the series. The initial investigation began with a review of the alert logs.<br>
+Again it is very helpful and time saving to be able to direct ones attention to the source, and have a time line<br>
+of events happening on the wire. Let us dive in!
 
 ![00.Alerts.png](assets/images/pcap-express/project.03/00.Alerts.png)
 
@@ -53,7 +53,7 @@ Moving on to <span class="badge-data">Kerberos</span> to check for a **user name
 
 <small>‘01c.Kerberos Cname.png’</small>
 
-We can further check the **LDAP** for **CN=Users** to see if we can expand on the user name a bit. And we are successful.
+We can further check the **LDAP** for **CN=Users** to see if we can expand on the user name a bit.<br>
 
 ![01d.LDAP CN=Users.png](assets/images/pcap-express/project.03/01d.LDAP_CN=Users(c).png)
 
