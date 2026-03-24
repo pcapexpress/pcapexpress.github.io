@@ -2,9 +2,11 @@
 layout: default
 title: PCAP:01
 ---
+
 # PCAPEXPRESS Wireshark Series
 ## Exercise 01: Download from fake software site
 ### Briefing:
+
 **Platform:** <span class="badge-data">malware-traffic-analysis[.]net</span><br>
 **Pcap File:** <span class="badge-data">2025-01-22-traffic-analysis-exercise.pcap</span><br>
 As a SOC analyst, we are contacted to investigate a pcap file of a confirmed infection.<br>
@@ -159,7 +161,7 @@ VirusTotal Result: <span class="red">Malicious</span>                     VirusT
 Poplar threat label: trojan.powershell/obfuse    Poplar threat label: trojan.powershell/malgent
 BitDefender: Trojan.Generic.38977079             BitDefender: rojan.Generic.38018337
   
-03.File Name: <span class="orange">TeamViewer.exe</span>                         04.File Name: <span class="orange">Teamviewer_Resource_fr.dll</span>
+03.File Name: <span class="orange">TeamViewer.exe</span>                     04.File Name: <span class="orange">Teamviewer_Resource_fr.dll</span>
 MD5 Hash: 9dfa2bd6bddc746acea981da411d59d3       MD5 Hash: 35fa2ce449deb8b93b8ba73bf35e5e7b
 VirusTotal Result: <span class="orange">No Threat Detected</span>            VirusTotal Result: <span class="orange">No Threat Detected</span>
 
