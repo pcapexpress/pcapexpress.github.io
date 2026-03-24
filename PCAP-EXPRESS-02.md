@@ -149,7 +149,7 @@ Curiously the data is sent over HTTP on port 443.<br>
 
 <small>‘01.POST.png’</small>
 
-And teh coresponding alerts.
+And the coresponding alerts.
 
 ![18.RAT activity.png](assets/images/pcap-express/project.02/18.RAT_activity(c).png)
 
