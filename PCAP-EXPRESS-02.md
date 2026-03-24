@@ -5,31 +5,28 @@ title: PCAP:02
 
 # PCAPEXPRESS Wireshark Series
 ## Exercise 02: Nemotodes
+### Briefing:
+**Platform:** <span class="badge-data">malware-traffic-analysis[.]net</span><br>
+**Pcap File:** <span class="badge-data">2024-11-26-traffic-analysis-exercise.pcap</span><br>
+We are a SOC analyst for a medical research facility.<br>
+Alerts on traffic th network indicate someone has been infected.<br>
+Two alert log files have been provided to help correlate the events.
+Analyze and report.<br>
 
-#### Briefing:
-We are a SOC analyst for a medical research facility. Alerts on traffic in your network indicate someone has been infected.
-Two alert log files have been provided to help correlate the events. Analyze and report.
-
-
-TASK:
-    • Write an incident report based on malicious network activity from the pcap and from the alerts.
-    • The incident report should contains 3 sections:
-    • Executive Summary: State in simple, direct terms what happened (when, who, what).
-    • Victim Details: Details of the victim (hostname, IP address, MAC address, Windows user account name).
-    • Indicators of Compromise (IOCs): IP addresses, domains and URLs associated with the activity.  SHA256 hashes if any malware binaries can be extracted from the pcap.
-
-Tools:
-
-Wireshark – pcap inspection
-VirusTotal – checking for malicious IPs and Files
-CyberChef – decoding malicious traffic
-md5sum – calculating file hashes
-sha256sum – calculating file hashes
-
+### TASK:
+<pre data-label="TASK" style="--delay: 0s;"><code>
+01.Discover host details - <span class="orange">[x]</span> 02.Investigate breach - <span class="orange">[x]</span> 03.Write consise report - <span class="orange">[x]</span>
+</code></pre>
+### Tools:
+<pre data-label="TASK" style="--delay: 0.7s;"><code>
+<span class="orange"><strong>* Wireshark</strong></span> – pcap inspection         <span class="orange"><strong>* VirusTotal</strong></span> – malicious IPs and File inspection
+<span class="orange"><strong>* CyberChef</strong></span> – decoding packet data    <span class="orange"><strong>* md5sum</strong></span> – calculating file hashes
+</code></pre>
 
 ## 00: Prologue
 
-This exercise is giving us some useful pointers regarding the infection. As 2 log files are given I shall be referencing them below to compare the findings.
+This exercise is giving us some useful pointers regarding the infection.<br>
+As 2 log files are given we can quicker get to the infection source.
 
 ## 01: Host Discovery
 
@@ -64,36 +61,37 @@ Here are the results of our host enumiration:
 
 ## 02: Examining Traffic
 
-
-
-Now we’ll focus on the actual HTTP traffic to see if we can spot any unusual HTTP requests. And quite quickly we discover just that. 
+Now we’ll focus on the actual HTTP traffic to see if we can spot any unusual requests.<br>
+And quite quickly we discover just that.<br>
 
 ![13.POST traffic.png](assets/images/pcap-express/project.02/13.POST_traffic(c).png)
 
 <small>‘13.POST traffic.png’</small>
 
-POST request to a nameless host with “fakeurl.htm” in its URL. The 2 GET requests just above the POST don’t instill confidence. The first host in the image is modandcrackedapk[.]com witch is highly suspicious on its own. Before checking the IPs lets scroll up and find if the “modandcrackedapk” host has appeared before. 
+POST request to a nameless host with <span class="badge-data">fakeurl.htm</span> in its **URL**.<br>
+The 2 **GET** requests just above the POST don’t instill confidence.<br>
+The first host in the image is <span class="badge-data">modandcrackedapk[.]com</span> witch is highly suspicious on its own. Before checking the IPs lets scroll up and find if the “**modandcrackedapk**” host has appeared before.<br>
 
 ![14.Tracing back.png](assets/images/pcap-express/project.02/14.Tracing_back(c).png)
 
 <small>‘14.Tracing back.png’</small>
 
-Here is the first mention of “modandcrackedapk” and right before we have 2 potentially suspicious candidates that we will look in to as well.
+Here is the first mention of **“modandcrackedapk”** and right before<br>
+we have 2 potentially suspicious candidates that we will look in to as well.<br>
+We shall start checking the IPs with VirusTotal in order of their apearence.<br>
 
-We shall start checking the IPs with VirusTotal in order of their apearence.
+**01.IP**: 	<span class="badge-data">213[.]246[.]109[.]5</span>
+**Domain**: <span class="badge-data">classicgrand[.]com</span>
+**VirusTotal Result**: 1 detected file communicating with this domain
+**Comment**: Suspicious, might be the first malicious website in the infection chain.
 
-01.IP: 	213[.]246[.]109[.]5
-Domain: classicgrand[.]com
-VirusTotal Result: 1 detected file communicating with this domain
-Comment: Suspicious, might be the first malicious website in the infection chain.
-
-02.IP: 52[.]8[.]34[.]0	
-Domain: confirmsubscription[.]com
+02.IP: <span class="badge-data">52[.]8[.]34[.]0</span>
+Domain: <span class="badge-data">confirmsubscription[.]com</span>
 VirusTotal Result: 1/93 security vendor flagged this domain as malicious
 Comment: This website is visited right before “modandcrackedapk.
 
-03.IP: 193[.]42[.]38[.]139
-Domain: modandcrackedapk[.]com
+03.IP: <span class="badge-data">193[.]42[.]38[.]139</span>
+Domain: <span class="badge-data">modandcrackedapk[.]com</span>
 VirusTotal Result: 13/95 security vendors flagged this domain as malicious
 Comment: This domain has been flagged in an a DNS lookup alert. This is a true positive, the domain is malicious associated with Phishing and Malware. As seen in the image below, the conversations statistics. The most amount of data is exchanged between our infected host and the malicious domain. The data is going over port 443 and is encrypted. 
 
@@ -107,8 +105,8 @@ We also have a true positive alert for this domain.
 
 <small>‘16.DNS lookup.png’</small>
 
-04.IP: 104[.]117[.]247[.]99		
-Domain: r10.o.lencr.org
+04.IP: <span class="badge-data">104[.]117[.]247[.]99</span>		
+Domain: <span class="badge-data">r10.o.lencr.org</span>
 VirusTotal Result: At least 9 detected files communicating with this domain
 Object:MFMwUTBPME0wSzAJBgUrDgMCGgUABBRpD%2BQVZ%2B1vf7U0RGQGBm8JZwdxcgQUdKR2KRcYVIUxN75n5gZYwLzFBXICEgRSsdGCXQJklJZNbHi669GH4A%3D%3D HTTP/1.1 
 
@@ -120,8 +118,8 @@ MFMwUTBPME0wSzAJBgUrDgMCGgUABBRpD+QVZ+1vf7U0RGQGBm8JZwdxcgQUdKR2KRcYVIUxN75n5gZY
 
 Its base64 that decrypts in to gibberish.
 
-05.IP: 104[.]26[.]1[.]231		
-Domain: geo[.]netsupportsoftware[.]com
+05.IP: <span class="badge-data">104[.]26[.]1[.]231</span>		
+Domain: <span class="badge-data">geo[.]netsupportsoftware[.]com</span>
 VirusTotal Result: 8/95 security vendors flagged this domain as malicious
 
 Object:loca.asp
@@ -136,8 +134,8 @@ We got an true alert for this one.
 
 <small>‘17.Geo lookup.png’</small>
 
-06.IP: 194[.]180[.]191[.]64		
-Domain: 194[.]180[.]191[.]64
+06.IP: <span class="badge-data">194[.]180[.]191[.]64</span>		
+Domain: <span class="badge-data">194[.]180[.]191[.]64</span>
 VirusTotal Result: 5/95 security vendors flagged this IP address as malicious
 
 Object:http://194.180.191.64/fakeurl.htm HTTP/1.1
@@ -157,15 +155,17 @@ This confirms several alerts.
 ## 03. Short Report and Conclusion
 
 
-This is the second exercise for the pcapexpress series. I have been struggling to interpret some of the alert data, had to do some research and attempt to correlate as much and as best as I could. But after spending enough time with every pcap navigation and understanding becomes more natural.
+We have confirmed that a user has interacted with a malicious domain witch<br>
+has started an infection sequence that has been cross referenced with the alerts provided.<br>
+Investigating the traffic revealed a successful malware execution<br>
+most likely via interaction with the malicious domain (confirmsubscription[.]com).
 
-We have determined that a user has interacted with a malicious domain witch has started an infection chain. The infection sequence has been noted by the security department and alerts have been triggered. Investigating the traffic revealed attempts at system enumeration and protocol downgrading SMB and TLS followed by a successful malware execution most likely via interaction with malicious domain (confirmsubscription[.]com).
+This has led to an infection by a Remote Access Trojan or (RAT) on the victims system,<br>
+the virus has began communicating with the Command and Control server of the adversary<br>
+using encrypted **HTTP POST** requests over port **443** (not 80).
 
-This has led to an infection by a Remote Access Trojan or (RAT) on the victims system, the virus has began communicating with the Command and Control server of the adversary using encrypted HTTP POST requests over an unusual port 443.
-
-The immediate steps would be to have the affected hosts machine re imaged/reinstalled. The malicious URLs are to be added to the IDS/Firewall block list.
-
-Below is a summary of data for future use and investigations.
+The immediate steps would be to have the affected hosts machine re imaged/reinstalled.<br>
+The malicious URLs are to be added to the IDS/Firewall block list.
 
 #### Compromised Host
 
@@ -179,17 +179,17 @@ User Name: oboomwald (Oliver Q. Boomwald)
 #### Attackers
 
 Malicious domain 01: confirmsubscription[.]com
-Malicious domain 02:modandcrackedapk[.]com
+Malicious domain 02: modandcrackedapk[.]com
 Malicious domain 03: r10.o.lencr.org
 Malicious domain 04: geo[.]netsupportsoftware[.]com 
 
 C2 Server 01: 194[.]180[.]191[.]64
 
-#### Malicious MD5 Hashes
+### NEXT PCAP PLEASE!
 
-*Not Discovered*
+[PCAP-EXPRESS:03 "Big Fish In a Little Pond" ](./PCAP-EXPRESS-03.md) <br>
+*Virus with a beacon.*
 
-This will conclude the second exercise in the series. Follow me to number three!
 <div class="divider-wire">
   <span class="line"></span>
   <span class="symbol">⦿</span>
