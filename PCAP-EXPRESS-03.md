@@ -7,9 +7,19 @@ title: PCAP:03
 ## Exercise 03: Big Fish In a Little Pond
 ### Briefing:
 **Platform:** <span class="badge-data">malware-traffic-analysis[.]net</span><br>
+**Pcap File:** <span class="badge-data">2024-09-04-traffic-analysis-exercise.pcap</span><br>
 
 Indicators suggest a host within the network environment has been infected with malware. This analysis covers the investigation of the provided packet capture and associated alert logs.
 
+### TASK:
+<pre data-label="TASK" style="--delay: 0s;"><code>
+01.Discover host details - <span class="orange">[x]</span> 02.Investigate breach - <span class="orange">[x]</span> 03.Write consise report - <span class="orange">[x]</span>
+</code></pre>
+### Tools:
+<pre data-label="TASK" style="--delay: 0.7s;"><code>
+<span class="orange"><strong>* Wireshark</strong></span> – pcap inspection         <span class="orange"><strong>* VirusTotal</strong></span> – malicious IPs and File inspection
+<span class="orange"><strong>* CyberChef</strong></span> – decoding packet data    <span class="orange"><strong>* md5sum</strong></span> – calculating file hashes
+</code></pre>
 
 ## 00: Prologue
 This is the third exercise in the series. The initial triage began with a review of the alert logs. Observations included SMB alerts similar to previous tasks, providing a baseline for comparison. 
@@ -108,80 +118,46 @@ Alert Confirmed
 
 ## 03: Examining Objects/Domains
 
-Nothing of interest in the object department however we have some interesting findings regarding the domains.
+One object of interest has been discovered along witha  couple of suspicious domains, lets check for some details.
 
-**01.IP:** <span class="badge-data">79[.]124[.]78[.]197</span><br>
-**Domain:** <span class="badge-data">n/a</span><br>
-**VirusTotal Result:** 2 detected files communicating with this IP address<br>
-**Comment:** I have checked the suspicious files associated with this particular address and<br>
-the first one mentioned is a power shell file called “sd4.ps1”, checking the details of the<br>
-file we see it is indeed a malicious file that is labeled as koistealer trojan.<br>
-<br>
-**02.I.P:** <span class="badge-data">46[.]254[.]34[.]201</span><br>
-**Domain:** <span class="badge-data">www[.]bellantonicioccolato[.]it</span><br>
-**VirusTotal Result:** At least 10 detected files communicating with this domain<br>
-**Comment:** This domain is a accessed close to our malicious POST traffic. The ViruTotal comment<br>
-section has a mention of a KOI distribution domain. I have also checked the TCP stream, it is encrypted<br>
-but we know that a total of 228kb of data has been exchanged with 221kb coming from the malicious domain.<br>
-<br>
-**File Name:** sd4.ps1<br>
-**MD5 hash:** 3e86c8009a224924049a5279b9d21786<br>
-**Popular threat label:** trojan.koistealer/psinj<br>
-**BitDefender:** Trojan.Generic.37535674<br>
-<br>
 <pre data-label="OBJECTS"><code>
-
-01.IP: <span class="red">79[.]124[.]78[.]197</span>
-Domain: n/a
-VirusTotal Result: 2 detected files communicating with this IP address
-Comment: I have checked the suspicious files associated with this particular address
-and the first one mentioned is a power shell file called “sd4.ps1”, checking the details
-of the file we see it is indeed a malicious file that is labeled as koistealer trojan.
-
-02.I.P: <span class="red">46[.]254[.]34[.]201</span>
-Domain: <span class="red">www[.]bellantonicioccolato[.]it</span>
-VirusTotal Result: At least 10 detected files communicating with this domain
-Comment: This domain is a accessed close to our malicious POST traffic.
-The ViruTotal comment section has a mention of a KOI distribution domain.
-I have also checked the TCP stream, it is encrypted but we know that a total of
-228kb of data has been exchanged with 221kb coming from the malicious domain.
- 
-03.File Name: <span class="red">sd4.ps1</span>
+01.File Name: <span class="red">sd4.ps1</span>
 MD5 Hash: 3e86c8009a224924049a5279b9d21786
 VirusTotal Result: <span class="red">Malicious</span>
 Poplar threat label: trojan.koistealer/psinj
 BitDefender: Trojan.Generic.37535674
 </code></pre>
-
 <div class="divider"></div>
+
+**02.IP:** <span class="badge-data">79[.]124[.]78[.]197</span><br>
+**Domain:** <span class="badge-data">n/a</span><br>
+**VirusTotal Result:** 2 detected files communicating with this IP address<br>
+**Comment:** I have checked the suspicious files associated with this particular address<br>
+and the first one mentioned is a power shell file called **“sd4.ps1”**, checking the details of the<br>
+file we see it is indeed a malicious file that is labeled as **"koistealer trojan"**.<br>
+<br>
+**03.I.P:** <span class="badge-data">46[.]254[.]34[.]201</span><br>
+**Domain:** <span class="badge-data">www[.]bellantonicioccolato[.]it</span><br>
+**VirusTotal Result:** At least 10 detected files communicating with this domain<br>
+**Comment:** This domain is a accessed close to our malicious POST traffic. The ViruTotal comment<br>
+section has a mention of a KOI distribution domain. I have also checked the TCP stream,<br>
+it is encrypted but we know that a total of 228kb of data has been exchanged<br>
+with 221kb coming from the malicious domain.<br>
+<br>
 
 ## 04. Short Report and Conclusion
 
-Reflections:
-For this exercise I decided to delve in to the alert section and spent a large chunk of time investigating weather or not we got false or true positives. We also received a pcap file that did not alow to see the full picture of the infection, we have observed the post infection but not the full payload deployment/developement.
-
-We have observed traffic indicating our compromised host DESKTOP-RNV09AT communicating with a suspicious domain www[.]bellantonicioccolato[.]it.
-
-After a short moment we have observed the host sending POST requests to a malicious IP address indicating system compromise and a malware sending a beacon to the adversarial command and control server 79[.]124[.]78[.]197.
-
-The virus activity has been picket up by the IDS and triggered an alert - “Win32/Koi Stealer CnC Checkin (POST)”
-
-Upon investigating the malicious domains with VirusTottal we have found evidence that they are in fact associated with the KOIstealer Trojan.
-
-Acording to the length of the supplied pcap file we did not see any evidence of data exfiltration.
-
+In this scenario we received a pcap file that did not alow to see the full picture of the infection,<br>
+we have observed the post infection but not the full payload deployment/developement.<br>
+We have detected traffic indicating our compromised host **(DESKTOP-RNV09AT)** communicating with a<br>
+suspicious domain **(www[.]bellantonicioccolato[.]it)**.<br>
+After a short moment we have observed the host sending **POST** requests to a malicious IP address<br>
+indicating system compromise and the malware sending a beacon<br>
+to the adversarial command and control server 79[.]124[.]78[.]197.
+The virus activity has been picket up by the IDS and triggered an alert - “**Win32/Koi Stealer CnC Checkin (POST)**”<br>
+Upon investigating the malicious domains with VirusTottal we have found evidence that they are in fact associated with the KOIstealer Trojan.<br>
+Based on the length of the supplied pcap file we did not see any evidence of data exfiltration.<br>
 The affected machine is to be reimaged/reinstalled and the malicious IPs and file hash to be added to the company's IDS system.
-
-
-#### Attackers
-
-Fake domain 01: www[.]bellantonicioccolato[.]it
-
-C2 Server 01: 79[.]124[.]78[.]197
-
-#### Malware MD5 Hashes
-
-sd4.ps1 - 3e86c8009a224924049a5279b9d21786
 
 ### TIME TO SWITCH GEARS
 
