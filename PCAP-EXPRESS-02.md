@@ -88,15 +88,15 @@ We shall start checking the IPs with VirusTotal in order of their apearence.<br>
 **VirusTotal Result**: 1 detected file communicating with this domain<br>
 **Comment**: Suspicious, might be the first malicious website in the infection chain.<br>
 
-02.IP: <span class="badge-data">52[.]8[.]34[.]0</span><br>
-Domain: <span class="badge-data">confirmsubscription[.]com</span><br>
-VirusTotal Result: 1/93 security vendor flagged this domain as malicious<br>
-Comment: This website is visited right before “modandcrackedapk.<br>
+**02.IP:** <span class="badge-data">52[.]8[.]34[.]0</span><br>
+**Domain:** <span class="badge-data">confirmsubscription[.]com</span><br>
+**VirusTotal Result:** 1/93 security vendor flagged this domain as malicious<br>
+**Comment:** This website is visited right before “modandcrackedapk.<br>
 
-03.IP: <span class="badge-data">193[.]42[.]38[.]139</span><br>
-Domain: <span class="badge-data">modandcrackedapk[.]com</span><br>
-VirusTotal Result: 13/95 security vendors flagged this domain as malicious<br>
-Comment: This domain has been flagged in an a DNS lookup alert. This is a true positive,<br>
+**03.IP:** <span class="badge-data">193[.]42[.]38[.]139</span><br>
+**Domain:** <span class="badge-data">modandcrackedapk[.]com</span><br>
+**VirusTotal Result:** 13/95 security vendors flagged this domain as malicious<br>
+**Comment:** This domain has been flagged in an a DNS lookup alert. This is a true positive,<br>
 the domain is malicious associated with Phishing and Malware. As seen in the image below,<br>
 the conversations statistics. The most amount of data is exchanged between our infected host<br>
 and the malicious domain. The data is going over port 443 and is encrypted.<br>
@@ -111,18 +111,18 @@ We also have a true positive alert for this domain.
 
 <small>‘16.DNS lookup.png’</small>
 
-04.IP: <span class="badge-data">104[.]117[.]247[.]99</span><br>		
-Domain: <span class="badge-data">r10.o.lencr.org</span><br>
-VirusTotal Result: At least 9 detected files communicating with this domain<br>
-Object:MFMwUTBPME(cut for bravity)69GH4A%3D%3D HTTP/1.1 
-Comment: This is the first suspicious GET request. I checked the file object. Took the MD5 hash.<br>
+**04.IP:** <span class="badge-data">104[.]117[.]247[.]99</span><br>		
+**Domain:** <span class="badge-data">r10.o.lencr.org</span><br>
+**VirusTotal Result:** At least 9 detected files communicating with this domain<br>
+**Object:** MFMwUTBPME(cut for bravity)69GH4A%3D%3D HTTP/1.1 
+**Comment:** This is the first suspicious GET request. I checked the file object. Took the MD5 hash.<br>
 It returned benign on VirusTotal. However I would asume it is some type of script or command that I don’t know how to decrypt. 
 
-05.IP: <span class="badge-data">104[.]26[.]1[.]231</span><br>		
-Domain: <span class="badge-data">geo[.]netsupportsoftware[.]com</span><br>
-VirusTotal Result: 8/95 security vendors flagged this domain as malicious<br>
-Object:loca.asp<br>
-Comment: Second suspicious GET. I ran the strings command on the loca.asp<br>
+**05.IP:** <span class="badge-data">104[.]26[.]1[.]231</span><br>		
+**Domain:** <span class="badge-data">geo[.]netsupportsoftware[.]com</span><br>
+**VirusTotal Result:** 8/95 security vendors flagged this domain as malicious<br>
+**Object:** loca.asp<br>
+**Comment:** Second suspicious GET. I ran the strings command on the loca.asp<br>
 and we got coordinates: 33.7488,-84.3877. Evidence of recognizance.<br>
 “The geographic coordinates 33.7488° N, 84.3877° W<br>
 correspond to a location in Downtown Atlanta, Georgia”<br>
@@ -133,13 +133,11 @@ We got an true alert for this one.
 
 <small>‘17.Geo lookup.png’</small>
 
-06.IP: <span class="badge-data">194[.]180[.]191[.]64</span><br>		
-Domain: <span class="badge-data">194[.]180[.]191[.]64</span><br>
-VirusTotal Result: 5/95 security vendors flagged this IP address as malicious<br>
-
-Object:http://194.180.191.64/fakeurl.htm HTTP/1.1<br>
-
-Comment: Malicious. Since this address is getting POST request every second I am assuming it is the Command and Control server. Curiously the data is sent over HTTP on port 443. We can follow the HTTP stream and gather that there are several commands being requested and or executed.
+**06.IP:** <span class="badge-data">194[.]180[.]191[.]64</span><br>		
+**Domain:** <span class="badge-data">194[.]180[.]191[.]64</span><br>
+**VirusTotal Result:** 5/95 security vendors flagged this IP address as malicious<br>
+**Object:** http://194.180.191.64/fakeurl.htm HTTP/1.1<br>
+**Comment:** Malicious. Since this address is getting POST request every second I am assuming it is the Command and Control server. Curiously the data is sent over HTTP on port 443. We can follow the HTTP stream and gather that there are several commands being requested and or executed.
 
 First is CMD=POLL; INFO=1; ACK=1.
 Followed by CMD=ENCD; ES=1; DATA=.g+$.{.. \....W..D.6..=M..w}..o.......…
