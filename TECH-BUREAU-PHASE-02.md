@@ -416,9 +416,8 @@ Exfiltration followed by an ubrupt protocol termination.<br>
 Continue?
 <br>
 [**TECH-BUREAU-SERIES: PHASE 03.** ](./TECH-BUREAU-PHASE-03.md) <br>
-*Phish, infect, persist, escalate, obfuscate and extract. The system has been hardened to the fullest.<br>
-A phishing campaign  is now in the cards, but how can we extract the data this time to dupe the TECH-BUREAU?<br>
-**STAY TUNED TO FIND OUT!**
+*Trojan, Gaining Root and Steganography*.<br>
+*Subtlety level - Outrageous*!<br>
 
 <div class="divider-wire">
   <span class="line"></span>
