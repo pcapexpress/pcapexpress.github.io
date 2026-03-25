@@ -33,7 +33,7 @@ So we configure a few custom rules to help us out.<br>
 <span class="orange"><strong>root@TECH-BUREAU-UBUNTU-24:</strong></span>/home/lead_engineer# auditctl -l
 -w /home/lead_engineer/PROJECT.5527/Frame_specs.txt -p rwa -k file_agitated
 </code></pre>
-This one will monitor interactions with the file and create a log entry with the string *file_agitated*.
+**AuditCtl** monitors interactions with the file and create a log entry with the string *file_agitated*.
 
 <img src="assets/images/tech-bureau/phase.01/21.custom-cat.png">
 <small>“02.custom-cat.png”<small>
@@ -45,20 +45,22 @@ This is the custom rule that will fire based on the log entry.
 -A INPUT -p tcp -m multiport --dports 22,80,443,3306<br> -m state --state NEW -j LOG --log-prefix <span class="orange"><strong>"BUREAU-SCAN: "</strong></span>
 -A INPUT -p tcp -m tcp --dport 8000 -m state --state NEW<br> -j LOG --log-prefix <span class="orange"><strong>"BUREAU-EXFIL-HTTP: "</strong></span>
 </code></pre>
-Here we have 2 iptable rules. The server is watching for any suspicious incoming traffic to the main ports<br>
-raising an alert in the case of an outside port scan.<br>
-And a specific rule that will alert us if data is leaving via port 8000.<br>
+
+Here we have 2 **Iptable*** rules. The server is watching for any<br>
+incoming traffic to the main ports, triggering in case of an outside port scan.<br>
+And a specific rule that will alert us if data is leaving via port **8000**.<br>
 
 <img src="assets/images/tech-bureau/phase.01/20.custom-nmap.png">
 <small>“03.custom-nmap.png”<small>
 
-The custom rule reacts to the supplied BUREAU-SCAN string and feeds it to the rule below witch throttles the sensitivity,<br>
+The custom rule reacts to the supplied **BUREAU-SCAN** string and feeds it<br>
+to the rule below witch throttles the sensitivity,<br>
 so we don't see an over saturation of in our dashboard.<br>
 
 <img src="assets/images/tech-bureau/phase.01/22.custom-exfil.png">
 <small>“04.custom-exfil.png”<small>
 
-Same logic, the string BUREAU-EXFIL-HTTP is trigering our alert.
+Same logic, the string **BUREAU-EXFIL-HTTP** is trigering our alert.
 
 <div class="divider-wire">
   <span class="line"></span>
