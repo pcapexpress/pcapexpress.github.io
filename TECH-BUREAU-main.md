@@ -17,15 +17,16 @@ so apply a grain of salt where necessary.<br>
 ### Follow these Links if you please:
 
 [**TECH-BUREAU-SERIES: PHASE 01.** ](./TECH-BUREAU-PHASE-01.md)<br>
-*Enumerate, brute force and exfiltrate. The Loud Unapologetic breaking and entering,<br>a plundering most foul.<br>*
-
+*Enumerate, brute force and exfiltrate in clear traffic*.<br>
+*Subtlety level - Obvious*
 [**TECH-BUREAU-SERIES: PHASE 02.** ](./TECH-BUREAU-PHASE-02.md)<br>
-*CVE exploitation, privilege escalation and protocol tunneling. With the defense a bit more sophisticated<br>
-a more subtle approach is needed, a data base vulnerability is exploited. The Sneak.<br>*
+
+*MariaDB misconfiguration exploited, reverse shell gained, exfiltration via encrypted chanel*.<br>
+*Subtlety level - Sneaky*.<br>
 
 [**TECH-BUREAU-SERIES: PHASE 03.** ](./TECH-BUREAU-PHASE-03.md) <br>
-*Phish, infect, persist, escalate, obfuscate and extract. The system has been hardened to the fullest.<br>
-A phishing campaign  is now in the cards, but how can we extract the data this time to dupe the TECH-BUREAU?<br>
+*Trojan, Gaining Root and Steganography*.<br>
+*Subtlety level - Outrageous*!<br>
 **STAY TUNED TO FIND OUT!***
 
 ### FRUITFULNESS OF LABOUR:
