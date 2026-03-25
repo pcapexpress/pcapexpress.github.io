@@ -5,7 +5,7 @@ title: BUREAU:02
 
 # TECH-BUREAU SERIES: PHASE.02
 ## SQL_MISCONFIG-PRIV_ESCALATION-SECURE_COPY
-### WHATS SHOWCASED
+### WHATS SHOWCASED:
 <section>
   <ul class="hover-card"> 
     <li>
