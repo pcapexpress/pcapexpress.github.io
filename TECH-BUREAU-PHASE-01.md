@@ -258,6 +258,7 @@ Since http is in question we can see the data leaving in clear text.<br>
 #### ‹‹‹DATA EXFILTRATED››› 
 
 ## LESSONS LEARNED
+
 As the attacker:<br>
 * We can clearly see that a week password and no lockout policy leads to initial access.<br>
 * With the coveted data not having proper permissions even a low level account is enough for access.<br>
@@ -271,8 +272,8 @@ As the defender:<br>
 Continue?
 <br>
 [**TECH-BUREAU-SERIES: PHASE 02.** ](./TECH-BUREAU-PHASE-02.md)<br>
-*Exploit CVE, privilege escalation and protocol tunneling. With the defense a bit more sophisticated<br>
-a more subtle approach is needed, a data base vulnerability is exploited. The Sneak.<br>*
+*MariaDB misconfiguration exploited, reverse shell gained, exfiltration via encrypted chanel*.<br>
+*Subtlety level - Sneaky*.<br>
 
 <div class="divider-wire">
   <span class="line"></span>
