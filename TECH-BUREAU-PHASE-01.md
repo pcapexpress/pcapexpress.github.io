@@ -6,7 +6,7 @@ title: BUREAU:01
 # TECH-BUREAU SERIES: PHASE.01
 ## ENUMIRATE-BRUTEFORCE-EXFILTRATE
 
-### WHATS SHOWCASED
+### WHATS SHOWCASED:
 <section>
   <ul class="hover-card"> 
     <li>
