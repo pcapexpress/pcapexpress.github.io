@@ -231,7 +231,7 @@ we have a couple of Wazuh default alerts that suck in, very helpful. Let dive in
 
 <small>“02.wazuh-4433-out.png”<small>
 
-We have setup the rule so that any traffic going out that's not **port 22, 80, 443, 3306**<br>
+We have setup the rule so that any traffic going out that's not <span class="badge-data">port 22, 80, 443, 3306</span><br>
 will trigger an alert, and print the precise port used. Convenient.<br>
 
 ## 09.WIRESHARK SHELL TRAFFIC
@@ -240,7 +240,7 @@ will trigger an alert, and print the precise port used. Convenient.<br>
 
 <small>“09.wireshark-shell-traffic.png”<small>
 
-We see loads of traffic going to port 4433, we want to see the stream immediately.
+We see loads of traffic going to port <span class="badge-data">4433</span>, we want to see the stream immediately.<br>
 
 ## 10.WIRESHARK SHELL STREAM
 
@@ -291,7 +291,7 @@ Here we see that **CURL** has been used, and it is on the watch list.<br>
 
 <small>“06.wazuh-4040-out.png”<small>
 
-To add to the evidence we can see that a non standart port **4040** is in use.<br>
+To add to the evidence we can see that a non standart port <span class="badge-data">4040</span> is in use.<br>
 
 ## 11.WIRESHARK CURL-CROSS
 
@@ -299,7 +299,7 @@ To add to the evidence we can see that a non standart port **4040** is in use.<b
 
 <small>“11.wireshark-post-traffic.png”<small>
 
-Suspicious **POST** request to a website, over a nonstandard port **4040**.<br>
+Suspicious <span class="badge-data">POST</span> request to a website, over a nonstandard port <span class="badge-data">4040</span>.<br>
 I would run the website IP through **VirusTotal** in a real scenario.<br>
 Lets see what the stream has to show us.<br>
 
@@ -315,10 +315,10 @@ Lets see what the stream has to show us.<br>
 
 <small>“12.wireshark-post-stream.png”<small>
 
-Here we can see the details of a file named Seabass_Rtophy.jpeg a POST /upload folder destination<br>
-an authentication token, and an important detail, curl is used as an agent, in a normal scenario<br>
+Here we can see the details of a file named **Seabass_Rtophy.jpeg** a <span class="badge-data">POST</span> /upload folder destination<br>
+an authentication token, and an important detail, <span class="badge-data">CURL</span> is used as an agent, in a normal scenario<br>
 our user wold use the internet browser to upload his image,<br>
-in which case the Agent would be something like Mozilla/5.0.<br>
+in which case the Agent would be something like **Mozilla/5.0**.<br>
 
 ### RULE USED:
 
@@ -335,7 +335,7 @@ in which case the Agent would be something like Mozilla/5.0.<br>
 
 <small>“08.wazuh-delete.png”<small>
 
-This would be a built in Wazuh alert, we can see clearly the file in question.<br>
+This would be a built in **Wazuh** alert, we can see clearly the file in question.<br>
 
 #### ‹‹‹DATA DESTROYED››› 
 
@@ -345,9 +345,10 @@ This would be a built in Wazuh alert, we can see clearly the file in question.<b
 
 <small>“17.ghex-carving.png”<small>
 
-Using a simple hex tool like **GHEX** allows us to cleanup the **raw** data and make sure that<br>
-we only have the jpeg without any pcap traffic headers. **JPEG** files start with a FF D8 FF<br>
-and finish with a FF D9. So we delete everything before and after our markers, and save the file.<br>
+Using a simple hex tool like **GHEX** allows us to cleanup the **RAW** data and make sure that<br>
+we only have the jpeg without any pcap traffic headers.<br>
+**JPEG** files start with a <span class="badge-data">FF D8 FF</span> and finish with a <span class="badge-data">FF D9</span>.<br>
+So we delete everything before and after our markers, and save the file.<br>
 
 ## 18.RECONSTRUCTED IMAGE
 ![T1:Casing.jpg](assets/images/tech-bureau/phase.03/T1:Casing.jpg)
@@ -361,8 +362,9 @@ Here is the **JPEG** file that we reconstructed, and what about the hidden data?
 
 <small>“18.pcap-image-steghide.png”<small>
 
-Steghide info shows that there is something inside, lets assume we have cracked the password<br>
-and entered it correctly. That provides the exact content that has been stolen.<br>
+Steghide info shows that there is something inside, lets assume<br>
+we have cracked the password and entered it correctly.<br>
+That provides the exact content that has been stolen.<br>
 
 ## LESSONS LEARNED
 
@@ -370,7 +372,7 @@ and entered it correctly. That provides the exact content that has been stolen.<
 * Using the GTFOBINS for gaining Root<br>
 * Steganography can be a powerful exfiltration medium.<br>
 <br>
-This concludes the TECH-BUREAU series, up next<br>
+This concludes the <span class="badge-data">TECH-BUREAU</span> series, up next<br>
 lets take a look at some cheeky malware shall we?<br>
 [MALWARE-BOILER Series: main hub ](./MALWARE-BOILER-main.md) <br>
 *Making a few Trojans and acting rather impish!*
