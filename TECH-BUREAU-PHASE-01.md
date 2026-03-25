@@ -259,14 +259,14 @@ Since http is in question we can see the data leaving in clear text.<br>
 
 ## LESSONS LEARNED
 
-* We can clearly see that a week password and no lockout policy leads to initial access.<br>
-* With the coveted data not having proper permissions even a low level account is enough for access.<br>
-* Allowing HTTP traffic on nonstandart ports to go out leaves the door open.<br>
-<br>
-**Continue**?<br>
-[**TECH-BUREAU-SERIES: PHASE 02.** ](./TECH-BUREAU-PHASE-02.md)<br>
-*MariaDB misconfiguration exploited, reverse shell gained, exfiltration via encrypted chanel*.<br>
-*Subtlety level - Sneaky*.<br>
+* We can clearly see that a week password and no lockout policy leads to initial access.
+* With the coveted data not having proper permissions even a low level account is enough for access.
+* Allowing HTTP traffic on nonstandart ports to go out leaves the door open.
+
+>**Continue**?<br>
+>[**TECH-BUREAU-SERIES: PHASE 02.** ](./TECH-BUREAU-PHASE-02.md)<br>
+>*MariaDB misconfiguration exploited, reverse shell gained, exfiltration via encrypted chanel*.<br>
+>*Subtlety level - Sneaky*.<br>
 
 <div class="divider-wire">
   <span class="line"></span>
