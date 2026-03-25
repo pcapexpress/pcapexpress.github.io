@@ -18,9 +18,8 @@ so apply a grain of salt where necessary.<br>
 
 [**TECH-BUREAU-SERIES: PHASE 01.** ](./TECH-BUREAU-PHASE-01.md)<br>
 *Enumerate, brute force and exfiltrate in clear traffic*.<br>
-*Subtlety level - Obvious*
+*Subtlety level - Obvious*<br>
 [**TECH-BUREAU-SERIES: PHASE 02.** ](./TECH-BUREAU-PHASE-02.md)<br>
-
 *MariaDB misconfiguration exploited, reverse shell gained, exfiltration via encrypted chanel*.<br>
 *Subtlety level - Sneaky*.<br>
 
