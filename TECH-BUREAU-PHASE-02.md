@@ -9,12 +9,12 @@ title: BUREAU:02
 <section>
   <ul class="hover-card"> 
     <li>
-      <span class="text-data"><strong>OFFENSE:</strong></span> Leveraging a system misscofiguration, priviledge escalating using an administrative oversight, Stealthy Data exfiltration 
+      <span class="text-data"><strong>OFFENSE:</strong></span> Exploiting a system misscofiguration, Priviledge escalating using an administrative oversight, Stealthy Data exfiltration 
     </li>
   </ul>
   <ul class="hover-card"> 
     <li>
-      <span class="text-data"><strong>DEFENSE:</strong></span> Being more cautious and restrictive with the server. 
+      <span class="text-data"><strong>DEFENSE:</strong></span> Discovering a bit of malicious code in a HTTP stream, Seting up alerts that track the use of binaries. 
     </li> 
   </ul>
 </section>
@@ -313,7 +313,7 @@ This alert in the full log section gives an exelent piece of data,<br>
 <span class="badge-data"><strong>CREATE FUNCTION sys_exec RETURNS INT SONAME 'sql_updater.so';</strong></span><br>
 The user admin has infact executed the shared object (.so) file.<br>
 
-## 15.PCAP ACE-CROSS
+## 07.PCAP ACE-CROSS
 
 ![15.a.Wireshark-so-exec.png](assets/images/tech-bureau/phase.02/15.a.Wireshark-so-exec.png)
 
@@ -322,7 +322,7 @@ The user admin has infact executed the shared object (.so) file.<br>
 We refer to the packet capture and observe the sql traffic.<br>
 And if we check the request querys and look in to the packet details...<br>
 
-## 15b.PCAP DETAILS
+## 08.PCAP DETAILS
 
 ![15.b.Wireshark-packet-details.png](assets/images/tech-bureau/phase.02/15.b.Wireshark-packet-details.png)
 
@@ -330,9 +330,15 @@ And if we check the request querys and look in to the packet details...<br>
 
 We can confirm the exact command that has been envoked.<br>
 
+## Rule Used
+
+![08.RULE-SQL-SHELL.png](assets/images/tech-bureau/phase.02/08.RULE-SQL-SHELL.png)
+
+<small>'08.RULE-SQL-SHELL.png'</small>
+
 #### ‹‹‹ HIDDEN SHELLSCRIPT EXECUTED ›››
 
-## 07.PRIVILEGE ESCALATION VIA SUID
+## 09.PRIVILEGE ESCALATION VIA SUID
 
 ![04.SUID.png](assets/images/tech-bureau/phase.02/04.SUID.png)
 
@@ -343,9 +349,15 @@ Very conviniently we are provided with the command that has been run on the bina
 <span class="badge-data"><strong>./engineer_find . -exec /bin/bash -p \; -quit</strong></span><br>
 This is proof that the advesary gained the priviliges of user <span class="orange"><strong>lead_engineer</strong></span>.
 
+## Rule Used
+
+![09.RULE-SQL-ESCALATION.png](assets/images/tech-bureau/phase.02/09.RULE-SQL-ESCALATION.png)
+
+<small>'09.RULE-SQL-ESCALATION.png'</small>
+
 #### ‹‹‹ PRIVILEGE ESCALATION CONFIRMED ›››
 
-## 05.DATA ACCESSED 
+## 10.DATA ACCESSED 
 
 ![05.CAT.png](assets/images/tech-bureau/phase.02/05.CAT.png)
 
@@ -354,13 +366,15 @@ As before the auditctl is keeing a watch on our schematic.<br>
 The file has been read.<br>
 #### ‹‹‹ CAT CONFIRMED ›››
 
-## 06.SECURE COPY PROTOCOL
+## 11.SECURE COPY PROTOCOL
 
 ![06.SCP.png](assets/images/tech-bureau/phase.02/06.SCP.png)
 
+We can see our rule giving us the details of what file has been copied out.
+
 <small>'06.SCP.png'</small>
 
-## 16.PCAP Input/Output GRAPH
+## 12.PCAP Input/Output GRAPH
 
 ![16.Wireshark-Graph.png](assets/images/tech-bureau/phase.02/16.Wireshark-Graph.png)
 
@@ -370,48 +384,19 @@ This is a good way to check for exfiltration due to the fact that we wont see an
 SSH trafic due to encryption.<br>
 In this somewhat comedic graph we see our tiny text file spiking the ssh trafic volume just before it interupts.<br>
 Exfiltration followed by an ubrupt protocol termination.<br>
-#### ‹‹‹ EXFIILTRATION CONFIRMED ›››
 
-## 07...
-
-![07.RULE-SQL-BRUTE.png](assets/images/tech-bureau/phase.02/07.RULE-SQL-BRUTE.png)
-
-<small>'07.RULE-SQL-BRUTE.png'</small>
-
-## 08...
-
-![08.RULE-SQL-SHELL.png](assets/images/tech-bureau/phase.02/08.RULE-SQL-SHELL.png)
-
-<small>'08.RULE-SQL-SHELL.png'</small>
-
-## 09...
-
-![09.RULE-SQL-ESCALATION.png](assets/images/tech-bureau/phase.02/09.RULE-SQL-ESCALATION.png)
-
-<small>'09.RULE-SQL-ESCALATION.png'</small>
-
-## 10...
-
-![10.RULE-CAT.png](assets/images/tech-bureau/phase.02/10.RULE-CAT.png)
-
-<small>'10.RULE-CAT.png'</small>
-
-## 11...
+## Rule used
 
 ![11.RULE-SCP.png](assets/images/tech-bureau/phase.02/11.RULE-SCP.png)
 
 <small>'11.RULE-SCP.png'</small>
 
-## LESSONS LEARNED
-#### As the attacker:<br>
-* <br>
-* <br>
-* <br>
+#### ‹‹‹ EXFIILTRATION CONFIRMED ›››
 
-#### As the defender:<br>
-* <br>
-* <br>
-* .<br>
+## LESSONS LEARNED
+* Metasploits **MsVenom** is a most handy module for reverse shell generation.<br>
+* Unpatched and misconfigured databases open up avenues for remote code execution.<br>
+* **SUID** exploitation for privilege escalation.
 <br>
 Continue?
 <br>
