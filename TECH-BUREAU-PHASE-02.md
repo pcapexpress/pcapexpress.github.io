@@ -3,7 +3,7 @@ layout: default
 title: BUREAU:02
 ---
 
-# TECH-BUREAU SERIES: PHASE 02
+# TECH-BUREAU SERIES: PHASE.02
 ## SQL_MISCONFIG-PRIV_ESCALATION-SECURE_COPY
 ### WHATS SHOWCASED
 <section>
@@ -14,7 +14,7 @@ title: BUREAU:02
   </ul>
   <ul class="hover-card"> 
     <li>
-      <span class="text-data"><strong>DEFENSE:</strong></span> Discovering a bit of malicious code in a HTTP stream, Seting up alerts that track the use of binaries. 
+      <span class="text-data"><strong>DEFENSE:</strong></span> Discovering of malicious code in a HTTP stream, Seting up alerts that track MariaDB workings. 
     </li> 
   </ul>
 </section>
@@ -396,7 +396,7 @@ Exfiltration followed by an ubrupt protocol termination.<br>
 ## LESSONS LEARNED
 * Metasploits **MsVenom** is a most handy module for reverse shell generation.<br>
 * Unpatched and misconfigured databases open up avenues for remote code execution.<br>
-* **SUID** exploitation for privilege escalation.
+* **SUID** exploitation for privilege escalation.<br>
 <br>
 Continue?
 <br>
