@@ -3,17 +3,17 @@ layout: default
 title: BUREAU:03
 ---
 # TECH-BUREAU SERIES: PHASE 03
-## TROJAN-GTFOBIN-STEGONOGRAPHY.
+## TROJAN-GTFOBIN-STEGANOGRAPHY.
 ### WHATS SHOWCASED
 <section>
   <ul class="hover-card"> 
     <li>
-      <span class="text-data"><strong>OFFENSE:</strong></span> Creating a Trojan, gaining Root and Stegonography shenanigans.
+      <span class="text-data"><strong>OFFENSE:</strong></span> Creating a Trojan, gaining Root and Steganography shenanigans.
     </li>
   </ul>
   <ul class="hover-card"> 
     <li>
-      <span class="text-data"><strong>DEFENSE:</strong></span> Observing SHELL traffic, fine tuning alerts, reconstructing an image from a pcap file. 
+      <span class="text-data"><strong>DEFENSE:</strong></span> Observing SHELL traffic, setting alerts on binaries, reconstructing an image from a pcap file. 
     </li> 
   </ul>
 </section>
@@ -338,38 +338,23 @@ Using a simple hex tool like GHEX allows us to cleanup the rax data and make sur
 
 Here is the jpeg file that we reconstructed, and what about teh hidden data?
 
-## 19.REVERSE STEGONOGRAPHY?
+## 19.REVERSE STEGANOGRAPHY?
 ![18.pcap-image-steghide.png](assets/images/tech-bureau/phase.03/18.pcap-image-steghide.png)
 
 <small>“18.pcap-image-steghide.png”<small>
 
-Steghide info shows that there is something inside, lets asume we have cracked teh password and entered it correctly. That provides the exact content taht has been stolen.
-
-
-
-
-
-
-
-
-
+Steghide info shows that there is something inside, lets asume we have cracked the password and entered it correctly. That provides the exact content taht has been stolen.
 
 ## LESSONS LEARNED
-As the attacker:<br>
-* <br>
-* <br>
-* <br>
-As the defender:<br>
-* <br>
-* <br>
-* .<br>
+
+* Creating a rudimentary Trojan<br>
+* Using the GTFOBINS for gaining Root<br>
+* Steganography can be a powerful exfiltration medium.<br>
 <br>
 Continue?
 <br>
-[**TECH-BUREAU-SERIES: PHASE 03.** ](./TECH-BUREAU-PHASE-03.md) <br>
-*Phish, infect, persist, escalate, obfuscate and extract. The system has been hardened to the fullest.<br>
-A phishing campaign  is now in the cards, but how can we extract the data this time to dupe the TECH-BUREAU?<br>
-**STAY TUNED TO FIND OUT!***
+[MALWARE-BOILER Series: main hub ](./MALWARE-BOILER-main.md) <br>
+*Making a few Trojans and acting rather impish!*
 
 <div class="divider-wire">
   <span class="line"></span>
