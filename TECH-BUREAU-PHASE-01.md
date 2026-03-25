@@ -10,12 +10,12 @@ title: BUREAU:01
 <section>
   <ul class="hover-card"> 
     <li>
-      <span class="orange"><strong>OFFENSE:</strong></span> Target enumeration, SSH bruteforce, Data exfiltration 
+      <span class="text-data"><strong>OFFENSE:</strong></span> Target enumeration, SSH bruteforce, Data exfiltration 
     </li>
   </ul>
   <ul class="hover-card"> 
     <li>
-      <span class="orange"><strong>DEFENSE:</strong></span> Tuning Alerts to reduce noise, Comparing pcap file findings 
+      <span class="text-data"><strong>DEFENSE:</strong></span> Tuning Alerts to reduce noise, Comparing pcap file findings 
     </li> 
   </ul>
 </section>
@@ -259,18 +259,11 @@ Since http is in question we can see the data leaving in clear text.<br>
 
 ## LESSONS LEARNED
 
-As the attacker:<br>
 * We can clearly see that a week password and no lockout policy leads to initial access.<br>
 * With the coveted data not having proper permissions even a low level account is enough for access.<br>
-* Also having the option for an adversary to spinup a server and send data out via http is most problematic.<br>
+* Allowing HTTP traffic on nonstandart ports to go out leaves the door open.<br>
 <br>
-As the defender:<br>
-* We shall start by creating an account locout policy + blocking an IP thats trying to Bruteforce in.<br>
-* Next up is some admistrative tweeks, the *intern* account shall not be permited to access the folder PROJECT.5527.<br>
-* I shall try to restrict the HTTP/HTTPS capabilities of the server, creating a more airgaped machine.<br>
-<br>
-Continue?
-<br>
+**Continue**?<br>
 [**TECH-BUREAU-SERIES: PHASE 02.** ](./TECH-BUREAU-PHASE-02.md)<br>
 *MariaDB misconfiguration exploited, reverse shell gained, exfiltration via encrypted chanel*.<br>
 *Subtlety level - Sneaky*.<br>
