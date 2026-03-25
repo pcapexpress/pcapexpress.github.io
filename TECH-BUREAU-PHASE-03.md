@@ -343,8 +343,6 @@ Steghide info shows that there is something inside, lets asume we have cracked t
 <br>
 This concludes the TECH-BUREAU series, up next<br>
 lets take a look at some cheeky malware shall we?<br>
-Continue?<br>
-<br>
 [MALWARE-BOILER Series: main hub ](./MALWARE-BOILER-main.md) <br>
 *Making a few Trojans and acting rather impish!*
 
