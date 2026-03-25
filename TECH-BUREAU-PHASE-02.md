@@ -288,6 +288,7 @@ We can investigate furtehr by checking the http stream.<br>
 
 The contents look quite jumbeled up but in the tail end there we see a <span class="badge-data"><strong>/bin/sh</strong></span> string,<br>
 wich would confirm a malicious payload has been sent out to our server.<br>
+
 #### ‹‹‹ HIDDEN SHELLSCRIPT CONFIRMED ›››
 
 ## 06.ARBITRARY CODE EXECUTION
@@ -317,7 +318,7 @@ And if we check the request querys and look in to the packet details...<br>
 
 We can confirm the exact command that has been envoked.<br>
 
-## Rule Used
+### RULE USED:
 
 ![08.RULE-SQL-SHELL.png](assets/images/tech-bureau/phase.02/08.RULE-SQL-SHELL.png)
 
@@ -336,7 +337,7 @@ Very conviniently we are provided with the command that has been run on the bina
 <span class="badge-data"><strong>./engineer_find . -exec /bin/bash -p \; -quit</strong></span><br>
 This is proof that the advesary gained the priviliges of user <span class="orange"><strong>lead_engineer</strong></span>.
 
-## Rule Used
+### RULE USED:
 
 ![09.RULE-SQL-ESCALATION.png](assets/images/tech-bureau/phase.02/09.RULE-SQL-ESCALATION.png)
 
@@ -372,7 +373,7 @@ SSH trafic due to encryption.<br>
 In this somewhat comedic graph we see our tiny text file spiking the ssh trafic volume just before it interupts.<br>
 Exfiltration followed by an ubrupt protocol termination.<br>
 
-## Rule used
+### RULE USED:
 
 ![11.RULE-SCP.png](assets/images/tech-bureau/phase.02/11.RULE-SCP.png)
 
