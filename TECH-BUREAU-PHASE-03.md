@@ -280,6 +280,12 @@ To add to the evidence we can see that a non standart port 4040 is in use.
 
 Suspicious POST request to a website, over a nonstandart port 4040. I would run the website ip through VirusTotal in a real scenario. Lets see what teh stream has to show us.
 
+### RULE USED:
+
+![13.rule-outbound-traffic.png](assets/images/tech-bureau/phase.03/13.rule-outbound-traffic.png)
+
+<small>“13.rule-outbound-traffic.png”<small>
+
 ## 12.WIRESHARK CURL-STREAM
 
 ![12.wireshark-post-stream.png](assets/images/tech-bureau/phase.03/12.wireshark-post-stream.png)
@@ -287,6 +293,13 @@ Suspicious POST request to a website, over a nonstandart port 4040. I would run 
 <small>“12.wireshark-post-stream.png”<small>
 
 Here we can see the details of a file named Seabass_Rtophy.jpeg a POST /upload folder destination an authentication token, and an important detail, curl is used as an agent, in a normal scenario our user wold use the internet browser to upload his image, in which case the agnet would be something like Mozilla/5.0. 
+
+### RULE USED:
+
+![16.rule-curl-used.png](assets/images/tech-bureau/phase.03/16.rule-curl-used.png)
+
+<small>“16.rule-curl-used.png”<small>
+
 
 #### ‹‹‹EXFILTRATION CONFIRMED›››
 
@@ -296,32 +309,9 @@ Here we can see the details of a file named Seabass_Rtophy.jpeg a POST /upload f
 
 <small>“08.wazuh-delete.png”<small>
 
+This would be abuilt in Wazuh alert, we can see clearly the file in question.<br>
+
 #### ‹‹‹DATA DESTROYED››› 
-
-
-## 13.RULE OUTBOUD TRAFFIC
-
-![13.rule-outbound-traffic.png](assets/images/tech-bureau/phase.03/13.rule-outbound-traffic.png)
-
-<small>“13.rule-outbound-traffic.png”<small>
-
-## 14.RULE FILE OPENED
-
-![14.rule-file-opened.png](assets/images/tech-bureau/phase.03/14.rule-file-opened.png)
-
-<small>“14.rule-file-opened.png”<small>
-
-## 15.RULE STEGHIDE USED
-
-![15.rule-steghide-used.png](assets/images/tech-bureau/phase.03/15.rule-steghide-used.png)
-
-<small>“15.rule-steghide-used.png”<small>
-
-## 16.RULE CURL USED
-
-![16.rule-curl-used.png](assets/images/tech-bureau/phase.03/16.rule-curl-used.png)
-
-<small>“16.rule-curl-used.png”<small>
 
 ## 17.GHEX CARVING
 
@@ -351,7 +341,9 @@ Steghide info shows that there is something inside, lets asume we have cracked t
 * Using the GTFOBINS for gaining Root<br>
 * Steganography can be a powerful exfiltration medium.<br>
 <br>
-Continue?
+This concludes the TECH-BUREAU series, up next<br>
+lets take a look at some cheeky malware shall we?<br>
+Continue?<br>
 <br>
 [MALWARE-BOILER Series: main hub ](./MALWARE-BOILER-main.md) <br>
 *Making a few Trojans and acting rather impish!*
