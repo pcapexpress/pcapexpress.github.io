@@ -2,9 +2,9 @@
 layout: default
 title: BUREAU:03
 ---
-# TECH-BUREAU SERIES: PHASE 03
+# TECH-BUREAU SERIES: PHASE.03
 ## TROJAN-GTFOBIN-STEGANOGRAPHY.
-### WHATS SHOWCASED
+### WHATS SHOWCASED:
 <section>
   <ul class="hover-card"> 
     <li>
