@@ -20,28 +20,15 @@ title: BUREAU:02
 </section>
 
 ### The initial Setup
-...
+Quick few adjustments to our server, we change the permissions of our data folder.<br>
 
-### PERMISSION CHANGE
+root@TECH-BUREAU-UBUNTU-24:# <span class="label-data">sudo chown lead_engineer:lead_engineer /home/lead_engineer/PROJECT.5527</span><br>
+root@TECH-BUREAU-UBUNTU-24:# <span class="label-data">sudo chmod 700 /home/lead_engineer/PROJECT.5527</span><br>
 
-root@TECH-BUREAU-UBUNTU-24:# sudo chown lead_engineer:lead_engineer /home/lead_engineer/PROJECT.5527<br>
-root@TECH-BUREAU-UBUNTU-24:# sudo chmod 700 /home/lead_engineer/PROJECT.5527<br>
-root@TECH-BUREAU-UBUNTU-24:# ls -l<br>
-total 8<br>
--rw-r--r-- 1 lead_engineer lead_engineer 398 Feb 14 09:03 Frame_specs.txt<br>
--rw-r--r-- 1 lead_engineer lead_engineer 396 Mar  6 13:44 Valve_specs.txt<br>
+And of course a password change for our **intern**...no more *footbal*.<br>
 
-### QUICK CHECK
-
-intern@TECH-BUREAU-UBUNTU-24:/home/lead_engineer$ cd PROJECT.5527/<br>
--bash: cd: PROJECT.5527/: Permission denied<br>
-
-### PASSWORD CHANGE
-
-root@TECH-BUREAU-UBUNTU-24:/home/lead_engineer/PROJECT.5527# sudo passwd intern<br>
-New password: +p*yckWMu5b2eW*BCP0x+NnpJ3It58Ae<br>
-Retype new password: +p*yckWMu5b2eW*BCP0x+NnpJ3It58Ae<br>
-passwd: password updated successfully<br>
+root@TECH-BUREAU-UBUNTU-24:/home/lead_engineer/PROJECT.5527# <span class="label-data">sudo passwd intern</span><br>
+New password: <span class="label-data">+p*yckWMu5b2eW*BCP0x+NnpJ3It58Ae</span><br>
 
 <div class="divider"></div>
 
