@@ -4,9 +4,22 @@ title: Index
 ---
 # All Abord the PCAPEXPRESS!
 ## A slightly difrent project portfolio.
+### EMEDIATE AI DISCLAIMER:
 
-This is a project portfolio based around developing a useful set of skills in the field of IT security.<br>
-The Portfolio is focused on 3 main sections which I humbly invite you to peruse.<br>
+<small>All the writing is done "by hand", the Wireshark analisys is done from exercising<br>
+and tutorials. However Wazuh spinup, Virtual Machine administration and misconfiguration,<br>
+alert tuning and python/bash code was done using Google Gemini.<br><small>
+<br>
+Based around developing a useful set of skills in the field of IT security,<br>
+this Portfolio is a documented jeourney of a single individual looking to,<br>
+try out a series of Tools, Concepts, Techniques and have a bit of fun with it.<br>
+So join me why dont you and take a gander at whats on offer.<br>
+Nothing is final and more projects to come. I have documented everything to the
+best of my ability. And hopefuly the data is to the point.<br>
+<br>
+<span class="badge-data">PCAP-EXPRESS</span> - <span class="text-data"><strong>A place to observe and reflect on packets passing by.</strong></span>
+
+<div class="divider"></div>
 
 ### 01:PCAP-EXPRESS SERIES: Wireshark Investigations
 Here is a small collection of quick forensic investigations using **Wireshark**<br>
@@ -41,16 +54,14 @@ Learning to specialize in Network Forensics using Wireshark & IDS/SIEM Alert Cor
 Ability to establish a rudimentary SOC environment using virtualization.<br>
 Desire to delve deeper in to Malware Analysis and Development.
 
-#### A place to observe and reflect on packets passing by.
-
 <section>
-  <ul class="hover-card"> <li><strong>Early Days:</strong> Tier 01 - building competence within a SOC team, learn the ropes.</li>
+  <ul class="hover-card"> <li><strong>COMPTIA SECURITY+ CERTIFIED | TRYHACKME RANK - [LEGEND]</strong></li>
   </ul>
-  <ul class="hover-card"> <li><strong>Mid Term:</strong> Tier 02 - deepen triage knowledge and participate in Pentesting.</li>
+  <ul class="hover-card"> <li><strong>WORKED WITH: WIRESHARK | BURPSUITE | SNORT | METASPLOIT</strong></li>
   </ul>
 </section>
 
-<p class="text-center">[not a link] | [not a pdf] | [not drum'n'bass]</p>
+<p class="text-center">[linkedin?] | [I rather not.] | [I think its silly!]</p>
 <div class="divider-wire">
   <span class="line"></span>
   <span class="symbol">⦿</span>
