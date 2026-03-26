@@ -34,7 +34,7 @@ Malicious links have been **defanged**.<br>
 * Use of object exporting.<br>
 * Use of statistics when beneficial.<br>
 * Wright up the findings in an ASKII "human readable" format.<br>
-
+<br>
 <section>
   <ul class="hover-card"> <li><strong>Shout out to Chris Greer and the SHARKFEST lectures</strong></li>
   </ul>
