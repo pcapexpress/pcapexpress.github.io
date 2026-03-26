@@ -11,8 +11,9 @@ This **Purple Team Project** is divided in to 3 Phases,<br>
 the nature and spirit is a **capture the flag** type arrangement.<br>
 In order to showcase some concepts a rather vulnerable Ubuntu Server has been spun up.<br>
 Custom Wazuh alerts have been set in place to make the dashboard look clean.<br>
-I would like to humbly add that mistakes are very possible,<br>
-so apply a grain of salt where necessary.<br>
+I would like to humbly add that the unfolding scenario is highly unrealistic as a whole,<br>
+but parts of it are. Most likely mistakes have been made along the way,<br>
+so apply a generous sprinkling of salt where necessary.<br>
 
 ### Follow these Links if you please:
 
@@ -35,6 +36,11 @@ so apply a grain of salt where necessary.<br>
 * Planning an attack strategy with backup options.<br>
 * Attaining more experience with packet capture/inspection.<br>
 * Wright up the findings in an ASKII "human readable" format.<br>
+
+<section>
+  <ul class="hover-card"> <li><strong>I thoroughly enjoyed the entire process, took a lot of tinkering.</strong></li>
+  </ul>
+</section>
 
 <div class="divider-wire">
   <span class="line"></span>
