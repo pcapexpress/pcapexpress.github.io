@@ -54,7 +54,7 @@ Something that peaks my curiosity and adds to a well rounded understanding of vi
 Learning to specialize in Network Forensics using Wireshark & IDS/SIEM Alert Corelation.<br>
 Ability to establish a rudimentary SOC environment using virtualization.<br>
 Desire to delve deeper in to Malware Analysis and Development.<br>
-<span class="badge-data">CompTIA Security+</span> - <span class="text-data"><strong>Certified</strong></span><br>
+<span class="badge-data">CompTIA Security+</span> - <span class="text-data"><strong>Certified.</strong></span><br>
 
 <section>
   <ul class="hover-card"> <li><strong>WORKED WITH: WIRESHARK | BURPSUITE | SNORT | METASPLOIT | HYDRA etc.</strong></li>
