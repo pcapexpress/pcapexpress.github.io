@@ -8,7 +8,7 @@ title: Index
 
 <small>All the writing is done "by hand", the Wireshark analisys is done from exercising<br>
 and tutorials. However Wazuh spinup, Virtual Machine administration and misconfiguration,<br>
-alert tuning and python/bash code was done using Google Gemini.<br><small>
+alert tuning and python/bash code was done using Google Gemini.</small><br>
 <br>
 Based around developing a useful set of skills in the field of IT security,<br>
 this Portfolio is a documented jeourney of a single individual looking to,<br>
