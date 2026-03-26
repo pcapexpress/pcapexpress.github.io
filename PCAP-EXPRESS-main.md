@@ -7,13 +7,13 @@ title: WIRESHARK SERIES
 ## THE ORIGINAL DFIR EXPIRIENCE
 ### IT STARTS:
 
-This is where the project casted off. Diving in to the pcap goodness and trying to<br>
+This is where the project casted off. Diving in to the **pcap** goodness and trying to<br>
 make sense of it all, one session at a time. At this point I have looked at a<br>
 good amount of traffic and protocols and gained a certain feeling of confidence<br>
-and aditional curiosity regarding the actualy happenings of a buisy network.<br>
-Below You will find 3 exercises of pcap analisys,<br>
+and aditional curiosity regarding the actual happenings of a buisy network.<br>
+Below You will find 3 exercises of **pcap** analisys,<br>
 the **pcaps** are taken from <span class="badge-data">malware-traffic-analysis[.]net</span><br>
-Malicious links have been defanged.<br>
+Malicious links have been **defanged**.<br>
 
 ### EXPLORE THE LINKS BELOW:
 
@@ -34,6 +34,11 @@ Malicious links have been defanged.<br>
 * Use of object exporting.<br>
 * Use of statistics when beneficial.<br>
 * Wright up the findings in an ASKII "human readable" format.<br>
+
+<section>
+  <ul class="hover-card"> <li><strong>Shout out to Chris Greer and the SHARKFEST lectures</strong></li>
+  </ul>
+  </section>
 
 <div class="divider-wire">
   <span class="line"></span>
