@@ -38,7 +38,7 @@ Malicious links have been **defanged**.<br>
 <section>
   <ul class="hover-card"> <li><strong>Shout out to Chris Greer and the SHARKFEST lectures</strong></li>
   </ul>
-  </section>
+</section>
 
 <div class="divider-wire">
   <span class="line"></span>
