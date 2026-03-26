@@ -4,18 +4,19 @@ title: Index
 ---
 # All Abord the PCAPEXPRESS!
 ## A slightly difrent project portfolio.
-### EMEDIATE AI DISCLAIMER:
+### IMMEDIATE AI DISCLAIMER:
 
-<small>All the writing is done "by hand", the Wireshark analisys is done from exercising<br>
-and tutorials. However Wazuh spinup, Virtual Machine administration and misconfiguration,<br>
+<small>All the writing is done “by hand”, the Wireshark analysis is done from exercising
+and tutorials. However Wazuh spin-up, Virtual Machine administration and misconfiguration,
 alert tuning and python/bash code was done using Google Gemini.</small><br>
 <br>
 Based around developing a useful set of skills in the field of IT security,<br>
-this Portfolio is a documented jeourney of a single individual looking to,<br>
+this Portfolio is a written jeourney of a single individual looking to,<br>
 try out a series of Tools, Concepts, Techniques and have a bit of fun with it.<br>
-So join me why dont you and take a gander at whats on offer.<br>
-Nothing is final and more projects to come. I have documented everything to the
-best of my ability. And hopefuly the data is to the point.<br>
+So join me why dont you, and take a gander at whats on offer.<br>
+Nothing is final and more projects to come.<br>
+I have documented everything to the best of my ability.<br>
+*And hopefuly the data is to the point*.<br>
 <br>
 <span class="badge-data">PCAP-EXPRESS</span> - <span class="text-data"><strong>A place to observe and reflect on packets passing by.</strong></span>
 
@@ -52,12 +53,11 @@ Something that peaks my curiosity and adds to a well rounded understanding of vi
 ## [Andy Anderson] | Aspiring IT Security Professional
 Learning to specialize in Network Forensics using Wireshark & IDS/SIEM Alert Corelation.<br>
 Ability to establish a rudimentary SOC environment using virtualization.<br>
-Desire to delve deeper in to Malware Analysis and Development.
+Desire to delve deeper in to Malware Analysis and Development.<br>
+<span class="badge-data">CompTIA Security+</span> - <span class="text-data"><strong>Certified</strong></span><br>
 
 <section>
-  <ul class="hover-card"> <li><strong>COMPTIA SECURITY+ CERTIFIED | TRYHACKME RANK - [LEGEND]</strong></li>
-  </ul>
-  <ul class="hover-card"> <li><strong>WORKED WITH: WIRESHARK | BURPSUITE | SNORT | METASPLOIT</strong></li>
+  <ul class="hover-card"> <li><strong>WORKED WITH: WIRESHARK | BURPSUITE | SNORT | METASPLOIT | HYDRA etc.</strong></li>
   </ul>
 </section>
 
