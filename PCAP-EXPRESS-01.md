@@ -176,13 +176,14 @@ BitDefender: Gen:Variant.Doina.88562
 
 ## 04. Short Report and Conclusion
 
-We have established that a company employee (**host:DESKTOP-L8C5GSJ**) has clicked on a link<br>
-taking them to a fake domain (**google-authenticator[.]burleson-appliance[.]net**) posing<br>
-as a legitimate authentication service provider. The employee proceeded downloading and executing a file<br>
+We have established that a company employee (**host:DESKTOP-L8C5GSJ**)<br>
+has clicked on a link taking them to a fake domain (**google-authenticator[.]burleson-appliance[.]net**)<br>
+posing as a legitimate authentication service provider. The employee proceeded downloading and executing a file<br>
 that started a chain reaction of downloading a sequence of files and deploying malware on their machine.<br>
 The malware in question is (**TV.dll**) and it is disguised to trick users to believe<br>
-that it is a piece of legitimate TeamViewer software. The network traffic indicates that<br>
-some form of persistence has been established and that the infected host is communicating with the adversary<br>
+that it is a piece of legitimate TeamViewer software.<br>
+The network traffic indicates that some form of persistence has been established and that<br>
+the infected host is communicating with the adversary<br>
 using 2 IPs (**45.125.66.32 and 45.125.66.252**).
 The briefing states that the IT department has wiped the affected machine and there is no immediate threat to the organization.
 The next procedure would be to update the banned IP addresses and add the Malware hashes to the EDR/Antivirus solution data bank.
