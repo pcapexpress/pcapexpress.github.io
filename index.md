@@ -7,10 +7,9 @@ title: Index
 ### IMMEDIATE AI DISCLAIMER:
 
 <pre data-label="DISCLAIMER" style="--delay: 0s;"><code>
-<span class="orange">All the writing is done “by hand”, the Wireshark analysis
-is done from exercising and tutorials.</span> However Wazuh spin-up,
-Virtual Machine administration and misconfiguration, alert tuning and python/bash code
-was done using <span class="orange">Google Gemini.</span>
+<span class="orange">All the writing is done “by hand”, the Wireshark analysis is rooted in experience.</span>
+However Wazuh spin-up, Virtual Machine administration and misconfiguration,
+alert tuning and python/bash code was done using <span class="orange">Google Gemini.</span>
 </code></pre>
 
 <br>
