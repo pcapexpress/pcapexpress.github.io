@@ -20,6 +20,20 @@ The goal is to become a fully fledged SOC analyst with the ability to specialize
      Currently residing on an island just of the coast of Croatia I have picked up kayaking. Regular sessions on the sea and participating in accredited courses have yielded 3 certificates and a set of practical skills I never knew I would chase after. As a result I am a ACA trip leader and instructor, the maneuver I’m proud of the most is certainly the <strong><em>C-to-C Eskimo roll.</em></strong></p>
 <div style="clear: both;"></div>
 
+<p align="center">
+  <code>[</code> 
+  <a href="https://www.linkedin.com/in/andrejs-petrovs-143a80345" target="_blank" rel="noopener noreferrer">LINKEDIN</a> 
+  <code>]</code> &nbsp;&nbsp;
+
+  <code>[</code> 
+  <a href="./assets/Andrejs_Petrovs_CV_eng.02.pdf" target="_blank" rel="noopener noreferrer">RESUME</a> 
+  <code>]</code> &nbsp;&nbsp;
+
+  <code>[</code> 
+  <a href="mailto:andrejspetrovs@yahoo.com">E-MAIL</a> 
+  <code>]</code>
+</p>
+
 ### CAREER GOALS:
 <section>
   <ul class="hover-card"> <li><strong>Early Days:</strong> Tier 01 - building competence within a SOC team, learn the ropes.</li>
