@@ -65,9 +65,17 @@ Desire to delve deeper in to Malware Analysis and Development.<br>
 </section>
 
 <p align="center">
-  <a href="https://www.linkedin.com/in/andrejs-petrovs-143a80345">LINKEDIN</a> | 
-  <a href="./assets/Andrejs_Petrovs_CV_eng.02.pdf">RESUME</a> | 
-  <a href="mailto:andrejspetrovs@yahoo.com">E-MAIL</a>
+  <code>[</code> 
+  <a href="https://www.linkedin.com/in/andrejs-petrovs-143a80345" target="_blank" rel="noopener noreferrer">LINKEDIN</a> 
+  <code>]</code> &nbsp;&nbsp;
+
+  <code>[</code> 
+  <a href="./assets/Andrejs_Petrovs_CV_eng.02.pdf" target="_blank" rel="noopener noreferrer">RESUME</a> 
+  <code>]</code> &nbsp;&nbsp;
+
+  <code>[</code> 
+  <a href="mailto:andrejspetrovs@yahoo.com">E-MAIL</a> 
+  <code>]</code>
 </p>
 
 <div class="divider-wire">
