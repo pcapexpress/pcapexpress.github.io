@@ -6,9 +6,13 @@ title: Index
 ## A slightly difrent project portfolio.
 ### IMMEDIATE AI DISCLAIMER:
 
-<small>All the writing is done “by hand”, the Wireshark analysis is done from exercising
-and tutorials. However Wazuh spin-up, Virtual Machine administration and misconfiguration,
-alert tuning and python/bash code was done using Google Gemini.</small><br>
+<pre data-label="DISCLAIMER" style="--delay: 0s;"><code>
+<span class="orange">All the writing is done “by hand”, the Wireshark analysis
+is done from exercising and tutorials.</span> However Wazuh spin-up,
+Virtual Machine administration and misconfiguration, alert tuning and python/bash code
+was done using <span class="orange">Google Gemini.</span>
+</code></pre>
+
 <br>
 Based around developing a useful set of skills in the field of IT security,<br>
 this Portfolio is a written jeourney of a single individual looking to,<br>
@@ -61,7 +65,12 @@ Desire to delve deeper in to Malware Analysis and Development.<br>
   </ul>
 </section>
 
-<p class="text-center">[linkedin?] | [I rather not.] | [I think its silly!]</p>
+<p align="center">
+  <a href="https://www.linkedin.com/in/andrejs-petrovs-143a80345">LINKEDIN</a> | 
+  <a href="./assets/Andrejs_Petrovs_CV_eng.02.pdf">RESUME</a> | 
+  <a href="mailto:andrejspetrovs@yahoo.com">E-MAIL</a>
+</p>
+
 <div class="divider-wire">
   <span class="line"></span>
   <span class="symbol">⦿</span>
