@@ -20,7 +20,7 @@ But change waits for no man, I have decided to hang up my <span class="text-oran
 The goal is to become a fully fledged SOC analyst with the ability to specialize in network traffic analysis and digital forensics. I have developed a taste for entry level Pen Testing, did a bunch of capture the flag boxes with TryHackMe, and mostly failed but learned a whole lot in the process.<br>
 <br>
 Currently residing on an island just of the coast of Croatia I have picked up kayaking. Regular sessions on the sea and participating in accredited courses have yielded 3 certificates and a set of additional practical skills. As a result I am a ACA trip leader and instructor, the maneuver I’m proud of the most is certainly the <span class="text-orange"><strong>C-to-C Eskimo roll.</strong></span></p>
-
+<div style="clear: both;"></div>
 
 ### CAREER GOALS:
 <section>
