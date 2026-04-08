@@ -70,7 +70,7 @@ Desire to delve deeper in to Malware Analysis and Development.<br>
   <code>]</code> &nbsp;&nbsp;
 
   <code>[</code> 
-  <a href="./assets/Andrejs_Petrovs_CV_eng.02.pdf" target="_blank" rel="noopener noreferrer">RESUME</a> 
+  <a href="./assets/A.Petrov-CV.pdf" target="_blank" rel="noopener noreferrer">RESUME</a> 
   <code>]</code> &nbsp;&nbsp;
 
   <code>[</code> 
