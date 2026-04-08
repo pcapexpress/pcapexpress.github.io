@@ -16,10 +16,10 @@ title: About
 <p><br>Here wrights to you a gentleman and a scholar.<br>
 A former Beer Brewing professional of 10ish years, that has been granted the opportunity to travel around, I had contracts in 4 different countries, and I am very grateful for that.<br>
 <br>     
-But change waits for no man, I have decided to hang up my <span class="text-orange"><strong>Ol' Brewi'n Cap</strong></span> and dawn some sort of ... <span class="text-orange"><strong>Thinking Bonnet</strong></span> and do something a touch more mentally stimulating career wise. Enter an era of self education and gravitation towards the IT security sector, <span class="text-orange"><strong>CompTia Sec+</strong></span> has been secured!<br>
+But change waits for no man, I have decided to hang up my <span class="text-orange">Ol' Brewi'n Cap</span> and dawn some sort of ... <span class="text-orange">Thinking Bonnet</span> and do something a touch more mentally stimulating career wise. Enter an era of self education and gravitation towards the IT security sector, <span class="text-orange">CompTia Sec+</span> has been secured!<br>
 The goal is to become a fully fledged SOC analyst with the ability to specialize in network traffic analysis and digital forensics. I have developed a taste for entry level Pen Testing, did a bunch of capture the flag boxes with TryHackMe, and mostly failed but learned a whole lot in the process.<br>
 <br>
-Currently residing on an island just of the coast of Croatia I have picked up kayaking. Regular sessions on the sea and participating in accredited courses have yielded 3 certificates and a set of additional practical skills. As a result I am a ACA trip leader and instructor, the maneuver I’m proud of the most is certainly the <span class="text-orange"><strong>C-to-C Eskimo roll.</strong></span></p>
+Currently residing on an island just of the coast of Croatia I have picked up kayaking. Regular sessions on the sea and participating in accredited courses have yielded 3 certificates and a set of additional practical skills. As a result I am a ACA trip leader and instructor, the maneuver I’m proud of the most is certainly the <span class="text-orange">C-to-C Eskimo roll.</span></p>
 <div style="clear: both;"></div>
 
 ### CAREER GOALS:
