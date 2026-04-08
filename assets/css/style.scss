@@ -281,16 +281,22 @@ section {
   // Top: 10px | Right: 20px | Bottom: 10px | Left: 20px
   padding: 10px 20px 10px 20px;
   width: 100%;
-  display: block;
+  //display: block; <---------------------------------------------CHECK
   position: relative;
+
+  /* --- THE FIX --- */
+  display: flex;          // Changed from block
+  flex-direction: column; // Keeps your content stacked vertically
+  flex: 1;                // This forces the section to expand and fill the gap
+  /* --------------- */
+  
   z-index: 1;
 
 // 4.1 MAIN CONTENT AREA - HEADERS
 h1, h2, h3, h4 {
   display: table;        
-//  display: inline-block; // < -------------------------------------CHECK
   margin-bottom: 10px;
-  width: auto; //100% --------------------------------------------- CHECK
+  width: auto;
   
   backface-visibility: hidden;
   transform: translateZ(0); 
