@@ -11,6 +11,7 @@ title: SYSMON
       <span class="text-data"><strong>DEFFENSE:</strong></span> The essential steps to kickstart the Sysmon logs
     </li>
   </ul>
+</section>
  
 
 ### The initial Setup
