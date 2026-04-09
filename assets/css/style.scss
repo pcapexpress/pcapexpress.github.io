@@ -281,11 +281,13 @@ section {
   // Top: 10px | Right: 20px | Bottom: 10px | Left: 20px
   padding: 10px 20px 10px 20px;
   width: 100%;
-  
   //display: block;
-  display: flex; //
+  //display: flex; //
   flex-direction: column; // <----------------------------------------------------------------CHEKC
-  flex: 1;//
+ //flex: 1;//
+
+  flex: 1 0 auto;           // This tells the section to FILL all available space
+  display: block; 
   
   position: relative;  
   z-index: 1;
@@ -735,7 +737,9 @@ hr {
   
   display: flex;
   flex-direction: column;
-  min-height: calc(100dvh - 40px); //<------------------------------------------------------CHECK
+  //min-height: calc(100dvh - 40px); //<------------------------------------------------------CHECK
+  min-height: 100dvh; //<--
+  margin: 0 auto; // <--
   border-radius: 12px;
   overflow: hidden;
   align-items: stretch;  
