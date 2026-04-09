@@ -278,14 +278,9 @@ header {
 section {
   max-width: 900px;
   margin: 0 auto;
-  // Top: 10px | Right: 20px | Bottom: 10px | Left: 20px
   padding: 10px 20px 10px 20px;
   width: 100%;
   display: block;
-  //display: flex;
-  //flex-direction: column; // <----------------------------------------------------------------CHEKC
-  //flex: 1;
-  //align-items: flex-start;
   position: relative;  
   z-index: 1;
 
@@ -319,7 +314,6 @@ h2 {
 }
 
 h3 {
-  //font-size: clamp(1.2rem, 5vw, 1.5rem); // <---------------------------------CHECK!!!
   color: $orange !important; 
   text-shadow:
     1px 1px 2px rgba($dark-bg, 1) !important;
@@ -330,7 +324,6 @@ h4 {
   text-shadow: 
      0 0 5px rgba($cyan, 0.8),
      1px 1px 2px rgba($dark-bg, 1) !important;
-  // Link the animation here
   animation: textFlicker 4s infinite;
 } // <----------------------------------------------------------------------------LAST HEADER CLOSED
   
@@ -434,9 +427,9 @@ img {
 
   // 4.7 SECONDARY STYLE CYBER CEPIA
   .img-cyber {
-    display: block;     // Keeps it on its own line
-    margin-left: 0;     // Forces it to the left wall
-    margin-right: auto; // Pushes the empty space to the right
+    display: block;     
+    margin-left: 0;     
+    margin-right: auto; 
     margin-top: 35px;
     margin-bottom: 35px;
     border: 1px solid $green !important;
@@ -534,11 +527,11 @@ pre.ticker-container {
   padding: 10px 0; 
   white-space: nowrap;
   overflow: hidden;
-  display: block; // Ensures the pre behaves as a layout box
+  display: block; 
 
   .ticker-content {
-    display: flex;       // Lays the two spans side-by-side
-    width: max-content;  // Tells the container to be as wide as both spans combined
+    display: flex;       
+    width: max-content;
     border: none;
     background: none;
     
@@ -734,8 +727,8 @@ hr {
   
   display: flex;
   flex-direction: column;
-  min-height: calc(80dvh - 40px); //<------------------------------------------------------CHECK
-  margin: 0 auto; // <--
+  min-height: calc(80dvh - 40px);
+  margin: 0 auto;
   border-radius: 12px;
   overflow: hidden;
   align-items: stretch;  
