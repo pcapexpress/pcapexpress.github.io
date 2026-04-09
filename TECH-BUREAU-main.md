@@ -19,7 +19,8 @@ so apply a generous sprinkling of salt where necessary.<br>
 
 [**TECH-BUREAU-SERIES: PHASE 01.** ](./TECH-BUREAU-PHASE-01.md)<br>
 *Enumerate, brute force and exfiltrate in clear traffic*.<br>
-*Subtlety level - Obvious*<br>
+*Subtlety level - Obvious*.<br>
+
 [**TECH-BUREAU-SERIES: PHASE 02.** ](./TECH-BUREAU-PHASE-02.md)<br>
 *MariaDB misconfiguration exploited, reverse shell gained, encrypted exfiltration*.<br>
 *Subtlety level - Sneaky*.<br>
@@ -27,6 +28,10 @@ so apply a generous sprinkling of salt where necessary.<br>
 [**TECH-BUREAU-SERIES: PHASE 03.** ](./TECH-BUREAU-PHASE-03.md) <br>
 *Trojan, Gaining Root and Steganography*.<br>
 *Subtlety level - Outrageous*!<br>
+
+[**TECH-BUREAU-SUPLIMENT: THE SAGA OF SYSMON.** ](./TECH-BUREAU-SYSMON.md) <br>
+*A bit of configuration documentation*.<br>
+*Basic powershell comands and alerts*.<br>
 
 ### FRUITFULNESS OF LABOUR:
 * Competence in setting up a Wazuh agent.<br>
