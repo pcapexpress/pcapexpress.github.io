@@ -733,7 +733,7 @@ hr {
   
   display: flex;
   flex-direction: column;
-  min-height: calc(100dvh - 40px); //<------------------------------------------------------CHECK
+  min-height: calc(80dvh - 40px); //<------------------------------------------------------CHECK
   margin: 0 auto; // <--
   border-radius: 12px;
   overflow: hidden;
