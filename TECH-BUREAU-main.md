@@ -31,7 +31,7 @@ so apply a generous sprinkling of salt where necessary.<br>
 
 [**TECH-BUREAU-SUPLIMENT: THE SAGA OF SYSMON.** ](./TECH-BUREAU-SYSMON.md) <br>
 *A bit of configuration documentation*.<br>
-*Basic powershell comands and alerts*.<br>
+*Basic powershell commands and alerts*.<br>
 
 ### FRUITFULNESS OF LABOUR:
 * Competence in setting up a Wazuh agent.<br>
@@ -40,6 +40,7 @@ so apply a generous sprinkling of salt where necessary.<br>
 * Fine tuning Wazuh alerts with IPtables and Auditctl.<br>
 * Planning an attack strategy with backup options.<br>
 * Attaining more experience with packet capture/inspection.<br>
+* Doing a bit of Windows work aswell with Sysmon.
 * Wright up the findings in an ASKII "human readable" format.<br>
 
 <section>
