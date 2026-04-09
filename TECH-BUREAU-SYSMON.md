@@ -12,37 +12,18 @@ title: SYSMON
     </li>
   </ul>
 </section>
- 
 
-### The initial Setup
+### The Goal
 
-In this scenario our **lead_engineer** has downloaded a tool from a compromised website.<br>
-The tool is a python script that acts as a Trojan. Contains a legitimate math calculation function<br>
-and in the background unbeknownst to the host it establishes a shell with the adversarial box.<br>
+This particular assignment was a challenge indeed, had had multiple issues with the alert sensitivity and the Sysmon config file, tried also rules from SOC Fortress but failed to configure the agent correctly and got a meriad of errors that became a nightmare to untangle… So I started from scratch and settled for a basic setup of using SwiftOnSecurity as the config file and just the inbuilt Wazuh Sysmon rules. The goal was to simply have the logs recording and funneling to the Wazuh manager and we even got some neat alerts out of it. So lets have a closer look.
 
-<pre data-label="..." style="--delay: 0.5s;"><code>
-<span class="orange"><strong>...</strong></span>
-</code></pre>
-
-# ALERT CHECK
-
-## Agent-active.png
+## THE SETUP
 
 ![Agent-active.png](assets/images/tech-bureau/sysmon/Agent-active.png)
 
 <small>“Agent-active.png”<small>
 
-## Wazuh-ossec.png
-
-![Agent-active.png](assets/images/tech-bureau/sysmon/Wazuh-ossec.png)
-
-<small>“Wazuh-ossec.png”<small>
-
-## Eventchannel.png
-
-![Agent-active.png](assets/images/tech-bureau/sysmon/Eventchannel.png)
-
-<small>“Eventchannel.png”<small>
+We have a TECH-BUREAU Windows Box botted up and connected to our Wazuh manager.<br>
 
 ## Sysmon-running.png
 
@@ -50,11 +31,46 @@ and in the background unbeknownst to the host it establishes a shell with the ad
 
 <small>“Sysmon-running.png”<small>
 
+Sysmon is installed and running, the fltmc command confirms that the file monitoring is active.
+However the next 2 steps are what make it all work.
+
+## Wazuh-ossec.png
+
+![Agent-active.png](assets/images/tech-bureau/sysmon/Wazuh-ossec.png)
+
+<small>“Wazuh-ossec.png”<small>
+
+We need to configure teh ossec file on the AGENT in our case thats the Windows VM.<br>
+We can simply use the notepad to add the following bit of xml code.
+
+<pre data-label="ossec.conf" style="--delay: 0s;"><code>
+<localfile>
+  <location><span class="orange"><strong>Microsoft-Windows-Sysmon/Operational</strong></span></location>
+  <log_format><span class="orange"><strong>eventchannel</strong></span></log_format>
+</localfile>  
+</code></pre>
+
+The /Operational directory is where we want to pull our Sysmon generated logs.<br>
+The eventchannel is what will be taking the logs in to Wazuh and interpreting them in JSON format<br>
+Very digestible and doesnt requier a bespoke decoder to work.<br>
+
+And finaly we want to give Sysmon a configuration file to focus on what to log and what to ignore,<br>
+SwiftOnSecurity is the one that comes higlhy recomended so we shall use that one.<br>
+After downloading the file we rename it to sysmonconfig.xml and run a simple command.<br>
+
+./sysmon64.exe -i sysmonconfig.xml
+
+That is it realy. Now we have in depth Windows process monitoring capabilities.<br>
+We shall run a series of simple powershell commands to check our setup.<br>
+
+
 ## Alert-01.png
 
 ![Agent-active.png](assets/images/tech-bureau/sysmon/Alert-01.png)
 
 <small>“Alert-01.png”<small>
+
+<span class="badge-data">4433</span>
 
 ## Alert-02.png
 
@@ -62,11 +78,15 @@ and in the background unbeknownst to the host it establishes a shell with the ad
 
 <small>“Alert-02.png”<small>
 
+<span class="badge-data">4433</span>
+
 ## Alert-03.png
 
 ![Agent-active.png](assets/images/tech-bureau/sysmon/Alert-03.png)
 
 <small>“Alert-03.png”<small>
+
+<span class="badge-data">4433</span>
 
 ## Alert-04.png
 
@@ -74,11 +94,15 @@ and in the background unbeknownst to the host it establishes a shell with the ad
 
 <small>“Alert-04.png”<small>
 
+<span class="badge-data">4433</span>
+
 ## Alert-05.png
 
 ![Agent-active.png](assets/images/tech-bureau/sysmon/Alert-05.png)
 
 <small>“Alert-05.png”<small>
+
+<span class="badge-data">4433</span>
 
 ## Alert-06.png
 
@@ -86,17 +110,23 @@ and in the background unbeknownst to the host it establishes a shell with the ad
 
 <small>“Alert-06.png”<small>
 
+<span class="badge-data">4433</span>
+
 ## Alert-07.png
 
 ![Agent-active.png](assets/images/tech-bureau/sysmon/Alert-07.png)
 
 <small>“Alert-07.png”<small>
 
+<span class="badge-data">4433</span>
+
 ## Alert-08.png
 
 ![Agent-active.png](assets/images/tech-bureau/sysmon/Alert-08.png)
 
 <small>“Alert-08.png”<small>
+
+<span class="badge-data">4433</span>
 
 We see loads of traffic going to port <span class="badge-data">4433</span>, we want to see the stream immediately.<br>
 
