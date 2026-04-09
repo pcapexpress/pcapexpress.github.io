@@ -2,8 +2,8 @@
 layout: default
 title: SYSMON
 ---
-# TECH-BUREAU-SUPLIMENT: THE SAGA OF SYSMON.
-## THE SYSMON WAZUH CONNECTION
+# TECH-BUREAU-SUPLIMENT
+## THE SAGA OF SYSMON
 ### WHATS SHOWCASED:
 <section>
   <ul class="hover-card"> 
@@ -14,6 +14,7 @@ title: SYSMON
  
 
 ### The initial Setup
+
 In this scenario our **lead_engineer** has downloaded a tool from a compromised website.<br>
 The tool is a python script that acts as a Trojan. Contains a legitimate math calculation function<br>
 and in the background unbeknownst to the host it establishes a shell with the adversarial box.<br>
