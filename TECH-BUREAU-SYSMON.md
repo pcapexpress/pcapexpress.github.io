@@ -70,6 +70,7 @@ Configuration <span class="orange"><strong>updated.</strong></span>
 
 That is it realy. Now we have in depth Windows process monitoring capabilities.<br>
 We shall run a series of simple powershell commands to check our setup.<br>
+Also i was very happy to finaly see the Rule IDs 92000 – 93000 fire.<br>
 
 
 ## Alert-01.png
@@ -78,7 +79,8 @@ We shall run a series of simple powershell commands to check our setup.<br>
 
 <small>“Alert-01.png”<small>
 
-<span class="badge-data">4433</span>
+Command: <span class="badge-data">PS C:\Windows> powershell.exe -EncodedCommand dwBoAG8AYQBtAGkA</span><br>
+Here is an encoding of Whoami being caught.
 
 ## Alert-02.png
 
@@ -87,6 +89,8 @@ We shall run a series of simple powershell commands to check our setup.<br>
 <small>“Alert-02.png”<small>
 
 <span class="badge-data">4433</span>
+
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
 
 ## Alert-03.png
 
