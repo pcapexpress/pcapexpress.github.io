@@ -281,11 +281,11 @@ section {
   // Top: 10px | Right: 20px | Bottom: 10px | Left: 20px
   padding: 10px 20px 10px 20px;
   width: 100%;
-  //display: block;
-  display: flex;
-  flex-direction: column; // <----------------------------------------------------------------CHEKC
-  flex: 1;
-  align-items: flex-start;
+  display: block;
+  //display: flex;
+  //flex-direction: column; // <----------------------------------------------------------------CHEKC
+  //flex: 1;
+  //align-items: flex-start;
   position: relative;  
   z-index: 1;
 
