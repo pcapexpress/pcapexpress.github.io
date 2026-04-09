@@ -44,10 +44,10 @@ We need to configure teh ossec file on the AGENT in our case thats the Windows V
 We can simply use the notepad to add the following bit of xml code.
 
 <pre data-label="ossec.conf" style="--delay: 0s;"><code>
-<localfile>
-  <location><span class="orange"><strong>Microsoft-Windows-Sysmon/Operational</strong></span></location>
-  <log_format><span class="orange"><strong>eventchannel</strong></span></log_format>
-</localfile>  
+&lt;localfile&gt;
+  &lt;location&gt;<span class="orange"><strong>Microsoft-Windows-Sysmon/Operational</strong></span>&lt;/location&gt;
+  &lt;log_format&gt;<span class="orange"><strong>eventchannel</strong></span>&lt;/log_format&gt;
+&lt;/localfile&gt;  
 </code></pre>
 
 The /Operational directory is where we want to pull our Sysmon generated logs.<br>
@@ -58,7 +58,15 @@ And finaly we want to give Sysmon a configuration file to focus on what to log a
 SwiftOnSecurity is the one that comes higlhy recomended so we shall use that one.<br>
 After downloading the file we rename it to sysmonconfig.xml and run a simple command.<br>
 
-./sysmon64.exe -i sysmonconfig.xml
+<pre data-label="SwiftOnSecurityf" style="--delay: 0.7s;"><code>
+<span class="orange"><strong>./sysmon64.exe -i sysmonconfig.xml</strong></span>
+
+Copyright (C) 2014-2021 Mark Russinovich and Thomas Garnier
+Sysinternals - www.sysinternals.com
+
+Configuration file <span class="orange"><strong>validated.</strong></span>
+Configuration <span class="orange"><strong>updated.</strong></span>
+</code></pre>
 
 That is it realy. Now we have in depth Windows process monitoring capabilities.<br>
 We shall run a series of simple powershell commands to check our setup.<br>
