@@ -82,6 +82,10 @@ Also i was very happy to finaly see the Rule IDs 92000 – 93000 fire.<br>
 Command: <span class="badge-data">PS C:\Windows> powershell.exe -EncodedCommand dwBoAG8AYQBtAGkA</span><br>
 Here is an encoding of Whoami being caught.
 
+PS C:\Windows> powershell.exe -EncodedCommand dwBoAG8AYQBtAGkA
+
+powershell.exe -EncodedCommand...92057 Base64 Encoded Command (Level 12): Detects the -e or -EncodedCommand flag, which attackers use to hide scripts from basic command-line logging.
+
 ## Alert-02.png
 
 ![Agent-active.png](assets/images/tech-bureau/sysmon/Alert-02.png)
@@ -100,6 +104,11 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
 
 <span class="badge-data">4433</span>
 
+PS C:\Windows> reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run" /v "Malware" /t REG_SZ /d "C:\Windows\System32\cmd.exe" /f
+The operation completed successfully.
+
+reg add ...\Run /v "Malware" 92302 & 92041 Registry Persistence (Level 6 & 10): Detects modification of the "Run" key and notes that the value looks suspicious (Base64-like pattern).
+
 ## Alert-04.png
 
 ![Agent-active.png](assets/images/tech-bureau/sysmon/Alert-04.png)
@@ -108,7 +117,10 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
 
 This is a simple one, a new user is being created
 
-<span class="badge-data">4433</span>
+PS C:\Windows> net user Lab_Attacker P@ssw0rd123 /add
+The command completed successfully.
+
+net user Lab_Attacker /add 92039 Account Discovery/Creation (Level 3): Identifies the use of net.exe to manage accounts, which is a key step in creating "Backdoor" users.
 
 ## Alert-05.png
 
@@ -117,6 +129,11 @@ This is a simple one, a new user is being created
 <small>“Alert-05.png”<small>
 
 <span class="badge-data">4433</span>
+
+PS C:\Windows> copy C:\Windows\System32\whoami.exe C:\Windows\Temp\test.exe; C:\Windows\Temp\test.exe
+tech-bureau-02\lead_engineer
+
+copy whoami.exe C:\Windows\Temp\test.exe 92213 & 92066 Suspicious Binary Location (Level 15): An executable was "dropped" in a Temp folder and then executed. Level 15 is the highest alert level because this is very typical of malware behavior.
 
 ## Alert-06.png
 
@@ -134,6 +151,11 @@ This is a simple one, a new user is being created
 
 <span class="badge-data">4433</span>
 
+PS C:\Windows> # Note: This is a simulation; real dumping requires tools like Mimikatz
+>> powershell.exe -Command "rundll32.exe C:\windows\System32\comsvcs.dll, MiniDump (Get-Process lsass).Id $env:TEMP\lsass.dmp full"
+
+powershell.exe -Command "...lsass.dmp"92033 & 92027 Discovery via PowerShell (Level 3 & 4): Identifies PowerShell spawning another instance to perform discovery or credential dumping actions.
+
 ## Alert-08.png
 
 ![Agent-active.png](assets/images/tech-bureau/sysmon/Alert-08.png)
@@ -142,7 +164,18 @@ This is a simple one, a new user is being created
 
 <span class="badge-data">4433</span>
 
-We see loads of traffic going to port <span class="badge-data">4433</span>, we want to see the stream immediately.<br>
+PS C:\Windows> net view \\127.0.0.1 /all
+Shared resources at \\127.0.0.1
+
+Share name  Type  Used as  Comment
+
+-------------------------------------------------------------------------------
+ADMIN$      Disk           Remote Admin
+C$          Disk           Default share
+IPC$        IPC            Remote IPC
+The command completed successfully.
+
+net view \\127.0.0.1 /all 92033 Network Discovery (Level 3): Flags the enumeration of network shares, which is how attackers find sensitive data on other servers.
 
 ## LESSONS LEARNED
 
