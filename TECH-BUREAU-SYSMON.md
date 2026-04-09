@@ -23,7 +23,7 @@ This particular assignment was a challenge indeed, had had multiple issues with 
 
 <small>“Agent-active.png”<small>
 
-We have a TECH-BUREAU Windows Box botted up and connected to our Wazuh manager.<br>
+We have a TECH-BUREAU Windows Box booted up and connected to our Wazuh manager.<br>
 
 ## Sysmon-running.png
 
@@ -31,7 +31,7 @@ We have a TECH-BUREAU Windows Box botted up and connected to our Wazuh manager.<
 
 <small>“Sysmon-running.png”<small>
 
-Sysmon is installed and running, the fltmc command confirms that the file monitoring is active.
+Sysmon is installed and running, the <span class="badge-data">fltmc</span> command confirms that the file monitoring is active.
 However the next 2 steps are what make it all work.
 
 ## Wazuh-ossec.png
@@ -40,18 +40,18 @@ However the next 2 steps are what make it all work.
 
 <small>“Wazuh-ossec.png”<small>
 
-We need to configure teh ossec file on the AGENT in our case thats the Windows VM.<br>
+We need to configure teh <span class="badge-data">ossec.conf</span> file on the AGENT in our case thats the Windows VM.<br>
 We can simply use the notepad to add the following bit of xml code.
 
 <pre data-label="ossec.conf" style="--delay: 0s;"><code>
 &lt;localfile&gt;
-  &lt;location&gt;<span class="orange"><strong>Microsoft-Windows-Sysmon/Operational</strong></span>&lt;/location&gt;
+  &lt;location&gt;Microsoft-Windows-Sysmon<span class="orange"><strong>/Operational</strong></span>&lt;/location&gt;
   &lt;log_format&gt;<span class="orange"><strong>eventchannel</strong></span>&lt;/log_format&gt;
 &lt;/localfile&gt;  
 </code></pre>
 
 The /Operational directory is where we want to pull our Sysmon generated logs.<br>
-The eventchannel is what will be taking the logs in to Wazuh and interpreting them in JSON format<br>
+The eventchannel is what will be taking the logs in to Wazuh and interpreting them in <span class="badge-data">JSON</span> format<br>
 Very digestible and doesnt requier a bespoke decoder to work.<br>
 
 And finaly we want to give Sysmon a configuration file to focus on what to log and what to ignore,<br>
@@ -105,6 +105,8 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
 ![Agent-active.png](assets/images/tech-bureau/sysmon/Alert-04.png)
 
 <small>“Alert-04.png”<small>
+
+This is a simple one, a new user is being created
 
 <span class="badge-data">4433</span>
 
