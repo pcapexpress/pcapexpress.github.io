@@ -284,7 +284,8 @@ section {
   //display: block;
   display: flex;
   flex-direction: column; // <----------------------------------------------------------------CHEKC
-  flex: 1;  
+  flex: 1;
+  align-items: flex-start;
   position: relative;  
   z-index: 1;
 
