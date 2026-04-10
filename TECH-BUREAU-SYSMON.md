@@ -86,16 +86,6 @@ PS C:\Windows> powershell.exe -EncodedCommand dwBoAG8AYQBtAGkA
 
 powershell.exe -EncodedCommand...92057 Base64 Encoded Command (Level 12): Detects the -e or -EncodedCommand flag, which attackers use to hide scripts from basic command-line logging.
 
-## Alert-02.png
-
-![Agent-active.png](assets/images/tech-bureau/sysmon/Alert-02.png)
-
-<small>“Alert-02.png”<small>
-
-<span class="badge-data">4433</span>
-
-HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
-
 ## Alert-03.png
 
 ![Agent-active.png](assets/images/tech-bureau/sysmon/Alert-03.png)
@@ -135,27 +125,6 @@ tech-bureau-02\lead_engineer
 
 copy whoami.exe C:\Windows\Temp\test.exe 92213 & 92066 Suspicious Binary Location (Level 15): An executable was "dropped" in a Temp folder and then executed. Level 15 is the highest alert level because this is very typical of malware behavior.
 
-## Alert-06.png
-
-![Agent-active.png](assets/images/tech-bureau/sysmon/Alert-06.png)
-
-<small>“Alert-06.png”<small>
-
-<span class="badge-data">4433</span>
-
-## Alert-07.png
-
-![Agent-active.png](assets/images/tech-bureau/sysmon/Alert-07.png)
-
-<small>“Alert-07.png”<small>
-
-<span class="badge-data">4433</span>
-
-PS C:\Windows> # Note: This is a simulation; real dumping requires tools like Mimikatz
->> powershell.exe -Command "rundll32.exe C:\windows\System32\comsvcs.dll, MiniDump (Get-Process lsass).Id $env:TEMP\lsass.dmp full"
-
-powershell.exe -Command "...lsass.dmp"92033 & 92027 Discovery via PowerShell (Level 3 & 4): Identifies PowerShell spawning another instance to perform discovery or credential dumping actions.
-
 ## Alert-08.png
 
 ![Agent-active.png](assets/images/tech-bureau/sysmon/Alert-08.png)
@@ -169,7 +138,6 @@ Shared resources at \\127.0.0.1
 
 Share name  Type  Used as  Comment
 
--------------------------------------------------------------------------------
 ADMIN$      Disk           Remote Admin
 C$          Disk           Default share
 IPC$        IPC            Remote IPC
