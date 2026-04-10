@@ -38,8 +38,7 @@ We have gathered from previous enumiration that the port **3306** is up and runn
 the servise in question is <span class="badge-data">MariaDB</span>, which has a known vulnerability/misconfiguration<br>
 we would like to exploit to gain remote code execution.<br>
 For this caper we are searching for yet another piece of data -<br>
-file name: "**Valve_specs.txt**".<br>
-With the vulnerability researched off we pop.<br>
+file name: "**Valve_specs.txt**". With the vulnerability researched off we pop.<br>
 
 ## 01.MySQL credential Hydra Attack
 
@@ -58,7 +57,8 @@ Hydra finished at 2026-03-13 15:05:27
 </code></pre>
 
 We have a hit. With the credentials secure its time to work on that CVE,<br>
-prepare a reverse shell file we will send and execute within the MariaDB, granting access.<br> 
+prepare a reverse shell file we will send and execute within the MariaDB,<br>
+granting access.<br> 
 
 ## 02.MetaSploit Venom
 
@@ -76,8 +76,8 @@ Saved as: <span class="red"><strong>sql_updater.so</strong></span>
 
 We need to gaina shell on the BUREAU server, so we generate this nifty little file<br>
 with **Venom**. Making sure to specify our attack box as the host and a distinct port<br>
-that we shall be listening on using **netcat**.<br>
-The payload is named inconspicuously as <span class="badge-data">sql_updater.so</span>, doesn't sound suspicious now does it.<br>
+that we shall be listening on using **netcat**. The payload is named inconspicuously as<br>
+<span class="badge-data">sql_updater.so</span>, doesn't sound suspicious now does it.<br>
 
 ## 03.Enter the SQL
 
@@ -180,8 +180,9 @@ total 200
 -rw<span class="orange"><strong>s</strong></span>r-xr-<span class="orange"><strong>x</strong></span> 1 lead_engineer lead_engineer 204264 Mar 12 10:39  engineer_find
 </code></pre>
 
-We see that the binary is configured to be executable by **all**, and most importantly the **s** bit is set,<br>
-wich grants the find comand the priviliges of *lead_engineer* upon execution. This can be used for escalation.<br>
+We see that the binary is configured to be executable by **all**, and most importantly<br>
+the **s** bit is set,wich grants the find comand the priviliges of ***lead_engineer***<br>
+upon execution. This can be used for escalation.<br>
 
 ## 09.SUID Privilege Escalation
 
@@ -192,9 +193,11 @@ wich grants the find comand the priviliges of *lead_engineer* upon execution. Th
 <span class="orange"><strong>bash-5.2$</strong></span> 
 </code></pre>
 
-We use the GTFObins as the code source, this technique is a stealthy living of the land concept.<br>
-We use what is provided by the host system. The *find* binary by default alows the execute comand<br>
-so a /bin/bash command is what grants us the shell and the -p flag gives the persistance of the *lead_engineer* privileges.<br>
+We use the GTFObins as the code source, this technique is a stealthy<br>
+living of the land concept. We use what is provided by the host system.<br>
+The *find* binary by default alows the execute comand<br>
+so a /bin/bash command is what grants us the shell and<br>
+the -p flag gives the persistance of the *lead_engineer* privileges.<br>
 
 ## 10.CONFIRM DATA
 
@@ -268,7 +271,8 @@ In the alert details we see that the bruteforce is atempted under the user name:
 
 <small>'12.Wireshark-SQL-brute.png'</small>
 
-We can clearly see the multitude of *server greetings* fllowed by *login requests under the username:* **admin**<br>
+We can clearly see the multitude of *server greetings* fllowed by<br>
+*login requests under the username:* **admin**<br>
 and than emediatly turned down with *response error 1045*.<br>
 The whole exchange is happening within a second.<br>
 
