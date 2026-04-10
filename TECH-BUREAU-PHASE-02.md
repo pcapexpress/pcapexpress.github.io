@@ -22,7 +22,7 @@ title: BUREAU:02
 ### The initial Setup
 Quick few adjustments to our server, we change the permissions of our data folder.<br>
 
-root@TECH-BUREAU-UBUNTU-24:# <span class="badge-data">sudo chown lead_engineer:lead_engineer /home/lead_engineer/PROJECT.5527</span><br>
+root@TECH-BUREAU-UBUNTU-24:# <span class="badge-data">sudo chown lead_engineer:lead_engineer ~/PROJECT.5527</span><br>
 root@TECH-BUREAU-UBUNTU-24:# <span class="badge-data">sudo chmod 700 /home/lead_engineer/PROJECT.5527</span><br>
 
 And of course a password change for our **intern**...no more *footbal*.<br>
@@ -33,9 +33,10 @@ New password: <span class="badge-data">+p*yckWMu5b2eW*BCP0x+NnpJ3It58Ae</span><b
 <div class="divider"></div>
 
 # AT4K-3XPR3S rolling out.
-We are back for an other round. In this scenario we no longer rely on SSH or HTTP.<br>
-We have gathered from previous enumiration that the port 3306 is up and running, the servise in question is MariaDB,<br>
-which has a known vulnerability/misconfiguration we would like to exploit to gain remote code execution.<br>
+We are back for an other round. In this scenario we no longer rely on **SSH** or **HTTP**.<br>
+We have gathered from previous enumiration that the port **3306** is up and running,<br>
+the servise in question is <span class="badge-data">MariaDB</span>, which has a known vulnerability/misconfiguration<br>
+we would like to exploit to gain remote code execution.<br>
 For this caper we are searching for yet another piece of data - file name: "*Valve_specs.txt*".<br>
 With the vulnerability researched off we pop.<br>
 
