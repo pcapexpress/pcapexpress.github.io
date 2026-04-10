@@ -15,7 +15,7 @@ title: SYSMON
 
 ### The Goal
 
-This particular assignment was a challenge indeed, had had multiple issues with the alert sensitivity and the **Sysmon** config file, tried also rules from **SOC Fortress** but failed to configure the agent correctly and got a myriad of errors that became a nightmare to untangle… So I started from scratch and settled for a basic setup of using <span class="text-orange">SwiftOnSecurity</span> as the config file and just the inbuilt **Wazuh Sysmon** rules. The goal was to simply have the logs recording and funneling to the **Wazuh** manager and we even got some neat alerts out of it. So lets have a closer look.
+This particular assignment was a challenge indeed, had had multiple issues with the alert sensitivity and the **Sysmon** config file, tried also rules from **SOC Fortress** but failed to configure the agent correctly and got a myriad of errors that became a nightmare to untangle… So I started from scratch and settled for a basic setup of using <span class="badge-data">SwiftOnSecurity</span> as the config file and just the inbuilt **Wazuh Sysmon** rules. The goal was to simply have the logs recording and funneling to the **Wazuh** manager and we even got some neat alerts out of it. So lets have a closer look.
 
 ## THE SETUP
 
@@ -25,7 +25,7 @@ This particular assignment was a challenge indeed, had had multiple issues with 
 
 We have a **TECH-BUREAU** Windows Box booted up and connected to our Wazuh manager.<br>
 
-## Sysmon-running.png
+## Sysmon & FLTMC
 
 ![Agent-active.png](assets/images/tech-bureau/sysmon/Sysmon-running.png)
 
@@ -121,7 +121,8 @@ A persistance or **"backdoor"** mechanism.
 
 <span class="badge-data">4433</span>
 
-Command: <span class="badge-data">PS C:\Windows> copy C:\Windows\System32\whoami.exe C:\Windows\Temp\test.exe; C:\Windows\Temp\test.exe</span><br>
+Command: <span class="badge-data">PS C:\Windows> copy C:\Windows\System32\whoami.exe C:\Windows\Temp\test.exe;</span><br>
+<span class="badge-data">C:\Windows\Temp\test.exe</span><br>
 This one is a high level priority alert. It showcases malware like behaviour, a file being copied and than executed from the Temp folder.
 But Sysmon sees all. *"Suspicious binary launched by powershell."*
 
