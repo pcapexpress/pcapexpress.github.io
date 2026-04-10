@@ -79,8 +79,10 @@ Also i was very happy to finally see the Rule IDs 92000 – 93000 fire.<br>
 <small>“Alert-01.png”<small>
 
 Command: <span class="badge-data">PS C:\Windows> powershell.exe -EncodedCommand dwBoAG8AYQBtAGkA</span><br>
-Here is an example of a **Powershell** encoded command being detected. The rule reacts to the *-EncodedCommand* flag.
-This is a way to obfuscate malicious code. In our case the encoding is a humble **Whoami.**
+Here is an example of a **Powershell** encoded command being detected.<br>
+The rule reacts to the *-EncodedCommand* flag.<br>
+This is a way to obfuscate malicious code.<br>
+In our case the encoding is a humble **Whoami.** <br>
 
 ## 92033
 
@@ -89,8 +91,8 @@ This is a way to obfuscate malicious code. In our case the encoding is a humble 
 <small>“Alert-08.png”<small>
 
 Command: <span class="badge-data">PS C:\Windows> net view \\127.0.0.1 /all</span><br>
-In this instance we observe a discovery activity of network shares using the **net view** with the **-all** flag.<br>
-For lateral movement potentialy.<br>
+In this instance we observe a discovery activity of network shares<br>
+using the **net view** with the **-all** flag. For lateral movement potentialy.<br>
 
 ## 92302
 
@@ -100,8 +102,8 @@ For lateral movement potentialy.<br>
 
 Command: <span class="badge-data">PS C:\Windows> reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run"</span><br>
 <span class="badge-data"> /v "Malware" /t REG_SZ /d "C:\Windows\System32\cmd.exe" /f</span><br>
-Here we have a registry entry modified to execute a **"Malware"** on log on, which would be a persistance mechanism.<br>
-The rule has detected a change to the **"Run"** key.<br>
+Here we have a registry entry modified to execute a **"Malware"** on log on,<br>
+which would be a persistance mechanism. The rule has detected a change to the **"Run"** key.<br>
 
 ## 92039
 
@@ -111,7 +113,7 @@ The rule has detected a change to the **"Run"** key.<br>
 
 Command: <span class="badge-data">PS C:\Windows> net user Lab_Attacker P@ssw0rd123 /add</span><br>
 This is a simple one, a new user is being created using the **net.exe**<br>
-A persistance or **"backdoor"** mechanism.
+A persistance or **"backdoor"** mechanism.<br>
 
 ## 92066
 
@@ -119,12 +121,11 @@ A persistance or **"backdoor"** mechanism.
 
 <small>“Alert-05.png”<small>
 
-<span class="badge-data">4433</span>
-
 Command: <span class="badge-data">PS C:\Windows> copy C:\Windows\System32\whoami.exe C:\Windows\Temp\test.exe;</span><br>
 <span class="badge-data">C:\Windows\Temp\test.exe</span><br>
-This one is a high level priority alert. It showcases malware like behaviour, a file being copied and than executed from the Temp folder.
-But Sysmon sees all. *"Suspicious binary launched by powershell."*
+This one is a high level priority alert. It showcases malware like behaviour,<br>
+a file being copied and than executed from the Temp folder.<br>
+But Sysmon sees all. *"Suspicious binary launched by powershell."* <br>
 
 ## LESSONS LEARNED
 
