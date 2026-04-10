@@ -375,7 +375,11 @@ That provides the exact content that has been stolen.<br>
 This concludes the <span class="badge-data">TECH-BUREAU</span> series, up next<br>
 lets take a look at some cheeky malware shall we?<br>
 [MALWARE-BOILER Series: main hub ](./MALWARE-BOILER-main.md) <br>
-*Making a few Trojans and acting rather impish!*
+*Making a few Trojans and acting rather impish!* <br>
+<br>
+[**TECH-BUREAU-SUPLIMENT: THE SAGA OF SYSMON.** ](./TECH-BUREAU-SYSMON.md) <br>
+*A bit of configuration documentation*.<br>
+*Basic powershell commands and alerts*.<br>
 
 <div class="divider-wire">
   <span class="line"></span>
