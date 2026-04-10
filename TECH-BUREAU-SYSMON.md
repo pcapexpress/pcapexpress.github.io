@@ -34,7 +34,7 @@ We have a **TECH-BUREAU** Windows Box booted up and connected to our Wazuh manag
 **Sysmon** is installed and running, the <span class="badge-data">fltmc</span> command confirms that the file monitoring is active.
 *However the next 2 steps are what make it all work.*
 
-## Wazuh & ossec.cong
+## Wazuh & ossec.conf
 
 ![Agent-active.png](assets/images/tech-bureau/sysmon/Wazuh-ossec.png)
 
