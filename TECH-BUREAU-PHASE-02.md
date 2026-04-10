@@ -225,7 +225,7 @@ square@192.168.1.16's password: <span class="orange"><strong>********</strong></
 </code></pre>
 
 In this scenario we asume that the http/https trafic is closeley monitored,<br>
-and we want to be hidden, so we simply use the Secure Copy protocol over SSH port 22.<br>
+and we want to be hidden, so we simply use the Secure Copy protocol over **SSH** port 22.<br>
 The data is safeley exfiltrated over an encrypted channel. The Sneak Way.<br>
 
 ## 12.EXIT
@@ -276,8 +276,8 @@ The whole exchange is happening within a second.<br>
 <small>'13.SQL-GET.png'</small>
 
 In the entire packet capture we have one objcect.<br>
-A suspicious <span class="badge-data"><strong>sql_updater.so</strong></span>. file that has been delivered via a non standart HTTP port 4040.<br>
-We can investigate furtehr by checking the http stream.<br>
+A suspicious <span class="badge-data"><strong>sql_updater.so</strong></span> file that has been delivered via a<br>
+non standart **HTTP port** 4040. We can investigate furtehr by checking the *http stream*.<br>
 #### ‹‹‹ GET DETECTED ›››
 
 ## 05.HTTP STREAM
@@ -368,10 +368,10 @@ We can see our rule giving us the details of what file has been copied out.
 
 <small>'16.Wireshark-Graph.png'</small>
 
-This is a good way to check for exfiltration due to the fact that we wont see anything in the<br>
-SSH trafic due to encryption.<br>
-In this somewhat comedic graph we see our tiny text file spiking the ssh trafic volume just before it interupts.<br>
-Exfiltration followed by an ubrupt protocol termination.<br>
+This is a good way to check for exfiltration due to the fact that we wont see<br>
+anything in the **SSH** trafic because of the encryption.<br>
+In this somewhat comedic graph we see our tiny text file spiking the **SSH** trafic<br>
+volume just before it interupts. Exfiltration followed by an ubrupt protocol termination.<br>
 
 ### RULE USED:
 
