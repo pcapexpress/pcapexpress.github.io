@@ -22,13 +22,13 @@ title: BUREAU:02
 ### The initial Setup
 Quick few adjustments to our server, we change the permissions of our data folder.<br>
 
-root@TECH-BUREAU-UBUNTU-24:# <span class="label-data">sudo chown lead_engineer:lead_engineer /home/lead_engineer/PROJECT.5527</span><br>
-root@TECH-BUREAU-UBUNTU-24:# <span class="label-data">sudo chmod 700 /home/lead_engineer/PROJECT.5527</span><br>
+root@TECH-BUREAU-UBUNTU-24:# <span class="badge-data">sudo chown lead_engineer:lead_engineer /home/lead_engineer/PROJECT.5527</span><br>
+root@TECH-BUREAU-UBUNTU-24:# <span class="badge-data">sudo chmod 700 /home/lead_engineer/PROJECT.5527</span><br>
 
 And of course a password change for our **intern**...no more *footbal*.<br>
 
-root@TECH-BUREAU-UBUNTU-24:/home/lead_engineer/PROJECT.5527# <span class="label-data">sudo passwd intern</span><br>
-New password: <span class="label-data">+p*yckWMu5b2eW*BCP0x+NnpJ3It58Ae</span><br>
+root@TECH-BUREAU-UBUNTU-24:/home/lead_engineer/PROJECT.5527# <span class="badge-data">sudo passwd intern</span><br>
+New password: <span class="badge-data">+p*yckWMu5b2eW*BCP0x+NnpJ3It58Ae</span><br>
 
 <div class="divider"></div>
 
