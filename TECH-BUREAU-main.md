@@ -11,9 +11,10 @@ This **Purple Team Project** is divided in to 3 Phases,<br>
 the nature and spirit is a **capture the flag** type arrangement.<br>
 In order to showcase some concepts a rather vulnerable Ubuntu Server has been spun up.<br>
 Custom Wazuh alerts have been set in place to make the dashboard look clean.<br>
-I would like to humbly add that the unfolding scenario is highly unrealistic as a whole,<br>
-but parts of it are. Most likely mistakes have been made along the way,<br>
-so apply a generous sprinkling of salt where necessary.<br>
+I would like to humbly add that the unfolding scenario is some what<br>
+unrealistic as a whole, however some aspects are.<br>
+Most likely mistakes have been made along the way,<br>
+so apply a **generous** sprinkling of salt where necessary.<br>
 
 ### Follow these Links if you please:
 
